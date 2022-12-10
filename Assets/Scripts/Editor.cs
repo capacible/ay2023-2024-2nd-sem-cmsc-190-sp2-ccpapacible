@@ -18,7 +18,7 @@ public class Editor : MonoBehaviour
         IDbConnection dbConnection = new SqliteConnection(dialogueURI);
         dbConnection.Open();
 
-        // command, select speaker id, speaker tag
+        // command, select speaker archetype and isFiller rows
         IDbCommand readValues = dbConnection.CreateCommand();
         readValues.CommandText = "SELECT speakerArchetype, isFiller FROM Speakers";
 
@@ -47,12 +47,13 @@ public class Editor : MonoBehaviour
             // is npc filler char?
             if (isFiller == 0)
             {
-                // npc not a filler character; thus the characterarchetype is unique
+                // npc not a filler character; thus the characterarchetype is unique and the npc id is archetype
                 newNpc.isFillerCharacter = false;
                 newNpc.npcId = archetype;
             }
             else
             {
+                // if npc is filler character, filler character = true and npc id will be empty to be generated when the filler npc spawns
                 newNpc.isFillerCharacter = true;
                 newNpc.npcId = "";
             }
@@ -70,11 +71,19 @@ public class Editor : MonoBehaviour
             // create new scriptableobject if its a valid folder
             if (AssetDatabase.IsValidFolder(destPath))
             {
+                // filename = NPC_speakerarchetype.asset
                 AssetDatabase.CreateAsset(newNpc, destPath + "/NPC_" + newNpc.speakerArchetype + ".asset");
             }
             else
             {
-                Debug.Log("test");
+                string[] sepPath = destPath.Split('/');
+                // new folder
+                string newFolder = sepPath[sepPath.Length - 1];
+                // join path
+                string path = string.Join("/", sepPath);
+                AssetDatabase.CreateFolder(path, newFolder);
+
+                Debug.Log("Created folder " + newFolder + " at path " + path);
             }
                    
         }

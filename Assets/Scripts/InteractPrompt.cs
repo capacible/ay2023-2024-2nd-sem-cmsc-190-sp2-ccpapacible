@@ -5,12 +5,12 @@ using UnityEngine;
 public class InteractPrompt : MonoBehaviour
 {
     public SpriteRenderer interactPrompt;
-    private Collider2D parentColl;
+    private Collider2D parentCollider;
 
     private void Start()
     {
         // get the parent collider
-        parentColl = gameObject.transform.parent.GetComponent<Collider2D>();
+        parentCollider = gameObject.transform.parent.GetComponent<Collider2D>();
     }
 
 
@@ -25,7 +25,7 @@ public class InteractPrompt : MonoBehaviour
             interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 1);
 
             // add to player collided
-            other.GetComponent<PlayerController>()?.collided.Add(parentColl);
+            other.GetComponent<PlayerController>()?.collided.Add(parentCollider);
 
         }
     }
@@ -39,7 +39,7 @@ public class InteractPrompt : MonoBehaviour
             // hide the interactprompt
             interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 0);
 
-            other.GetComponent<PlayerController>()?.collided.Remove(parentColl);
+            other.GetComponent<PlayerController>()?.collided.Remove(parentCollider);
 
         }
     }

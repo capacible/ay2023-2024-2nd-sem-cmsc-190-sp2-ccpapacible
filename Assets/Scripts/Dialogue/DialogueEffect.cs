@@ -11,5 +11,6 @@ public class DialogueEffect
     public int relationshipEffect;
     public string goalToAchieved;
     public string goalToActive;
-    public List<string> toRemember;
+    public List<string> npc_toRemember;
+    public List<string> player_toRemember;
 }

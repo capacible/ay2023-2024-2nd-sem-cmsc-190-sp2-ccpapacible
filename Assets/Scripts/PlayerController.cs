@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             // if the game object is an NPC:
             // run eventhandler
-            EventHandler.current.TriggerDialogue(npc);
+            EventHandler.current.TriggerDialogue(npc.npc);
             busy = true;
         }
         
@@ -96,16 +96,6 @@ public class PlayerController : MonoBehaviour
     {
         body.MovePosition(new Vector2(transform.position.x + dir.x * speed, transform.position.y + dir.y * speed));
         //transform.Translate(dir * speed * Time.deltaTime);
-    }
-
-    public void AddToCollided(Collider2D coll)
-    {
-        collided.Add(coll);
-    }
-
-    public void RemoveFromCollided(Collider2D coll)
-    {
-        collided.Remove(coll);
     }
     
 }

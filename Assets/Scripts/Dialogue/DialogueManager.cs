@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     private List<string> globalEvents;
     private Dictionary<string, List<string>> mapEvents;
     private Dictionary<string, Speaker> allSpeakers;
-    private Dictionary<string, Speaker> fillerCharDefaultSpeaker; // default filler character speakers we can duplicate when adding a new filler char
+    private Dictionary<string, Speaker> fillerCharDefault; // default filler character speakers we can duplicate when adding a new filler char
     private string currentMap;
     //private Director DDirector;
 
@@ -43,7 +43,9 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     private void LoadSpeakers()
     {
-        // if non-filler, automatically add them into allSpeakers
+        // if non-filler,
+        // create a speaker class,
+        // speaker id will be the speaker archetype also
 
         // if filler character, add them to fillerCharDefaultSpeakers.
     }
@@ -58,7 +60,8 @@ public class DialogueManager : MonoBehaviour
         if (!allSpeakers.ContainsKey(npc.npcId))
         {
             // clone the default speaker of the filler character archetype of the npc and add it to allspeakers
-            allSpeakers[npc.npcId] = fillerCharDefaultSpeaker[npc.speakerArchetype].Clone(); // deepcopies the speaker
+            allSpeakers[npc.npcId] = fillerCharDefault[npc.speakerArchetype].Clone(); // deepcopies the speaker
+            allSpeakers[npc.npcId].speakerId = npc.npcId;
         }
         
     }
@@ -92,7 +95,7 @@ public class DialogueManager : MonoBehaviour
         EventHandler.current.DisplayDialogue("npc", new object[] { prevLine, activeNPC });
     }
 
-    void NPCRespond(string npcLine)
+    void NPCRespond(string line)
     {
         // updates the NPC data based on the dialogue line used
 
@@ -153,7 +156,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        foreach (string m in line.effect.toRemember)
+        foreach (string m in line.effect.npc_toRemember)
         {
             if (!allSpeakers[activeNPC].speakerMemories.Contains(m))
             {
@@ -203,7 +206,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        foreach (string m in line.effect.toRemember)
+        foreach (string m in line.effect.player_toRemember)
         {
             if (!allSpeakers["player"].speakerMemories.Contains(m))
             {

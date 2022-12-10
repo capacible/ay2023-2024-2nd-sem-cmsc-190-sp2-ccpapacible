@@ -5,12 +5,12 @@ using UnityEngine;
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
-    public string speakerId;
-    public string speakerArchetype;
-    public List<SpeakerGoal> speakerGoals;
-    public int relWithPlayer;
+    public string speakerId;                    // id related to the game object (from NPC data)
+    public string speakerArchetype;             // archetype of speaker aka speaker tag
+    public List<SpeakerGoal> speakerGoals;      // list of goals
+    public int relWithPlayer;                   // value relationship with player
     public List<string> speakerMemories;
-    public string speakerName;
+    public string speakerName;                  // display name of speaker
 
     public Speaker Clone()
     {

@@ -31,9 +31,9 @@ public class EventHandler : MonoBehaviour
     }
 
     // DIALOGUE SYSTEM EVENTS
-    public void TriggerDialogue(NPCController npc)
+    public void TriggerDialogue(NPCData npc)
     {
-        OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait, npc.id, currentMap });
+        OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait, npc.npcId, currentMap });
     }
 
     public void DisplayDialogue(string displayType, object[] param)
