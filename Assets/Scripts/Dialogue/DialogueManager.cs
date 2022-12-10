@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
         //UpdatePlayerData(npcLine);
 
         // display the dialogue.
-        // parameters to send: prevLine, activeNPC
+        // parameters to send: prevLine, allSpeakers[activeNPC].speakerName
         EventHandler.current.DisplayDialogue("npc", new object[] { prevLine, activeNPC });
     }
 

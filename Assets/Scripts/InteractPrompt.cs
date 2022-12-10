@@ -6,6 +6,7 @@ public class InteractPrompt : MonoBehaviour
 {
     public SpriteRenderer interactPrompt;
     private Collider2D parentCollider;
+    private PlayerController playerRef = null;
 
     private void Start()
     {
@@ -19,13 +20,17 @@ public class InteractPrompt : MonoBehaviour
         // we show the talk prompt renderer only when the collider of player is in the trigger
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("player");
+            if (playerRef == null)
+            {
+                // get the reference to playercontroller component only once -> when player ref is null.
+                playerRef = other.GetComponent<PlayerController>();
+            }
 
             // show interactprompt.
             interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 1);
 
             // add to player collided
-            other.GetComponent<PlayerController>()?.collided.Add(parentCollider);
+            playerRef?.collided.Add(parentCollider);
 
         }
     }
@@ -35,11 +40,16 @@ public class InteractPrompt : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            if (playerRef == null)
+            {
+                // get the reference to playercontroller component only once -> when player ref is null.
+                playerRef = other.GetComponent<PlayerController>();
+            }
 
             // hide the interactprompt
             interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 0);
 
-            other.GetComponent<PlayerController>()?.collided.Remove(parentCollider);
+            playerRef?.collided.Remove(parentCollider);
 
         }
     }

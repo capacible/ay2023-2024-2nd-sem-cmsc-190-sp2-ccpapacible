@@ -62,17 +62,50 @@ public class Editor : MonoBehaviour
             // get asset with the following filename:
             // npcSprite = tag_sprite           ex. virgil_sprite
             // npcPortrait = tag_portrait       ex. virgil_portrait
-            string spriteFname = archetype + "_sprite_0.png";
+            string spriteFname = archetype + "_sprite.png";             // entire sprite
             string portraitFname = archetype + "_portrait.png";
 
-            newNpc.npcSprite = (Sprite)AssetDatabase.LoadAssetAtPath("Sprites/Characters/World" + spriteFname, typeof(Sprite));
-            newNpc.npcPortrait = (Sprite)AssetDatabase.LoadAssetAtPath("Sprites/Characters/Portrait" + portraitFname, typeof(Sprite));
+            Debug.Log("sprite fname: " + spriteFname);
+            Debug.Log("portrait fname: " + portraitFname);
+
+            // load all assets with the file name (including the sliced sprites)
+            Object[] allAssets = AssetDatabase.LoadAllAssetsAtPath("Assets/Sprites/Characters/World/" + spriteFname);
+            
+            // get asset length to check if we found an asset with child sprites
+            if(allAssets.Length > 1)
+            {
+                // get the FIRST sprite (index 0 is the texture2d asset, the whole sprite sheet.)
+                newNpc.npcSprite = (Sprite)allAssets[1];
+            }
+            
+            newNpc.npcPortrait = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Characters/Portrait/" + portraitFname);
 
             // create new scriptableobject if its a valid folder
             if (AssetDatabase.IsValidFolder(destPath))
             {
-                // filename = NPC_speakerarchetype.asset
-                AssetDatabase.CreateAsset(newNpc, destPath + "/NPC_" + newNpc.speakerArchetype + ".asset");
+                // create file name.
+                string fname = destPath + "/NPC_" + newNpc.speakerArchetype + ".asset";
+
+                var asset = AssetDatabase.LoadAssetAtPath<NPCData>(fname);
+
+                // if the file already exists...
+                if (asset != null)
+                {
+                    Debug.Log("existing asset...");
+                    // replace all values of the file
+                    asset.npcId = newNpc.npcId;
+                    asset.npcPortrait = newNpc.npcPortrait;
+                    asset.npcSprite = newNpc.npcSprite;
+                    asset.isFillerCharacter = newNpc.isFillerCharacter;
+                    asset.speakerArchetype = newNpc.speakerArchetype;
+                }
+                else
+                {
+                    // create a new asset if the file exists
+
+                    // filename = NPC_speakerarchetype.asset
+                    AssetDatabase.CreateAsset(newNpc, fname);
+                }
             }
             else
             {
@@ -85,9 +118,9 @@ public class Editor : MonoBehaviour
 
                 Debug.Log("Created folder " + newFolder + " at path " + path);
             }
-                   
+
         }
         
     }
-
+    
 }

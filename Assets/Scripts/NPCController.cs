@@ -6,11 +6,11 @@ using UnityEngine;
 public class NPCController : MonoBehaviour
 {
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
+    [HideInInspector]
     public string id = "";
-    public Sprite npcPortrait;
     public NPCData npc;
 
-    private void Start()
+    void Start()
     {
         // add npc to dialogue manager if the npc is filler
         if (npc.isFillerCharacter && npc.npcId == "")
@@ -18,5 +18,9 @@ public class NPCController : MonoBehaviour
             npc.GenerateId();
             EventHandler.current.AddNPCToManager(npc);
         }
+
+        // set sprite to be the sprite set in NPC data.
+        SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
+        s.sprite = npc.npcSprite;
     }
 }

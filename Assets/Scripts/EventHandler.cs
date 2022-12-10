@@ -22,7 +22,7 @@ public class EventHandler : MonoBehaviour
     // OTHER
     public static event System.Action OnInteractConclude;       // when you're done interacting with object
 
-    
+    // ensure that EventHandler is initialized first before all other components
     private void Start()
     {
         current = this;
