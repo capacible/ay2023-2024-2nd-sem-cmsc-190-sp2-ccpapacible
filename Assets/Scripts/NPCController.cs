@@ -7,7 +7,7 @@ public class NPCController : MonoBehaviour
 {
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
     [HideInInspector]
-    public string id = "";
+    public string id = ""; // might have to be removed since npc id is now in npc data
     public NPCData npc;
 
     void Start()

@@ -88,8 +88,6 @@ public class DialogueManager : MonoBehaviour
 
         prevLine = "test";
 
-        //UpdatePlayerData(npcLine);
-
         // display the dialogue.
         // parameters to send: prevLine, allSpeakers[activeNPC].speakerName
         EventHandler.current.DisplayDialogue("npc", new object[] { prevLine, activeNPC });
@@ -108,6 +106,8 @@ public class DialogueManager : MonoBehaviour
 
     void PlayerTalk()
     {
+        // update player data here
+        // UpdateSpeakerData()
         // request player choices from the director, given acquired DialogueLine from previous code
         // DialogueLine playerLines = DDirector.GetPlayerChoices(new object[] {}, prevLine)
         string[] playerLines = new string[] { "hello!", "whats up?", "I'm dead inside" };
