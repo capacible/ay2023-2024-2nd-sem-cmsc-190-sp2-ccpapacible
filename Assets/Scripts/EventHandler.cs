@@ -11,13 +11,10 @@ public class EventHandler : MonoBehaviour
 
     // DIALOGUE SPECIFIC
     public static event System.Action<object[]> OnDialogueTrigger; // object parameter bc this uses multiple fxns
-    public static event System.Action OnNextDialogue;
-    public static event System.Action<NPCData> OnFillerNPCSpawned;
+    public static event System.Action<List<DialogueLine>> OnPlayerLinesFound;
 
     // the following string params will be changed into DialogueLines later
-    public static event System.Action<string, string> OnDialogueFound;
-    public static event System.Action<string[]> OnChoicesFound;
-    public static event System.Action<string> OnDialogueSelect;
+    public static event System.Action<string, DialogueLine> OnDialogueFound;
 
     // OTHER
     public static event System.Action OnInteractConclude;       // when you're done interacting with object
@@ -31,33 +28,32 @@ public class EventHandler : MonoBehaviour
     }
 
     // DIALOGUE SYSTEM EVENTS
+
+    /// <summary>
+    /// Triggers the start of a dialogue.
+    /// </summary>
+    /// <param name="npc">NPCData container of the npc.</param>
     public void TriggerDialogue(NPCData npc)
     {
-        OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait, npc.npcId, currentMap });
+
+        // on dialogue trigger is now only for the ui, remove the last 2 elements in it
+        OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait });
+
+        DialogueLine line = Director.StartAndGetLine(npc.npcId, currentMap);
+
+        OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
     }
 
-    public void DisplayDialogue(string displayType, object[] param)
+    public void DisplayNPCLine(DialogueLine selectedLine)
     {
-        if (displayType == "choice")
-        {
-            // invoke on choice found
-            OnChoicesFound?.Invoke((string[]) param[0]);
-        }
-        else if (displayType == "npc")
-        {
-            OnDialogueFound?.Invoke(param[0].ToString(), param[1].ToString());
-        }
+        OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), Director.GetNPCLine(selectedLine));
     }
 
-    // this becomes a dialogueLine
-    public void DialogueClicked(string selectedLine)
+    // triggers the player choice menu.
+    public void DisplayPlayerLines()
     {
-        OnDialogueSelect?.Invoke(selectedLine);
-    }
-
-    public void NextDialogue()
-    {
-        OnNextDialogue?.Invoke();
+        // display the lines acquired.
+        OnPlayerLinesFound?.Invoke( Director.GetPlayerLines() );
     }
 
     public void ConcludeDialogue()
@@ -67,7 +63,7 @@ public class EventHandler : MonoBehaviour
 
     public void AddNPCToManager(NPCData npc)
     {
-        OnFillerNPCSpawned?.Invoke(npc);
+        Director.NewFillerSpeaker(npc);
     }
     
     

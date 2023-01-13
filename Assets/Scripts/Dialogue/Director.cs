@@ -10,7 +10,7 @@ public static class Director
     private static Dictionary<string, DialogueLine> lineDB;
 
     // tracking events and speakers.
-    private static string activeNPC;
+    public static string activeNPC;
     private static string currentMap;
     private static List<string> globalEvents;
     private static Dictionary<string, List<string>> mapEvents;
@@ -36,11 +36,27 @@ public static class Director
     }
 
     /// <summary>
+    ///  just gives other programs access to the display name of a given npc id/object id.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static string ActiveNPCDisplayName()
+    {
+        return allSpeakers[activeNPC].speakerName;
+    }
+
+    /// <summary>
     /// This adds a filler speaker of a given archetype if it is not yet in the speakers.
     /// </summary>
-    public static void AddFillerSpeaker()
+    public static void NewFillerSpeaker(NPCData npc)
     {
-
+        // if the speaker dict currently doesnt have this npc.
+        if (!allSpeakers.ContainsKey(npc.npcId))
+        {
+            // clone the default speaker of the filler character archetype of the npc and add it to allspeakers
+            allSpeakers[npc.npcId] = fillerCharDefault[npc.speakerArchetype].Clone(); // deepcopies the speaker
+            allSpeakers[npc.npcId].speakerId = npc.npcId;
+        }
     }
 
     /// <summary>
@@ -57,9 +73,17 @@ public static class Director
     /// <summary>
     /// Uses the inference engine to infer the best possible line
     /// </summary>
+    /// <param name="playerLine">The lline chosen by player</param>
     /// <returns>DialogueLine selected by the engine</returns>
-    public static DialogueLine GetNPCLine()
+    public static DialogueLine GetNPCLine(DialogueLine playerLine=null)
     {
+        if(playerLine != null)
+        {
+            // update data of NPC
+            UpdateNPCData(playerLine);
+        }
+
+        // proceed to get the npc line.
         DialogueLine prevLine = new DialogueLine();
 
         return prevLine;
@@ -73,8 +97,11 @@ public static class Director
     /// <param name="activeNPC"></param>
     /// <param name="player"></param>
     /// <returns></returns>
-    public static List<DialogueLine> GetPlayerLines(List<string> globalEvents, List<string> mapEvents, Speaker activeNPC, Speaker player)
+    public static List<DialogueLine> GetPlayerLines()
     {
+        // updates player data given the acquired line.
+        UpdatePlayerData(prevLine);
+
         List<DialogueLine> acquiredLines = new List<DialogueLine>();
 
         return acquiredLines;
@@ -82,7 +109,7 @@ public static class Director
 
 
     // update npc-specific data
-    void UpdateNPCData(DialogueLine line)
+    public static void UpdateNPCData(DialogueLine line)
     {
 
         // get current goal
@@ -132,7 +159,7 @@ public static class Director
     }
 
     // update player specific data
-    void UpdatePlayerData(DialogueLine line)
+    public static void UpdatePlayerData(DialogueLine line)
     {
 
         // get current goal
@@ -181,7 +208,7 @@ public static class Director
         UpdateSpeakerData(line);
     }
 
-    void UpdateSpeakerData(DialogueLine line)
+    public static void UpdateSpeakerData(DialogueLine line)
     {
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
