@@ -43,6 +43,9 @@ public class DialogueUi : MonoBehaviour
 
     private void Init()
     {
+        Canvas canvas = textBox.GetComponentInParent<Canvas>();
+        canvas.worldCamera = FindObjectOfType<Camera>();
+
         maxChoiceCount = choices.Length;
         anim.SetBool("isActive", false);
 
@@ -127,7 +130,7 @@ public class DialogueUi : MonoBehaviour
         charPortrait.sprite = currentPortrait;
 
         // when choice is selected, call event handler to trigger onDialogueSelected
-        EventHandler.current.DisplayNPCLine(playerChoices[index]);
+        EventHandler.Instance.DisplayNPCLine(playerChoices[index]);
     }
 
     /// <summary>
@@ -145,7 +148,7 @@ public class DialogueUi : MonoBehaviour
         // set the next button to be inactive
         nextButton.gameObject.SetActive(false);
 
-        EventHandler.current.DisplayPlayerLines();
+        EventHandler.Instance.DisplayPlayerLines();
     }
 
     public void ConcludeButton()
@@ -159,6 +162,6 @@ public class DialogueUi : MonoBehaviour
             b.gameObject.SetActive(false);
         }
 
-        EventHandler.current.ConcludeDialogue();
+        EventHandler.Instance.ConcludeDialogue();
     }
 }

@@ -70,12 +70,13 @@ public class Editor : MonoBehaviour
 
             // load all assets with the file name (including the sliced sprites)
             Object[] allAssets = AssetDatabase.LoadAllAssetsAtPath("Assets/Sprites/Characters/World/" + spriteFname);
-            
-            // get asset length to check if we found an asset with child sprites
-            if(allAssets.Length > 1)
+
+            foreach(Object asset in allAssets)
             {
-                // get the FIRST sprite (index 0 is the texture2d asset, the whole sprite sheet.)
-                newNpc.npcSprite = (Sprite)allAssets[1];
+                if(asset is Sprite sprite)
+                {
+                    newNpc.npcSprite = sprite;
+                }
             }
             
             newNpc.npcPortrait = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Characters/Portrait/" + portraitFname);

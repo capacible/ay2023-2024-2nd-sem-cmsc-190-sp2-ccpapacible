@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour
 {
-    public static EventHandler current;
+    public static EventHandler Instance;
     private string currentMap = "sample";
 
     // ACTIONS
@@ -22,9 +22,15 @@ public class EventHandler : MonoBehaviour
     // ensure that EventHandler is initialized first before all other components
     private void Start()
     {
-        current = this;
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        DontDestroyOnLoad(current);
+        Instance = this;
+
+        DontDestroyOnLoad(Instance);
     }
 
     // DIALOGUE SYSTEM EVENTS
@@ -35,6 +41,25 @@ public class EventHandler : MonoBehaviour
     /// <param name="npc">NPCData container of the npc.</param>
     public void TriggerDialogue(NPCData npc)
     {
+        Debug.Log("dialogue is triggered");
+        // upon triggering a dialogue, we subscribe to this delegate. when onuiload is called, that means the UI is done loading
+        SceneHandler.OnUiLoaded += StartDialogue;
+
+        // load the dialogue scene
+        SceneHandler.Instance.LoadUiScene("_Dialogue", new object[] { npc });
+    }
+
+    /// <summary>
+    /// Called when the dialogue UI scene is loaded.
+    /// </summary>
+    /// <param name="param"></param>
+    public void StartDialogue(object[] param)
+    {
+        Debug.Log("we start the dialogue now");
+        // we unsubsribe to OnUiLoad since we're done loading the dialogue.
+        SceneHandler.OnUiLoaded -= StartDialogue;
+
+        NPCData npc = (NPCData)param[0];
 
         // on dialogue trigger is now only for the ui, remove the last 2 elements in it
         OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait });
@@ -58,13 +83,15 @@ public class EventHandler : MonoBehaviour
 
     public void ConcludeDialogue()
     {
+        // unload the dialogue scene
+        SceneHandler.Instance.UnloadUiScene("_Dialogue");
+
         OnInteractConclude?.Invoke();
     }
 
     public void AddNPCToManager(NPCData npc)
     {
-        Director.NewFillerSpeaker(npc);
+        //Director.NewFillerSpeaker(npc);
     }
-    
     
 }

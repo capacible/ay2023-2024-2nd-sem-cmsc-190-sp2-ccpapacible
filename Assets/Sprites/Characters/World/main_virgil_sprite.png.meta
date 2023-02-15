@@ -171,7 +171,7 @@ TextureImporter:
       213: 6272164819316519221
     second: main_virgil_sprite_27
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -188,10 +188,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -230,6 +232,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +249,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -856,9 +872,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      main_virgil_sprite_0: 4824501770322184045
+      main_virgil_sprite_1: 1421602489258671727
+      main_virgil_sprite_10: 2367710199341464301
+      main_virgil_sprite_11: 3364900270648634805
+      main_virgil_sprite_12: -662176489762702930
+      main_virgil_sprite_13: -6538228248917708601
+      main_virgil_sprite_14: -1009907499319528853
+      main_virgil_sprite_15: 2673451618874254969
+      main_virgil_sprite_16: -5582623244546130230
+      main_virgil_sprite_17: -7923443666850319983
+      main_virgil_sprite_18: -790322148049319086
+      main_virgil_sprite_19: -5353558584019397988
+      main_virgil_sprite_2: 116741391741318933
+      main_virgil_sprite_20: -7210939119998490252
+      main_virgil_sprite_21: 2822277674479437689
+      main_virgil_sprite_22: 6103027791529104291
+      main_virgil_sprite_23: -6207247395729024914
+      main_virgil_sprite_24: 855114028616058411
+      main_virgil_sprite_25: 8590022697170876253
+      main_virgil_sprite_26: 965492785350937686
+      main_virgil_sprite_27: 6272164819316519221
+      main_virgil_sprite_3: -5319423590329046274
+      main_virgil_sprite_4: -1723216498819458560
+      main_virgil_sprite_5: -5786475392143154619
+      main_virgil_sprite_6: -523634740568859587
+      main_virgil_sprite_7: 1562287835932505409
+      main_virgil_sprite_8: -610456593715558346
+      main_virgil_sprite_9: 8962142665183597801
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

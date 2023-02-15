@@ -10,16 +10,4 @@ public class NPCData : ScriptableObject
     public Sprite npcSprite;
     public Sprite npcPortrait;
     public bool isFillerCharacter;
-
-    /// <summary>
-    /// Generates the npcId of filler characters
-    /// </summary>
-    public void GenerateId()
-    {
-        if (isFillerCharacter)
-        {
-            npcId = speakerArchetype + System.Guid.NewGuid().ToString();
-        }
-
-    }
 }
