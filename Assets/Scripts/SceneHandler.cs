@@ -34,7 +34,7 @@ public class SceneHandler : MonoBehaviour
         DontDestroyOnLoad(Instance);
 
         // load the first scene additively
-        SceneManager.LoadScene(firstScene, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(firstScene, LoadSceneMode.Additive);
     }
 
     /// <summary>

@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour
         {
             if (id == "")
             {
-                Debug.LogError("Id field is empty");
+                Debug.LogError("Id field is empty; generate a filler NPC id before running.");
             }
 
             npc.npcId = id;

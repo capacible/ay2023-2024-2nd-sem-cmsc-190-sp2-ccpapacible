@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueUi : MonoBehaviour
 {
     // ui elements
+    public Canvas canvas;
     public Image textBox;
     public Image charPortrait;
     public Text dialogueText;
@@ -22,9 +23,8 @@ public class DialogueUi : MonoBehaviour
     private List<DialogueLine> playerChoices;
     //private string[] playerChoices;     // the most recent acquired player choices from manager accessed when player clicks on one button.
     private Sprite currentPortrait;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         // subscriptions
         EventHandler.OnDialogueTrigger += ShowUi;
@@ -43,7 +43,6 @@ public class DialogueUi : MonoBehaviour
 
     private void Init()
     {
-        Canvas canvas = textBox.GetComponentInParent<Canvas>();
         canvas.worldCamera = FindObjectOfType<Camera>();
 
         maxChoiceCount = choices.Length;
@@ -55,8 +54,15 @@ public class DialogueUi : MonoBehaviour
 
         for(int i = 0; i < maxChoiceCount; i++)
         {
+            Debug.Log("initialized text of choice: " + i);
             choiceText[i] = choices[i].GetComponentInChildren<Text>();
             choices[i].gameObject.SetActive(false);
+
+            // initialize player choice until max of 3 (exclude leave option)
+            if (i < maxChoiceCount)
+            {
+                playerChoices.Add(new DialogueLine());
+            }
         }
     }
 
@@ -100,6 +106,8 @@ public class DialogueUi : MonoBehaviour
         {
             b.gameObject.SetActive(true);
         }
+
+        Debug.Log("count of allchoices:" + allChoices.Count);
 
         // we change the text of the choice buttons to be the choicces we acquired from the manager.
         for (int i = 0; i < allChoices.Count; i++)

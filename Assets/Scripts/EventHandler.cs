@@ -91,7 +91,7 @@ public class EventHandler : MonoBehaviour
 
     public void AddNPCToManager(NPCData npc)
     {
-        //Director.NewFillerSpeaker(npc);
+        Director.NewFillerSpeaker(npc);
     }
     
 }

@@ -32,7 +32,7 @@ public static class Director
     // else, create a new speaker and add to fillerCharDefault.
     public static void LoadSpeakers()
     {
-
+        // iterate through each speaker in database
     }
 
     /// <summary>
@@ -42,7 +42,8 @@ public static class Director
     /// <returns></returns>
     public static string ActiveNPCDisplayName()
     {
-        return allSpeakers[activeNPC].speakerName;
+        //return allSpeakers[activeNPC].speakerName;
+        return "testName";
     }
 
     /// <summary>
@@ -80,11 +81,12 @@ public static class Director
         if(playerLine != null)
         {
             // update data of NPC
-            UpdateNPCData(playerLine);
+            //UpdateNPCData(playerLine);
         }
 
         // proceed to get the npc line.
         DialogueLine prevLine = new DialogueLine();
+        prevLine.textLine = "Hello there.";
 
         return prevLine;
     }
@@ -100,9 +102,15 @@ public static class Director
     public static List<DialogueLine> GetPlayerLines()
     {
         // updates player data given the acquired line.
-        UpdatePlayerData(prevLine);
+        //UpdatePlayerData(prevLine);
 
         List<DialogueLine> acquiredLines = new List<DialogueLine>();
+
+        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy" });
+
+        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy 2" });
+
+        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy 3" });
 
         return acquiredLines;
     }

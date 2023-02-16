@@ -76,6 +76,8 @@ public class Editor : MonoBehaviour
                 if(asset is Sprite sprite)
                 {
                     newNpc.npcSprite = sprite;
+                    // break
+                    break;
                 }
             }
             
