@@ -4,11 +4,14 @@ using UnityEngine;
 using System.Data;
 using Mono.Data.Sqlite;
 using UnityEditor;
+using System.IO;
+using System.Xml;
+using System.Linq;
 
-public class Editor : MonoBehaviour
+public class Editor
 {
 
-    [UnityEditor.MenuItem("Tools/Generate NPC Data from DB")]
+    //[UnityEditor.MenuItem("Tools/ScriptableObjects/Generate NPC Data from SQLite")]
     static void GenerateNPCData()
     {
         string dialogueURI = "URI=file:Assets/DialogueDB.db";
@@ -43,6 +46,7 @@ public class Editor : MonoBehaviour
             NPCData newNpc = ScriptableObject.CreateInstance<NPCData>();
 
             newNpc.speakerArchetype = archetype;
+            newNpc.displayNameDefault = archetype.Split('_')[1].ToUpper().ToString();
 
             // is npc filler char?
             if (isFiller == 0)
@@ -101,6 +105,7 @@ public class Editor : MonoBehaviour
                     asset.npcSprite = newNpc.npcSprite;
                     asset.isFillerCharacter = newNpc.isFillerCharacter;
                     asset.speakerArchetype = newNpc.speakerArchetype;
+                    asset.displayNameDefault = newNpc.displayNameDefault;
                 }
                 else
                 {
@@ -124,6 +129,474 @@ public class Editor : MonoBehaviour
 
         }
         
+    }
+
+    /// <summary>
+    /// Reads a CSV file given a path, and returns a dictionary where each column represents one thing
+    /// </summary>
+    /// <param name="path">Path of file in assetDB</param>
+    /// <returns>List of dictionaries where each element is a row, the dictionary is represented by
+    /// COL_NAME for key, and COL_VALUE for value</returns>
+    static List<Dictionary<string, string>> ReadCSVFile(string path)
+    {
+        // check if path is a .csv file
+        if(!(path.Split('.')[1] == "csv"))
+        {
+            Debug.LogError("Not a CSV file");
+            return null;
+        }
+
+        char[] delimiters = { '\n', '\r' };
+        // list of dictionary where key => colName, and value => item or value
+        List<Dictionary<string, string>> outData = new List<Dictionary<string, string>>();
+
+        TextAsset text = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
+        
+        List<string[]> allData = new List<string[]>();
+
+        Debug.Log(text.text.Split(delimiters));
+        foreach(string line in text.text.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries))
+        {
+            // split each line by comma
+            allData.Add(line.Split(','));
+        }
+
+        // get the first row => the column names
+        string[] colNames = allData[0];
+        
+        // iterate through the remaining rows
+        for(int row = 1; row < allData.Count; row++)
+        {
+            Dictionary<string, string> current = new Dictionary<string, string>();
+            for(int col = 0; col < colNames.Length; col++)
+            {
+                current.Add(colNames[col], allData[row][col]);
+            }
+
+            // add current dictionary to output
+            outData.Add(current);
+        }
+
+        TestPrint(outData);
+
+        return outData;
+    }
+
+    /// <summary>
+    /// Creates NPC data from a CSV file. We will get the following data from CSV:
+    ///     - fillercharacter?
+    ///     - speakerarchetype?
+    ///     - traits
+    /// </summary>
+    [UnityEditor.MenuItem("Tools/ScriptableObjects/Generate NPC Data from CSV")]
+    static void CreateNPCData()
+    {
+        // READ
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+        // if NOT speakers file, invalid
+        if (!path.Contains("speaker"))
+        {
+            Debug.LogError("Incorrect CSV file. Must be a speaker-related file.");
+            return;
+        }
+
+        List<Dictionary<string, string>> csvData = ReadCSVFile(path);
+        
+        // if it's not a csv file
+        if (csvData == null)
+        {
+            return;
+        }
+
+        // iterate through each row
+        foreach (Dictionary<string, string> npc in csvData)
+        {
+            // create a new NPCData
+            NPCData newNPC = ScriptableObject.CreateInstance<NPCData>();
+
+            newNPC.speakerArchetype = npc["speakerArchetype"];
+            newNPC.displayNameDefault = npc["displayName"];
+
+            // try parse the isFillerCharacter string
+            if(System.Boolean.TryParse(npc["isFillerCharacter"], out bool fillerCharBool))
+            {
+                // if parse successful, set isFillerCharacter to the output.
+                newNPC.isFillerCharacter = fillerCharBool;
+
+                // if filler character is false, we copy the speaker archetype and set that as the speaker's id
+                if(!fillerCharBool)
+                {
+                    newNPC.npcId = newNPC.speakerArchetype;
+                }
+            }
+
+            // split the traits.
+            foreach(string trait in npc["speakerTraits"].Split('/'))
+            {
+                // add the trait into the npcdata list of possible traits
+                newNPC.speakerTraits.Add(trait);
+            }
+
+            /*
+             * ASSET DATABASE MANIPULATIONS
+             */
+            string overworldFname = newNPC.speakerArchetype + "_sprite.png";
+            string portraitFname = newNPC.speakerArchetype + "_portrait.png";
+
+            // SETTING THE OVERWORLD SPRITE
+            // load all assets with the file name (including the sliced sprites)
+            Sprite outSprite = LoadSpriteAt("Assets/Sprites/Characters/World/" + overworldFname);
+            Sprite outPortrait = LoadSpriteAt("Assets/Sprites/Characters/Portrait/" + portraitFname);
+
+            if (outSprite != null && outPortrait != null)
+            {
+                // set sprite 
+                newNPC.npcSprite = outSprite;
+                newNPC.npcPortrait = outPortrait;
+            }
+            else
+            {
+                if (outSprite == null)
+                {
+                    Debug.LogWarning($"Sprite(s) cannot be found. Make sure that a Sprite file exists with the filename {overworldFname}");
+                }
+                if(outPortrait == null)
+                {
+                    Debug.LogWarning($"Sprite(s) cannot be found. Make sure that a Sprite file exists with the filename {overworldFname}");
+                }
+            }
+
+            // create a new asset
+            string destPath = "Assets/Scripts/ScriptableObjects/NPCData";
+            CreateNPCScriptableObject(destPath, newNPC);
+            
+        }
+
+    }
+
+    static void CreateNPCScriptableObject(string destPath, NPCData npc)
+    {
+
+        // create new scriptableobject if its a valid folder
+        if (AssetDatabase.IsValidFolder(destPath))
+        {
+            // create file name.
+            string fname = destPath + "/NPC_" + npc.speakerArchetype + ".asset";
+
+            var asset = AssetDatabase.LoadAssetAtPath<NPCData>(fname);
+
+            // if the file already exists...
+            if (asset != null)
+            {
+                Debug.Log("existing asset...");
+                // replace all values of the file
+                asset.npcId = npc.npcId;
+                asset.npcPortrait = npc.npcPortrait;
+                asset.npcSprite = npc.npcSprite;
+                asset.isFillerCharacter = npc.isFillerCharacter;
+                asset.speakerArchetype = npc.speakerArchetype;
+                asset.displayNameDefault = npc.displayNameDefault;
+            }
+            else
+            {
+                // create a new asset if the file exists
+
+                // filename = NPC_speakerarchetype.asset
+                AssetDatabase.CreateAsset(npc, fname);
+            }
+        }
+        else
+        {
+            string[] sepPath = destPath.Split('/');
+            // new folder
+            string newFolder = sepPath[sepPath.Length - 1];
+            // join path
+            string path = string.Join("/", sepPath);
+            AssetDatabase.CreateFolder(path, newFolder);
+
+            Debug.Log("Created folder " + newFolder + " at path " + path);
+        }
+    }
+
+    static Sprite LoadSpriteAt(string path)
+    {
+        Object[] allAssets = AssetDatabase.LoadAllAssetsAtPath(path);
+
+        foreach (Object asset in allAssets)
+        {
+            if (asset is Sprite sprite)
+            {
+                // return the first sprite encountered
+                return sprite;
+            }
+        }
+
+        return null;
+    }
+
+    [UnityEditor.MenuItem("Tools/XML/Generate Speaker XML from CSV")]
+    static void CreateSpeakersFromCSV()
+    {
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+        // if NOT speakers file, invalid
+        if (!path.Contains("speaker"))
+        {
+            Debug.LogError("Incorrect CSV file. Must be a speaker-related file.");
+            return;
+        }
+
+        List<Dictionary<string, string>> csvData = ReadCSVFile(path);
+
+        if (csvData == null)
+        {
+            return;
+        }
+
+        string outFile = "Assets/Data/XML";
+
+        if (!AssetDatabase.IsValidFolder(outFile))
+        {
+            AssetDatabase.CreateFolder("Assets/Data", "XML");
+        }
+
+        // set outfile if valid
+        outFile = outFile + "/Speakers.xml";
+
+        // using xmlwriter
+        var writerSettings = new XmlWriterSettings()
+        {
+            Indent = true,
+            IndentChars = "\t"
+        };
+
+        XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
+        
+
+        writer.WriteStartDocument();
+
+        // start with the Speaker collection and speakers
+        writer.WriteStartElement("SpeakerCollection");
+        writer.WriteStartElement("Speakers");
+
+        // access each row
+        foreach(Dictionary<string, string> dictionary in csvData)
+        {
+            // write Speaker element
+            writer.WriteStartElement("Speaker");
+
+            // access the column name and value pairs
+            foreach(KeyValuePair<string, string> pair in dictionary)
+            {
+                Debug.Log(pair.Key);
+
+                // write element per pair
+                writer.WriteStartElement(pair.Key);
+
+                if(pair.Key == "speakerTraits")
+                {
+                    // split each value
+                    string[] traits = pair.Value.Split('/');
+                                        
+                    foreach(string trait in traits)
+                    {
+                        Debug.Log($"trait {trait}");
+
+                        writer.WriteStartElement("trait");
+                        writer.WriteString(trait);
+                        writer.WriteEndElement();
+                    }
+                }
+                else
+                {
+                    // write the value as string
+                    writer.WriteString(pair.Value);
+                }
+
+                writer.WriteEndElement();
+            }
+
+            writer.WriteEndElement();
+        }
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+
+        writer.WriteEndDocument();
+        writer.Close();
+    }
+
+    [UnityEditor.MenuItem("Tools/XML/Generate DialogueLine XML from CSV")]
+    static void CreateLineXMLFromCSV()
+    {
+        // READ
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+        // if NOT speakers file, invalid
+        if (!path.Contains("dialogue"))
+        {
+            Debug.LogError("Incorrect CSV file. Must be a dialogue-related file.");
+            return;
+        }
+        
+        List<Dictionary<string, string>> csvData = ReadCSVFile(path);
+
+        // get the filename without the csv extension
+        string filename = Selection.activeObject.name.Split('/')[Selection.activeObject.name.Split('/').Length - 1].Split('.')[0];
+
+        if (csvData == null)
+        {
+            return;
+        }
+
+        string outFile = "Assets/Data/XML/Dialogue";
+
+        if (!AssetDatabase.IsValidFolder(outFile))
+        {
+            AssetDatabase.CreateFolder("Assets/Data/XML", "Dialogue");
+        }
+        
+        // set outfile if valid -- same name as the csv file name
+        outFile = outFile + "/" + filename + ".xml";
+
+        // using xmlwriter
+        var writerSettings = new XmlWriterSettings()
+        {
+            Indent = true,
+            IndentChars = "\t"
+        };
+
+        XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
+
+        writer.WriteStartDocument();
+
+        // start with the Speaker collection and speakers
+        writer.WriteStartElement("LineCollection");
+        writer.WriteStartElement("DialogueLines");
+
+        // access each row
+        foreach (Dictionary<string, string> dictionary in csvData)
+        {
+
+            // dline
+            writer.WriteStartElement("DialogueLine");
+
+            // merge all events in memory and global and map events
+            dictionary.Add("relatedEvents", dictionary["eventsInMemory"] + " / " + dictionary["globalAndMapEvents"]);
+
+            // remove events in memory and global
+            dictionary.Remove("eventsInMemory");
+            dictionary.Remove("globalAndMapEvents");
+
+            // separate the effects
+            Dictionary<string, string> effects = new Dictionary<string, string>();
+
+            // get the key-value pairs where the columns include the tag "effect"
+            foreach(string effect in dictionary.Keys.Where(x => x.Contains("effect")).ToList())
+            {
+                effects.Add(effect.Replace("effect_", ""), dictionary[effect]);
+
+                // remove the said effect from dictionary
+                dictionary.Remove(effect);
+            }
+            
+            /*
+             * WRITING TO XML 
+             */
+
+            // DIALOGUE DATA
+            foreach (KeyValuePair<string, string> pair in dictionary)
+            {
+                Debug.Log(pair.Key);
+                
+                // array or multivalued attribs.
+                if (pair.Value.Contains('/'))
+                {
+                    WriteArrayElements(writer, pair.Key, pair.Value);
+                }
+                // non-array
+                else
+                {
+                    writer.WriteStartElement(pair.Key);
+
+                    // if it's the dialogue, we first convert the {comma} tags into actual commas.
+                    if (pair.Key == "dialogue")
+                    {
+                        writer.WriteString(pair.Value.Replace("{comma}", ","));
+                    }
+                    else
+                    {
+                        writer.WriteString(pair.Value);
+                    }
+
+                    writer.WriteEndElement();
+                }
+                
+            }
+
+            writer.WriteStartElement("DialogueEffect");
+
+            // EFFECT DATA
+            foreach(KeyValuePair<string, string> effect in effects)
+            {
+                // if multivalue
+                if (effect.Value.Contains('/'))
+                {
+                    WriteArrayElements(writer, effect.Key, effect.Value);
+                }
+                else
+                {
+                    writer.WriteStartElement(effect.Key);
+                    writer.WriteString(effect.Value);
+                    writer.WriteEndElement();
+                }
+            }
+
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+        }
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+
+        writer.WriteEndDocument();
+        writer.Close();
+    }
+
+    /// <summary>
+    /// function to write xml elements that are in array form or multivalued.
+    /// </summary>
+    /// <param name="writer"></param>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    static void WriteArrayElements(XmlWriter writer, string key, string value)
+    {
+
+        writer.WriteStartElement(key);
+
+        // split all according to ' / ' character (include spaces)
+        foreach (string item in value.Split(" / ", System.StringSplitOptions.RemoveEmptyEntries))
+        {
+            writer.WriteStartElement($"{key}Item");
+            writer.WriteString(item);
+            writer.WriteEndElement();
+        }
+
+        writer.WriteEndElement();
+    }
+
+    static void TestPrint(List<Dictionary<string,string>> data)
+    {
+        int i = 0;
+        foreach(Dictionary<string, string> dict in data)
+        {
+            Debug.Log($"Row count: {i++}");
+
+            // access each keyvalue pair
+            foreach(KeyValuePair<string, string> pair in dict)
+            {
+                Debug.Log($"{pair.Key} : {pair.Value}");
+            }
+        }
     }
     
 }

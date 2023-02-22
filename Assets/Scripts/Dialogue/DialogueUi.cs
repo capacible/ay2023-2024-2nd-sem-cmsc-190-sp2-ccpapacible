@@ -89,7 +89,7 @@ public class DialogueUi : MonoBehaviour
     {
 
         charName.text = npcName; 
-        dialogueText.text = npcLine.textLine;
+        dialogueText.text = npcLine.dialogue;
 
         // show next
         nextButton.gameObject.SetActive(true);
@@ -114,7 +114,7 @@ public class DialogueUi : MonoBehaviour
         {
             Debug.Log(i);
             // get the text of ith element of player choices, assign it to the ith button
-            choiceText[i].text = allChoices[i].textLine;
+            choiceText[i].text = allChoices[i].dialogue;
 
             // also modify the ith element of playerChoices to erpresent our most recent set of choices acquired
             playerChoices[i] = allChoices[i];

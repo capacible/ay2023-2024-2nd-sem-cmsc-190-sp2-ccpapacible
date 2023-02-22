@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // controls NPC movement and other parts
+// NPCs will be changed into prefabs once database reading at start of game is implemented.
 public class NPCController : MonoBehaviour
 {
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
     public string id = "";
     public NPCData npc;
 
-    // we can add the npc itself into a list of NPCs in the eventhandler
+    // BELOW ARE ATTRIBUTES THAT WILL BE USED WHEN THE READING DATABASE @ GAME START IS IMPLEMENTED
+    public Sprite dialoguePortrait;
+    public string archetypeId;          // used to search for details in director
+    public string npcDisplayName;       // display name
+    public bool usesDirector = true;
 
     void Start()
     {

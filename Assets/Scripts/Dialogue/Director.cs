@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -7,25 +8,28 @@ using UnityEngine;
 /// </summary>
 public static class Director
 {
-    private static Dictionary<string, DialogueLine> lineDB;
+    private static DialogueLineCollection lineDB;
 
     // tracking events and speakers.
-    public static string activeNPC;
-    private static string currentMap;
-    private static List<string> globalEvents;
-    private static Dictionary<string, List<string>> mapEvents;
-    private static Dictionary<string, Speaker> allSpeakers;
-    private static Dictionary<string, Speaker> fillerCharDefault; // default filler character speakers we can duplicate when adding a new filler char
-    private static DialogueLine prevLine;
+    public static string activeNPC;                                 // the current NPC speaking
+    private static string currentMap;                               // current location
+
+    private static List<string> globalEvents;                       // list of all evvents that all characters remember
+    private static Dictionary<string, List<string>> mapEvents;      // dicct of map events that characters from that map rembr
+    private static Dictionary<string, Speaker> allSpeakers;         // all unique speakers
+    private static Dictionary<string, float> topicList;       // a list of topics, SORTED BY HIGHEST RELEVANCE
+
+    private static Dictionary<string, Speaker> fillerCharDefault;   // defaults of each filler archetype to clone
+    private static DialogueLine prevLine;                           // remembering the previous line
 
     // public static Inference engine
 
     /// <summary>
-    /// Loads all the lines from SQLite DB into the Dictionary upon startup.
+    /// Loads all the lines from XML file upon startup
     /// </summary>
     public static void LoadLines()
     {
-        lineDB = new Dictionary<string, DialogueLine>();
+
     }
 
     // if non-filler, create a new speaker class and add to all speakers
@@ -86,7 +90,7 @@ public static class Director
 
         // proceed to get the npc line.
         DialogueLine prevLine = new DialogueLine();
-        prevLine.textLine = "Hello there.";
+        prevLine.dialogue = "Hello there.";
 
         return prevLine;
     }
@@ -106,11 +110,11 @@ public static class Director
 
         List<DialogueLine> acquiredLines = new List<DialogueLine>();
 
-        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy" });
+        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy" });
 
-        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy 2" });
+        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy 2" });
 
-        acquiredLines.Add(new DialogueLine() { textLine = "Ahoy 3" });
+        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy 3" });
 
         return acquiredLines;
     }
@@ -119,43 +123,8 @@ public static class Director
     // update npc-specific data
     public static void UpdateNPCData(DialogueLine line)
     {
-
-        // get current goal
-        SpeakerGoal goal = allSpeakers[activeNPC].speakerGoals.Find(g => g.isActive == true);
-
-        // check if the effect goaltoachieved is same as our active goal. if yes we set the active goal to achieved.
-        if (line.effect.goalToAchieved == goal.id)
-        {
-            goal.isAchieved = true;
-            goal.isActive = false;
-        }
-
-        // check if the effect goaltoactive is the same as our active goal. if it isnt that means we have to activate a different goal
-        if (line.effect.goalToActive != goal.id)
-        {
-            // if current goal is not yet achieved, we pause the current goal
-            if (goal.isAchieved != false)
-            {
-                goal.isActive = false;
-                goal.isPaused = true;
-            }
-
-            // get the requested goal with the goaltoactive id
-            SpeakerGoal newGoal = allSpeakers[activeNPC].speakerGoals.Find(g => g.id.Equals(line.effect.goalToActive));
-
-            // if the found goal is not yet achieved then we can reactivate it. if not, we wont reactivate it, we now have no active goal.
-            if (!newGoal.isAchieved)
-            {
-                // if our newgoal is currently paused, stop
-                if (newGoal.isPaused == true)
-                {
-                    newGoal.isPaused = false;
-                }
-                newGoal.isActive = true;
-            }
-        }
-
-        foreach (string m in line.effect.npc_toRemember)
+       
+        foreach (string m in line.effect.addToNPCMemory)
         {
             if (!allSpeakers[activeNPC].speakerMemories.Contains(m))
             {
@@ -170,42 +139,7 @@ public static class Director
     public static void UpdatePlayerData(DialogueLine line)
     {
 
-        // get current goal
-        SpeakerGoal goal = allSpeakers["player"].speakerGoals.Find(g => g.isActive == true);
-
-        // check if the effect goaltoachieved is same as our active goal. if yes we set the active goal to achieved.
-        if (line.effect.goalToAchieved == goal.id)
-        {
-            goal.isAchieved = true;
-            goal.isActive = false;
-        }
-
-        // check if the effect goaltoactive is the same as our active goal. if it isnt that means we have to activate a different goal
-        if (line.effect.goalToActive != goal.id)
-        {
-            // if current goal is not yet achieved, we pause the current goal
-            if (goal.isAchieved != false)
-            {
-                goal.isActive = false;
-                goal.isPaused = true;
-            }
-
-            // get the requested goal with the goaltoactive id
-            SpeakerGoal newGoal = allSpeakers["player"].speakerGoals.Find(g => g.id.Equals(line.effect.goalToActive));
-
-            // if the found goal is not yet achieved then we can reactivate it. if not, we wont reactivate it, we now have no active goal.
-            if (!newGoal.isAchieved)
-            {
-                // if our newgoal is currently paused, stop
-                if (newGoal.isPaused == true)
-                {
-                    newGoal.isPaused = false;
-                }
-                newGoal.isActive = true;
-            }
-        }
-
-        foreach (string m in line.effect.player_toRemember)
+        foreach (string m in line.effect.addToPlayerMemory)
         {
             if (!allSpeakers["player"].speakerMemories.Contains(m))
             {
@@ -221,6 +155,19 @@ public static class Director
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
 
+        // update topic relevance table
+        // set topic relevance to be the maximum.
+        if(line.effect.makeMostRelevantTopic != "")
+        {
+            topicList[line.effect.makeMostRelevantTopic] = 2;
+        }
+
+        if (line.effect.closeTopic != "")
+        {
+            // set teh topic listed to 1 (default value)
+            topicList[line.effect.closeTopic] = 1;
+        }
+
         // add to global events
         foreach (string e in line.effect.addEventToGlobal)
         {
@@ -231,32 +178,14 @@ public static class Director
             }
         }
 
-        // remove from global events
-        foreach (string e in line.effect.removeEventFromGlobal)
-        {
-            globalEvents.Remove(e);
-        }
-
         // add to map events
-        foreach (KeyValuePair<string, List<string>> dict in line.effect.addEventToMap)
+        foreach (string eventId in line.effect.addEventToMap)
         {
-            foreach (string e in dict.Value)
+            if (!mapEvents[currentMap].Contains(eventId))
             {
-                if (!mapEvents[dict.Key].Contains(e))
-                {
-                    // add the non existent event into the dictionary
-                    mapEvents[dict.Key].Add(e);
-                }
+                mapEvents[currentMap].Add(eventId);
             }
         }
-
-        // remove from map eventsforeach (KeyValuePair<string, List<string>> dict in line.effect.addEventToMap)
-        foreach (KeyValuePair<string, List<string>> dict in line.effect.addEventToMap)
-        {
-            foreach (string e in dict.Value)
-            {
-                mapEvents[dict.Key].Remove(e);
-            }
-        }
+        
     }
 }

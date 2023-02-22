@@ -41,8 +41,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="npc">NPCData container of the npc.</param>
     public void TriggerDialogue(NPCData npc)
     {
-        Debug.Log("dialogue is triggered");
-        // upon triggering a dialogue, we subscribe to this delegate. when onuiload is called, that means the UI is done loading
+        // StartDialogue will run when OnUiLoaded is called within the SceneHandler.
         SceneHandler.OnUiLoaded += StartDialogue;
 
         // load the dialogue scene
@@ -52,21 +51,32 @@ public class EventHandler : MonoBehaviour
     /// <summary>
     /// Called when the dialogue UI scene is loaded.
     /// </summary>
-    /// <param name="param"></param>
+    /// <param name="param">An array of parameters that include NPC Data.</param>
     public void StartDialogue(object[] param)
     {
-        Debug.Log("we start the dialogue now");
         // we unsubsribe to OnUiLoad since we're done loading the dialogue.
         SceneHandler.OnUiLoaded -= StartDialogue;
 
         NPCData npc = (NPCData)param[0];
 
-        // on dialogue trigger is now only for the ui, remove the last 2 elements in it
+        // Calls and presents the UI for the dialogue.
         OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait });
 
-        DialogueLine line = Director.StartAndGetLine(npc.npcId, currentMap);
+        // IF THE NPC USES THE DIALOGUE DIRECTOR, we get the dialogue line from the director
+        if (npc.usesDirector)
+        {
+            DialogueLine line = Director.StartAndGetLine(npc.npcId, currentMap);
 
-        OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
+            OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
+        }
+        // IF THE NPC USES A TREE
+        else
+        {
+            // do tree related dialogue here
+
+            //OnDialogueFound?.Invoke(npc.)
+        }
+
     }
 
     public void DisplayNPCLine(DialogueLine selectedLine)
