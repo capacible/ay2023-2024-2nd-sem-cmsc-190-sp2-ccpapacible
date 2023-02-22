@@ -3,24 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // controls NPC movement and other parts
+// NPCs will be changed into prefabs once database reading at start of game is implemented.
 public class NPCController : MonoBehaviour
 {
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
-    [HideInInspector]
     public string id = "";
     public NPCData npc;
+
+    // BELOW ARE ATTRIBUTES THAT WILL BE USED WHEN THE READING DATABASE @ GAME START IS IMPLEMENTED
+    public Sprite dialoguePortrait;
+    public string archetypeId;          // used to search for details in director
+    public string npcDisplayName;       // display name
+    public bool usesDirector = true;
 
     void Start()
     {
         // add npc to dialogue manager if the npc is filler
         if (npc.isFillerCharacter && npc.npcId == "")
         {
-            npc.GenerateId();
-            EventHandler.current.AddNPCToManager(npc);
+            if (id == "")
+            {
+                Debug.LogError("Id field is empty; generate a filler NPC id before running.");
+            }
+
+            npc.npcId = id;
+            EventHandler.Instance.AddNPCToManager(npc);
         }
 
         // set sprite to be the sprite set in NPC data.
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         s.sprite = npc.npcSprite;
+    }
+    
+    [ContextMenu("Generate Id for NPC")]
+    public void GenerateId()
+    {
+        id = npc.speakerArchetype + System.Guid.NewGuid().ToString();
     }
 }

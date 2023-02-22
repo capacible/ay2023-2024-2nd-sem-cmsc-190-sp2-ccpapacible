@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueUi : MonoBehaviour
 {
     // ui elements
+    public Canvas canvas;
     public Image textBox;
     public Image charPortrait;
     public Text dialogueText;
@@ -19,17 +20,16 @@ public class DialogueUi : MonoBehaviour
     // internal elements
     private int maxChoiceCount;         // acquired at initialization from how many buttons we added @ editor.
     private Text[] choiceText;          // used to directly reference the Text component of the choices buttons (para di na mag getComponent)
-    //private DialogueLine[] playerChoices;
-    private string[] playerChoices;     // the most recent acquired player choices from manager accessed when player clicks on one button.
+    private List<DialogueLine> playerChoices;
+    //private string[] playerChoices;     // the most recent acquired player choices from manager accessed when player clicks on one button.
     private Sprite currentPortrait;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         // subscriptions
         EventHandler.OnDialogueTrigger += ShowUi;
         EventHandler.OnDialogueFound += ShowNPCDialogue;
-        EventHandler.OnChoicesFound += ShowPlayerChoices;
+        EventHandler.OnPlayerLinesFound += ShowPlayerChoices;
 
         Init();
     }
@@ -38,22 +38,31 @@ public class DialogueUi : MonoBehaviour
     {
         EventHandler.OnDialogueTrigger -= ShowUi;
         EventHandler.OnDialogueFound -= ShowNPCDialogue;
-        EventHandler.OnChoicesFound -= ShowPlayerChoices;
+        EventHandler.OnPlayerLinesFound -= ShowPlayerChoices;
     }
 
     private void Init()
     {
+        canvas.worldCamera = FindObjectOfType<Camera>();
+
         maxChoiceCount = choices.Length;
         anim.SetBool("isActive", false);
 
         // acquire the text component of each button and initialize + deact.
         choiceText = new Text[maxChoiceCount];
-        playerChoices = new string[maxChoiceCount];
+        playerChoices = new List<DialogueLine>();
 
         for(int i = 0; i < maxChoiceCount; i++)
         {
+            Debug.Log("initialized text of choice: " + i);
             choiceText[i] = choices[i].GetComponentInChildren<Text>();
             choices[i].gameObject.SetActive(false);
+
+            // initialize player choice until max of 3 (exclude leave option)
+            if (i < maxChoiceCount)
+            {
+                playerChoices.Add(new DialogueLine());
+            }
         }
     }
 
@@ -76,11 +85,11 @@ public class DialogueUi : MonoBehaviour
     /// </summary>
     /// <param name="npcLine">the dialogue line</param>
     /// <param name="npcName">display name of active npc</param>
-    public void ShowNPCDialogue(string npcLine, string npcName)
+    public void ShowNPCDialogue(string npcName, DialogueLine npcLine)
     {
 
         charName.text = npcName; 
-        dialogueText.text = npcLine;
+        dialogueText.text = npcLine.dialogue;
 
         // show next
         nextButton.gameObject.SetActive(true);
@@ -90,7 +99,7 @@ public class DialogueUi : MonoBehaviour
     /// display the player choices in buttons
     /// </summary>
     /// <param name="allChoices">a list of choice values</param>
-    public void ShowPlayerChoices(string[] allChoices)
+    public void ShowPlayerChoices(List<DialogueLine> allChoices)
     {
         // set the buttons to be active
         foreach (Button b in choices)
@@ -98,12 +107,17 @@ public class DialogueUi : MonoBehaviour
             b.gameObject.SetActive(true);
         }
 
+        Debug.Log("count of allchoices:" + allChoices.Count);
+
         // we change the text of the choice buttons to be the choicces we acquired from the manager.
-        for (int i = 0; i < allChoices.Length; i++)
+        for (int i = 0; i < allChoices.Count; i++)
         {
             Debug.Log(i);
             // get the text of ith element of player choices, assign it to the ith button
-            choiceText[i].text = allChoices[i];
+            choiceText[i].text = allChoices[i].dialogue;
+
+            // also modify the ith element of playerChoices to erpresent our most recent set of choices acquired
+            playerChoices[i] = allChoices[i];
         }
     }
 
@@ -124,7 +138,7 @@ public class DialogueUi : MonoBehaviour
         charPortrait.sprite = currentPortrait;
 
         // when choice is selected, call event handler to trigger onDialogueSelected
-        EventHandler.current.DialogueClicked(playerChoices[index]);
+        EventHandler.Instance.DisplayNPCLine(playerChoices[index]);
     }
 
     /// <summary>
@@ -142,7 +156,7 @@ public class DialogueUi : MonoBehaviour
         // set the next button to be inactive
         nextButton.gameObject.SetActive(false);
 
-        EventHandler.current.NextDialogue();
+        EventHandler.Instance.DisplayPlayerLines();
     }
 
     public void ConcludeButton()
@@ -156,6 +170,6 @@ public class DialogueUi : MonoBehaviour
             b.gameObject.SetActive(false);
         }
 
-        EventHandler.current.ConcludeDialogue();
+        EventHandler.Instance.ConcludeDialogue();
     }
 }

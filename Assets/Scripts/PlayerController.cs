@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             // if the game object is an NPC:
             // run eventhandler
-            EventHandler.current.TriggerDialogue(npc.npc);
+            EventHandler.Instance.TriggerDialogue(npc.npc);
             busy = true;
         }
         
