@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -29,26 +30,27 @@ using UnityEngine;
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
-    [XmlAttribute("speakerArchetype")]
     public string speakerArchetype;             // archetype of speaker aka speaker tag
 
     public string displayName;                  // display name of speaker
+
+    public bool isFillerCharacter;
     
     /*
      * The following are not a part of the speaker sheet; this is updated during runtime
      */
-    [XmlIgnore()]
+    [XmlIgnore]
     public List<string> speakerMemories = new List<string>();
 
-    [XmlIgnore()]
-    public int relWithPlayer;                   // value relationship with player
+    [XmlIgnore]
+    public int relWithPlayer = 0;               // value relationship with player
 
-    [XmlIgnore()]
-    public string speakerId;                    // id related to the game object.
+    [XmlIgnore]
+    public string speakerId = "";                    // id related to the game object.
 
     // because speaker traits can be randomized, this is not read during runtime. instead, we add this to the NPC data that
     // will be attached to the gameobject
-    [XmlIgnore()]
+    [XmlIgnore]
     public List<string> speakerTraits = new List<string>();
 
     public Speaker Clone()
@@ -65,13 +67,35 @@ public class Speaker
         return newSpeaker;
     }
 
-    /// <summary>
-    /// Given the traits list in NPC data, we pick some traits and set that for that NPC.
-    /// </summary>
-    /// <param name="npc"></param>
-    public void SetTraits(NPCData npc)
+    public void OverrideTraits(int numTraits, NPCData npc)
     {
+        if (isFillerCharacter)
+        {
+            // randomize a set of traits THREE TIMES.
+            for (int count = 0; count < numTraits; count++)
+            {
+                // get the speaker traits in
+                speakerTraits.Add(
+                    npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)]
+                );
+            }
+        }
+        else
+        {
+            // set the defailt trauts
+            foreach(string trait in npc.speakerTraits)
+            {
+                speakerTraits.Add(trait);
+            }
+        }
+    }
 
+    public void OverrideDisplayName(string displayNameOverride)
+    {
+        if(displayNameOverride != "")
+        {
+            displayName = displayNameOverride;
+        }
     }
 }
 
@@ -79,5 +103,15 @@ public class Speaker
 public class SpeakerCollection
 {
     [XmlArray("Speakers"), XmlArrayItem("Speaker")]
-    public List<Speaker> Speakers = new List<Speaker>();
+    public Speaker[] Speakers;
+
+    public static SpeakerCollection LoadCollection(string path)
+    {
+        var serializer = new XmlSerializer(typeof(SpeakerCollection));
+
+        using (var stream = new FileStream(Path.Combine(Application.dataPath, path), FileMode.Open))
+        {
+            return serializer.Deserialize(stream) as SpeakerCollection;
+        }
+    }
 }

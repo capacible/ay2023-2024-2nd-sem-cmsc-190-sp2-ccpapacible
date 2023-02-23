@@ -31,6 +31,16 @@ public class EventHandler : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(Instance);
+
+        InitGame();
+    }
+
+    /// <summary>
+    /// Initializes everything needed for the game.
+    /// </summary>
+    private void InitGame()
+    {
+        Director.Start();
     }
 
     // DIALOGUE SYSTEM EVENTS
@@ -39,13 +49,13 @@ public class EventHandler : MonoBehaviour
     /// Triggers the start of a dialogue.
     /// </summary>
     /// <param name="npc">NPCData container of the npc.</param>
-    public void TriggerDialogue(NPCData npc)
+    public void TriggerDialogue(string npcObjId, Sprite portrait)
     {
         // StartDialogue will run when OnUiLoaded is called within the SceneHandler.
         SceneHandler.OnUiLoaded += StartDialogue;
 
         // load the dialogue scene
-        SceneHandler.Instance.LoadUiScene("_Dialogue", new object[] { npc });
+        SceneHandler.Instance.LoadUiScene("_Dialogue", new object[] { npcObjId, portrait });
     }
 
     /// <summary>
@@ -57,15 +67,16 @@ public class EventHandler : MonoBehaviour
         // we unsubsribe to OnUiLoad since we're done loading the dialogue.
         SceneHandler.OnUiLoaded -= StartDialogue;
 
-        NPCData npc = (NPCData)param[0];
+        string npcId = (string)param[0];
+        Sprite portrait = (Sprite)param[1];
 
         // Calls and presents the UI for the dialogue.
-        OnDialogueTrigger?.Invoke(new object[] { npc.npcPortrait });
+        OnDialogueTrigger?.Invoke(new object[] { portrait });
 
-        // IF THE NPC USES THE DIALOGUE DIRECTOR, we get the dialogue line from the director
-        if (npc.usesDirector)
+        // The speaker should exist within the director's speaker tracker in order to use the director.
+        if (Director.SpeakerExists(npcId))
         {
-            DialogueLine line = Director.StartAndGetLine(npc.npcId, currentMap);
+            DialogueLine line = Director.StartAndGetLine(npcId, currentMap);
 
             OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
         }
@@ -97,11 +108,6 @@ public class EventHandler : MonoBehaviour
         SceneHandler.Instance.UnloadUiScene("_Dialogue");
 
         OnInteractConclude?.Invoke();
-    }
-
-    public void AddNPCToManager(NPCData npc)
-    {
-        Director.NewFillerSpeaker(npc);
     }
     
 }

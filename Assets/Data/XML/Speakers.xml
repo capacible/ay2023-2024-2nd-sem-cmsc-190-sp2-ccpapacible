@@ -3,63 +3,28 @@
 	<Speakers>
 		<Speaker>
 			<displayName>Player</displayName>
-			<isFillerCharacter>FALSE</isFillerCharacter>
+			<isFillerCharacter>false</isFillerCharacter>
 			<speakerArchetype>player</speakerArchetype>
-			<speakerTraits>
-				<Trait>simple</Trait>
-				<Trait>polite</Trait>
-			</speakerTraits>
 		</Speaker>
 		<Speaker>
 			<displayName>Cassandra</displayName>
-			<isFillerCharacter>FALSE</isFillerCharacter>
+			<isFillerCharacter>false</isFillerCharacter>
 			<speakerArchetype>main_cassandra</speakerArchetype>
-			<speakerTraits>
-				<Trait>eloquent</Trait>
-				<Trait>polite</Trait>
-				<Trait>honest</Trait>
-				<Trait>forthright</Trait>
-			</speakerTraits>
 		</Speaker>
 		<Speaker>
 			<displayName>Jonathan</displayName>
-			<isFillerCharacter>FALSE</isFillerCharacter>
+			<isFillerCharacter>false</isFillerCharacter>
 			<speakerArchetype>main_jonathan</speakerArchetype>
-			<speakerTraits>
-				<Trait>simple</Trait>
-				<Trait>polite</Trait>
-				<Trait>friendly</Trait>
-				<Trait>loner</Trait>
-			</speakerTraits>
 		</Speaker>
 		<Speaker>
 			<displayName>The Custodian</displayName>
-			<isFillerCharacter>TRUE</isFillerCharacter>
+			<isFillerCharacter>true</isFillerCharacter>
 			<speakerArchetype>custodian</speakerArchetype>
-			<speakerTraits>
-				<Trait>polite</Trait>
-				<Trait>frazzled</Trait>
-				<Trait>gruff</Trait>
-				<Trait>quiet</Trait>
-				<Trait>eloquent</Trait>
-				<Trait>prideful</Trait>
-				<Trait>impatient</Trait>
-				<Trait>loner</Trait>
-				<Trait>friendly</Trait>
-			</speakerTraits>
 		</Speaker>
 		<Speaker>
 			<displayName>The Assistant</displayName>
-			<isFillerCharacter>TRUE</isFillerCharacter>
+			<isFillerCharacter>true</isFillerCharacter>
 			<speakerArchetype>assistant</speakerArchetype>
-			<speakerTraits>
-				<Trait>eloquent</Trait>
-				<Trait>shy</Trait>
-				<Trait>frazzled</Trait>
-				<Trait>friendly</Trait>
-				<Trait>quiet</Trait>
-				<Trait>loner</Trait>
-			</speakerTraits>
 		</Speaker>
 	</Speakers>
 </SpeakerCollection>

@@ -7,32 +7,28 @@ using UnityEngine;
 public class NPCController : MonoBehaviour
 {
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
-    public string id = "";
-    public NPCData npc;
+    public string id;
+    public NPCData npc;                 // holds archetype id
 
     // BELOW ARE ATTRIBUTES THAT WILL BE USED WHEN THE READING DATABASE @ GAME START IS IMPLEMENTED
-    public Sprite dialoguePortrait;
-    public string archetypeId;          // used to search for details in director
+    public Sprite dialoguePortrait;     // default dialogue portrait
     public string npcDisplayName;       // display name
-    public bool usesDirector = true;
 
     void Start()
     {
-        // add npc to dialogue manager if the npc is filler
-        if (npc.isFillerCharacter && npc.npcId == "")
+        if(id == "")
         {
-            if (id == "")
-            {
-                Debug.LogError("Id field is empty; generate a filler NPC id before running.");
-            }
-
-            npc.npcId = id;
-            EventHandler.Instance.AddNPCToManager(npc);
+            Debug.LogError("Id field is empty. Please generate an identifier for this NPC object");
         }
-
-        // set sprite to be the sprite set in NPC data.
-        SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
-        s.sprite = npc.npcSprite;
+        else
+        {
+            // upon starting, we check if this NPC object is already in the allspeaker dictionary
+            if (!Director.SpeakerExists(id))
+            {
+                // we add the npc into the allSpeakers list if it doesnt exist yet
+                Director.AddNewSpeaker(npc, id, npcDisplayName);
+            }
+        }
     }
     
     [ContextMenu("Generate Id for NPC")]

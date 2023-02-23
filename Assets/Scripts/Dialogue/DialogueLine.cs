@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Serialization;
+using System.IO;
 
 /* HOW THIS WILL GO:
  * (1) we convert our csv data into an XML file
@@ -59,4 +60,30 @@ public class DialogueLineCollection
 {
     [XmlArray("DialogueLines"), XmlArrayItem("DialogueLine")]
     public List<DialogueLine> DialogueLines = new List<DialogueLine>();
+
+    public static DialogueLineCollection Load(string path)
+    {
+        var serializer = new XmlSerializer(typeof(DialogueLineCollection));
+
+        using (var stream = new FileStream(Path.Combine(Application.dataPath, path), FileMode.Open))
+        {
+            return serializer.Deserialize(stream) as DialogueLineCollection;
+        }
+    }
+
+    public static DialogueLineCollection LoadAll(string[] paths)
+    {
+        DialogueLineCollection dl = new DialogueLineCollection();
+
+        foreach(string path in paths)
+        {
+            // we load individually then access each individual dialogue line to add to the final collection.
+            foreach(DialogueLine line in Load(path).DialogueLines)
+            {
+                dl.DialogueLines.Add(line);
+            }
+        }
+
+        return dl;
+    }
 }

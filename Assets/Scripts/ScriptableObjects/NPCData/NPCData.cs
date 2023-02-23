@@ -16,16 +16,8 @@ public class NPCData : ScriptableObject
     /* 
      * INTERNAL STUFF
      */
-    public string npcId = "";           // SETS EACH NPC object APART
-    public bool usesDirector = true;    // usesDirector is true by default.
 
     // acquired from CSV file...
     public string speakerArchetype;     // the archetype that determines which lines to consider for this NPC object
-    public bool isFillerCharacter;      // whether the npc is filler
     public List<string> speakerTraits = new List<string>();
-    public string displayNameDefault;   // what will be displayed in dialogue UI
-
-    // DISPLAY
-    public Sprite npcSprite;            // the overworld sprite for this NPC
-    public Sprite npcPortrait;          // the dialogue portrait for this NPC
 }

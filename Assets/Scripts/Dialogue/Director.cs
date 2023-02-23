@@ -13,30 +13,74 @@ public static class Director
     // tracking events and speakers.
     public static string activeNPC;                                 // the current NPC speaking
     private static string currentMap;                               // current location
+    
+    // list of all evvents that all characters remember
+    private static List<string> globalEvents = new List<string>();
+    // dicct of map events that characters from that map rembr
+    private static Dictionary<string, List<string>> mapEvents = new Dictionary<string, List<string>>();
+    // each unique speaker in the world
+    private static Dictionary<string, Speaker> allSpeakers = new Dictionary<string, Speaker>();
+    // list of topics
+    private static Dictionary<string, float> topicList = new Dictionary<string, float>();
 
-    private static List<string> globalEvents;                       // list of all evvents that all characters remember
-    private static Dictionary<string, List<string>> mapEvents;      // dicct of map events that characters from that map rembr
-    private static Dictionary<string, Speaker> allSpeakers;         // all unique speakers
-    private static Dictionary<string, float> topicList;       // a list of topics, SORTED BY HIGHEST RELEVANCE
-
-    private static Dictionary<string, Speaker> fillerCharDefault;   // defaults of each filler archetype to clone
+    // defaults of each filler archetype to clone
+    private static Dictionary<string, Speaker> speakerDefaults = new Dictionary<string, Speaker>();
+    
     private static DialogueLine prevLine;                           // remembering the previous line
 
     // public static Inference engine
 
+    public static void Start()
+    {
+        LoadLines();
+        LoadSpeakers();
+    }
+
     /// <summary>
-    /// Loads all the lines from XML file upon startup
+    /// Loads all the lines from XML files upon startup
     /// </summary>
     public static void LoadLines()
     {
-
+        // we can have a text file here describing the file names of all dialogue XMLs.
+        /*
+        lineDB = DialogueLineCollection.LoadAll(new string[] {
+            "Data/XML/dialogue/dialoguePlayer.xml"
+        });*/
     }
 
-    // if non-filler, create a new speaker class and add to all speakers
-    // else, create a new speaker and add to fillerCharDefault.
+    /// <summary>
+    /// Loading all speakers on startup.
+    /// Filler characters will be loaded into defaults, while main characters will be loaded straight
+    /// into the allSpeakers list.
+    /// </summary>
     public static void LoadSpeakers()
     {
-        // iterate through each speaker in database
+        // create a new speakercollection
+        SpeakerCollection loadSpeakers = SpeakerCollection.LoadCollection("Data/XML/Speakers.xml");
+
+        Debug.Log(loadSpeakers.Speakers.Length);
+        TestPrintSpeakers(loadSpeakers);
+
+        // we add each speaker into the defaults dictionary
+        foreach(Speaker s in loadSpeakers.Speakers)
+        {
+            speakerDefaults.Add(s.speakerArchetype, s);
+            Debug.Log($"adding speaker {s} with archetype {s.speakerArchetype}");
+        }
+
+        // add the player
+        allSpeakers.Add("player", speakerDefaults["player"].Clone());
+        
+    }
+
+    public static bool SpeakerExists(string npcObjId)
+    {
+        if (allSpeakers.ContainsKey(npcObjId))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -51,17 +95,27 @@ public static class Director
     }
 
     /// <summary>
-    /// This adds a filler speaker of a given archetype if it is not yet in the speakers.
+    /// Add speaker to the speaker trackers
     /// </summary>
-    public static void NewFillerSpeaker(NPCData npc)
+    public static void AddNewSpeaker(NPCData npc, string npcObjId, string displayName)
     {
-        // if the speaker dict currently doesnt have this npc.
-        if (!allSpeakers.ContainsKey(npc.npcId))
+        // clone the default of that speaker archetype and add to actual speaker tracker
+        allSpeakers.Add(npcObjId, speakerDefaults[npc.speakerArchetype].Clone());
+
+        // set the speaker id to be the object id.
+        allSpeakers[npcObjId].speakerId = npcObjId;
+
+        // if filler speaker, we will randomize a set of 3 traits
+        allSpeakers[npcObjId].OverrideTraits(3, npc);
+        allSpeakers[npcObjId].OverrideDisplayName(displayName);
+
+        // if the given display name is not empty, then we will override the speaker's display name with what is given
+        if(displayName != "")
         {
-            // clone the default speaker of the filler character archetype of the npc and add it to allspeakers
-            allSpeakers[npc.npcId] = fillerCharDefault[npc.speakerArchetype].Clone(); // deepcopies the speaker
-            allSpeakers[npc.npcId].speakerId = npc.npcId;
+            allSpeakers[npcObjId].displayName = displayName;
         }
+
+        Debug.Log($"Added speaker with id {npcObjId}");
     }
 
     /// <summary>
@@ -187,5 +241,19 @@ public static class Director
             }
         }
         
+    }
+
+    /// <summary>
+    /// For testing if speakers are loaded successfully
+    /// </summary>
+    public static void TestPrintSpeakers(SpeakerCollection speakers)
+    {
+        foreach(Speaker s in speakers.Speakers)
+        {
+            Debug.Log($"Successfully loaded {s.speakerArchetype} details are:");
+            Debug.Log($"displayName: {s.displayName}");
+            Debug.Log($"filler: {s.isFillerCharacter}");
+            Debug.Log("===============");
+        }
     }
 }

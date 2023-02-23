@@ -12,7 +12,7 @@ public class Editor
 {
 
     //[UnityEditor.MenuItem("Tools/ScriptableObjects/Generate NPC Data from SQLite")]
-    static void GenerateNPCData()
+    /*static void GenerateNPCData()
     {
         string dialogueURI = "URI=file:Assets/DialogueDB.db";
         string destPath = "Assets/Scripts/ScriptableObjects/NPCData";
@@ -129,7 +129,7 @@ public class Editor
 
         }
         
-    }
+    }*/
 
     /// <summary>
     /// Reads a CSV file given a path, and returns a dictionary where each column represents one thing
@@ -216,56 +216,14 @@ public class Editor
             NPCData newNPC = ScriptableObject.CreateInstance<NPCData>();
 
             newNPC.speakerArchetype = npc["speakerArchetype"];
-            newNPC.displayNameDefault = npc["displayName"];
-
-            // try parse the isFillerCharacter string
-            if(System.Boolean.TryParse(npc["isFillerCharacter"], out bool fillerCharBool))
-            {
-                // if parse successful, set isFillerCharacter to the output.
-                newNPC.isFillerCharacter = fillerCharBool;
-
-                // if filler character is false, we copy the speaker archetype and set that as the speaker's id
-                if(!fillerCharBool)
-                {
-                    newNPC.npcId = newNPC.speakerArchetype;
-                }
-            }
-
+            
             // split the traits.
             foreach(string trait in npc["speakerTraits"].Split('/'))
             {
                 // add the trait into the npcdata list of possible traits
                 newNPC.speakerTraits.Add(trait);
             }
-
-            /*
-             * ASSET DATABASE MANIPULATIONS
-             */
-            string overworldFname = newNPC.speakerArchetype + "_sprite.png";
-            string portraitFname = newNPC.speakerArchetype + "_portrait.png";
-
-            // SETTING THE OVERWORLD SPRITE
-            // load all assets with the file name (including the sliced sprites)
-            Sprite outSprite = LoadSpriteAt("Assets/Sprites/Characters/World/" + overworldFname);
-            Sprite outPortrait = LoadSpriteAt("Assets/Sprites/Characters/Portrait/" + portraitFname);
-
-            if (outSprite != null && outPortrait != null)
-            {
-                // set sprite 
-                newNPC.npcSprite = outSprite;
-                newNPC.npcPortrait = outPortrait;
-            }
-            else
-            {
-                if (outSprite == null)
-                {
-                    Debug.LogWarning($"Sprite(s) cannot be found. Make sure that a Sprite file exists with the filename {overworldFname}");
-                }
-                if(outPortrait == null)
-                {
-                    Debug.LogWarning($"Sprite(s) cannot be found. Make sure that a Sprite file exists with the filename {overworldFname}");
-                }
-            }
+            
 
             // create a new asset
             string destPath = "Assets/Scripts/ScriptableObjects/NPCData";
@@ -291,12 +249,8 @@ public class Editor
             {
                 Debug.Log("existing asset...");
                 // replace all values of the file
-                asset.npcId = npc.npcId;
-                asset.npcPortrait = npc.npcPortrait;
-                asset.npcSprite = npc.npcSprite;
-                asset.isFillerCharacter = npc.isFillerCharacter;
                 asset.speakerArchetype = npc.speakerArchetype;
-                asset.displayNameDefault = npc.displayNameDefault;
+                asset.speakerTraits = npc.speakerTraits;
             }
             else
             {
@@ -389,31 +343,25 @@ public class Editor
             // access the column name and value pairs
             foreach(KeyValuePair<string, string> pair in dictionary)
             {
-                Debug.Log(pair.Key);
-
+                // skip speaker traits as this isnt needed in the speaker xml
+                if(pair.Key == "speakerTraits")
+                {
+                    continue;
+                }
+                
                 // write element per pair
                 writer.WriteStartElement(pair.Key);
 
-                if(pair.Key == "speakerTraits")
+                if (pair.Key == "isFillerCharacter")
                 {
-                    // split each value
-                    string[] traits = pair.Value.Split('/');
-                                        
-                    foreach(string trait in traits)
-                    {
-                        Debug.Log($"trait {trait}");
-
-                        writer.WriteStartElement("trait");
-                        writer.WriteString(trait);
-                        writer.WriteEndElement();
-                    }
+                    writer.WriteString(pair.Value.ToLower());
                 }
                 else
                 {
                     // write the value as string
                     writer.WriteString(pair.Value);
                 }
-
+                
                 writer.WriteEndElement();
             }
 

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         EventHandler.OnInteractConclude += EndInteraction;
-
+        
         Init();
     }
 
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             // if the game object is an NPC:
             // run eventhandler
-            EventHandler.Instance.TriggerDialogue(npc.npc);
+            EventHandler.Instance.TriggerDialogue(npc.id, npc.dialoguePortrait);
             busy = true;
         }
         
