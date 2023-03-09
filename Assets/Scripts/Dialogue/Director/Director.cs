@@ -3,37 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+enum MoodThreshold
+{
+    GOOD = 1,
+    BAD = -1
+}
+
 /// <summary>
 /// In charge of determining the lines to use.
 /// </summary>
 public static class Director
 {
-    private static DialogueLineCollection lineDB;
 
     // tracking events and speakers.
     public static string activeNPC;                                 // the current NPC speaking
     private static string currentMap;                               // current location
-    
-    // list of all evvents that all characters remember
-    private static List<string> globalEvents = new List<string>();
+
+    /*
+     * TRACKING STUFF; gets edited
+     */
+    // list of all evvents that all characters remember -- BY INTEGER ID
+    private static List<int> globalEvents = new List<int>();
     // dicct of map events that characters from that map rembr
-    private static Dictionary<string, List<string>> mapEvents = new Dictionary<string, List<string>>();
+    private static Dictionary<string, List<int>> mapEvents = new Dictionary<string, List<int>>();
     // each unique speaker in the world
     private static Dictionary<string, Speaker> allSpeakers = new Dictionary<string, Speaker>();
     // list of topics
     private static Dictionary<string, float> topicList = new Dictionary<string, float>();
-
     // defaults of each filler archetype to clone
     private static Dictionary<string, Speaker> speakerDefaults = new Dictionary<string, Speaker>();
     
-    private static DialogueLine prevLine;                           // remembering the previous line
+    // remember the previous line said by NPC
+    private static DialogueLine prevLine;
+    // remembering the tone or mood of current convo
+    private static int mood;
 
-    // public static Inference engine
+    /*
+     * STUFF LOADED AT THE START OF GAME
+     */
+     
+    public static Dictionary<int, DialogueLine> lineDB { get; set; }    // dialogue line database
+    private static Dictionary<int, string> allEvents;
+    private static Dictionary<int, string> allTraits;
+    public static int allRelStatusCount = 3;
+
+    // models
+    private static DirectorTraining trainingModel;
+    private static DirectorPredictor predictionModel;
+    private static DirectorData data;
+
 
     public static void Start()
     {
+
+        // load all events and count unique
+        // load possible traits and count unique
+
         LoadLines();
         LoadSpeakers();
+        
+        // the models
+        trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
+
     }
 
     /// <summary>
@@ -42,10 +75,9 @@ public static class Director
     public static void LoadLines()
     {
         // we can have a text file here describing the file names of all dialogue XMLs.
-        /*
         lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml"
-        });*/
+        });
     }
 
     /// <summary>
@@ -73,6 +105,40 @@ public static class Director
         
     }
 
+    /// <summary>
+    /// Looks up the numerical key from the reference list of strings
+    /// </summary>
+    /// <param name="fromEvents"></param>
+    /// <param name="fromTraits"></param>
+    /// <param name="findVal"></param>
+    /// <returns></returns>
+    public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false)
+    {
+        if (fromTraits == true)
+        {
+            foreach (KeyValuePair<int, string> p in allTraits.Where(pair => pair.Value == findVal))
+            {
+                // return first pair
+                return p.Key;
+            }
+        }
+        else if(fromEvents == true)
+        {
+            foreach(KeyValuePair<int, string> p in allEvents.Where(pair => pair.Value == findVal))
+            {
+                return p.Key;
+            }
+        }
+
+        Debug.LogWarning($"Was not able to find the key corresponding to {findVal}. Returning -1");
+        return -1;
+    }
+
+    /// <summary>
+    /// Checks if the speaker object exists when talking to them.
+    /// </summary>
+    /// <param name="npcObjId"></param>
+    /// <returns></returns>
     public static bool SpeakerExists(string npcObjId)
     {
         if (allSpeakers.ContainsKey(npcObjId))
@@ -90,8 +156,7 @@ public static class Director
     /// <returns></returns>
     public static string ActiveNPCDisplayName()
     {
-        //return allSpeakers[activeNPC].speakerName;
-        return "testName";
+        return allSpeakers[activeNPC].displayName;
     }
 
     /// <summary>
@@ -130,6 +195,27 @@ public static class Director
     }
 
     /// <summary>
+    /// Trains our training model and 
+    /// </summary>
+    public static void TrainModel()
+    {
+        // lets set the model priors to be the data we currently have
+        // either acquired from posteriors of previous inference @ end of this fxn or
+        // set by default as uniform at start of game
+        trainingModel.SetDirectorData(data);
+
+        // train the model
+        int[] allEventsOccurred = new List<int>(globalEvents.Concat(mapEvents[currentMap])).ToArray();
+        int[] allTraitsNPC = allSpeakers[activeNPC].speakerTraits.ToArray();
+        int rel = allSpeakers[activeNPC].RelationshipStatus();
+
+        // make new inferences based on new data
+        // this replaces our old data.
+        data = trainingModel.InferPredictionPriors(allEventsOccurred, allTraitsNPC, rel);
+    }
+
+
+    /// <summary>
     /// Uses the inference engine to infer the best possible line
     /// </summary>
     /// <param name="playerLine">The lline chosen by player</param>
@@ -139,13 +225,20 @@ public static class Director
         if(playerLine != null)
         {
             // update data of NPC
-            //UpdateNPCData(playerLine);
+            UpdateNPCData(playerLine);
         }
+        
+        // train
+        TrainModel();
 
-        // proceed to get the npc line.
-        DialogueLine prevLine = new DialogueLine();
-        prevLine.dialogue = "Hello there.";
+        // make inferences on best line
+        // set the model data for our prediction model
+        predictionModel.SetDirectorData(data);
 
+        // our selected npc line will be prevline
+        prevLine = predictionModel.SelectBestNPCLine(topicList, mood);
+
+        // select best NPC line.
         return prevLine;
     }
 
@@ -160,17 +253,15 @@ public static class Director
     public static List<DialogueLine> GetPlayerLines()
     {
         // updates player data given the acquired line.
-        //UpdatePlayerData(prevLine);
+        UpdatePlayerData(prevLine);
 
-        List<DialogueLine> acquiredLines = new List<DialogueLine>();
+        // training
+        TrainModel();
 
-        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy" });
+        // set model data of predictor
+        predictionModel.SetDirectorData(data);
 
-        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy 2" });
-
-        acquiredLines.Add(new DialogueLine() { dialogue = "Ahoy 3" });
-
-        return acquiredLines;
+        return predictionModel.SelectBestPlayerLines(topicList, mood);
     }
 
 
@@ -225,16 +316,18 @@ public static class Director
         // add to global events
         foreach (string e in line.effect.addEventToGlobal)
         {
+            int eventId = NumKeyLookUp(e, fromEvents:true);
             // only add if the global events are in the list
-            if (!globalEvents.Contains(e))
+            if (!globalEvents.Contains(eventId))
             {
-                globalEvents.Add(e);
+                globalEvents.Add(eventId);
             }
         }
 
         // add to map events
-        foreach (string eventId in line.effect.addEventToMap)
+        foreach (string e in line.effect.addEventToMap)
         {
+            int eventId = NumKeyLookUp(e, fromEvents:true);
             if (!mapEvents[currentMap].Contains(eventId))
             {
                 mapEvents[currentMap].Add(eventId);

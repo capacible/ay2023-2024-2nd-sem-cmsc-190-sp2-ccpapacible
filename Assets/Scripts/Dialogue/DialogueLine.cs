@@ -15,16 +15,16 @@ public class DialogueLine
     /*
      * FOR INFERENCE
      */
-
+     
     // a list of all related events that precede this line (character memory, global, map)
     [XmlArray("relatedEvents"), XmlArrayItem("relatedEventsItem")]
-    public List<string> relatedEvents = new List<string>();      
+    public string[] relatedEvents;      
     
     public string receiver;               // this will weed out all the lines to pick from
 
     // list of possible relationship statuses
     [XmlArray("relPrereqs"), XmlArrayItem("relPrereqsItem")]
-    public List<string> relPrereqs = new List<string>();
+    public string[] relPrereqs;
 
     /* 
      * UTILITY FUNCTION RELATED
@@ -34,22 +34,22 @@ public class DialogueLine
     // the weights determine if the line will be said given the current tone of the conversation
     //      weights range from 0 to 2;
     //      we get the tone of the convo and access the tonal weight of the dialogue line in question to be used in utility fxn
-    public int posWeight = 1;
-    public int negWeight = 1;
-    public int neutWeight = 1;
+    public int posWeight;
+    public int negWeight;
+    public int neutWeight;
 
     // a list of topics that determine relevance of line
     [XmlArray("relatedTopics"), XmlArrayItem("relatedTopicsItem")]
-    public List<string> relatedTopics = new List<string>();
+    public string[] relatedTopics;
 
     /*
      * OUTPUT
      */
-    public string dialogue = "";                                // actual line to display
-    public string responseTone = "neut";                        // the overall effect of the line to the tone of the convo (pos, neut, neg)
+    public string dialogue;                                // actual line to display
+    public string responseTone;                        // the overall effect of the line to the tone of the convo (pos, neut, neg)
 
     [XmlElement("DialogueEffect")]
-    public DialogueEffect effect = new DialogueEffect();        // effect to run
+    public DialogueEffect effect;        // effect to run
 }
 
 /// <summary>
@@ -59,7 +59,7 @@ public class DialogueLine
 public class DialogueLineCollection
 {
     [XmlArray("DialogueLines"), XmlArrayItem("DialogueLine")]
-    public List<DialogueLine> DialogueLines = new List<DialogueLine>();
+    public DialogueLine[] DialogueLines;
 
     public static DialogueLineCollection Load(string path)
     {
@@ -71,19 +71,22 @@ public class DialogueLineCollection
         }
     }
 
-    public static DialogueLineCollection LoadAll(string[] paths)
+    public static Dictionary<int, DialogueLine> LoadAll(string[] paths)
     {
-        DialogueLineCollection dl = new DialogueLineCollection();
+        Dictionary<int, DialogueLine> all = new Dictionary<int, DialogueLine>();
+
+        int count = 0;
 
         foreach(string path in paths)
         {
             // we load individually then access each individual dialogue line to add to the final collection.
             foreach(DialogueLine line in Load(path).DialogueLines)
             {
-                dl.DialogueLines.Add(line);
+                all.Add(count, line);
+                count++;
             }
         }
 
-        return dl;
+        return all;
     }
 }

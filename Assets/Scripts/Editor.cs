@@ -455,10 +455,9 @@ public class Editor
             // DIALOGUE DATA
             foreach (KeyValuePair<string, string> pair in dictionary)
             {
-                Debug.Log(pair.Key);
                 
                 // array or multivalued attribs.
-                if (pair.Value.Contains('/'))
+                if (new List<string>() { "relPrereqs", "relatedEvents", "relatedTopics" }.Contains(pair.Key))
                 {
                     WriteArrayElements(writer, pair.Key, pair.Value);
                 }
@@ -472,6 +471,11 @@ public class Editor
                     {
                         writer.WriteString(pair.Value.Replace("{comma}", ","));
                     }
+                    // EMPTY WEIGHTS ARE 1 BY DEFAULT.
+                    else if (pair.Key.Contains("Weight") && pair.Value=="")
+                    {
+                        writer.WriteString("1");
+                    }
                     else
                     {
                         writer.WriteString(pair.Value);
@@ -482,25 +486,9 @@ public class Editor
                 
             }
 
-            writer.WriteStartElement("DialogueEffect");
-
-            // EFFECT DATA
-            foreach(KeyValuePair<string, string> effect in effects)
-            {
-                // if multivalue
-                if (effect.Value.Contains('/'))
-                {
-                    WriteArrayElements(writer, effect.Key, effect.Value);
-                }
-                else
-                {
-                    writer.WriteStartElement(effect.Key);
-                    writer.WriteString(effect.Value);
-                    writer.WriteEndElement();
-                }
-            }
-
-            writer.WriteEndElement();
+            // write the dialogue effects if any
+            WriteDialogueEffects(writer, effects);
+            
             writer.WriteEndElement();
         }
         writer.WriteEndElement();
@@ -518,15 +506,64 @@ public class Editor
     /// <param name="value"></param>
     static void WriteArrayElements(XmlWriter writer, string key, string value)
     {
-
         writer.WriteStartElement(key);
 
-        // split all according to ' / ' character (include spaces)
-        foreach (string item in value.Split(" / ", System.StringSplitOptions.RemoveEmptyEntries))
+        string[] values = value.Split(" / ", System.StringSplitOptions.RemoveEmptyEntries);
+
+        // checking if the values.Length == 0, this means walang laman yung csv part na yan. We simply place an empty single
+        // value into it.
+        if (values.Length == 0)
         {
             writer.WriteStartElement($"{key}Item");
-            writer.WriteString(item);
             writer.WriteEndElement();
+        }
+        else
+        {
+            // split all according to ' / ' character (include spaces)
+            foreach (string item in values)
+            {
+                writer.WriteStartElement($"{key}Item");
+                writer.WriteString(item);
+                writer.WriteEndElement();
+            }
+        }
+
+        writer.WriteEndElement();
+    }
+
+    /// <summary>
+    /// Writes the dialogue effects if there are effects existing
+    /// </summary>
+    /// <param name="writer"></param>
+    /// <param name="effects"></param>
+    static void WriteDialogueEffects(XmlWriter writer, Dictionary<string, string> effects)
+    {
+        writer.WriteStartElement("DialogueEffect");
+
+        // EFFECT DATA
+        foreach (KeyValuePair<string, string> effect in effects)
+        {
+            // if multivalue
+            if (effect.Key.Contains("add"))
+            {
+                WriteArrayElements(writer, effect.Key, effect.Value);
+            }
+            else
+            {
+                writer.WriteStartElement(effect.Key);
+
+                // check if emoty or null yung relationshipEffect
+                if (effect.Key == "relationshipEffect" && effect.Value == "")
+                {
+                    writer.WriteString("0");
+                }
+                else
+                {
+                    writer.WriteString(effect.Value);
+                }
+
+                writer.WriteEndElement();
+            }
         }
 
         writer.WriteEndElement();

@@ -27,6 +27,14 @@ using UnityEngine;
  * 
  */
 
+public enum REL_STATUS
+{
+    BAD,
+    NEUTRAL,
+    GOOD,
+    BAD_THRESH = -20,
+    GOOD_THRESH = 20,
+}
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
@@ -43,7 +51,7 @@ public class Speaker
     public List<string> speakerMemories = new List<string>();
 
     [XmlIgnore]
-    public int relWithPlayer = 0;               // value relationship with player
+    public int relWithPlayer = 0;                    // value relationship with player
 
     [XmlIgnore]
     public string speakerId = "";                    // id related to the game object.
@@ -51,7 +59,7 @@ public class Speaker
     // because speaker traits can be randomized, this is not read during runtime. instead, we add this to the NPC data that
     // will be attached to the gameobject
     [XmlIgnore]
-    public List<string> speakerTraits = new List<string>();
+    public List<int> speakerTraits = new List<int>();
 
     public Speaker Clone()
     {
@@ -75,8 +83,9 @@ public class Speaker
             for (int count = 0; count < numTraits; count++)
             {
                 // get the speaker traits in
-                speakerTraits.Add(
-                    npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)]
+                // lookup id of traits from director.
+                speakerTraits.Add( 
+                    Director.NumKeyLookUp(npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)], fromTraits:true)
                 );
             }
         }
@@ -85,7 +94,7 @@ public class Speaker
             // set the defailt trauts
             foreach(string trait in npc.speakerTraits)
             {
-                speakerTraits.Add(trait);
+                speakerTraits.Add(Director.NumKeyLookUp(trait, fromTraits:true));
             }
         }
     }
@@ -96,6 +105,25 @@ public class Speaker
         {
             displayName = displayNameOverride;
         }
+    }
+
+    /// <summary>
+    /// This returns a numerical version of good/bad/neutral based on thresholds
+    /// </summary>
+    /// <returns></returns>
+    public int RelationshipStatus()
+    {
+        // good
+        if(relWithPlayer >= (int)REL_STATUS.GOOD_THRESH)
+        {
+            return (int)REL_STATUS.GOOD;
+        }
+        else if(relWithPlayer <= (int) REL_STATUS.BAD_THRESH)
+        {
+            return (int)REL_STATUS.BAD;
+        }
+
+        return (int)REL_STATUS.NEUTRAL;
     }
 }
 

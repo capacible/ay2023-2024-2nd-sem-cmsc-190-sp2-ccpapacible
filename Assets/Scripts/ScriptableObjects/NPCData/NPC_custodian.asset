@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed631cc7a4217c942b80fa46ddebd199, type: 3}
   m_Name: NPC_custodian
   m_EditorClassIdentifier: 
-  npcId: 
-  usesDirector: 1
   speakerArchetype: custodian
-  isFillerCharacter: 1
   speakerTraits:
   - polite
   - frazzled
@@ -26,6 +23,5 @@ MonoBehaviour:
   - impatient
   - loner
   - friendly
-  displayNameDefault: The Custodian
-  npcSprite: {fileID: 0}
-  npcPortrait: {fileID: 0}
+  speakerPortraits: {fileID: 21300000, guid: f3051c15c5991a7459f247c2bc375653, type: 3}
+  speakerSprite: {fileID: 0}

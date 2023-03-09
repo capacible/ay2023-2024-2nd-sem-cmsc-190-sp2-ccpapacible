@@ -20,4 +20,8 @@ public class NPCData : ScriptableObject
     // acquired from CSV file...
     public string speakerArchetype;     // the archetype that determines which lines to consider for this NPC object
     public List<string> speakerTraits = new List<string>();
+    // this will be a list of portraits eventually -- for different facesets
+    public Sprite speakerPortraits;
+    // for changing the sprite into the actual.
+    public Sprite speakerSprite;
 }
