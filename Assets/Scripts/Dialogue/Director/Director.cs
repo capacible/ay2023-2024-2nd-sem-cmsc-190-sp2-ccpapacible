@@ -43,8 +43,8 @@ public static class Director
      */
      
     public static Dictionary<int, DialogueLine> lineDB { get; set; }    // dialogue line database
-    private static Dictionary<int, string> allEvents;
-    private static Dictionary<int, string> allTraits;
+    private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
+    private static Dictionary<int, string> allTraits = new Dictionary<int, string>();
     public static int allRelStatusCount = 3;
 
     // models
@@ -57,6 +57,9 @@ public static class Director
     {
 
         // load all events and count unique
+        // temp
+        allEvents.Add(0, "1");
+        allTraits.Add(0, "1");
         // load possible traits and count unique
 
         LoadLines();
@@ -78,6 +81,8 @@ public static class Director
         lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml"
         });
+
+        Debug.Log("success");
     }
 
     /// <summary>
@@ -108,9 +113,10 @@ public static class Director
     /// <summary>
     /// Looks up the numerical key from the reference list of strings
     /// </summary>
-    /// <param name="fromEvents"></param>
-    /// <param name="fromTraits"></param>
-    /// <param name="findVal"></param>
+    /// <param name="fromEvents">Look up from events dict</param>
+    /// <param name="fromTraits">Look up from traits dict</param>
+    /// <param name="fromlineDB">Look up from line db dict</param>
+    /// <param name="findVal">the string to find the key of</param>
     /// <returns></returns>
     public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false)
     {

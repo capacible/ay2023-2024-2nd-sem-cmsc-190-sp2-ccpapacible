@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// controls player actions including movement; attack; open/close of menu ??
+/// <summary>
+/// Controls overworld player movement; attached to every single instance of player in separate scenes
+/// This is separate from the script that will handle inventory/held item/whatever else
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     public float speed;
@@ -82,6 +85,10 @@ public class PlayerController : MonoBehaviour
             // run eventhandler
             EventHandler.Instance.TriggerDialogue(npc.id, npc.npc.speakerPortraits);
             busy = true;
+        }
+        if(coll.gameObject.TryGetComponent<Item>(out var item))
+        {
+
         }
         
 

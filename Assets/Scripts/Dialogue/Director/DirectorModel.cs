@@ -103,7 +103,7 @@ public abstract class DirectorModel
         // DIALOGUE CONDITIONED ON ALL 3 PARENTS
         CPTPrior_Dialogue = Variable.Array(Variable.Array(Variable.Array<Dirichlet>(EventsRange), TraitsRange), RelStatusRange).Named("DialoguePriors");
         // initialize
-        CPT_Dialogue = Variable.Array(Variable.Array(Variable.Array<Vector>(EventsRange), TraitsRange), RelStatusRange).Named("CptDialoogue");
+        CPT_Dialogue = Variable.Array(Variable.Array(Variable.Array<Vector>(EventsRange), TraitsRange), RelStatusRange).Named("CptDialogue");
         CPT_Dialogue[EventsRange][TraitsRange][RelStatusRange] = Variable<Vector>.Random(CPTPrior_Dialogue[EventsRange][TraitsRange][RelStatusRange]);
         // the vallues accepted of cpt dialogue is the range of dialogue
         CPT_Dialogue.SetValueRange(DialogueRange);

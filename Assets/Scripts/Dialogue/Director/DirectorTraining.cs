@@ -39,6 +39,7 @@ public class DirectorTraining : DirectorModel
         // setting distrib of relationship
         RelStatusCurrent = Variable.Discrete(Prob_RelStatus);
 
+        Debug.Log("Training model instantiated");
     }
 
     /// <summary>

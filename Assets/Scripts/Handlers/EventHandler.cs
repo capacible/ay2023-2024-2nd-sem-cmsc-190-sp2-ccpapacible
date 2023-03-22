@@ -16,6 +16,9 @@ public class EventHandler : MonoBehaviour
     // the following string params will be changed into DialogueLines later
     public static event System.Action<string, DialogueLine> OnDialogueFound;
 
+    // INVENTORY AND HELD ITEM
+    public static event System.Action<string, ItemData> OnPickup; // id of object, itemdata of object
+
     // OTHER
     public static event System.Action OnInteractConclude;       // when you're done interacting with object
 
@@ -76,6 +79,7 @@ public class EventHandler : MonoBehaviour
         // The speaker should exist within the director's speaker tracker in order to use the director.
         if (Director.SpeakerExists(npcId))
         {
+            Debug.Log("speaker exists!");
             DialogueLine line = Director.StartAndGetLine(npcId, currentMap);
 
             OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
@@ -110,4 +114,15 @@ public class EventHandler : MonoBehaviour
         OnInteractConclude?.Invoke();
     }
     
+    // INVENTORY EVENTS
+
+    /// <summary>
+    /// Called upon interacting with an item, the following events will happen:
+    ///     > the inventory will keep track of the item data
+    ///     > inventory popup of the item will pop up on top of the player position (as a notification sort of)
+    /// </summary>
+    public void PickupItem()
+    {
+
+    }
 }

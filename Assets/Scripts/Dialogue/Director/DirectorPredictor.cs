@@ -10,7 +10,7 @@ public class DirectorPredictor : DirectorModel
     public DirectorPredictor(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus)
         : base(totalEvents, totalTraits, totalDialogue, totalRelStatus)
     {
-
+        Debug.Log("Predictor model instantiated.");
     }
 
     public static int GetProperWeight(DialogueLine dl, int mood)

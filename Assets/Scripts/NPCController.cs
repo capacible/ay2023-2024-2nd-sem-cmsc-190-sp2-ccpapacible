@@ -6,6 +6,7 @@ using UnityEngine;
 // NPCs will be changed into prefabs once database reading at start of game is implemented.
 public class NPCController : MonoBehaviour
 {
+    // ALL NPCS MUST HAVE A UNIQUE ID
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
     public string id;
     public NPCData npc;                 // holds archetype id
@@ -28,10 +29,20 @@ public class NPCController : MonoBehaviour
                 Director.AddNewSpeaker(npc, id, npcDisplayName);
             }
         }
-        
-        if(gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
+
+        SetSprite();
+    }
+
+    /// <summary>
+    /// Gets the spriterenderer component of the gameobject of this script and modifies the default sprite to be
+    /// the actual sprite.
+    /// </summary>
+    private void SetSprite()
+    {
+
+        if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
         {
-            if(npc.speakerSprite == null)
+            if (npc.speakerSprite == null)
             {
                 Debug.LogWarning("speakerSprite does not exist.");
             }
@@ -43,10 +54,13 @@ public class NPCController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("SpriteRenderer component not found.");
+            Debug.LogError("SpriteRenderer component not found.");
         }
     }
     
+    /// <summary>
+    /// Generates an id for the NPC object exactly once.
+    /// </summary>
     [ContextMenu("Generate Id for NPC")]
     public void GenerateId()
     {

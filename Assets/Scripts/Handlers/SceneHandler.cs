@@ -11,12 +11,15 @@ public class SceneHandler : MonoBehaviour
     // upon creation of the scene handler, we automatically load the first scene.
     [SerializeField]
     private string firstScene;
+    [SerializeField]
+    private string inventoryScene;
 
     // OTHER SCENE NAMES
     private string currentUiScene;
     private string currentMapScene;
     private string toLoad;
 
+    // some outside function is subscribed here; which dictates what happens when a certain UI is loaded.
     public static event System.Action<object[]> OnUiLoaded;
 
     // remembering the parameters of the current ui
@@ -35,6 +38,8 @@ public class SceneHandler : MonoBehaviour
 
         // load the first scene additively
         SceneManager.LoadSceneAsync(firstScene, LoadSceneMode.Additive);
+        // load inventory scene additively -- player can see the
+        //SceneManager.LoadSceneAsync(inventoryScene, LoadSceneMode.Additive);
     }
 
     /// <summary>
@@ -77,6 +82,5 @@ public class SceneHandler : MonoBehaviour
         // call OnUiLoaded to run the appropriately subscribed function
         OnUiLoaded(uiParams);
     }
-
 
 }
