@@ -8,7 +8,7 @@ public class NPCController : MonoBehaviour
 {
     // ALL NPCS MUST HAVE A UNIQUE ID
     // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
-    public string id;
+    public string objId;
     public NPCData npc;                 // holds archetype id
 
     // BELOW ARE ATTRIBUTES THAT WILL BE USED WHEN THE READING DATABASE @ GAME START IS IMPLEMENTED
@@ -16,17 +16,17 @@ public class NPCController : MonoBehaviour
 
     void Start()
     {
-        if(id == "")
+        if(objId == "")
         {
             Debug.LogError("Id field is empty. Please generate an identifier for this NPC object");
         }
         else
         {
             // upon starting, we check if this NPC object is already in the allspeaker dictionary
-            if (!Director.SpeakerExists(id))
+            if (!Director.SpeakerExists(objId))
             {
                 // we add the npc into the allSpeakers list if it doesnt exist yet
-                Director.AddNewSpeaker(npc, id, npcDisplayName);
+                Director.AddNewSpeaker(npc, objId, npcDisplayName);
             }
         }
 
@@ -64,6 +64,6 @@ public class NPCController : MonoBehaviour
     [ContextMenu("Generate Id for NPC")]
     public void GenerateId()
     {
-        id = npc.speakerArchetype + System.Guid.NewGuid().ToString();
+        objId = npc.speakerArchetype + System.Guid.NewGuid().ToString();
     }
 }

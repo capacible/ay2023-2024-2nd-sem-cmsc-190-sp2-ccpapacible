@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviour
 
     // 
     [HideInInspector]
-    public List<Collider2D> collided = new List<Collider2D>();
+    public List<GameObject> collided = new List<GameObject>();
 
     // Start is called before the first frame update {
     void Start()
     {
         EventHandler.OnInteractConclude += EndInteraction;
+        EventHandler.OnCollision += AddCollision;
+        EventHandler.OnNotCollision += RemoveCollision;
         
         Init();
     }
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         EventHandler.OnInteractConclude -= EndInteraction;
+        EventHandler.OnCollision -= AddCollision;
+        EventHandler.OnNotCollision -= RemoveCollision;
     }
 
     private void Init()
@@ -75,23 +79,41 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        // our interaction will go kung ano yung last na nalapitan
-        Collider2D coll = collided[collided.Count - 1];
-        
-        // check the type
-        if (coll.gameObject.TryGetComponent<NPCController>(out var npc))
+        // only do things if we are colliding w smth
+        if(collided.Count > 0)
         {
-            // if the game object is an NPC:
-            // run eventhandler
-            EventHandler.Instance.TriggerDialogue(npc.id, npc.npc.speakerPortraits);
-            busy = true;
-        }
-        if(coll.gameObject.TryGetComponent<Item>(out var item))
-        {
+            // our interaction will go kung ano yung last na nalapitan
+            GameObject coll = collided[collided.Count - 1];
 
+            // check the type
+            if (coll.TryGetComponent<NPCController>(out var npc))
+            {
+                // if the game object is an NPC:
+                // run eventhandler
+                EventHandler.Instance.TriggerDialogue(npc.objId, npc.npc.speakerPortraits);
+                busy = true;
+            }
+            if (coll.TryGetComponent<Item>(out var item))
+            {
+                // if our collided object is an item, then we pickup
+                EventHandler.Instance.PickupItem(item.objId, item.data);
+            }
         }
         
+    }
 
+    /// <summary>
+    /// Adds the game object that the player collides with to the list of objects that the player is currently colliding with
+    /// </summary>
+    /// <param name="obj"></param>
+    private void AddCollision(GameObject obj)
+    {
+        collided.Add(obj);
+    }
+
+    private void RemoveCollision(GameObject obj)
+    {
+        collided.Remove(obj);
     }
 
     private void EndInteraction()

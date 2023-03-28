@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A scriptable object to be attached to Item scripts.
+/// </summary>
+[CreateAssetMenu(fileName = "item", menuName = "Create a new item")]
 public class ItemData : ScriptableObject
 {
     // can be read from csv pero since small project keri na to manual :>

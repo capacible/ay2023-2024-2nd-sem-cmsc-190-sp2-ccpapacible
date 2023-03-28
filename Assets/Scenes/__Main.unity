@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstScene: SampleScene
+  inventoryScene: _Inventory
 --- !u!4 &1897135126
 Transform:
   m_ObjectHideFlags: 0

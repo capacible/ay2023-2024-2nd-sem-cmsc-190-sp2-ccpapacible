@@ -74,10 +74,13 @@ public abstract class DirectorModel
         /*
          * CREATING THE RANGES
          */
-        EventsRange = new Range(totalEvents);
-        TraitsRange = new Range(totalTraits);
-        DialogueRange = new Range(totalDialogue);
-        RelStatusRange = new Range(totalRelStatus);
+        // CREATE NUMBER OF CASES RANGE TO USE DUN SA RANDOM VARIABLE INITIALIZATION MISMO
+
+        // possible outcomes or parameters
+        EventsRange = new Range(totalEvents).Named("Events");
+        TraitsRange = new Range(totalTraits).Named("Traits");
+        RelStatusRange = new Range(totalRelStatus).Named("Rel");
+        DialogueRange = new Range(totalDialogue).Named("Dialogue");
 
         /*
          * CREATE PRIORS AND CPT TABLES
@@ -100,21 +103,43 @@ public abstract class DirectorModel
         Prob_RelStatus = Variable<Vector>.Random(ProbPrior_RelStatus).Named("PossibleRel");
         Prob_RelStatus.SetValueRange(RelStatusRange);
 
-        // DIALOGUE CONDITIONED ON ALL 3 PARENTS
-        CPTPrior_Dialogue = Variable.Array(Variable.Array(Variable.Array<Dirichlet>(EventsRange), TraitsRange), RelStatusRange).Named("DialoguePriors");
-        // initialize
-        CPT_Dialogue = Variable.Array(Variable.Array(Variable.Array<Vector>(EventsRange), TraitsRange), RelStatusRange).Named("CptDialogue");
+
+        /*
+            CREATING DIALOGUE CONDITIONED ON ALL 3 PARENTS  
+
+             hopefully idiot proof explanation for future me:
+             we basically nested variable types from our # of parents (in dialogue case, 3 parents) up to 1 parent.
+             we created (on the innermost) a variablearray for just 1 parent; from that we create a variable array from 2 parent
+             then created a variablearray from 3 parent.
+             remember that this <VariableArray<VariableArray<Dirichlet>, Dirichlet[][]>, Dirichlet[][][]> is the type we declared up above
+        
+         */
+
+        // initialize the CPT
+        CPTPrior_Dialogue = Variable.Array<VariableArray<VariableArray<Dirichlet>, Dirichlet[][]>, Dirichlet[][][]>(Variable.Array<VariableArray<Dirichlet>, Dirichlet[][]>(Variable.Array<Dirichlet>(RelStatusRange), TraitsRange), EventsRange).Named("DialogueCPTPrior");
+        // initialize the variable
+        CPT_Dialogue = Variable.Array<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]>(Variable.Array<VariableArray<Vector>, Vector[][]>(Variable.Array<Vector>(RelStatusRange), TraitsRange), EventsRange).Named("DialogueCPT");
+        // create a random variable for all row/cols of the cpt dialogue
         CPT_Dialogue[EventsRange][TraitsRange][RelStatusRange] = Variable<Vector>.Random(CPTPrior_Dialogue[EventsRange][TraitsRange][RelStatusRange]);
-        // the vallues accepted of cpt dialogue is the range of dialogue
+        // the values accepted by cpt dialogue is the range of dialogue 
         CPT_Dialogue.SetValueRange(DialogueRange);
 
 
         /*
          * CREATING THE PRIMARY VARIABLES...
          */
+        // parents
+        // we sort of associate the outcomes (lefthand side) with their probabilities (right hand side, prob_varname) by
+        // setting their variable probabilities to be of the discrete type
         Events = Variable.Array<int>(EventsRange).Named("AllEvents");
+        Events[DialogueRange] = Variable.Discrete(Prob_Events).ForEach(DialogueRange);
+
         Traits = Variable.Array<int>(TraitsRange).Named("AllTraits");
+        Traits[DialogueRange] = Variable.Discrete(Prob_Traits).ForEach(DialogueRange);
+
         RelStatus = Variable.Array<int>(RelStatusRange).Named("AllRels");
+        RelStatus[DialogueRange] = Variable.Discrete(Prob_RelStatus).ForEach(DialogueRange);
+
         // children
         Dialogue = AddDialogueNodeFrmParents(Events, Traits, RelStatus, CPT_Dialogue);
 
@@ -135,17 +160,20 @@ public abstract class DirectorModel
         VariableArray<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]> cptDialogue)
     {
 
-        var dimension = events.Range;
-        
+        var dimension = rels.Range;
         
         var child = Variable.Array<int>(dimension);
-
-        using (Variable.ForEach(dimension))
-        using (Variable.Switch(events[dimension]))
-        using (Variable.Switch(traits[dimension]))
+               
+        // THERES AN ERROR HERE
+        // cannot open switch after foreach for some reason
+        using (ForEachBlock blk = Variable.ForEach(dimension))
         using (Variable.Switch(rels[dimension]))
+        using (Variable.Switch(traits[dimension]))
+        using (Variable.Switch(events[dimension]))
+        {
             // each instance of variable in child of range dimension will be associated w/ each variable in events/traits/rels
-            child[dimension] = Variable.Discrete(cptDialogue[events[dimension]][traits[dimension]][rels[dimension]]);
+            child[dimension] = Variable.Discrete(cptDialogue[rels[dimension]][traits[dimension]][events[dimension]]);
+        }
 
         return child;
     }

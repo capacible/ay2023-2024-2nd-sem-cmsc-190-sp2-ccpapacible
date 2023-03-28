@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The purpose of this script is only so that objects don't have to reference each other (or other singletons aside frm this one)
+/// directly.
+/// Having to rely on them depending on each other gives me a headache when something goes wrong
+/// </summary>
 public class EventHandler : MonoBehaviour
 {
     public static EventHandler Instance;
+    
     private string currentMap = "sample";
 
     // ACTIONS
@@ -16,14 +22,16 @@ public class EventHandler : MonoBehaviour
     // the following string params will be changed into DialogueLines later
     public static event System.Action<string, DialogueLine> OnDialogueFound;
 
-    // INVENTORY AND HELD ITEM
+    // INVENTORY AND OTHER INTERACTIONS
     public static event System.Action<string, ItemData> OnPickup; // id of object, itemdata of object
+    public static event System.Action<GameObject> OnCollision;
+    public static event System.Action<GameObject> OnNotCollision;
 
     // OTHER
     public static event System.Action OnInteractConclude;       // when you're done interacting with object
 
     // ensure that EventHandler is initialized first before all other components
-    private void Start()
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -39,15 +47,29 @@ public class EventHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes everything needed for the game.
+    /// Initializes what's needed for the game from the TITLE SCREEN
+    ///     > sounds / music player
+    ///     > scene
     /// </summary>
     private void InitGame()
     {
         Director.Start();
     }
 
-    // DIALOGUE SYSTEM EVENTS
+    /// <summary>
+    /// Starts the game proper with the actual starting game scene.
+    ///     > when start game is selected
+    /// The ff function may be changed if may title screen na tayo and stuff; for now, this gets called in SceneHandler
+    /// when our starting scene is loaded.
+    /// </summary>
+    public void StartGame()
+    {
+        SceneHandler.Instance.LoadUiScene("_Inventory", null);
+    }
 
+    /*
+     *  DIALOGUE SYSTEM
+     */
     /// <summary>
     /// Triggers the start of a dialogue.
     /// </summary>
@@ -57,8 +79,8 @@ public class EventHandler : MonoBehaviour
         // StartDialogue will run when OnUiLoaded is called within the SceneHandler.
         SceneHandler.OnUiLoaded += StartDialogue;
 
-        // load the dialogue scene
         SceneHandler.Instance.LoadUiScene("_Dialogue", new object[] { npcObjId, portrait });
+        
     }
 
     /// <summary>
@@ -114,15 +136,32 @@ public class EventHandler : MonoBehaviour
         OnInteractConclude?.Invoke();
     }
     
-    // INVENTORY EVENTS
+    /*
+     *  INTERACTIONS
+     */
+    
+    /// <summary>
+    /// Called when player enters the interact prompt trigger zone.
+    /// </summary>
+    /// <param name="collisionObj"> The parent object of the collider or interact prompt. </param>
+    public void CollidingWithPlayer(GameObject collisionObj)
+    {
+        OnCollision?.Invoke(collisionObj);
+    }
+
+    public void NotCollidingWithPlayer(GameObject collisionObj)
+    {
+        OnNotCollision?.Invoke(collisionObj);
+    }
 
     /// <summary>
     /// Called upon interacting with an item, the following events will happen:
-    ///     > the inventory will keep track of the item data
-    ///     > inventory popup of the item will pop up on top of the player position (as a notification sort of)
+    ///     > the inventory will keep track of the item data (INVENTORY HANDLER delegate)
+    ///     > inventory popup of the item will pop up on top of the player position (as a notification sort of) (UI delegate)
+    ///     > the item destroys itself and removes itself fromt the SceneData. (ITEM delegate)
     /// </summary>
-    public void PickupItem()
+    public void PickupItem(string objId, ItemData item)
     {
-
+        OnPickup?.Invoke(objId, item);
     }
 }

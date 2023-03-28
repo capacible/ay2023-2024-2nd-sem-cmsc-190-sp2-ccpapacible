@@ -1,48 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class InventoryHandler : MonoBehaviour
 {
-    // here we will pull actual data on the item when viewed or selected or held and so on.
-    private Dictionary<string, ItemData> Inventory = new Dictionary<string, ItemData>();
+    public static InventoryHandler Instance = null;
 
     // list of all object ids (unique items) in order , we use this to scroll through all items we have in proper order
-    private List<string> itemList = new List<string>();
-    private int currentHeldItem = 0;
+    private List<ItemData> Inventory = new List<ItemData>();
+    // index of our held item
+    private int heldItem = -1;
 
     // UI stuff here; click drag the ui stuff into these fields
-    // button (2) -> arrows
-    // image field (for icon)
-    // window or image field (for whole container
-    // text field (for name of item (display name))
-    // text field for description of item
+    public Canvas inventoryCanvas;
+    public Image iconContainer;
+    public Image iconImg;
+    public Button next;
+    public Button prev;
+    public TextMeshProUGUI itemName;
 
-    // held item id
-    // in the ui, we get the ItemData that corresponds to the heldItem (object id), access the inventory icon and then draw it
-    private string heldItem = "";
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            // destroy self if we already have an instance of inventoryhandler
+            Debug.LogWarning("Existing instance of inventory found");
+            Destroy(gameObject);
+        }
+
+        // do singleton things
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+
+        Debug.Log("Instantiated invenotry");
+    }
 
     private void Start()
     {
-        // dontdestroy?
-        
-
         // subscribing
         EventHandler.OnPickup += AddToInventory;
+
+        // initialize UI
+        Init();
+    }
+
+    private void OnDestroy()
+    {
+        EventHandler.OnPickup -= AddToInventory;
+    }
+
+    private void Init()
+    {
+        // find the camera and set the canvas camera to that.
+        inventoryCanvas.worldCamera = FindObjectOfType<Camera>();
     }
 
     private void AddToInventory(string objId, ItemData data)
     {
-        // no limit to inventory sort of
-        Inventory.Add(objId, data);
 
-        // add to list of ids
-        itemList.Add(objId);
+        // add to list of item data.
+        Inventory.Add(data);
 
-        // if we don't have a held item, we set this to be the held item
-        if (heldItem == "")
+        // if we don't have a held item, we set this currently added thing to be our held item
+        if (heldItem == -1)
         {
-            heldItem = objId;
+            heldItem = Inventory.Count - 1;
 
             // update ui
             RefreshUi();
@@ -54,18 +78,22 @@ public class InventoryHandler : MonoBehaviour
     // if more than max, we move to the start or 1st item
     public void NextItem()
     {
-        if(currentHeldItem + 1 < itemList.Count)
+        // if no items
+        if(Inventory.Count == 0)
         {
-            currentHeldItem++;            
+            return;
+        }
+
+        Debug.Log("Moving to next item " + heldItem);
+        if(heldItem + 1 < Inventory.Count)
+        {
+            heldItem++;            
         }
         else
         {
             // if max na;
-            currentHeldItem = 0; // set to 0 (starting index)
+            heldItem = 0; // set to 0 (starting index)
         }
-
-        // access the new held item and overwrite
-        heldItem = itemList[currentHeldItem];
 
         // updating ui
         RefreshUi();
@@ -74,29 +102,46 @@ public class InventoryHandler : MonoBehaviour
     // on click --> prev item
     public void PrevItem()
     {
+        // if no items
+        if (Inventory.Count == 0)
+        {
+            return;
+        }
+
         // if our current held item is NOT 0 (aka not the first...)
-        if (currentHeldItem > 0)
+        if (heldItem > 0)
         {
             // decrement to go to previous index
-            currentHeldItem--;
+            heldItem--;
         }
         else
         {
             // if min na, just get the max index of the itemList
-            currentHeldItem = itemList.Count - 1;
+            heldItem = Inventory.Count - 1;
         }
-
-        // access the new held item and overwrite
-        heldItem = itemList[currentHeldItem];
 
         // updating ui
         RefreshUi();
     }
 
-    // refreshes ui -- changes the ui/images/text based on the changes in the held item.
+    /// <summary>
+    /// Updates the UI based on the held item.
+    /// </summary>
     private void RefreshUi()
     {
-
+        if (heldItem != -1)
+        {
+            // changing the item name
+            itemName.text = Inventory[heldItem].itemName;
+            // changing the item sprite
+            iconImg.sprite = Inventory[heldItem].itemSprite;
+        }
+        else
+        {
+            // error
+            Debug.LogError("Invalid item index.");
+        }
     }
+   
 
 }

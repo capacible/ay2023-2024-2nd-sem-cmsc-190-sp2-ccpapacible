@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4c7b740df395d45b433cee8abcfd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  npc: {fileID: 11400000, guid: 3da93ec8e8b7fec42a171e06d080a9e0, type: 2}
+  objId: 
+  npc: {fileID: 0}
   npcDisplayName: 
 --- !u!61 &5996489036615963558
 BoxCollider2D:
