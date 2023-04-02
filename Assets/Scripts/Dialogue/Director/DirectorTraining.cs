@@ -31,6 +31,11 @@ public class DirectorTraining : DirectorModel
         EventsOccurred = Variable.Array<int>(eoRange);      // each element in the training data is an event
         TraitsPresent = Variable.Array<int>(tRange);
 
+        /*
+         *  THIS CODE BLOCK BELOW is the exact same as the code block in primary variables in the director model class.
+         *  This is redundant then?
+         */
+
         // setting the probabilities or distributions of the events
         EventsOccurred[eoRange] = Variable.Discrete(Prob_Events).ForEach(eoRange);
         // distribution of the traits present or observed; applied into the probability of traits
@@ -38,6 +43,8 @@ public class DirectorTraining : DirectorModel
         
         // setting distrib of relationship
         RelStatusCurrent = Variable.Discrete(Prob_RelStatus);
+
+        // instantiate the primary variables based on the lengths.
 
         Debug.Log("Training model instantiated");
     }

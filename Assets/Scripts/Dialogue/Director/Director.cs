@@ -68,9 +68,9 @@ public static class Director
         LoadSpeakers();
         
         // the models
-        trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
+        //trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        //predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        //data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
 
     }
 

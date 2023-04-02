@@ -15,7 +15,7 @@ public class Item : MonoBehaviour
         // we check if the item exists in the scene
         if (!SceneData.ObjectIsInScene(objId))
         {
-            Debug.Log("This item has been removed from the scene before you left.");
+            Debug.Log("This item" + objId + "has been removed from the scene before you left.");
             Destroy(gameObject);
         }
 
@@ -41,6 +41,7 @@ public class Item : MonoBehaviour
         // if statement all objects might be destroyed as long as its an Item
         if (objId == id)
         {
+            // remove from the existingObjects in scene list -- thus game remembers na nakuha mo na to and avoiding dupes
             SceneData.RemoveObject(objId);
 
             // destroy yourself

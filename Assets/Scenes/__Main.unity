@@ -152,8 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7333d8d22262d9a4da268f2cc37f7166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: SampleScene
-  inventoryScene: _Inventory
+  firstScene: Floor1
 --- !u!4 &1897135126
 Transform:
   m_ObjectHideFlags: 0

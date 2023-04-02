@@ -64,6 +64,9 @@ public class NPCController : MonoBehaviour
     [ContextMenu("Generate Id for NPC")]
     public void GenerateId()
     {
-        objId = npc.speakerArchetype + System.Guid.NewGuid().ToString();
+        if (npc != null)
+            objId = npc.speakerArchetype + System.Guid.NewGuid().ToString();
+
+        Debug.LogError("No NPC data attached to this controller yet.");
     }
 }

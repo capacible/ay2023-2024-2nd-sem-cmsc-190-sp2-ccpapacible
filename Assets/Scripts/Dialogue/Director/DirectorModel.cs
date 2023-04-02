@@ -25,11 +25,14 @@ public abstract class DirectorModel
     protected Range TraitsRange;
     protected Range RelStatusRange;
     protected Range DialogueRange;
+    protected Range N;              // cases number
 
     /*
      * RANDOM VARIABLE REPRESENTATIONS
      *      one element of the array represents one outcome
      */
+
+    protected Variable<int> NumOfCases;
 
     // PARENTS
     protected VariableArray<int> Events;
@@ -74,7 +77,14 @@ public abstract class DirectorModel
         /*
          * CREATING THE RANGES
          */
+
         // CREATE NUMBER OF CASES RANGE TO USE DUN SA RANDOM VARIABLE INITIALIZATION MISMO
+        // this represents the number of cases we know or checked or sum shit -- more or less how many things na 
+        // may "known" na tayo and in our case the number of cases is how many times in total we queried ?
+        // well, i don't think its the number of queries.
+        // is number of cases actually more based on the number of EVENTS occurred and traits occurred?
+        NumOfCases = Variable.New<int>().Named("NumberOfCases");
+        N = new Range(NumOfCases).Named("NCases");
 
         // possible outcomes or parameters
         EventsRange = new Range(totalEvents).Named("Events");
@@ -159,7 +169,7 @@ public abstract class DirectorModel
         VariableArray<int> rels,
         VariableArray<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]> cptDialogue)
     {
-
+        // the dimension of our outer 
         var dimension = rels.Range;
         
         var child = Variable.Array<int>(dimension);

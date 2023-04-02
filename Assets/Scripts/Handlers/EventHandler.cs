@@ -11,7 +11,7 @@ public class EventHandler : MonoBehaviour
 {
     public static EventHandler Instance;
     
-    private string currentMap = "sample";
+    public string currentMap;
 
     // ACTIONS
 
@@ -26,7 +26,7 @@ public class EventHandler : MonoBehaviour
     public static event System.Action<string, ItemData> OnPickup; // id of object, itemdata of object
     public static event System.Action<GameObject> OnCollision;
     public static event System.Action<GameObject> OnNotCollision;
-
+    
     // OTHER
     public static event System.Action OnInteractConclude;       // when you're done interacting with object
 

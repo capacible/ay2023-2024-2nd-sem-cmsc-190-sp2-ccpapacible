@@ -18,6 +18,12 @@ public class SceneHandler : MonoBehaviour
     private string toLoadMap = "";
     private string toLoadUi = "";
 
+    // other
+
+    // integer for keeping track of where exactly in the map the player will go
+    // if this is -1, then the player will spawn at default position in the loaded scene.
+    private string transitionDestId;
+
     // some outside function is subscribed here; which dictates what happens when a certain UI is DONE loading.
     public static event System.Action<object[]> OnUiLoaded;
 
@@ -63,7 +69,7 @@ public class SceneHandler : MonoBehaviour
      *  SCENE LOADING THINGS
      */
 
-    public void LoadMapScene(string nameOfScene)
+    public void LoadMapScene(string nameOfScene, string dest = "")
     {
         Debug.Log("loading map scene..." + nameOfScene);
         
@@ -76,6 +82,7 @@ public class SceneHandler : MonoBehaviour
         
         // load the scene
         toLoadMap = nameOfScene;
+        transitionDestId = dest;
 
         SceneManager.LoadScene(toLoadMap, LoadSceneMode.Additive);
     }
@@ -151,16 +158,22 @@ public class SceneHandler : MonoBehaviour
     private void MapSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("map scene is loaded");
-                
+                        
         // change our current map scene.
         currentMapScene = toLoadMap;
+        // we also set the eventhandler's current map to be kung saan na tayo now.
+        EventHandler.Instance.currentMap = currentMapScene;
+
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentMapScene));
+
+        // position player first
+        SceneData.PositionPlayer(transitionDestId);
 
         // update scene data once our active scene has been set.
         SceneData.UpdateDataOnLoad(currentMapScene);
         
     }
-
+    
 }
 
 
@@ -170,6 +183,10 @@ public class SceneHandler : MonoBehaviour
 /// </summary>
 public static class SceneData
 {
+    // defines player position at start of scene
+    public static Vector3 playerDirOffset;
+    public static Vector3? destPosition;
+
     // keep track of our current scene -- must be same as scenehandler
     public static string currentScene;
     public static Scene activeScene;
@@ -178,7 +195,7 @@ public static class SceneData
     // a dictionary of scenes that contain a list of ids of objects that exist in the scene when we left it.
     public static Dictionary<string, List<string>> existingObjInScene = new Dictionary<string, List<string>>();
     
-    // a copy of data in our objects
+    // a copy of data in our objects -- not needed so far, but options r open lol
 
     /// <summary>
     /// Updates scene data
@@ -189,7 +206,7 @@ public static class SceneData
         currentScene = currentMapScene;
         activeScene = SceneManager.GetActiveScene();
 
-        // if the scenelist doesnt have the current scene yet (meaning first load), we add it to the scenelist.
+        // if the scenelist doesnt have the current scene yet (meaning first load palang), we add it to the scenelist.
         // we also initialize the initial objects in this scene into existingObjInScene
         if (!sceneList.Contains(currentMapScene))
         {
@@ -228,5 +245,37 @@ public static class SceneData
     public static bool ObjectIsInScene(string id)
     {
         return existingObjInScene[currentScene].Contains(id);
+    }
+
+    /// <summary>
+    /// Finds the correct transition object and sets the sceneData to remember the needed positions and offsets for positioning
+    /// the player
+    /// </summary>
+    public static void PositionPlayer(string transitionDestId)
+    {
+        // if we DO NOT have a transition location in mind, we set player position to be null (default)
+        // player controller will adjust accordingly
+        if (transitionDestId == "")
+        {
+            destPosition = null;
+            playerDirOffset = new Vector3(0, 0, 0);
+            return;
+        }
+
+        GameObject[] root = SceneManager.GetActiveScene().GetRootGameObjects();
+
+        foreach (GameObject go in root)
+        {
+            // if transition.
+            if (go.TryGetComponent(out Transition t))
+            {
+                if (go.name == transitionDestId)
+                {
+                    Debug.Log("transport player into location :" + go.name);
+                    destPosition = go.transform.position;
+                    playerDirOffset = t.offsetDirection;
+                }
+            }
+        }
     }
 }

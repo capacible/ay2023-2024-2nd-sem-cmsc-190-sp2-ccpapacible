@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update {
     void Start()
     {
+        Debug.Log("Loaded the player object");
         EventHandler.OnInteractConclude += EndInteraction;
         EventHandler.OnCollision += AddCollision;
         EventHandler.OnNotCollision += RemoveCollision;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
         Init();
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         EventHandler.OnInteractConclude -= EndInteraction;
         EventHandler.OnCollision -= AddCollision;
@@ -45,6 +46,20 @@ public class PlayerController : MonoBehaviour
         // get the renderer component
         r = GetComponent<SpriteRenderer>();
         
+        // set the position if a specific position exists
+        if(SceneData.destPosition != null)
+        {
+            Debug.Log("changing position of player");
+
+            // size of player
+            Vector3 size = r.bounds.size;
+            // the destination and the offset
+            Vector3 dest = (Vector3)SceneData.destPosition;
+            Vector3 offset = new Vector3(size.x * SceneData.playerDirOffset.x * 2, size.y * SceneData.playerDirOffset.y * 2, size.z * SceneData.playerDirOffset.z * 2);
+
+            // we multiply the playerDiroffset with the bounds of player, then add it to the destination.
+            gameObject.transform.localPosition = dest + offset;
+        }
     }
 
     // Update is called once per frame
@@ -124,7 +139,6 @@ public class PlayerController : MonoBehaviour
     private void PlayerMove(Vector2 dir)
     {
         body.MovePosition(new Vector2(transform.position.x + dir.x * speed, transform.position.y + dir.y * speed));
-        //transform.Translate(dir * speed * Time.deltaTime);
     }
-    
+        
 }
