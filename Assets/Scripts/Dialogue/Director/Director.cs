@@ -16,7 +16,7 @@ public static class Director
 {
 
     // tracking events and speakers.
-    public static string activeNPC;                                 // the current NPC speaking
+    private static string activeNPC;                                 // the current NPC speaking
     private static string currentMap;                               // current location
 
     /*
@@ -43,7 +43,10 @@ public static class Director
      */
      
     public static Dictionary<int, DialogueLine> lineDB { get; set; }    // dialogue line database
+    // xml array "events", xml item "event"
+    // actually we might also need a collection for this to handle the things
     private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
+    // xml array "traits", xml item "trait"
     private static Dictionary<int, string> allTraits = new Dictionary<int, string>();
     public static int allRelStatusCount = 3;
 
@@ -68,12 +71,12 @@ public static class Director
         LoadSpeakers();
         
         // the models
-        //trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        //predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        //data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
+        trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
+        data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
 
     }
-
+    
     /// <summary>
     /// Loads all the lines from XML files upon startup
     /// </summary>
@@ -218,8 +221,9 @@ public static class Director
         int rel = allSpeakers[activeNPC].RelationshipStatus();
 
         // make new inferences based on new data
-        // this replaces our old data.
         data = trainingModel.InferPredictionPriors(allEventsOccurred, allTraitsNPC, rel);
+        // these probabilities in data will then be used in directorpredictor to
+        // infer the actual lines.
     }
 
 

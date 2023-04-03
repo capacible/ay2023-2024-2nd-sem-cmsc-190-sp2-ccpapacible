@@ -18,6 +18,9 @@ public abstract class DirectorModel
     // infer
     protected InferenceEngine engine = new InferenceEngine();
 
+    // we always ded
+    protected Variable<int> NumOfCases;
+
     /*
      * RANGES
      */
@@ -25,14 +28,11 @@ public abstract class DirectorModel
     protected Range TraitsRange;
     protected Range RelStatusRange;
     protected Range DialogueRange;
-    protected Range N;              // cases number
 
     /*
      * RANDOM VARIABLE REPRESENTATIONS
      *      one element of the array represents one outcome
      */
-
-    protected Variable<int> NumOfCases;
 
     // PARENTS
     protected VariableArray<int> Events;
@@ -84,7 +84,7 @@ public abstract class DirectorModel
         // well, i don't think its the number of queries.
         // is number of cases actually more based on the number of EVENTS occurred and traits occurred?
         NumOfCases = Variable.New<int>().Named("NumberOfCases");
-        N = new Range(NumOfCases).Named("NCases");
+        Range N = new Range(NumOfCases).Named("NCases");
 
         // possible outcomes or parameters
         EventsRange = new Range(totalEvents).Named("Events");
@@ -141,14 +141,14 @@ public abstract class DirectorModel
         // parents
         // we sort of associate the outcomes (lefthand side) with their probabilities (right hand side, prob_varname) by
         // setting their variable probabilities to be of the discrete type
-        Events = Variable.Array<int>(EventsRange).Named("AllEvents");
-        Events[DialogueRange] = Variable.Discrete(Prob_Events).ForEach(DialogueRange);
+        Events = Variable.Array<int>(N).Named("AllEvents");
+        Events[N] = Variable.Discrete(Prob_Events).ForEach(N);
 
-        Traits = Variable.Array<int>(TraitsRange).Named("AllTraits");
-        Traits[DialogueRange] = Variable.Discrete(Prob_Traits).ForEach(DialogueRange);
+        Traits = Variable.Array<int>(N).Named("AllTraits");
+        Traits[N] = Variable.Discrete(Prob_Traits).ForEach(N);
 
-        RelStatus = Variable.Array<int>(RelStatusRange).Named("AllRels");
-        RelStatus[DialogueRange] = Variable.Discrete(Prob_RelStatus).ForEach(DialogueRange);
+        RelStatus = Variable.Array<int>(N).Named("AllRels");
+        RelStatus[N] = Variable.Discrete(Prob_RelStatus).ForEach(N);
 
         // children
         Dialogue = AddDialogueNodeFrmParents(Events, Traits, RelStatus, CPT_Dialogue);
@@ -176,13 +176,13 @@ public abstract class DirectorModel
                
         // THERES AN ERROR HERE
         // cannot open switch after foreach for some reason
-        using (ForEachBlock blk = Variable.ForEach(dimension))
+        using (Variable.ForEach(dimension))
         using (Variable.Switch(rels[dimension]))
         using (Variable.Switch(traits[dimension]))
         using (Variable.Switch(events[dimension]))
         {
             // each instance of variable in child of range dimension will be associated w/ each variable in events/traits/rels
-            child[dimension] = Variable.Discrete(cptDialogue[rels[dimension]][traits[dimension]][events[dimension]]);
+            child[dimension] = Variable.Discrete(cptDialogue[events[dimension]][traits[dimension]][rels[dimension]]);
         }
 
         return child;

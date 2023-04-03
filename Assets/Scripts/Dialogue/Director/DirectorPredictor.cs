@@ -109,6 +109,9 @@ public class DirectorPredictor : DirectorModel
     /// </summary>
     public Dictionary<int, double> InferLinePosteriors()
     {
+        // basically, we only query once or there is only one example to go off of (which is what we currently have)
+        NumOfCases.ObservedValue = 1;
+
         // inference of dialogue.
         var dLinePosteriors = engine.Infer<Discrete[]>(Dialogue);       // this is all the discrete possibilities
                                                                         // we get the doubles by dlinposteriors[index].GetProbs()[index]
@@ -143,7 +146,7 @@ public class DirectorPredictor : DirectorModel
         {
             int toAdd = UtilFunc(linePosteriors, topicsList, currentMood);
 
-            // remove from the dictionary the line we want to add
+            // remove from the dictionary the line we want to add -- so that we don't get it twice.
             linePosteriors.Remove(toAdd);
             top3.Add(Director.lineDB[toAdd]);
         }

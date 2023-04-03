@@ -44,13 +44,12 @@ public class DirectorTraining : DirectorModel
         // setting distrib of relationship
         RelStatusCurrent = Variable.Discrete(Prob_RelStatus);
 
-        // instantiate the primary variables based on the lengths.
-
         Debug.Log("Training model instantiated");
     }
 
     /// <summary>
     /// Infers new direction data
+    ///     This might be our version of LearnParameters
     /// </summary>
     /// <param name="allEventsOccurred"></param>
     /// <param name="allTraitsPresent"></param>
