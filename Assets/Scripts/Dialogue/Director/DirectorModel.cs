@@ -74,6 +74,9 @@ public abstract class DirectorModel
     /// </summary>
     public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus)
     {
+        // set location of generated source code
+        engine.Compiler.GeneratedSourceFolder = @"Assets/";
+
         /*
          * CREATING THE RANGES
          */

@@ -161,8 +161,6 @@ public class SceneHandler : MonoBehaviour
                         
         // change our current map scene.
         currentMapScene = toLoadMap;
-        // we also set the eventhandler's current map to be kung saan na tayo now.
-        EventHandler.Instance.currentMap = currentMapScene;
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentMapScene));
 
@@ -171,7 +169,6 @@ public class SceneHandler : MonoBehaviour
 
         // update scene data once our active scene has been set.
         SceneData.UpdateDataOnLoad(currentMapScene);
-        
     }
     
 }
@@ -180,6 +177,9 @@ public class SceneHandler : MonoBehaviour
 /// <summary>
 /// SceneData is in charge of remembering data between scenes; ensuring that an item that has been 'picked up'
 /// does not get re-instantiated upon leaving and re-entering the scene.
+/// 
+/// SceneData will also remember the scene name we are in; and since static siya, we simply reference this guy to 
+/// access the current scene we are at.
 /// </summary>
 public static class SceneData
 {
@@ -210,6 +210,9 @@ public static class SceneData
         // we also initialize the initial objects in this scene into existingObjInScene
         if (!sceneList.Contains(currentMapScene))
         {
+            // first call firstLoad director things
+            Director.SceneFirstLoad();
+
             sceneList.Add(currentMapScene);
             existingObjInScene.Add(currentMapScene, new List<string>());
             

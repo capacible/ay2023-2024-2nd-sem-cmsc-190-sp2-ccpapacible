@@ -11,8 +11,6 @@ public class EventHandler : MonoBehaviour
 {
     public static EventHandler Instance;
     
-    public string currentMap;
-
     // ACTIONS
 
     // DIALOGUE SPECIFIC
@@ -102,7 +100,7 @@ public class EventHandler : MonoBehaviour
         if (Director.SpeakerExists(npcId))
         {
             Debug.Log("speaker exists!");
-            DialogueLine line = Director.StartAndGetLine(npcId, currentMap);
+            DialogueLine line = Director.StartAndGetLine(npcId, SceneData.currentScene);
 
             OnDialogueFound?.Invoke(Director.ActiveNPCDisplayName(), line);
         }

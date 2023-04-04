@@ -59,6 +59,9 @@ public class DirectorTraining : DirectorModel
     {
         DirectorData posteriors = new DirectorData();
 
+        // set numebr of case
+        NumOfCases.ObservedValue = 1;
+
         // set the lengths
         EventsOccurredLen.ObservedValue = allEventsOccurred.Length;
         TraitsPresentLen.ObservedValue = allTraitsPresent.Length;

@@ -67,6 +67,8 @@ public static class Director
         allTraits.Add(1, "2");
         // load possible traits and count unique
 
+        // we also need to initialize the mapevents to have all the scenes in the dictionary.
+
         LoadLines();
         LoadSpeakers();
         
@@ -192,6 +194,15 @@ public static class Director
         }
 
         Debug.Log($"Added speaker with id {npcObjId}");
+    }
+
+    /// <summary>
+    /// First load of scene, we create a list and add it to the mapevents dict
+    /// </summary>
+    /// <param name="name"></param>
+    public static void SceneFirstLoad()
+    {
+        mapEvents.Add(SceneData.currentScene, new List<int>());
     }
 
     /// <summary>

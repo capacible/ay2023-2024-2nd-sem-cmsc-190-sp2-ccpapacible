@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private bool busy = false;
+    private bool busy = true;
 
     private Rigidbody2D body;
     private Vector2 movement;
@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
             // we multiply the playerDiroffset with the bounds of player, then add it to the destination.
             gameObject.transform.localPosition = dest + offset;
         }
+
+        busy = false;
     }
 
     // Update is called once per frame
