@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Data;
-using Mono.Data.Sqlite;
 using UnityEditor;
 using System.IO;
 using System.Xml;

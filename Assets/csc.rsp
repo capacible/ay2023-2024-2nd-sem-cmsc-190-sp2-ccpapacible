@@ -1,0 +1,5 @@
+-r:Assets\Plugins\Microsoft.ML.Probabilistic.Compiler.dll
+-r:Assets\Plugins\Microsoft.ML.Probabilistic.dll
+-r:Assets\Plugins\Microsoft.ML.Probabilistic.Learners.Classifier.dll
+-r:Assets\Plugins\Microsoft.ML.Probabilistic.Learners.dll
+-r:Assets\Plugins\Microsoft.ML.Probabilistic.Learners.Recommender.dll
