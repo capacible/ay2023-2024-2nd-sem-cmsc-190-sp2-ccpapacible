@@ -20,7 +20,7 @@ public class Transition : MonoBehaviour
         {
             // here we pass the scene location as well as the destination transition object para appropriate location 
             // nilalagay si player
-            SceneHandler.Instance.LoadMapScene(moveTo, transitionDest);
+            EventHandler.Instance.TransitionToScene(moveTo, transitionDest);
         }
     }
 }

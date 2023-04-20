@@ -12,8 +12,9 @@ using UnityEngine;
 public class NPCData : ScriptableObject
 {
     /* 
-     * INTERNAL STUFF
+     * FOR DIRECTED NPCS
      */
+    [Header("Directed NPCs")]
 
     // acquired from CSV file...
     public string speakerArchetype;     // the archetype that determines which lines to consider for this NPC object
@@ -21,8 +22,19 @@ public class NPCData : ScriptableObject
     // a list of speaker traits loaded from csv file. if filler character, these traits are randomized
     // for more variety between each individual filler character instance
     public List<string> speakerTraits = new List<string>();
+
+    [Header("Ink NPCs")]
+    // holds json file for those with tree dialogue;
+    public TextAsset inkJSON;
+
+    /*
+     *  GENERAL -- ALL NPCS NEED DIS
+     */
+     [Header("General")]
     // this will be a list of portraits eventually -- for different facesets
-    public Sprite speakerPortraits;
+    public List<Sprite> dialoguePortraits;
     // for changing the sprite into the actual.
-    public Sprite speakerSprite;
+    public Sprite worldSprite;
+
+    public bool usesDirector;
 }

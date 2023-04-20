@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 // in charge of showing the dialogue
 public class DialogueUi : MonoBehaviour
 {
@@ -21,29 +22,31 @@ public class DialogueUi : MonoBehaviour
     private int maxChoiceCount;         // acquired at initialization from how many buttons we added @ editor.
     private Text[] choiceText;          // used to directly reference the Text component of the choices buttons (para di na mag getComponent)
     private List<DialogueLine> playerChoices;
-    //private string[] playerChoices;     // the most recent acquired player choices from manager accessed when player clicks on one button.
-    private Sprite currentPortrait;
+    private Queue<string> retLine;           // the line returned by the manager/director.
+
+    // list of portraits that current npc will use.
+    private List<Sprite> portraitList;
     
     void Awake()
     {
         // subscriptions
-        EventHandler.OnDialogueTrigger += ShowUi;
-        EventHandler.OnDialogueFound += ShowNPCDialogue;
-        EventHandler.OnPlayerLinesFound += ShowPlayerChoices;
+        EventHandler.TriggeredDialogue += ShowUi;
+        EventHandler.FoundNPCLine += ShowNPCDialogue;
+        EventHandler.FoundPlayerLines += ShowPlayerChoices;
 
         Init();
     }
 
     private void OnDisable()
     {
-        EventHandler.OnDialogueTrigger -= ShowUi;
-        EventHandler.OnDialogueFound -= ShowNPCDialogue;
-        EventHandler.OnPlayerLinesFound -= ShowPlayerChoices;
+        EventHandler.TriggeredDialogue -= ShowUi;
+        EventHandler.FoundNPCLine -= ShowNPCDialogue;
+        EventHandler.FoundPlayerLines -= ShowPlayerChoices;
     }
 
     private void Init()
     {
-        canvas.worldCamera = FindObjectOfType<Camera>();
+        canvas.worldCamera = Camera.main;
 
         maxChoiceCount = choices.Length;
         anim.SetBool("isActive", false);
@@ -66,14 +69,38 @@ public class DialogueUi : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// A makeshift constant dictionary that basically converts our more "verbose" portrait tags in writing
+    /// into numerical versions that are more easily used in Unity spritesheets (spritesheet slices are named with _x at the end)
+    /// </summary>
+    /// <param name="portraitTag"></param>
+    /// <returns></returns>
+    public static int PortraitNum(string portraitTag)
+    {
+        switch (portraitTag)
+        {
+            case "neutral": return 0;
+            case "happy": return 1;
+            case "sad": return 2;
+            case "angry": return 3;
+        }
+
+        Debug.LogWarning("No appropriate tag found");
+        return 0;
+    }
+
     /// <summary>
     /// Shows the textbox when the dialogue is triggered.
     /// </summary>
     /// <param name="obj"></param>
     public void ShowUi(object[] obj)
     {
-        currentPortrait = (Sprite) obj[0];
-        charPortrait.sprite = currentPortrait;
+        NPCData npc = (NPCData) obj[0];
+        charPortrait.sprite = npc.dialoguePortraits[0];
+
+        // copy dialogue portraits from npc into our current list of portraits
+        portraitList = new List<Sprite>(npc.dialoguePortraits);
 
         // animate dialogue box entrance
         anim.SetBool("isActive", true);
@@ -83,29 +110,41 @@ public class DialogueUi : MonoBehaviour
     /// <summary>
     // changes the text of the textbox to be NPC dialogue.
     /// </summary>
-    /// <param name="npcLine">the dialogue line</param>
-    /// <param name="npcName">display name of active npc</param>
-    public void ShowNPCDialogue(string npcName, DialogueLine npcLine)
+    /// <param name="data"> includes dialogue line, active npc display name, and (optional) portrait emotion </param>
+    public void ShowNPCDialogue(object[] data)
     {
+        string npcName = (string)data[0];
+        string npcLine = (string)data[1];
+        string emote = (string)data[2]; // is simple emption
 
-        charName.text = npcName; 
-        dialogueText.text = npcLine.dialogue;
+        retLine = new Queue<string>(npcLine.Split("\n", System.StringSplitOptions.RemoveEmptyEntries));
+
+        Debug.Log("Number of subsequent lines: " + retLine.Count);
+
+        // set values
+        charName.text = npcName;
+        dialogueText.text = retLine.Dequeue();  // we dequeue (fifo) the topmost line.
+
+        // convert last element of portraitFile name (w/c is the tag) to number and get the sprite that contains
+        // that number.
+        charPortrait.sprite = portraitList[PortraitNum(emote)];
+        
+        // test log
+        Debug.Log("set sprite to: " + charPortrait.sprite.name + " done");
 
         // show next
         nextButton.gameObject.SetActive(true);
     }
-
+    
     /// <summary>
     /// display the player choices in buttons
     /// </summary>
     /// <param name="allChoices">a list of choice values</param>
-    public void ShowPlayerChoices(List<DialogueLine> allChoices)
+    public void ShowPlayerChoices(List<string> allChoices)
     {
         // set the buttons to be active
-        foreach (Button b in choices)
-        {
-            b.gameObject.SetActive(true);
-        }
+        // the last choice is always active though
+        choices[maxChoiceCount - 1].gameObject.SetActive(true);
 
         Debug.Log("count of allchoices:" + allChoices.Count);
 
@@ -113,11 +152,10 @@ public class DialogueUi : MonoBehaviour
         for (int i = 0; i < allChoices.Count; i++)
         {
             Debug.Log(i);
+            // set the button as active
+            choices[i].gameObject.SetActive(true);
             // get the text of ith element of player choices, assign it to the ith button
-            choiceText[i].text = allChoices[i].dialogue;
-
-            // also modify the ith element of playerChoices to erpresent our most recent set of choices acquired
-            playerChoices[i] = allChoices[i];
+            choiceText[i].text = allChoices[i];
         }
     }
 
@@ -135,10 +173,11 @@ public class DialogueUi : MonoBehaviour
         }
 
         // change portrait to npc
-        charPortrait.sprite = currentPortrait;
+        charPortrait.sprite = portraitList[0];
 
         // when choice is selected, call event handler to trigger onDialogueSelected
-        EventHandler.Instance.DisplayNPCLine(playerChoices[index]);
+        // we pass the index of the button selected w/c is representative of the order of the lines we return.
+        EventHandler.Instance.DisplayNPCLine(index);
     }
 
     /// <summary>
@@ -146,17 +185,33 @@ public class DialogueUi : MonoBehaviour
     /// </summary>
     public void NextButton()
     {
-        // clear dialogue text and set new char name
-        dialogueText.text = "";
-        charName.text = "You";
+        // As long as may laman pa, we keep dequeueing
+        if(retLine.TryDequeue(out string line))
+        {
+            dialogueText.text = line;
+        }
+        else if (!Director.isActive && !InkDialogueManager.isActive)
+        {
+            Debug.Log("Exiting dialogue because neither Director nor InkDManager is active.");
 
-        // set new portrait
-        charPortrait.sprite = playerPortrait;
+            // if the director isn't active and ink dialogue manager is not active, it's obvious that there's nothing
+            // more to say.
+            EventHandler.Instance.ConcludeDialogue();
+        }
+        else
+        {
+            // clear dialogue text and set new char name
+            dialogueText.text = "";
+            charName.text = "You";
 
-        // set the next button to be inactive
-        nextButton.gameObject.SetActive(false);
+            // set new portrait
+            charPortrait.sprite = playerPortrait;
 
-        EventHandler.Instance.DisplayPlayerLines();
+            // set the next button to be inactive
+            nextButton.gameObject.SetActive(false);
+
+            EventHandler.Instance.DisplayPlayerLines();
+        }
     }
 
     public void ConcludeButton()

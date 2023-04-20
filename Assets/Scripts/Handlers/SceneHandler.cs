@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    public static SceneHandler Instance = null;
-
     // upon creation of the scene handler, we automatically load the first scene.
     [SerializeField]
     private string firstScene;
 
     // OTHER SCENE NAMES
-    private string currentUiScene = "";
+    private string topmostUiScene = "";
     private string currentMapScene = "";
     private string toLoadMap = "";
     private string toLoadUi = "";
@@ -33,16 +31,8 @@ public class SceneHandler : MonoBehaviour
     // awake runs first before everything else.
     private void Awake()
     {
-        // ensure that we have only ONE instance of this guy
-        if (Instance != null)
-        {
-            Debug.LogWarning("Multiple instances of SceneHandler");
-            Destroy(gameObject);
-        }
-
-        // dontdestroy this guy
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+        // dont destroy; like eventhandler, we want this guy to persist across scenes.
+        DontDestroyOnLoad(this);
 
         // loadedScene will run after the scene has been loaded. LoadedScene "listens" to sceneLoaded if it happens
         SceneManager.sceneLoaded += LoadedScene;
@@ -54,6 +44,12 @@ public class SceneHandler : MonoBehaviour
 
     private void Start()
     {
+        // we first subscribe to the events/actions in eventhandler.
+        EventHandler.LoadUiScene += LoadUiScene;
+        EventHandler.LoadMapScene += LoadMapScene;
+        EventHandler.UnloadUiScene += UnloadUiScene;
+
+
         //
         //  TEMP CODE BLOCK -- "STARTS" GAME TO INCLUDE ALL STUFF
         //
@@ -63,15 +59,29 @@ public class SceneHandler : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= LoadedScene;
+        EventHandler.LoadUiScene -= LoadUiScene;
+        EventHandler.LoadMapScene -= LoadMapScene;
+        EventHandler.UnloadUiScene -= UnloadUiScene;
     }
 
     /*
      *  SCENE LOADING THINGS
      */
 
-    public void LoadMapScene(string nameOfScene, string dest = "")
+    public void LoadMapScene(string nameOfScene, object[] transitionParams = null)
     {
         Debug.Log("loading map scene..." + nameOfScene);
+
+        // transition parameters include the dest name; which is empty by default
+        string dest = "";
+
+        transitionParams = transitionParams ?? new object[0];
+
+        // if nonempty, then set the passed value into dest.
+        if (transitionParams.Length > 0)
+        {
+            dest = (string)transitionParams[0];
+        }
         
         // first unload the current map scene if meron
         if (currentMapScene != "")
@@ -145,7 +155,7 @@ public class SceneHandler : MonoBehaviour
         Debug.Log("UI scene is loaded");
 
         // set current scene to be active
-        currentUiScene = toLoadUi;
+        topmostUiScene = toLoadUi;
 
         // call OnUiLoaded to run the appropriately subscribed function
         OnUiLoaded?.Invoke(uiParams);
@@ -169,6 +179,9 @@ public class SceneHandler : MonoBehaviour
 
         // update scene data once our active scene has been set.
         SceneData.UpdateDataOnLoad(currentMapScene);
+
+        // call this for every persistent object to make changes (such as sa UI, changing cameras)
+        EventHandler.Instance.LoadedMapScene(null);
     }
     
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed631cc7a4217c942b80fa46ddebd199, type: 3}
+  m_Name: NPC_director
+  m_EditorClassIdentifier: 
+  speakerArchetype: 
+  speakerTraits: []
+  inkJSON: {fileID: 4900000, guid: ec45aa8cf6ab7fd48906c625624d3b8b, type: 3}
+  dialoguePortraits:
+  - {fileID: -1171941212, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
+  - {fileID: 1071813993, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
+  - {fileID: 829230600, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
+  - {fileID: -1640007229, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
+  worldSprite: {fileID: 0}
+  usesDirector: 0

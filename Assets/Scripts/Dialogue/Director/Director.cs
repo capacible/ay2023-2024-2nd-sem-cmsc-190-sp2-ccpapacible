@@ -14,6 +14,8 @@ enum MoodThreshold
 /// </summary>
 public static class Director
 {
+    // director is active? -- currently being used?
+    public static bool isActive;
 
     // tracking events and speakers.
     private static string activeNPC;                                 // the current NPC speaking
@@ -35,6 +37,8 @@ public static class Director
     
     // remember the previous line said by NPC
     private static DialogueLine prevLine;
+    private static List<DialogueLine> playerChoices = new List<DialogueLine>();  // max of 3 choices.
+
     // remembering the tone or mood of current convo
     private static int mood;
 
@@ -42,7 +46,7 @@ public static class Director
      * STUFF LOADED AT THE START OF GAME
      */
      
-    public static Dictionary<int, DialogueLine> lineDB { get; set; }    // dialogue line database
+    public static Dictionary<int, DialogueLine> lineDB { get; private set; }    // dialogue line database
     // xml array "events", xml item "event"
     // actually we might also need a collection for this to handle the things
     private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
@@ -208,7 +212,7 @@ public static class Director
     /// <summary>
     /// This updates the map data as well as the active NPC then requests a starting line
     /// </summary>
-    public static DialogueLine StartAndGetLine(string npcId, string mapId)
+    public static string[] StartAndGetLine(string npcId, string mapId)
     {
         activeNPC = npcId;
         currentMap = mapId;
@@ -241,14 +245,18 @@ public static class Director
     /// <summary>
     /// Uses the inference engine to infer the best possible line
     /// </summary>
-    /// <param name="playerLine">The lline chosen by player</param>
-    /// <returns>DialogueLine selected by the engine</returns>
-    public static DialogueLine GetNPCLine(DialogueLine playerLine=null)
+    /// <param name="playerChoice">The lline chosen by player</param>
+    /// <returns>DialogueLine.string dialogue selected by the engine</returns>
+    public static string[] GetNPCLine(int playerChoice=-1)
     {
-        if(playerLine != null)
+        // if we have selected some choice...
+        if(playerChoice != -1)
         {
-            // update data of NPC
-            UpdateNPCData(playerLine);
+            // show player choice.
+            Debug.Log("Selected line: " + playerChoices[playerChoice]);
+
+            // update data of NPC given what the player chose.
+            UpdateNPCData(playerChoices[playerChoice]);
         }
         
         // train
@@ -258,11 +266,14 @@ public static class Director
         // set the model data for our prediction model
         predictionModel.SetDirectorData(data);
 
-        // our selected npc line will be prevline
+        // our selected npc line will be prevline -- it will be remembered.
         prevLine = predictionModel.SelectBestNPCLine(topicList, mood);
 
-        // select best NPC line.
-        return prevLine;
+        // update player data given acquired line of NPC
+        UpdatePlayerData(prevLine);
+
+        // we get the line text itself + the resulting "image" or portrait to accompany it.
+        return new string[] { prevLine.dialogue, prevLine.portraitEmote };
     }
 
     /// <summary>
@@ -273,18 +284,18 @@ public static class Director
     /// <param name="activeNPC"></param>
     /// <param name="player"></param>
     /// <returns></returns>
-    public static List<DialogueLine> GetPlayerLines()
+    public static List<string> GetPlayerLines()
     {
-        // updates player data given the acquired line.
-        UpdatePlayerData(prevLine);
-
         // training
         TrainModel();
 
         // set model data of predictor
         predictionModel.SetDirectorData(data);
 
-        return predictionModel.SelectBestPlayerLines(topicList, mood);
+        playerChoices = predictionModel.SelectBestPlayerLines(topicList, mood);
+        
+        // from the selected player choices, we return the dialogue TEXT only.
+        return playerChoices.Select(s => s.dialogue).ToList();
     }
 
 
@@ -301,6 +312,15 @@ public static class Director
         }
 
         UpdateSpeakerData(line);
+
+        // if the line effect is to exit, we need to wait until the player scrolls through all lines before concluding the dialogue
+        // what we can do is to deactivate the director early.
+        if (line.effect.exit)
+        {
+            Debug.Log("DEACTIVATING DIRECTOR: The resulting DialogueLine has an exit effect.");
+
+            isActive = false;
+        }
     }
 
     // update player specific data
@@ -316,10 +336,22 @@ public static class Director
         }
 
         UpdateSpeakerData(line);
+
+        // the exit effect differs from player and npc line.
+        // we know that there's no other follow up when selecting a player line. thus, we call conclude dialogue agad
+        // if exit
+        if (line.effect.exit)
+        {
+            Debug.Log("EXIT VIA OPTIONAL DIALOGUE");
+            EventHandler.Instance.ConcludeDialogue();
+        }
     }
 
     public static void UpdateSpeakerData(DialogueLine line)
     {
+        // set this line to be said already.
+        line.isSaid = true;
+
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
 
@@ -356,7 +388,6 @@ public static class Director
                 mapEvents[currentMap].Add(eventId);
             }
         }
-        
     }
 
     /// <summary>

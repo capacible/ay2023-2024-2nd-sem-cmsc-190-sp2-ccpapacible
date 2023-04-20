@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class DirectorPredictor : DirectorModel
 {
+    private const double LINE_IS_SAID_WEIGHT_T = 0.2;
+    private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
     public DirectorPredictor(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus)
         : base(totalEvents, totalTraits, totalDialogue, totalRelStatus)
@@ -40,6 +42,9 @@ public class DirectorPredictor : DirectorModel
     {
         DialogueLine lineContainer = Director.lineDB[lineProbability.Key];
 
+        /*
+         *  TONE WEIGHT CALCULATION
+         */
         // we create a list to keep track of each p(line) * utility
         List<double> utilVals = new List<double>()
             {
@@ -47,11 +52,27 @@ public class DirectorPredictor : DirectorModel
                 lineProbability.Value * GetProperWeight(lineContainer, mood)
             };
 
+        /*
+         *  TOPIC RELEVANCE CALCULATION
+         */
         // get probability with the related topics.
         foreach (string topic in lineContainer.relatedTopics)
         {
             // accessing the current topic in the topic relevance tracker and mul with the prob value of the line
             utilVals.Add(lineProbability.Value * (double)topicList[topic]);
+        }
+
+        /*
+         *  LINE IS SAID CALCULATION
+         */
+        if (lineContainer.isSaid)
+        {
+            // it's already said, we multiple line probability with is said true weight
+            utilVals.Add(lineProbability.Value * LINE_IS_SAID_WEIGHT_T);
+        }
+        else
+        {
+            utilVals.Add(lineProbability.Value * LINE_IS_SAID_WEIGHT_F);
         }
 
         return utilVals.Sum();

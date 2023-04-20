@@ -131,7 +131,8 @@ public class Editor
     }*/
 
     /// <summary>
-    /// Reads a CSV file given a path, and returns a dictionary where each column represents one thing
+    /// Reads a CSV file given a path, and returns a list of dict where the elements of the list is the 
+    /// npc itself, and element of the dictionary represent the columns of the csv.
     /// </summary>
     /// <param name="path">Path of file in assetDB</param>
     /// <returns>List of dictionaries where each element is a row, the dictionary is represented by
@@ -208,7 +209,7 @@ public class Editor
             return;
         }
 
-        // iterate through each row
+        // iterate through each npc (row)
         foreach (Dictionary<string, string> npc in csvData)
         {
             // create a new NPCData
@@ -222,6 +223,32 @@ public class Editor
                 // add the trait into the npcdata list of possible traits
                 newNPC.speakerTraits.Add(trait);
             }
+
+            // given the speakerArchetype, we find a sprite in the asset database
+            // and add it to the npc's portrait list
+            newNPC.dialoguePortraits = new List<Sprite>();
+
+            // get all asset at path npc_speakerarchetype
+            var assets = AssetDatabase.LoadAllAssetsAtPath("Assets/Sprites/Characters/Portrait/" + newNPC.speakerArchetype + ".png");
+
+            if (assets.Length == 0)
+            {
+                Debug.LogWarning("Was not able to find asset with name " + newNPC.speakerArchetype);
+            }
+            else
+            {
+                // iterate through the found asset and get all the sprites (kasi texture yung image as-is)
+                foreach (Object asset in assets)
+                {
+                    // check if found asset in all assets is a sprite
+                    if (asset is Sprite sprite)
+                    {
+                        newNPC.dialoguePortraits.Add(sprite);
+                        Debug.Log("Added " + sprite.name + " into sprite list for " + newNPC.speakerArchetype);
+                    }
+                }
+            }
+            
             
 
             // create a new asset
@@ -250,6 +277,7 @@ public class Editor
                 // replace all values of the file
                 asset.speakerArchetype = npc.speakerArchetype;
                 asset.speakerTraits = npc.speakerTraits;
+                asset.dialoguePortraits = npc.dialoguePortraits;
             }
             else
             {
@@ -272,6 +300,11 @@ public class Editor
         }
     }
 
+    /// <summary>
+    /// Loads the first sprite encountered at the path.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
     static Sprite LoadSpriteAt(string path)
     {
         Object[] allAssets = AssetDatabase.LoadAllAssetsAtPath(path);
@@ -474,6 +507,11 @@ public class Editor
                     else if (pair.Key.Contains("Weight") && pair.Value=="")
                     {
                         writer.WriteString("1");
+                    }
+                    // EMPTY PORTRAIT FIELD IS GOING TO BE NEUTRAL BY DEFAULT
+                    else if(pair.Key.Contains("portrait") && pair.Value == "")
+                    {
+                        writer.WriteString("neutral");
                     }
                     else
                     {

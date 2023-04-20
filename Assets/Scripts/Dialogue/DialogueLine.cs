@@ -38,6 +38,10 @@ public class DialogueLine
     public int negWeight;
     public int neutWeight;
 
+    // if the line is already said.
+    [XmlIgnore]
+    public bool isSaid = false;
+
     // a list of topics that determine relevance of line
     [XmlArray("relatedTopics"), XmlArrayItem("relatedTopicsItem")]
     public string[] relatedTopics;
@@ -47,6 +51,7 @@ public class DialogueLine
      */
     public string dialogue;                                // actual line to display
     public string responseTone;                        // the overall effect of the line to the tone of the convo (pos, neut, neg)
+    public string portraitEmote;                                 // portrait associated w the line said; ano papakita sa ui.
 
     [XmlElement("DialogueEffect")]
     public DialogueEffect effect;        // effect to run

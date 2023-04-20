@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed631cc7a4217c942b80fa46ddebd199, type: 3}
   m_Name: NPC_main_cassandra
   m_EditorClassIdentifier: 
-  npcId: main_cassandra
-  usesDirector: 1
   speakerArchetype: main_cassandra
-  isFillerCharacter: 0
   speakerTraits:
   - eloquent
   - polite
   - honest
   - forthright
-  displayNameDefault: Cassandra
-  npcSprite: {fileID: 0}
-  npcPortrait: {fileID: 0}
+  dialoguePortraits: {fileID: 0}
+  worldSprite: {fileID: 0}
+  usesDirector: 1

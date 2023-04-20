@@ -6,8 +6,6 @@ using TMPro;
 
 public class InventoryHandler : MonoBehaviour
 {
-    public static InventoryHandler Instance = null;
-
     // list of all object ids (unique items) in order , we use this to scroll through all items we have in proper order
     private List<ItemData> Inventory = new List<ItemData>();
     // index of our held item
@@ -23,17 +21,6 @@ public class InventoryHandler : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            // destroy self if we already have an instance of inventoryhandler
-            Debug.LogWarning("Existing instance of inventory found");
-            Destroy(gameObject);
-        }
-
-        // do singleton things
-        Instance = this;
-        DontDestroyOnLoad(Instance);
-
         Debug.Log("Instantiated invenotry");
     }
 
@@ -41,9 +28,7 @@ public class InventoryHandler : MonoBehaviour
     {
         // subscribing
         EventHandler.OnPickup += AddToInventory;
-
-        // initialize UI
-        Init();
+        EventHandler.MapSceneLoaded += Init;
     }
 
     private void OnDestroy()
@@ -51,10 +36,12 @@ public class InventoryHandler : MonoBehaviour
         EventHandler.OnPickup -= AddToInventory;
     }
 
-    private void Init()
+    // whenever we load a map scene, we reinitialize the world camera of our inventory.
+    private void Init(object[] param = null)
     {
+
         // find the camera and set the canvas camera to that.
-        inventoryCanvas.worldCamera = FindObjectOfType<Camera>();
+        inventoryCanvas.worldCamera = Camera.main;
     }
 
     private void AddToInventory(string objId, ItemData data)

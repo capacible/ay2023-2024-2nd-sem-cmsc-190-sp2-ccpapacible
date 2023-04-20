@@ -29,4 +29,8 @@ public class DialogueEffect
     // set topic value to 1.
     [XmlElement("closeTopic")]
     public string closeTopic;
+
+    // exit the dialogue.
+    [XmlElement("exit")]
+    public bool exit;
 }

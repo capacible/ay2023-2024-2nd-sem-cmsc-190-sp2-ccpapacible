@@ -11,7 +11,7 @@ public class NPCController : MonoBehaviour
     public string objId;
     public NPCData npc;                 // holds archetype id
 
-    // BELOW ARE ATTRIBUTES THAT WILL BE USED WHEN THE READING DATABASE @ GAME START IS IMPLEMENTED
+    // display name override
     public string npcDisplayName;       // display name
 
     void Start()
@@ -22,8 +22,9 @@ public class NPCController : MonoBehaviour
         }
         else
         {
-            // upon starting, we check if this NPC object is already in the allspeaker dictionary
-            if (!Director.SpeakerExists(objId))
+            // upon starting, we check if this NPC object is already in the allspeaker dictionary; ensure that we don't
+            // add non-directed npcs here
+            if (npc.usesDirector && !Director.SpeakerExists(objId))
             {
                 // we add the npc into the allSpeakers list if it doesnt exist yet
                 Director.AddNewSpeaker(npc, objId, npcDisplayName);
@@ -42,14 +43,14 @@ public class NPCController : MonoBehaviour
 
         if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
         {
-            if (npc.speakerSprite == null)
+            if (npc.worldSprite == null)
             {
-                Debug.LogWarning("speakerSprite does not exist.");
+                Debug.LogWarning("speakerSprite for " + gameObject.name + " does not exist.");
             }
             else
             {
                 // change sprite from npc default to what's attached to the NPC so
-                s.sprite = npc.speakerSprite;
+                s.sprite = npc.worldSprite;
             }
         }
         else
@@ -65,7 +66,18 @@ public class NPCController : MonoBehaviour
     public void GenerateId()
     {
         if (npc != null)
+        {
+            if (!npc.usesDirector)
+            {
+                // attach display name
+                objId = npcDisplayName + "_" + System.Guid.NewGuid().ToString();
+                return;
+            }
+
+            // we have a speaker archetype
             objId = npc.speakerArchetype + System.Guid.NewGuid().ToString();
+            return;
+        }
 
         Debug.LogError("No NPC data attached to this controller yet.");
     }

@@ -649,6 +649,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5996489036615963552, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
+      propertyPath: npc
+      value: 
+      objectReference: {fileID: 11400000, guid: 09c3e243828c00546a071ed71b5320e8, type: 2}
+    - target: {fileID: 5996489036615963552, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
+      propertyPath: objId
+      value: Director Virgil_74e24aec-6719-46f2-9bed-6fbd25f15ff7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996489036615963552, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: ec45aa8cf6ab7fd48906c625624d3b8b, type: 3}
+    - target: {fileID: 5996489036615963552, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
+      propertyPath: npcDisplayName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5996489036615963555, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -699,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996489036615963565, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

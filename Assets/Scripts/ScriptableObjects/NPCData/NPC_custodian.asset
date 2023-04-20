@@ -23,5 +23,6 @@ MonoBehaviour:
   - impatient
   - loner
   - friendly
-  speakerPortraits: {fileID: 21300000, guid: f3051c15c5991a7459f247c2bc375653, type: 3}
-  speakerSprite: {fileID: 0}
+  dialoguePortraits: {fileID: 0}
+  worldSprite: {fileID: 0}
+  usesDirector: 1
