@@ -1,7 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum WINDOW
+{
+    DIALOGUE,
+    MESSAGE
+}
 
 
 // in charge of showing the dialogue
@@ -30,7 +37,7 @@ public class DialogueUi : MonoBehaviour
     void Awake()
     {
         // subscriptions
-        EventHandler.TriggeredDialogue += ShowUi;
+        EventHandler.StartDialogue += ShowDialogueWindow;
         EventHandler.FoundNPCLine += ShowNPCDialogue;
         EventHandler.FoundPlayerLines += ShowPlayerChoices;
 
@@ -39,7 +46,7 @@ public class DialogueUi : MonoBehaviour
 
     private void OnDisable()
     {
-        EventHandler.TriggeredDialogue -= ShowUi;
+        EventHandler.StartDialogue -= ShowDialogueWindow;
         EventHandler.FoundNPCLine -= ShowNPCDialogue;
         EventHandler.FoundPlayerLines -= ShowPlayerChoices;
     }
@@ -49,7 +56,7 @@ public class DialogueUi : MonoBehaviour
         canvas.worldCamera = Camera.main;
 
         maxChoiceCount = choices.Length;
-        anim.SetBool("isActive", false);
+        anim.SetBool("isActive", true);
 
         // acquire the text component of each button and initialize + deact.
         choiceText = new Text[maxChoiceCount];
@@ -94,9 +101,9 @@ public class DialogueUi : MonoBehaviour
     /// Shows the textbox when the dialogue is triggered.
     /// </summary>
     /// <param name="obj"></param>
-    public void ShowUi(object[] obj)
+    public void ShowDialogueWindow(object[] obj)
     {
-        NPCData npc = (NPCData) obj[0];
+        NPCData npc = (NPCData) obj[1];
         charPortrait.sprite = npc.dialoguePortraits[0];
 
         // copy dialogue portraits from npc into our current list of portraits
@@ -106,6 +113,7 @@ public class DialogueUi : MonoBehaviour
         anim.SetBool("isActive", true);
 
     }
+    
 
     /// <summary>
     // changes the text of the textbox to be NPC dialogue.
@@ -181,7 +189,9 @@ public class DialogueUi : MonoBehaviour
     }
 
     /// <summary>
-    /// hide unnecessary stuff then call the next dialogue handler.
+    /// When clicking next button, we either get the next line acquired from director / ink, exit the dialogue
+    /// if we meet an exit condition (neither director or ink is active), or clear dialogue and get player
+    /// response lines.
     /// </summary>
     public void NextButton()
     {

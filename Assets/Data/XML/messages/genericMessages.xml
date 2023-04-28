@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MessagesRoot>
+    <Messages>
+        <Message id="item_pickup">
+            <Contents>
+                <Content>You picked up a {item_name}.</Content>
+                <Content>{item_name} has been added to your inventory.</Content>
+            </Contents>
+        </Message>
+
+        <Message id="item_drop">
+            <Contents>
+                <Content>You dropped the {item_name}.</Content>
+            </Contents>
+        </Message>
+    </Messages>
+</MessagesRoot>

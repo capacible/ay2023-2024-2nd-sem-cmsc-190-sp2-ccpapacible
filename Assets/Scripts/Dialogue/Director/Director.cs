@@ -104,7 +104,7 @@ public static class Director
     public static void LoadSpeakers()
     {
         // create a new speakercollection
-        SpeakerCollection loadSpeakers = SpeakerCollection.LoadCollection("Data/XML/Speakers.xml");
+        SpeakerCollection loadSpeakers = XMLUtility.LoadFromPath<SpeakerCollection>("Data/XML/Speakers.xml");
 
         Debug.Log(loadSpeakers.Speakers.Length);
         TestPrintSpeakers(loadSpeakers);
@@ -273,7 +273,7 @@ public static class Director
         UpdatePlayerData(prevLine);
 
         // we get the line text itself + the resulting "image" or portrait to accompany it.
-        return new string[] { prevLine.dialogue, prevLine.portraitEmote };
+        return new string[] { prevLine.dialogue, prevLine.portrait };
     }
 
     /// <summary>
@@ -342,7 +342,7 @@ public static class Director
         // if exit
         if (line.effect.exit)
         {
-            Debug.Log("EXIT VIA OPTIONAL DIALOGUE");
+            Debug.Log("EXIT VIA DIALOGUE");
             EventHandler.Instance.ConcludeDialogue();
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Script for fading and unfading the cover of a room upon entry.
@@ -8,8 +9,10 @@ using UnityEngine;
 /// </summary>
 public class RoomChange : MonoBehaviour
 {
-    // the sprite of the roof prefab.
-    public Sprite roomCover;
+    [SerializeField]
+    private SpriteRenderer roomCover;
+    [SerializeField]
+    private Fader fader;
 
     /// <summary>
     /// Upon entry of an object, we slowly unfade the roomCover sprite.
@@ -19,7 +22,8 @@ public class RoomChange : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            // unfade
+            // fade out
+            fader.Fade(roomCover, 0.25);
         }
     }
 
@@ -27,7 +31,8 @@ public class RoomChange : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            // fade to transparency
+            // fade back to opaque
+            fader.Fade(roomCover, 0.25, false);
         }
     }
 

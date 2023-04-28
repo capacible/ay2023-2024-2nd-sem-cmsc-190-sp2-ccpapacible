@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
     private Vector2 movement;
     private SpriteRenderer r;
-
+    
     // 
     [HideInInspector]
     public List<GameObject> collided = new List<GameObject>();
@@ -23,18 +23,25 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Debug.Log("Loaded the player object");
+        EventHandler.InGameMessage += InteractionBegin;
+        EventHandler.StartDialogue += InteractionBegin;
+        EventHandler.Examine += InteractionBegin;
         EventHandler.OnInteractConclude += EndInteraction;
-        EventHandler.OnCollision += AddCollision;
-        EventHandler.OnNotCollision += RemoveCollision;
+
+        EventHandler.OnPlayerCollision += AddCollision;
+        EventHandler.OnPlayerNotCollision += RemoveCollision;
         
         Init();
     }
 
     private void OnDestroy()
     {
+        EventHandler.InGameMessage -= InteractionBegin;
+        EventHandler.StartDialogue -= InteractionBegin;
+        EventHandler.Examine -= InteractionBegin;
         EventHandler.OnInteractConclude -= EndInteraction;
-        EventHandler.OnCollision -= AddCollision;
-        EventHandler.OnNotCollision -= RemoveCollision;
+        EventHandler.OnPlayerCollision -= AddCollision;
+        EventHandler.OnPlayerNotCollision -= RemoveCollision;
     }
 
     private void Init()
@@ -101,19 +108,12 @@ public class PlayerController : MonoBehaviour
         {
             // our interaction will go kung ano yung last na nalapitan
             GameObject coll = collided[collided.Count - 1];
-
-            // check the type
-            if (coll.TryGetComponent<NPCController>(out var npc))
+            
+            // we get any interaction component here.
+            if(coll.TryGetComponent<InteractionBase>(out var interaction))
             {
-                // if the game object is an NPC:
-                // run eventhandler
-                EventHandler.Instance.TriggerDialogue(new object[] { npc.objId, npc.npc });
-                busy = true;
-            }
-            if (coll.TryGetComponent<Item>(out var item))
-            {
-                // if our collided object is an item, then we pickup
-                EventHandler.Instance.PickupItem(item.objId, item.data);
+                // player interacts with the object / get the object id of that interaction so that the right object will do stuff
+                EventHandler.Instance.PlayerInteractWith(interaction.objId);
             }
         }
         
@@ -131,6 +131,21 @@ public class PlayerController : MonoBehaviour
     private void RemoveCollision(GameObject obj)
     {
         collided.Remove(obj);
+    }
+    
+    private void InteractionBegin(object[] obj)
+    {
+        // get interaction ui type
+        UiType t = (UiType)obj[0];
+
+        // quick message doesn't need you to be busy.
+        if (t == UiType.IN_BACKGROUND)
+        {
+            return; // do nothing
+        }
+
+        //otherwise we set busy
+        busy = true;
     }
 
     private void EndInteraction()

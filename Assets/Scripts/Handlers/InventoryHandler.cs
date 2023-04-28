@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class InventoryHandler : MonoBehaviour
 {
@@ -29,11 +30,20 @@ public class InventoryHandler : MonoBehaviour
         // subscribing
         EventHandler.OnPickup += AddToInventory;
         EventHandler.MapSceneLoaded += Init;
+        EventHandler.OnInteractConclude += UnhideUi;
+        EventHandler.Examine += HideUi;
+        EventHandler.InGameMessage += HideUi;
+        EventHandler.StartDialogue += HideUi;
     }
 
     private void OnDestroy()
     {
         EventHandler.OnPickup -= AddToInventory;
+        EventHandler.MapSceneLoaded -= Init;
+        EventHandler.OnInteractConclude -= UnhideUi;
+        EventHandler.Examine -= HideUi;
+        EventHandler.InGameMessage -= HideUi;
+        EventHandler.StartDialogue -= HideUi;
     }
 
     // whenever we load a map scene, we reinitialize the world camera of our inventory.
@@ -127,6 +137,28 @@ public class InventoryHandler : MonoBehaviour
         {
             // error
             Debug.LogError("Invalid item index.");
+        }
+    }
+
+    private void HideUi(object[] obj)
+    {
+        // get interaction ui type
+        UiType t = (UiType)obj[0];
+
+        if (t == UiType.IN_BACKGROUND)
+        {
+            return; // do nothing
+        }
+        inventoryCanvas.gameObject.SetActive(false);
+    }
+
+    private void UnhideUi()
+    {
+        // if the canvas is inactive, we reactive it
+        // also only if the active uis are not empty.
+        if (!inventoryCanvas.gameObject.activeInHierarchy)
+        {
+            inventoryCanvas.gameObject.SetActive(true);
         }
     }
    

@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Floor2.unity
     guid: 31354909a4aed4943b52de5c65c8e9a5
+  - enabled: 1
+    path: Assets/Scenes/CameraPuzzle.unity
+    guid: 86293ca01b383ea408b9c625bf08c7d4
+  - enabled: 1
+    path: Assets/Scenes/Safe.unity
+    guid: 1fda56ac4c311e2419318785690893d0
+  - enabled: 1
+    path: Assets/Scenes/_ExaminedImageGenericScene.unity
+    guid: aa638e31f8a46014ab730eaec5dff35a
   m_configObjects: {}

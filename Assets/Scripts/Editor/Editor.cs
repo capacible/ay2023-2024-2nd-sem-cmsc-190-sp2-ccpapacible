@@ -151,6 +151,12 @@ public class Editor
         List<Dictionary<string, string>> outData = new List<Dictionary<string, string>>();
 
         TextAsset text = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
+
+        if (text == null)
+        {
+            Debug.LogError("asset not found");
+            return null;
+        }
         
         List<string[]> allData = new List<string[]>();
 
@@ -321,6 +327,104 @@ public class Editor
         return null;
     }
 
+    #region XML GENERATION
+
+    /// <summary>
+    /// Creates multiple separate XML files for all messaes in a single CSV.
+    /// </summary>
+    [UnityEditor.MenuItem("Tools/XML/Generate interactions XML")]
+    static void CreateXMLFile()
+    {
+        string ID_COLUMN = "interaction_id";
+        string CONTENT_COLUMN = "interaction_message";
+        string CONTAINER = "AllInteractions";
+
+        // symbol that indicates you must interact w the message to continue to next msg.
+        // used to split the contents into parts.
+        string NEXT_SYMBOL = "\\n";
+        string COMMA_SYMBOL = "{comma}";
+        string MESSAGES_PATH = "Assets/Data/CSV/interactionMessages.csv";
+        
+        List<Dictionary<string, string>> csvData = ReadCSVFile(MESSAGES_PATH);
+
+        /*
+         * FORMAT OF CSV
+         *      interaction_id, interaction_messages
+         * We assume that rows with empty interaction id have the same id as previously saved id.
+         */
+
+        if (csvData == null)
+        {
+            Debug.LogError("is null");
+            return;
+        }
+
+
+        // using xmlwriter
+        var writerSettings = new XmlWriterSettings()
+        {
+            Indent = true,
+            IndentChars = "\t"
+        };
+
+        // write root stuff
+        string outFile = "Assets/Data/XML/messages/interactionMsgs.xml";
+
+        XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
+
+        writer.WriteStartDocument();
+        writer.WriteStartElement(CONTAINER);
+        writer.WriteStartElement("Interactions");
+        
+
+        for(int rowNum = 0; rowNum < csvData.Count; rowNum++)
+        {
+            Dictionary<string, string> interaction = csvData[rowNum];
+
+            // if we have an interaction id and it's not the first ever interaction, 
+            //we create a new interaction and close previous, else continue off sa kanina
+            if (interaction[ID_COLUMN] != "")
+            {
+                // create a new interaction.
+                writer.WriteStartElement("Interaction");
+                writer.WriteAttributeString(ID_COLUMN, interaction[ID_COLUMN]);
+
+                // create message array
+                writer.WriteStartElement("Messages");
+
+            }
+
+            // create a new message
+            writer.WriteStartElement("Message");
+            writer.WriteStartElement("Contents");
+            
+
+            // split the content column
+            foreach (string content in interaction[CONTENT_COLUMN].Split(NEXT_SYMBOL))
+            {
+                writer.WriteStartElement("Content");
+                writer.WriteString(content.Replace(COMMA_SYMBOL, ","));
+                writer.WriteEndElement();   // content
+            }
+
+            writer.WriteEndElement();       // contents
+            writer.WriteEndElement();       // message
+
+            // if next element has an id or if last, then we close
+            if(rowNum == csvData.Count - 1 || csvData[rowNum+1][ID_COLUMN] != "")
+            {
+                writer.WriteEndElement();       // messages
+                // close the interaction also
+                writer.WriteEndElement();  // interaction
+            }
+        }
+
+        writer.WriteEndElement();               // interactions
+        writer.WriteEndElement();               // container
+        writer.WriteEndDocument();
+        writer.Close();
+    }
+
     [UnityEditor.MenuItem("Tools/XML/Generate Speaker XML from CSV")]
     static void CreateSpeakersFromCSV()
     {
@@ -489,7 +593,7 @@ public class Editor
             {
                 
                 // array or multivalued attribs.
-                if (new List<string>() { "relPrereqs", "relatedEvents", "relatedTopics" }.Contains(pair.Key))
+                if (new List<string>() { "relPrereqs", "relatedEvents", "relatedTopics", "locations" }.Contains(pair.Key))
                 {
                     WriteArrayElements(writer, pair.Key, pair.Value);
                 }
@@ -594,6 +698,17 @@ public class Editor
                 {
                     writer.WriteString("0");
                 }
+                else if(effect.Key == "exit")
+                {
+                    if (effect.Value == "")
+                    {
+                        writer.WriteString("false");
+                    }
+                    else
+                    {
+                        writer.WriteString(effect.Value.ToLower());
+                    }
+                }
                 else
                 {
                     writer.WriteString(effect.Value);
@@ -605,6 +720,8 @@ public class Editor
 
         writer.WriteEndElement();
     }
+
+    #endregion
 
     static void TestPrint(List<Dictionary<string,string>> data)
     {

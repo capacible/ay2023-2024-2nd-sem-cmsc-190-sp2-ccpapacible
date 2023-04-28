@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AllInteractions>
+	<Interactions>
+		<Interaction interaction_id="item_pickup">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You picked up {item_name}. {item_name} has been added to your inventory.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="item_drop">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You dropped {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="director_office_unlock">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You unlocked Director Virgil's office with the {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="book_directors_office">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There's a book on the desk. It appears the Director's been brushing up on the Aurora's history as well. He dog-eared page 203.</Content>
+						<Content>A highlighted passage reads: 'The Aurora set sail during the summer of 1704 with the expectation that they will return with the finest silks and spices traded from countries on the other side of the earth. The ship never returned, and was forgotten until the Arbiter found its remnants.'</Content>
+						<Content>Other paragraphs are highighted as well.</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>Another passage reads: 'King Harrold the Peaceful had ordered the crew of the Arbiter to set sail and conquer a certain island rumored to contain bountiful pallamide deposits.</Content>
+						<Content>In the years leading up to the Arbiter's voyage, the esteemed kingdoms that had settled around Saltcrest were at war to take control of the only source of pallamide.'</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>One highlighted passage talks about pallamide. It reads: 'The true nature of pallamide is uncertain. The Blaze of Saltcrest had left most, if not all, notable buildings of all the great kingdoms in ashes. This included all libraries that discussed pallamide in depth. </Content>
+						<Content>Furthermore, the expedition of the Arbiter was for naught, as it never found the rumored pallamide deposit. The great kingdoms fell into ruin in the process of taking control of the rare and precious mineral.</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>The last highlighted passage was about the Blaze of Saltcrest and the fall of the 6 great kingdoms. This doesn't seem relevant to your search for the plinth at the moment, so you decide to ignore it.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+	</Interactions>
+</AllInteractions>

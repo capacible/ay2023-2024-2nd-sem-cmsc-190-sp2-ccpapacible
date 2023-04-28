@@ -1,6 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+/// <summary>
+/// Helps determine the ui that will be drawn over the game
+/// </summary>
+public enum UiType
+{
+    IN_BACKGROUND,              // EVERYTHING that will appear in the background -- aka nothing shud stop while it happens
+    INTERACT_DIALOGUE,
+    NPC_DIALOGUE,
+    EXAMINE_OBJECT
+}
 
 /// <summary>
 /// EventHandler handles all interactions between scripts and singletons so that we can minimize dependencies
@@ -16,19 +27,27 @@ public class EventHandler : MonoBehaviour
     // ACTIONS
 
     // DIALOGUE SPECIFIC
-    public static event System.Action<object[]> TriggeredDialogue; // object parameter bc this uses multiple fxns
+    public static event System.Action<object[]> StartDialogue;      // object parameter bc this uses multiple fxns
     public static event System.Action<List<string>> FoundPlayerLines;
     public static event System.Action<object[]> FoundNPCLine;
 
-    // INVENTORY AND OTHER INTERACTIONS
-    public static event System.Action<string, ItemData> OnPickup; // id of object, itemdata of object
-    public static event System.Action<GameObject> OnCollision;
-    public static event System.Action<GameObject> OnNotCollision;
-    
-    // OTHER
-    public static event System.Action OnInteractConclude;       // when you're done interacting with object
+    // INTERACTIONS
+    public static event System.Action<object[]> InteractionTriggered;   // triggering any form of interaction
+                                                                        // listened 2 by objects, which then calls proper eventhandler fxn
 
-    // scenes
+    public static event System.Action OnInteractConclude;               // when you're done interacting with object
+    public static event System.Action<object[]> InGameMessage;          // triggers a message to pop up
+    public static event System.Action<object[]> Examine;                // invoked when triggering ExamineInteraction
+
+    // ITEMS AND INVENTORY
+    public static event System.Action<string, ItemData> OnPickup;       // id of object, itemdata of object
+
+    // OTHER
+    // handling some collision related events
+    public static event System.Action<GameObject> OnPlayerCollision;
+    public static event System.Action<GameObject> OnPlayerNotCollision;
+
+    // SCENES
     public static event System.Action<string, object[]> LoadUiScene;
     public static event System.Action<string, object[]> LoadMapScene;
     public static event System.Action<string> UnloadUiScene;
@@ -58,6 +77,7 @@ public class EventHandler : MonoBehaviour
     private void InitGame()
     {
         Director.Start();
+        
     }
 
     /// <summary>
@@ -71,23 +91,21 @@ public class EventHandler : MonoBehaviour
         LoadUiScene?.Invoke("_Inventory", null);
     }
 
-    /*
-     *  DIALOGUE SYSTEM
-     */
+    #region DIALOGUE SYSTEM
+
     /// <summary>
     /// Triggers the start of a dialogue by loading the ui.
     /// </summary>
     /// <param name="dialogueParameters"> parameters including
     ///     - npc object id
     ///     - npcdata
-    ///     - displayname override if any.
     /// </param>
     /// <param name="npcObjId">The specific object id of the npc.</param>
     /// <param name="npc">NPCData container of the npc.</param>
-    public void TriggerDialogue(object[] dialogueParameters)
+    public void LoadDialogueScene(object[] dialogueParameters)
     {
         // StartDialogue will run when OnUiLoaded is called within the SceneHandler.
-        SceneHandler.OnUiLoaded += StartDialogue;
+        SceneHandler.OnUiLoaded += DialogueSceneLoaded;
 
         // we load the ui scene, passing an object array of our trigger dialogue parameters.
         LoadUiScene?.Invoke("_Dialogue", dialogueParameters);
@@ -101,16 +119,16 @@ public class EventHandler : MonoBehaviour
     ///     - npc id                            [0]
     ///     - npc data                          [1]
     /// </param>
-    public void StartDialogue(object[] param)
+    public void DialogueSceneLoaded(object[] param)
     {
         // we unsubsribe to OnUiLoad since we're done loading the dialogue.
-        SceneHandler.OnUiLoaded -= StartDialogue;
+        SceneHandler.OnUiLoaded -= DialogueSceneLoaded;
 
         string npcId = (string)param[0];
         NPCData npc = (NPCData)param[1];
 
         // Calls and presents the UI for the dialogue -- this call is for general stuff like the portrait.
-        TriggeredDialogue?.Invoke(new object[] { npc });
+        StartDialogue?.Invoke(new object[] { UiType.NPC_DIALOGUE, npc });
 
         // The speaker should exist within the director's speaker tracker in order to use the director.
         if (!npc.usesDirector && Director.SpeakerExists(npcId))
@@ -203,7 +221,7 @@ public class EventHandler : MonoBehaviour
     public void ConcludeDialogue()
     {
         // unload the dialogue scene
-        UnloadUiScene?.Invoke("_Dialogue");
+        UnloadUi("_Dialogue");
 
         // set inactive.
         if (Director.isActive) { Director.isActive = false; }
@@ -211,18 +229,17 @@ public class EventHandler : MonoBehaviour
 
         OnInteractConclude?.Invoke();
     }
-    
-    /*
-     *  INTERACTIONS
-     */
-    
+
+    #endregion
+
+    #region INTERACTIONS
     /// <summary>
     /// Called when player enters the interact prompt trigger zone.
     /// </summary>
     /// <param name="collisionObj"> The parent object of the collider or interact prompt. </param>
     public void CollidingWithPlayer(GameObject collisionObj)
     {
-        OnCollision?.Invoke(collisionObj);
+        OnPlayerCollision?.Invoke(collisionObj);
     }
 
     /// <summary>
@@ -231,24 +248,106 @@ public class EventHandler : MonoBehaviour
     /// <param name="collisionObj">Parent object of collider.</param>
     public void NotCollidingWithPlayer(GameObject collisionObj)
     {
-        OnNotCollision?.Invoke(collisionObj);
+        OnPlayerNotCollision?.Invoke(collisionObj);
     }
+
+    /// <summary>
+    /// Basic interaction method; invokes triggerInteraction which all types of itneractions subscribe to.
+    /// </summary>
+    /// <param name="id"></param>
+    public void PlayerInteractWith(string id)
+    {
+        InteractionTriggered?.Invoke(new object[] { id });
+    }
+
+    /// <summary>
+    /// Loads an interaction scene of some name.
+    /// </summary>
+    /// <param name="parameters"></param>
+    public void LoadInteractionScene(object[] parameters)
+    {
+        string sceneToLoad = parameters[0].ToString();
+        string imgToLoad = parameters[1].ToString();
+
+        // subscribe to scenehandler onuiloaded
+        SceneHandler.OnUiLoaded += InteractionSceneLoaded;
+
+        // load ui scene
+        LoadUiScene?.Invoke(sceneToLoad, parameters);
+    }
+
+    /// <summary>
+    /// Implements UiLoaded so this gets ran whenever we load interactionScene. Basically invokes Examine(), which the
+    /// Interaction scene-related scripts will listen to and have their own implementations.
+    /// </summary>
+    /// <param name="sceneParams">
+    ///     toLoad scene name
+    ///     image to load
+    /// </param>
+    public void InteractionSceneLoaded(object[] sceneParams)
+    {
+        SceneHandler.OnUiLoaded -= InteractionSceneLoaded;
+
+        object[] examineParams = new object[sceneParams.Length + 1];
+        examineParams[0] = UiType.EXAMINE_OBJECT;
+
+        // copy the scene parameters into what we will pass to examine
+        sceneParams.CopyTo(examineParams, 1);
+
+        Debug.Log("Testing if first element is correct: " + examineParams[0]);
+        
+        Examine?.Invoke(examineParams);
+    }
+
 
     /// <summary>
     /// Called upon interacting with an item, the following events will happen:
     ///     > the inventory will keep track of the item data (Inventory Handler will deal w this)
     ///     > inventory popup of the item will pop up on top of the player position (as a notification sort of) (UI)
-    ///     > the item destroys itself and removes itself fromt the SceneData. (Item script deals with this)
     /// </summary>
     public void PickupItem(string objId, ItemData item)
     {
         OnPickup?.Invoke(objId, item);
+
+        Dictionary<string, string> parameters = new Dictionary<string, string> { 
+            { MSG_TAG_TYPE.ITEM_NAME, item.itemName }
+        };
+        
+        QuickNotification(GENERIC_MSG_ID.ITEM_PICKUP, parameters);
+        
     }
 
-    /*
-     *   MAP SCENEHANDLER REFERENCES
-     */
+    /// <summary>
+    /// Makes a quick notification appear across the top of the screen.
+    /// </summary>
+    /// <param name="interactKey">The message or interaction key</param>
+    /// <param name="msgTags">A dictionary of tags we replace w some value</param>
+    public void QuickNotification(string interactKey, Dictionary<string, string> msgTags)
+    {
+        // invoke found message, passing an object array with the key, tags, and type of message
+        InGameMessage?.Invoke(new object[] { UiType.IN_BACKGROUND,  interactKey, msgTags });
+    }
 
+    /// <summary>
+    /// Makes a dialogue-like text box appear below the screen.
+    /// For interact msgs, we have to hide the inventory.
+    /// </summary>
+    /// <param name="interactKey"></param>
+    /// <param name="msgTags"></param>
+    public void InteractMessage(string interactKey, Dictionary<string, string> msgTags)
+    {
+        InGameMessage?.Invoke(new object[] { UiType.INTERACT_DIALOGUE, interactKey, msgTags });
+    }
+
+    public void ConcludeInteraction()
+    {
+        OnInteractConclude?.Invoke();
+    }
+    
+
+    #endregion
+
+    #region SCENE RELATED
     /// <summary>
     /// Changes scene
     /// </summary>
@@ -269,4 +368,14 @@ public class EventHandler : MonoBehaviour
     {
         MapSceneLoaded?.Invoke(param);
     }
+
+    /// <summary>
+    /// General fxn for unloading a ui scene
+    /// </summary>
+    /// <param name="sceneName"></param>
+    public void UnloadUi(string sceneName)
+    {
+        UnloadUiScene?.Invoke(sceneName);
+    }
+    #endregion
 }

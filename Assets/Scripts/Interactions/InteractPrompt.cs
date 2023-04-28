@@ -29,9 +29,11 @@ public class InteractPrompt : MonoBehaviour
         // we show the talk prompt renderer only when the collider of player is in the trigger
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Player entered bounds of this object");
             // if interactprompt is set, then we show; else we assume wlang prompt.
             if(interactPrompt != null)
             {
+                Debug.Log("Showing prompt");
                 // show interactprompt; setting the alpha to 1.
                 interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 1);
             }

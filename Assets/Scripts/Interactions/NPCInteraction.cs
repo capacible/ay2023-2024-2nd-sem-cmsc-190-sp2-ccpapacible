@@ -4,12 +4,9 @@ using UnityEngine;
 
 // controls NPC movement and other parts
 // NPCs will be changed into prefabs once database reading at start of game is implemented.
-public class NPCController : MonoBehaviour
+public class NPCInteraction : InteractionBase
 {
-    // ALL NPCS MUST HAVE A UNIQUE ID
-    // id represents the object id w/c we use to access speaker info sa manager and to distinguish the gameobjects frm each other.
-    public string objId;
-    public NPCData npc;                 // holds archetype id
+    public NPCData npc;                 // holds archetype id and other info for instantiating sa Director
 
     // display name override
     public string npcDisplayName;       // display name
@@ -32,6 +29,29 @@ public class NPCController : MonoBehaviour
         }
 
         SetSprite();
+
+        // event handler listening
+        EventHandler.InteractionTriggered += HandleInteraction;
+    }
+
+    private void OnDestroy()
+    {
+        EventHandler.InteractionTriggered -= HandleInteraction;
+    }
+
+    /// <summary>
+    /// When player interacts with this, we trigger a dialogue.
+    /// </summary>
+    /// <param name="interactParams"></param>
+    public override void HandleInteraction(object[] interactParams)
+    {
+        string id = interactParams[0].ToString();
+
+        if(id == objId)
+        {
+            // call dialogue trigger
+            EventHandler.Instance.LoadDialogueScene(new object[] { objId, npc });
+        }
     }
 
     /// <summary>
@@ -67,15 +87,8 @@ public class NPCController : MonoBehaviour
     {
         if (npc != null)
         {
-            if (!npc.usesDirector)
-            {
-                // attach display name
-                objId = npcDisplayName + "_" + System.Guid.NewGuid().ToString();
-                return;
-            }
-
-            // we have a speaker archetype
-            objId = npc.speakerArchetype + System.Guid.NewGuid().ToString();
+            // we have a map/scene name + speaker archetype + object tag
+            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + npc.speakerArchetype + "_" + System.Guid.NewGuid().ToString();
             return;
         }
 

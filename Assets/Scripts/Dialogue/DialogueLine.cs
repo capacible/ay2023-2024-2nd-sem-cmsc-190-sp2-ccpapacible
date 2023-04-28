@@ -22,6 +22,10 @@ public class DialogueLine
     
     public string receiver;               // this will weed out all the lines to pick from
 
+    // locations needed for the line (also used to filter like the receiver)
+    [XmlArray("locations"), XmlArrayItem("locationsItem")]
+    public string[] locations;
+
     // list of possible relationship statuses
     [XmlArray("relPrereqs"), XmlArrayItem("relPrereqsItem")]
     public string[] relPrereqs;
@@ -49,9 +53,9 @@ public class DialogueLine
     /*
      * OUTPUT
      */
-    public string dialogue;                                // actual line to display
+    public string dialogue;                            // actual line to display
     public string responseTone;                        // the overall effect of the line to the tone of the convo (pos, neut, neg)
-    public string portraitEmote;                                 // portrait associated w the line said; ano papakita sa ui.
+    public string portrait;                            // portrait associated w the line said; ano papakita sa ui.
 
     [XmlElement("DialogueEffect")]
     public DialogueEffect effect;        // effect to run
@@ -65,17 +69,7 @@ public class DialogueLineCollection
 {
     [XmlArray("DialogueLines"), XmlArrayItem("DialogueLine")]
     public DialogueLine[] DialogueLines;
-
-    public static DialogueLineCollection Load(string path)
-    {
-        var serializer = new XmlSerializer(typeof(DialogueLineCollection));
-
-        using (var stream = new FileStream(Path.Combine(Application.dataPath, path), FileMode.Open))
-        {
-            return serializer.Deserialize(stream) as DialogueLineCollection;
-        }
-    }
-
+    
     public static Dictionary<int, DialogueLine> LoadAll(string[] paths)
     {
         Dictionary<int, DialogueLine> all = new Dictionary<int, DialogueLine>();
@@ -85,7 +79,7 @@ public class DialogueLineCollection
         foreach(string path in paths)
         {
             // we load individually then access each individual dialogue line to add to the final collection.
-            foreach(DialogueLine line in Load(path).DialogueLines)
+            foreach(DialogueLine line in XMLUtility.LoadFromPath<DialogueLineCollection>(path).DialogueLines)
             {
                 all.Add(count, line);
                 count++;

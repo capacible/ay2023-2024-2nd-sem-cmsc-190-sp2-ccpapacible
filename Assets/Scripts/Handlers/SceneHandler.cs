@@ -64,9 +64,7 @@ public class SceneHandler : MonoBehaviour
         EventHandler.UnloadUiScene -= UnloadUiScene;
     }
 
-    /*
-     *  SCENE LOADING THINGS
-     */
+    #region LOADING SCENES
 
     public void LoadMapScene(string nameOfScene, object[] transitionParams = null)
     {
@@ -119,11 +117,7 @@ public class SceneHandler : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(nameOfScene);
     }
-
-    /*
-     *  IMPLEMENTATIONS OF SCENELOADED
-     */
-
+    
     /// <summary>
     /// This function implements sceneloaded; when the scene is done loading, we check the type of scene that loaded and
     /// redirect to the proper function kung ano dapat gawin.
@@ -183,7 +177,8 @@ public class SceneHandler : MonoBehaviour
         // call this for every persistent object to make changes (such as sa UI, changing cameras)
         EventHandler.Instance.LoadedMapScene(null);
     }
-    
+    #endregion
+
 }
 
 
@@ -235,12 +230,12 @@ public static class SceneData
             {
                 // here we check the objects that are bound to change; ex. pick-up items, characters.
                 // we discard or ignore stuff like tilemaps etc.
-                if (o.TryGetComponent<Item>(out Item item))
+                if (o.TryGetComponent<ItemInteraction>(out ItemInteraction item))
                 {
                     // if the object has an item component, we will add it to the existing object in scene
                     existingObjInScene[currentMapScene].Add(item.objId);
                 }
-                else if(o.TryGetComponent<NPCController>(out NPCController npc))
+                else if(o.TryGetComponent<NPCInteraction>(out NPCInteraction npc))
                 {
                     existingObjInScene[currentMapScene].Add(npc.objId);
                 }

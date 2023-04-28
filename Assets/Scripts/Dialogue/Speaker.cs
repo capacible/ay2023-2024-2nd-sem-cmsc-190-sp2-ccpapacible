@@ -132,14 +132,4 @@ public class SpeakerCollection
 {
     [XmlArray("Speakers"), XmlArrayItem("Speaker")]
     public Speaker[] Speakers;
-
-    public static SpeakerCollection LoadCollection(string path)
-    {
-        var serializer = new XmlSerializer(typeof(SpeakerCollection));
-
-        using (var stream = new FileStream(Path.Combine(Application.dataPath, path), FileMode.Open))
-        {
-            return serializer.Deserialize(stream) as SpeakerCollection;
-        }
-    }
 }
