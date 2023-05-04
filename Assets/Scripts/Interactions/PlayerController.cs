@@ -54,15 +54,15 @@ public class PlayerController : MonoBehaviour
         r = GetComponent<SpriteRenderer>();
         
         // set the position if a specific position exists
-        if(SceneData.destPosition != null)
+        if(SceneUtility.destPosition != null)
         {
             Debug.Log("changing position of player");
 
             // size of player
             Vector3 size = r.bounds.size;
             // the destination and the offset
-            Vector3 dest = (Vector3)SceneData.destPosition;
-            Vector3 offset = new Vector3(size.x * SceneData.playerDirOffset.x * 2, size.y * SceneData.playerDirOffset.y * 2, size.z * SceneData.playerDirOffset.z * 2);
+            Vector3 dest = (Vector3)SceneUtility.destPosition;
+            Vector3 offset = new Vector3(size.x * SceneUtility.playerDirOffset.x * 2, size.y * SceneUtility.playerDirOffset.y * 2, size.z * SceneUtility.playerDirOffset.z * 2);
 
             // we multiply the playerDiroffset with the bounds of player, then add it to the destination.
             gameObject.transform.localPosition = dest + offset;
@@ -113,7 +113,8 @@ public class PlayerController : MonoBehaviour
             if(coll.TryGetComponent<InteractionBase>(out var interaction))
             {
                 // player interacts with the object / get the object id of that interaction so that the right object will do stuff
-                EventHandler.Instance.PlayerInteractWith(interaction.objId);
+                // and other processes will do important stuff
+                EventHandler.Instance.PlayerInteractWith(new object[] { interaction.objId, interaction.useableItems });
             }
         }
         

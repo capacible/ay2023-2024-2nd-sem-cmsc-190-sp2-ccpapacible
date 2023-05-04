@@ -40,7 +40,7 @@ public class EventHandler : MonoBehaviour
     public static event System.Action<object[]> Examine;                // invoked when triggering ExamineInteraction
 
     // ITEMS AND INVENTORY
-    public static event System.Action<string, ItemData> OnPickup;       // id of object, itemdata of object
+    public static event System.Action<string, ItemBase> OnPickup;       // id of object, itemdata of object
 
     // OTHER
     // handling some collision related events
@@ -52,6 +52,7 @@ public class EventHandler : MonoBehaviour
     public static event System.Action<string, object[]> LoadMapScene;
     public static event System.Action<string> UnloadUiScene;
     public static event System.Action<object[]> MapSceneLoaded;
+    public static event System.Action<string, bool> SetStateOfObj;
 
     // ensure that EventHandler is initialized first before all other components
     private void Awake()
@@ -138,7 +139,7 @@ public class EventHandler : MonoBehaviour
             // set the director to be the active dialogue manager
             Director.isActive = true;
 
-            string[] lineData = Director.StartAndGetLine(npcId, SceneData.currentScene);
+            string[] lineData = Director.StartAndGetLine(npcId, SceneUtility.currentScene);
             
             FoundNPCLine?.Invoke(
                 new object[] {
@@ -252,12 +253,15 @@ public class EventHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Basic interaction method; invokes triggerInteraction which all types of itneractions subscribe to.
+    /// Basic interaction method called by the player; invokes triggerInteraction which all types of itneractions subscribe to.
     /// </summary>
-    /// <param name="id"></param>
-    public void PlayerInteractWith(string id)
+    /// <param name="interactionParams">
+    ///     [0] - id of interaction
+    ///     [1] - useableItems for interaction
+    /// </param>
+    public void PlayerInteractWith(object[] interactionParams)
     {
-        InteractionTriggered?.Invoke(new object[] { id });
+        InteractionTriggered?.Invoke(interactionParams);
     }
 
     /// <summary>
@@ -305,7 +309,7 @@ public class EventHandler : MonoBehaviour
     ///     > the inventory will keep track of the item data (Inventory Handler will deal w this)
     ///     > inventory popup of the item will pop up on top of the player position (as a notification sort of) (UI)
     /// </summary>
-    public void PickupItem(string objId, ItemData item)
+    public void PickupItem(string objId, ItemBase item)
     {
         OnPickup?.Invoke(objId, item);
 
@@ -377,5 +381,16 @@ public class EventHandler : MonoBehaviour
     {
         UnloadUiScene?.Invoke(sceneName);
     }
+
+    /// <summary>
+    /// Called by some scripts to set some object to be interactable / active / whatever
+    /// </summary>
+    /// <param name="objId">id of the object</param>
+    /// <param name="state">state to turn the object to.</param>
+    public void SetNewState(string objId, bool state)
+    {
+        SetStateOfObj?.Invoke(objId, state);
+    }
+
     #endregion
 }

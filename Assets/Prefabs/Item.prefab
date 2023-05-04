@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objId: 
+  interactionMsgKey: 
+  useableItems: []
+  interactable: 1
   data: {fileID: 0}
 --- !u!1001 &3712608547979775233
 PrefabInstance:

@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objId: 
   interactionMsgKey: 
+  useableItems: []
+  interactable: 1
   examineSceneToLoad: _ExaminedImageGenericScene
   imgToLoad: 
 --- !u!1001 &2519828937458903138

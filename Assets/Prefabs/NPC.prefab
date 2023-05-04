@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objId: 
   interactionMsgKey: 
+  useableItems: []
+  interactable: 1
   npc: {fileID: 0}
   npcDisplayName: 
 --- !u!61 &5996489036615963558

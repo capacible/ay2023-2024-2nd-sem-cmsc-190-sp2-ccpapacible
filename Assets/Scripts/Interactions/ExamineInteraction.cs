@@ -10,7 +10,18 @@ public class ExamineInteraction : InteractionBase
 
     public string examineSceneToLoad;
     public string imgToLoad;
-    
+
+    private void Start()
+    {
+        InitializeInteraction();
+        Subscribe();
+    }
+
+    private void OnDestroy()
+    {
+        Unsubscribe();
+    }
+
     public override void HandleInteraction(object[] interactParams)
     {
 

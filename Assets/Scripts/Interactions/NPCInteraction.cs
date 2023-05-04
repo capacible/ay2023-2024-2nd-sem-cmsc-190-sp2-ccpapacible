@@ -13,7 +13,11 @@ public class NPCInteraction : InteractionBase
 
     void Start()
     {
-        if(objId == "")
+
+        SetSprite();
+        InitializeInteraction();
+
+        if (objId == "")
         {
             Debug.LogError("Id field is empty. Please generate an identifier for this NPC object");
         }
@@ -28,15 +32,12 @@ public class NPCInteraction : InteractionBase
             }
         }
 
-        SetSprite();
-
-        // event handler listening
-        EventHandler.InteractionTriggered += HandleInteraction;
+        Subscribe();
     }
 
     private void OnDestroy()
     {
-        EventHandler.InteractionTriggered -= HandleInteraction;
+        Unsubscribe();
     }
 
     /// <summary>
@@ -83,12 +84,18 @@ public class NPCInteraction : InteractionBase
     /// Generates an id for the NPC object exactly once.
     /// </summary>
     [ContextMenu("Generate Id for NPC")]
-    public void GenerateId()
+    public override void GenerateId()
     {
         if (npc != null)
         {
+            if (npc.speakerArchetype == "")
+            {
+                objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.name + "_x";
+                return;
+            }
+
             // we have a map/scene name + speaker archetype + object tag
-            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + npc.speakerArchetype + "_" + System.Guid.NewGuid().ToString();
+            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.speakerArchetype + "_x";
             return;
         }
 

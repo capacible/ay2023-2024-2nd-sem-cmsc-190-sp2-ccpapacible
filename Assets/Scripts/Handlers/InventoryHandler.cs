@@ -7,8 +7,8 @@ using System.Linq;
 
 public class InventoryHandler : MonoBehaviour
 {
-    // list of all object ids (unique items) in order , we use this to scroll through all items we have in proper order
-    private List<ItemData> Inventory = new List<ItemData>();
+    // list of all items
+    private List<ItemBase> Inventory = new List<ItemBase>();
     // index of our held item
     private int heldItem = -1;
 
@@ -27,13 +27,18 @@ public class InventoryHandler : MonoBehaviour
 
     private void Start()
     {
-        // subscribing
-        EventHandler.OnPickup += AddToInventory;
+
         EventHandler.MapSceneLoaded += Init;
+
+        // subscribing -- interactions
+        EventHandler.OnPickup += AddToInventory;
         EventHandler.OnInteractConclude += UnhideUi;
         EventHandler.Examine += HideUi;
         EventHandler.InGameMessage += HideUi;
         EventHandler.StartDialogue += HideUi;
+
+        // items
+        EventHandler.InteractionTriggered += UseHeldItem;
     }
 
     private void OnDestroy()
@@ -44,6 +49,8 @@ public class InventoryHandler : MonoBehaviour
         EventHandler.Examine -= HideUi;
         EventHandler.InGameMessage -= HideUi;
         EventHandler.StartDialogue -= HideUi;
+        // items
+        EventHandler.InteractionTriggered -= UseHeldItem;
     }
 
     // whenever we load a map scene, we reinitialize the world camera of our inventory.
@@ -54,7 +61,7 @@ public class InventoryHandler : MonoBehaviour
         inventoryCanvas.worldCamera = Camera.main;
     }
 
-    private void AddToInventory(string objId, ItemData data)
+    private void AddToInventory(string objId, ItemBase data)
     {
 
         // add to list of item data.
@@ -159,6 +166,29 @@ public class InventoryHandler : MonoBehaviour
         if (!inventoryCanvas.gameObject.activeInHierarchy)
         {
             inventoryCanvas.gameObject.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// Implements the InteractionTriggered delegate
+    /// </summary>
+    /// <param name="interactionParameters"></param>
+    private void UseHeldItem(object[] interactionParameters)
+    {
+        // interaction parameters will have a 2nd parameter triggerItems[] array (implement in respective Interaction classes)
+        ItemBase[] triggerItems = (ItemBase[])interactionParameters[1];
+
+        if(heldItem>=0 && heldItem < Inventory.Count)
+        {
+            // get our current held item 
+            var held = Inventory[heldItem];
+
+            // we check if any of the interactions' trigger items correspond to our held item's id
+            if (triggerItems.Contains(held))
+            {
+                // use held item
+                held.UseItem();
+            }
         }
     }
    

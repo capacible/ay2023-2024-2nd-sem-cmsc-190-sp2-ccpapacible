@@ -22,9 +22,9 @@ public class ExaminedImageHandler : MonoBehaviour
     public Fader fader;
     
     /// <summary>
-    /// Converts our imgList into Dictionary to easily access the images.
+    /// Must immediately be subscribed to stuff, right when we load scene.
     /// </summary>
-    void Start()
+    void Awake()
     {
 
         // set camera

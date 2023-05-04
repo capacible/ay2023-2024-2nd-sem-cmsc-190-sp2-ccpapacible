@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -169,10 +170,10 @@ public class SceneHandler : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentMapScene));
 
         // position player first
-        SceneData.PositionPlayer(transitionDestId);
+        SceneUtility.PositionPlayer(transitionDestId);
 
         // update scene data once our active scene has been set.
-        SceneData.UpdateDataOnLoad(currentMapScene);
+        SceneUtility.UpdateDataOnLoad(currentMapScene);
 
         // call this for every persistent object to make changes (such as sa UI, changing cameras)
         EventHandler.Instance.LoadedMapScene(null);
@@ -189,7 +190,7 @@ public class SceneHandler : MonoBehaviour
 /// SceneData will also remember the scene name we are in; and since static siya, we simply reference this guy to 
 /// access the current scene we are at.
 /// </summary>
-public static class SceneData
+public static class SceneUtility
 {
     // defines player position at start of scene
     public static Vector3 playerDirOffset;
@@ -198,49 +199,91 @@ public static class SceneData
     // keep track of our current scene -- must be same as scenehandler
     public static string currentScene;
     public static Scene activeScene;
-    public static List<string> sceneList = new List<string>();
 
     // a dictionary of scenes that contain a list of ids of objects that exist in the scene when we left it.
     public static Dictionary<string, List<string>> existingObjInScene = new Dictionary<string, List<string>>();
+
+    // a dictionary of objects or interactions that will be updated when their respective scene is loaded.
+    // objectId : value / state
+    public static Dictionary<string, bool> updateObjects = new Dictionary<string, bool>();
     
     // a copy of data in our objects -- not needed so far, but options r open lol
 
     /// <summary>
-    /// Updates scene data
+    /// Updates scene data when we change map scenes, and initializes our data on the scene if the scene hasn't been
+    /// loaded prior to this.
     /// </summary>
     public static void UpdateDataOnLoad(string currentMapScene)
     {
+        Debug.Log("Updating data on load...");
         // update current scene we are in by remembering the scene name (for the tracker) and the active scene.
         currentScene = currentMapScene;
         activeScene = SceneManager.GetActiveScene();
 
-        // if the scenelist doesnt have the current scene yet (meaning first load palang), we add it to the scenelist.
-        // we also initialize the initial objects in this scene into existingObjInScene
-        if (!sceneList.Contains(currentMapScene))
+        if (existingObjInScene.Keys.Contains(currentMapScene))
         {
+            // if there are any objects to update, we update the objects in sccene.
+            if (updateObjects.Count > 0)
+            {
+                UpdateObjectsInScene();
+            }
+        }
+        // if the our current existing obj keys (scenes) doesnt have the current scene yet (meaning first load palang), we add 
+        // the current scene into it, creating a new list of strings to hold the object the scene initially holds.
+        // we also initialize the initial objects in this scene into existingObjInScene
+        else
+        {
+            Debug.Log("first load");
             // first call firstLoad director things
             Director.SceneFirstLoad();
-
-            sceneList.Add(currentMapScene);
+            
             existingObjInScene.Add(currentMapScene, new List<string>());
             
             GameObject[] root = activeScene.GetRootGameObjects();
 
             foreach (GameObject o in root)
             {
-                // here we check the objects that are bound to change; ex. pick-up items, characters.
-                // we discard or ignore stuff like tilemaps etc.
-                if (o.TryGetComponent<ItemInteraction>(out ItemInteraction item))
+                // here we save interactions, which are bound to be affected by player's gameplay
+                if(o.TryGetComponent(out InteractionBase anyInteraction))
                 {
-                    // if the object has an item component, we will add it to the existing object in scene
-                    existingObjInScene[currentMapScene].Add(item.objId);
+                    existingObjInScene[currentMapScene].Add(anyInteraction.objId);
                 }
-                else if(o.TryGetComponent<NPCInteraction>(out NPCInteraction npc))
+                else
                 {
-                    existingObjInScene[currentMapScene].Add(npc.objId);
+                    // get the components in children, if any
+                    List<InteractionBase> allChildInteractions = new List<InteractionBase>();
+                    o.GetComponentsInChildren<InteractionBase>(true, allChildInteractions);
+
+                    foreach(InteractionBase i in allChildInteractions)
+                    {
+                        existingObjInScene[currentMapScene].Add(i.objId);
+                    }
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// For objects that arent in the same scene as the triggering event that causes a change of state, we update them here
+    /// </summary>
+    public static void UpdateObjectsInScene()
+    {
+        foreach(KeyValuePair<string, bool> toUpdate in updateObjects.Where(o => existingObjInScene[currentScene].Contains(o.Key)))
+        {
+            EventHandler.Instance.SetNewState(toUpdate.Key, toUpdate.Value);
+            // remove toUpdate from dict
+            updateObjects.Remove(toUpdate.Key);
+        }
+    }
+
+    /// <summary>
+    /// Function to add to update list.
+    /// </summary>
+    /// <param name="objId"></param>
+    /// <param name="newState"></param>
+    public static void AddToUpdateList(string objId, bool newState)
+    {
+        updateObjects.Add(objId, newState);
     }
 
     /// <summary>

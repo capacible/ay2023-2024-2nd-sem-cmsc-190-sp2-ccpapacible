@@ -5,30 +5,24 @@ using UnityEngine;
 public class ItemInteraction : InteractionBase
 {
     // storage of item data, 
-    public ItemData data;
+    public ItemBase data;
 
     private void Start()
     {
-        // we check if the item exists in the scene
-        if (!SceneData.ObjectIsInScene(objId))
-        {
-            Debug.Log("This item" + objId + "has been removed from the scene before you left.");
-            Destroy(gameObject);
-        }
+        InitializeInteraction();
 
         // instantiate sprite image
-        if(gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
+        if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
         {
             s.sprite = data.itemSprite;
         }
 
-        // listen to on pickup event
-        EventHandler.InteractionTriggered += HandleInteraction;
+        Subscribe();
     }
 
     private void OnDestroy()
     {
-        EventHandler.InteractionTriggered -= HandleInteraction;
+        Unsubscribe();
     }
 
     /// <summary>
@@ -55,23 +49,23 @@ public class ItemInteraction : InteractionBase
         // if statement all objects might be destroyed as long as its an Item
 
         // remove from the existingObjects in scene list -- thus game remembers na nakuha mo na to and avoiding dupes
-        SceneData.RemoveObject(objId);
+        SceneUtility.RemoveObject(objId);
 
         // destroy yourself
         Destroy(gameObject);
     }
 
     [ContextMenu("Generate Item Object Id")]
-    public void GenerateObjectId()
+    public override void GenerateId()
     {
         if (data != null)
         {
             // if we have an attached itemdata, generate id based on itemId + some guid
-            objId = data.itemId + System.Guid.NewGuid().ToString();
+            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + data.itemId + "_x";
         }
         else
         {
-            objId = "TEMP_" + System.Guid.NewGuid().ToString();
+            objId = "TEMP_x";
         }
     }
 }

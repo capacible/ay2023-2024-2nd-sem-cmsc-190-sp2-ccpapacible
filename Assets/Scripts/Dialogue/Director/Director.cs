@@ -206,7 +206,7 @@ public static class Director
     /// <param name="name"></param>
     public static void SceneFirstLoad()
     {
-        mapEvents.Add(SceneData.currentScene, new List<int>());
+        mapEvents.Add(SceneUtility.currentScene, new List<int>());
     }
 
     /// <summary>
@@ -354,7 +354,7 @@ public static class Director
 
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
-
+        
         // update topic relevance table
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "")
