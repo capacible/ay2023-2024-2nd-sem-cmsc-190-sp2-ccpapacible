@@ -56,5 +56,24 @@
 				</Message>
 			</Messages>
 		</Interaction>
+		<Interaction interaction_id="director_telephone_voicemail">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>"A telephone. There seems to be a message</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="safe_open">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The safe clicked open. There's not a lot of things here--a child's drawing, a stack of paperwork, and... a greeting card.</Content>
+						<Content>You take the greeting card.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
 	</Interactions>
 </AllInteractions>

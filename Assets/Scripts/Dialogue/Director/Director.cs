@@ -305,10 +305,7 @@ public static class Director
        
         foreach (string m in line.effect.addToNPCMemory)
         {
-            if (!allSpeakers[activeNPC].speakerMemories.Contains(m))
-            {
-                allSpeakers[activeNPC].speakerMemories.Add(m);
-            }
+            AddToSpeakerMemory(activeNPC, m);
         }
 
         UpdateSpeakerData(line);
@@ -329,10 +326,7 @@ public static class Director
 
         foreach (string m in line.effect.addToPlayerMemory)
         {
-            if (!allSpeakers["player"].speakerMemories.Contains(m))
-            {
-                allSpeakers["player"].speakerMemories.Add(m);
-            }
+            AddToSpeakerMemory("player", m);
         }
 
         UpdateSpeakerData(line);
@@ -387,6 +381,14 @@ public static class Director
             {
                 mapEvents[currentMap].Add(eventId);
             }
+        }
+    }
+
+    public static void AddToSpeakerMemory(string speaker, string eventId)
+    {
+        if (!allSpeakers[speaker].speakerMemories.Contains(eventId))
+        {
+            allSpeakers[speaker].speakerMemories.Add(eventId);
         }
     }
 

@@ -163,7 +163,7 @@ public class InventoryHandler : MonoBehaviour
     {
         // if the canvas is inactive, we reactive it
         // also only if the active uis are not empty.
-        if (!inventoryCanvas.gameObject.activeInHierarchy)
+        if (!inventoryCanvas.gameObject.activeInHierarchy && EventHandler.activeUi.Count == 0)
         {
             inventoryCanvas.gameObject.SetActive(true);
         }
@@ -172,7 +172,10 @@ public class InventoryHandler : MonoBehaviour
     /// <summary>
     /// Implements the InteractionTriggered delegate
     /// </summary>
-    /// <param name="interactionParameters"></param>
+    /// <param name="interactionParameters">
+    ///     [0] - object id
+    ///     [1] - useable items
+    /// </param>
     private void UseHeldItem(object[] interactionParameters)
     {
         // interaction parameters will have a 2nd parameter triggerItems[] array (implement in respective Interaction classes)
@@ -187,7 +190,7 @@ public class InventoryHandler : MonoBehaviour
             if (triggerItems.Contains(held))
             {
                 // use held item
-                held.UseItem();
+                held.UseItem(interactionParameters[0].ToString());
             }
         }
     }

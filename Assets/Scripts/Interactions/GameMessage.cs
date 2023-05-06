@@ -65,7 +65,7 @@ public class GameMessage : MonoBehaviour
     }
 
     /// <summary>
-    /// Shows the next content of a regular interaction.
+    /// Shows the next content of a regular interaction (INTERACT_MSG)
     /// </summary>
     public void ShowNextContent()
     {
@@ -91,9 +91,9 @@ public class GameMessage : MonoBehaviour
 
             // exit
             msgAnim.SetBool("isActive", false);
-
+            
             // eventhandler lets everyone know na tapos na yung interaction
-            EventHandler.Instance.ConcludeInteraction();
+            EventHandler.Instance.ConcludeInteraction(UiType.INTERACT_DIALOGUE);
         }
         
     }
@@ -115,6 +115,7 @@ public class GameMessage : MonoBehaviour
         // get the message
         string msg = GetMsgFirstContent(interactions[id], msgTags);
 
+
         // ui logic
         if (msgType == UiType.IN_BACKGROUND)
         {
@@ -122,6 +123,7 @@ public class GameMessage : MonoBehaviour
         }
         else if(msgType == UiType.INTERACT_DIALOGUE)
         {
+
             current = id;
 
             // turn on animator

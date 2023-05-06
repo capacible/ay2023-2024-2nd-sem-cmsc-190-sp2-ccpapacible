@@ -23,6 +23,10 @@ public enum UiType
 public class EventHandler : MonoBehaviour
 {
     public static EventHandler Instance;
+    // for functionality that is supposed to return after interaction uis are done, we have to check first if all active uis are
+    // gone.
+    // we access this in the scripts that implement various ui (gamemessage, dialogue, safe etc)
+    public static List<UiType> activeUi = new List<UiType>();
     
     // ACTIONS
 
@@ -95,7 +99,7 @@ public class EventHandler : MonoBehaviour
     #region DIALOGUE SYSTEM
 
     /// <summary>
-    /// Triggers the start of a dialogue by loading the ui.
+    /// Triggers the start of a dialogue by loading the ui
     /// </summary>
     /// <param name="dialogueParameters"> parameters including
     ///     - npc object id
@@ -117,7 +121,7 @@ public class EventHandler : MonoBehaviour
     /// Called when the dialogue UI scene is loaded.
     /// </summary>
     /// <param name="param">An array of parameters that include:
-    ///     - npc id                            [0]
+    ///     - npc id                            [0] - the object id
     ///     - npc data                          [1]
     /// </param>
     public void DialogueSceneLoaded(object[] param)
@@ -129,10 +133,11 @@ public class EventHandler : MonoBehaviour
         NPCData npc = (NPCData)param[1];
 
         // Calls and presents the UI for the dialogue -- this call is for general stuff like the portrait.
+        activeUi.Add(UiType.NPC_DIALOGUE);
         StartDialogue?.Invoke(new object[] { UiType.NPC_DIALOGUE, npc });
 
         // The speaker should exist within the director's speaker tracker in order to use the director.
-        if (!npc.usesDirector && Director.SpeakerExists(npcId))
+        if (npc.usesDirector && Director.SpeakerExists(npcId))
         {
             Debug.Log("speaker exists! Director is active.");
 
@@ -228,7 +233,8 @@ public class EventHandler : MonoBehaviour
         if (Director.isActive) { Director.isActive = false; }
         else if (InkDialogueManager.isActive) { InkDialogueManager.isActive = false; }
 
-        OnInteractConclude?.Invoke();
+        // call conclude interaction so we can remove the npc dialogue ui type and subsequently conclude interaction itself.
+        ConcludeInteraction(UiType.NPC_DIALOGUE);
     }
 
     #endregion
@@ -299,7 +305,8 @@ public class EventHandler : MonoBehaviour
         sceneParams.CopyTo(examineParams, 1);
 
         Debug.Log("Testing if first element is correct: " + examineParams[0]);
-        
+
+        activeUi.Add(UiType.EXAMINE_OBJECT);
         Examine?.Invoke(examineParams);
     }
 
@@ -340,11 +347,19 @@ public class EventHandler : MonoBehaviour
     /// <param name="msgTags"></param>
     public void InteractMessage(string interactKey, Dictionary<string, string> msgTags)
     {
+        // we add interact dialogue to eventhandler activeui
+        activeUi.Add(UiType.INTERACT_DIALOGUE);
         InGameMessage?.Invoke(new object[] { UiType.INTERACT_DIALOGUE, interactKey, msgTags });
     }
 
-    public void ConcludeInteraction()
+    public void ConcludeInteraction(UiType? toConcl = null)
     {
+        if (toConcl != null)
+        {
+            // remove certain ui type
+            activeUi.Remove((UiType)toConcl);
+        }
+
         OnInteractConclude?.Invoke();
     }
     

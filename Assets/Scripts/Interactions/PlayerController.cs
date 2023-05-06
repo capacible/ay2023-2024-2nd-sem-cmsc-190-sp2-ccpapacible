@@ -151,7 +151,10 @@ public class PlayerController : MonoBehaviour
 
     private void EndInteraction()
     {
-        busy = false;
+        if(EventHandler.activeUi.Count == 0)
+        {
+            busy = false;
+        }
     }
 
     private void PlayerMove(Vector2 dir)

@@ -21,7 +21,12 @@ public class ItemBase : ScriptableObject
     // sprite in inventory
     public Sprite inventorySprite;
 
-    public virtual void UseItem()
+    /// <summary>
+    /// Use function of an item, called when the item is being held when interacting, and when the object we are interacting
+    /// with has this item as a valid item to interact with.
+    /// </summary>
+    /// <param name="useOnObj"></param>
+    public virtual void UseItem(string useOnObj)
     {
         // show some interact msg
         if(useItemMsgKey!="")
@@ -29,7 +34,11 @@ public class ItemBase : ScriptableObject
 
         // possible laman:
         // access the director, to add/remove an event there
-        // deactivate or change the state of some game object (door open -> close, etc) => need a global way to do this though
-        // eventhandler to the rescue? - interaction objects may have certain states? idk
+            // we have storage of the object id of the object we will use the item on upon interaction
+            // if ganto, we can call Director.AddToNPCMemory(string useOnObj, string eventName)
+        // deactivate or change the state of some game object (door open -> close, etc)
+            // call eventhandler.SetNewState(useObObj, true/false)
+        // a problem would be when using an item changes the actual thing where we require a reference of the object itself
+            // eventhandler will have to deal w it
     }
 }
