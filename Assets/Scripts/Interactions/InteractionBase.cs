@@ -44,12 +44,12 @@ public class InteractionBase : MonoBehaviour
                 Debug.Log("inactive prompt");
                 prompt.gameObject.SetActive(false);
             }
-
+            /*
             if(TryGetComponent(out SpriteRenderer s))
             {
                 // set transparent.
                 s.color = new Color(1, 1, 1, 0);
-            }
+            }*/
         }
         
     }
@@ -115,11 +115,12 @@ public class InteractionBase : MonoBehaviour
         {
             prompt.gameObject.SetActive(false);
         }
+        /*
         // set our spriterenderer to max alpha/opacity
         if (TryGetComponent(out SpriteRenderer s))
         {
             s.color = new Color(1, 1, 1, 0);
-        }
+        }*/
     }
 
     
@@ -143,13 +144,15 @@ public class InteractionBase : MonoBehaviour
     [ContextMenu("Generate basic interaction object id")]
     public virtual void GenerateId()
     {
+        objId = "InteractionBase_";
+
         if (interactionMsgKey == "")
         {
             // generate based on name of object
-            objId = gameObject.name + "_x";
+            objId += gameObject.name + "_x";
             return;
         }
         // interaction msg key + scene name + guid
-        objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + interactionMsgKey + "_x";
+        objId += UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + interactionMsgKey + "_x";
     }
 }

@@ -243,6 +243,7 @@ public class Editor
             }
             else
             {
+                Debug.Log("Found asset with name " + newNPC.speakerArchetype + ".png");
                 // iterate through the found asset and get all the sprites (kasi texture yung image as-is)
                 foreach (Object asset in assets)
                 {

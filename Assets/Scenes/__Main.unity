@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -678,10 +678,12 @@ MonoBehaviour:
   msgText: {fileID: 1314710160}
   msgBox: {fileID: 2049171257}
   msgAnim: {fileID: 2049171259}
+  showY: -175
+  hiddenY: -450
   quickText: {fileID: 334714985}
   quickBox: {fileID: 1682226516}
   notifFader: {fileID: 1682226518}
-  waitBeforeFadeOut: 2
+  waitBeforeFadeOut: 1.5
 --- !u!1 &1314710158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -384}
+  m_AnchoredPosition: {x: 0, y: -450}
   m_SizeDelta: {x: 861.16, y: 156.9091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049171257

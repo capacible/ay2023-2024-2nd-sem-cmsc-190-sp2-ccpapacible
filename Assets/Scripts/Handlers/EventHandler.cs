@@ -45,6 +45,7 @@ public class EventHandler : MonoBehaviour
 
     // ITEMS AND INVENTORY
     public static event System.Action<string, ItemBase> OnPickup;       // id of object, itemdata of object
+    public static event System.Action<object[]> ItemEffect;
 
     // OTHER
     // handling some collision related events
@@ -271,13 +272,37 @@ public class EventHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads an interaction scene of some name.
+    /// Calls ItemEffect, a delegate that any object can listen to to trigger some effect given the right item.
+    /// </summary>
+    /// <param name="parameters">
+    ///     [0] - Id of interaction
+    ///     [1] - id of item
+    /// </param>
+    public void TriggerItemEffect(object[] parameters)
+    {
+        ItemEffect?.Invoke(parameters);
+    }
+
+    /// <summary>
+    /// Calls SingleUseItem delegate, which is listened to by the inventory handler to remove that item from our inventory
     /// </summary>
     /// <param name="parameters"></param>
+    public void DiscardItem(object[] parameters)
+    {
+
+    }
+
+    /// <summary>
+    /// Loads an interaction scene of some name.
+    /// </summary>
+    /// <param name="parameters">
+    ///     [0] - scene to load
+    ///     [1] - id of interaction obj
+    ///     [2] - img name to load if any
+    /// </param>
     public void LoadInteractionScene(object[] parameters)
     {
         string sceneToLoad = parameters[0].ToString();
-        string imgToLoad = parameters[1].ToString();
 
         // subscribe to scenehandler onuiloaded
         SceneHandler.OnUiLoaded += InteractionSceneLoaded;
@@ -346,7 +371,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="interactKey"></param>
     /// <param name="msgTags"></param>
     public void InteractMessage(string interactKey, Dictionary<string, string> msgTags)
-    {
+    { 
         // we add interact dialogue to eventhandler activeui
         activeUi.Add(UiType.INTERACT_DIALOGUE);
         InGameMessage?.Invoke(new object[] { UiType.INTERACT_DIALOGUE, interactKey, msgTags });

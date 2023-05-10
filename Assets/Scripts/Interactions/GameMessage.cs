@@ -91,6 +91,9 @@ public class GameMessage : MonoBehaviour
 
             // exit
             msgAnim.SetBool("isActive", false);
+
+            // set the parent msg box gameobject to inactive.
+            msgBox.gameObject.SetActive(false);
             
             // eventhandler lets everyone know na tapos na yung interaction
             EventHandler.Instance.ConcludeInteraction(UiType.INTERACT_DIALOGUE);
@@ -110,6 +113,7 @@ public class GameMessage : MonoBehaviour
     {
         UiType msgType = (UiType)msgParams[0];
         string id = msgParams[1].ToString();
+        Debug.Log("msg id to show: " + id);
         Dictionary<string, string> msgTags = (Dictionary<string, string>)msgParams[2];
 
         // get the message
@@ -125,6 +129,9 @@ public class GameMessage : MonoBehaviour
         {
 
             current = id;
+
+            // activate the msg
+            msgBox.gameObject.SetActive(true);
 
             // turn on animator
             msgAnim.SetBool("isActive", true);
@@ -142,12 +149,14 @@ public class GameMessage : MonoBehaviour
         // if the interaction's current index already the last or beyond last index, reset index to 0.
         if(interaction.currentMsg >= interaction.messageList.Length - 1)
         {
+            Debug.Log("Last msg of current interaction:");
             interaction.currentMsg = 0;
             
             // access the very first message
             return ReplaceTags(interaction.messageList[0].contents[0], msgTags);
         }
 
+        Debug.Log("For this interaction, we are currently at message # " + interaction.currentMsg);
         // if not at last index, we access the message list
         string origMsg = interaction.messageList[interaction.currentMsg].contents[0];
                 
@@ -165,28 +174,23 @@ public class GameMessage : MonoBehaviour
     /// </returns>
     public string ReplaceTags(string origMsg, Dictionary<string, string> tags)
     {
-        if (tags == null)
+        Debug.Log("Replacing the tags of the message: " + origMsg);
+        if (tags == null || tags.Count == 0)
         {
+            Debug.Log("no tags.");
             return origMsg;
         }
-
-        // get message tags
-        char[] braces = { '{', '}' };
-
-        // we need the keys that we will substitute in the msg
-        // this code just grabs words that start and end with braces, removes the braces, and turns it to array
-        string[] msgKeys = origMsg.Split()
-            .Where(t => t.StartsWith("{") && t.EndsWith("}"))
-            .Select(t => t.Trim(braces)).ToArray();
-
+        
         // our message tags are put into a dictionary with numbered keys; each tagId found in the msg SHOULD
         // have a corresponding number in our tags parameter.
-        foreach (string key in msgKeys)
+        foreach (string key in tags.Keys)
         {
-            if (tags.ContainsKey(key))
+            Debug.Log("tag key to replace: " + key);
+            if (origMsg.Contains("{"+key+"}"))
             {
                 // replace all instance of key with value
                 origMsg = origMsg.Replace("{" + key + "}", tags[key]);
+                Debug.Log("Replaced " + key + " with the tag: " + tags[key]);
             }
             else
             {
@@ -194,7 +198,7 @@ public class GameMessage : MonoBehaviour
             }
         }
 
-        Debug.Log(origMsg);
+        Debug.Log("New final msg: "+ origMsg);
 
         return origMsg;
     }

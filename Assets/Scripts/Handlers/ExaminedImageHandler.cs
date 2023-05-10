@@ -47,11 +47,12 @@ public class ExaminedImageHandler : MonoBehaviour
     /// <param name="obj">
     ///     [0] ui type
     ///     [1] scene name
-    ///     [2] img to load
+    ///     [2] id of interaction object
+    ///     [3] img name
     /// </param>
     private void LoadImage(object[] obj)
     {
-        string imgToLoad = obj[2].ToString();
+        string imgToLoad = obj[3].ToString();
         Debug.Log("test");
         
         // not empty, we find the image to load.

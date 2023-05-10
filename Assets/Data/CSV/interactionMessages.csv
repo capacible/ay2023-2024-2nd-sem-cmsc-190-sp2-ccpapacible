@@ -8,3 +8,6 @@ book_directors_office,There's a book on the desk. It appears the Director's been
 ,The last highlighted passage was about the Blaze of Saltcrest and the fall of the 6 great kingdoms. This doesn't seem relevant to your search for the plinth at the moment{comma} so you decide to ignore it.
 director_telephone_voicemail,"A telephone. There seems to be a message, dated April 20. Curious, you let the voicemail play: 'Where are you?! Daisy's party is TODAY. I swear, if you miss this again, I'm leaving you.'\nAnother voicemail followed, dated April 21: 'I can't believe you. Again and again, you put that damned museum before your family. You aren't the man I married. That museum... and that wicked woman... has changed you. If you want to see your daughter again, call me back.'\nThere is a thin layer of dust on the telephone receiver."
 safe_open,The safe clicked open. There's not a lot of things here--a child's drawing{comma} a stack of paperwork{comma} and... a greeting card.\nYou take the greeting card.
+unlock_door,You unlocked the door using {item_name}.
+single_use_item,Used {item_name}.
+locked_door,This door is locked.

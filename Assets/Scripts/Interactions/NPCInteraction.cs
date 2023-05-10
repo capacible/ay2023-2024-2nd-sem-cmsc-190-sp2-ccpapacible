@@ -88,14 +88,16 @@ public class NPCInteraction : InteractionBase
     {
         if (npc != null)
         {
+            objId = "NPCInteraction_";
+
             if (npc.speakerArchetype == "")
             {
-                objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.name + "_x";
+                objId += UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.name + "_x";
                 return;
             }
 
             // we have a map/scene name + speaker archetype + object tag
-            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.speakerArchetype + "_x";
+            objId += UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + npc.speakerArchetype + "_x";
             return;
         }
 

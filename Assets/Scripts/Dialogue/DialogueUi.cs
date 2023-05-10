@@ -131,7 +131,20 @@ public class DialogueUi : MonoBehaviour
 
         // set values
         charName.text = npcName;
-        dialogueText.text = retLine.Dequeue();  // we dequeue (fifo) the topmost line.
+
+        // we dequeue (fifo) the topmost line.
+        // if we have no lines, conclude dialogue.
+        if (retLine.TryDequeue(out string resultLine))
+        {
+
+            dialogueText.text = resultLine;  
+
+        }
+        else
+        {
+            EventHandler.Instance.ConcludeDialogue();
+            return;
+        }
 
         // convert last element of portraitFile name (w/c is the tag) to number and get the sprite that contains
         // that number.

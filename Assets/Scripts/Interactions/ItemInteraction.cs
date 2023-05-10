@@ -61,7 +61,7 @@ public class ItemInteraction : InteractionBase
         if (data != null)
         {
             // if we have an attached itemdata, generate id based on itemId + some guid
-            objId = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + data.itemId + "_x";
+            objId = "ItemInteraction_" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_" + data.itemId + "_x";
         }
         else
         {

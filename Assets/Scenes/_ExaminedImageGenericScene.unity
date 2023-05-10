@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: _ExaminedImageGenericScene
   imgList:
-  - {fileID: 21300000, guid: 197b924877a737b4ba3926915083938d, type: 3}
+  - {fileID: 21300000, guid: 334f94e450613d64cbcadc67b6d441ba, type: 3}
   imgCanvas: {fileID: 149472602}
   image: {fileID: 1383211781}
   exitButton: {fileID: 2146169087}

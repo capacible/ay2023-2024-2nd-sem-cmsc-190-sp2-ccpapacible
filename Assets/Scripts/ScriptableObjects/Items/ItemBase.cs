@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A scriptable object to be attached to Item scripts.
 /// </summary>
-[CreateAssetMenu(fileName = "item", menuName = "Create a new item")]
+[CreateAssetMenu(fileName = "item", menuName = "Items/Create a new item")]
 public class ItemBase : ScriptableObject
 {
     // can be read from csv pero since small project keri na to manual :>
@@ -25,20 +25,25 @@ public class ItemBase : ScriptableObject
     /// Use function of an item, called when the item is being held when interacting, and when the object we are interacting
     /// with has this item as a valid item to interact with.
     /// </summary>
-    /// <param name="useOnObj"></param>
+    /// <param name="useOnObj">
+    ///     The id of the object we will use the item on
+    /// </param>
     public virtual void UseItem(string useOnObj)
     {
         // show some interact msg
-        if(useItemMsgKey!="")
-            EventHandler.Instance.InteractMessage(useItemMsgKey, null);
+        if (useItemMsgKey != "")
+        {
+            Debug.Log("Using item, calling this game msg: " + useItemMsgKey);
+            EventHandler.Instance.InteractMessage(useItemMsgKey, new Dictionary<string, string> {
+                { MSG_TAG_TYPE.ITEM_NAME, itemName }
+            });
+        }
 
-        // possible laman:
-        // access the director, to add/remove an event there
-            // we have storage of the object id of the object we will use the item on upon interaction
-            // if ganto, we can call Director.AddToNPCMemory(string useOnObj, string eventName)
-        // deactivate or change the state of some game object (door open -> close, etc)
-            // call eventhandler.SetNewState(useObObj, true/false)
-        // a problem would be when using an item changes the actual thing where we require a reference of the object itself
-            // eventhandler will have to deal w it
+        // check if the receiving object has a certain id -- determines what kind of interaction
+        if (useOnObj.Contains("NPCInteraction"))
+        {
+            // add to director
+            Director.AddToSpeakerMemory(useOnObj, "ItemShown:" + itemId);
+        }
     }
 }

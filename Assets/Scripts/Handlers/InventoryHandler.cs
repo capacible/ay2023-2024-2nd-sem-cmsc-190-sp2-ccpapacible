@@ -133,6 +133,8 @@ public class InventoryHandler : MonoBehaviour
     /// </summary>
     private void RefreshUi()
     {
+        Debug.Log("We are at held item number: " + heldItem);
+
         if (heldItem != -1)
         {
             // changing the item name
@@ -166,6 +168,7 @@ public class InventoryHandler : MonoBehaviour
         if (!inventoryCanvas.gameObject.activeInHierarchy && EventHandler.activeUi.Count == 0)
         {
             inventoryCanvas.gameObject.SetActive(true);
+            RefreshUi();
         }
     }
 
@@ -181,6 +184,8 @@ public class InventoryHandler : MonoBehaviour
         // interaction parameters will have a 2nd parameter triggerItems[] array (implement in respective Interaction classes)
         ItemBase[] triggerItems = (ItemBase[])interactionParameters[1];
 
+        Debug.Log("Currently held item: " + heldItem);
+
         if(heldItem>=0 && heldItem < Inventory.Count)
         {
             // get our current held item 
@@ -189,6 +194,8 @@ public class InventoryHandler : MonoBehaviour
             // we check if any of the interactions' trigger items correspond to our held item's id
             if (triggerItems.Contains(held))
             {
+                Debug.Log("Using item with id: " + held.itemId);
+
                 // use held item
                 held.UseItem(interactionParameters[0].ToString());
             }

@@ -75,5 +75,32 @@
 				</Message>
 			</Messages>
 		</Interaction>
+		<Interaction interaction_id="unlock_door">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You unlocked the door using {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="single_use_item">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Used {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="locked_door">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This door is locked.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
 	</Interactions>
 </AllInteractions>

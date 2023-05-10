@@ -27,6 +27,7 @@ public class Safe : MonoBehaviour
     private void Awake()
     {
         EventHandler.Examine += Initialize;
+        EventHandler.OnInteractConclude += ExitScene;
     }
 
     private void OnDestroy()
@@ -34,10 +35,21 @@ public class Safe : MonoBehaviour
         EventHandler.Examine -= Initialize;
     }
 
+    /// <summary>
+    /// Initialize safe script
+    /// </summary>
+    /// <param name="examineParams">
+    ///     [0] interaction/ui type
+    ///     [1] scene name
+    ///     [2] obj id of safe interactable
+    ///     [3] image (none)
+    /// </param>
     private void Initialize(object[] examineParams)
     {
+        // scene name
+        sceneName = examineParams[1].ToString();
         // we simply remember the objId of the safe.
-        safeObjId = examineParams[1].ToString();
+        safeObjId = examineParams[2].ToString();
     }
 
     public void PressButton(int buttonNum)
@@ -59,7 +71,7 @@ public class Safe : MonoBehaviour
         if(string.Join("", enteredPasscode) == ANSWER)
         {
             // change image of safe
-            //currentSafeImg.sprite = safeImages[++currSafeImgCount];
+            currentSafeImg.sprite = safeImages[++currSafeImgCount];
             // play some unlock sound effect
 
             // show game message
@@ -72,13 +84,20 @@ public class Safe : MonoBehaviour
 
             // deactivate the safe puzzle.
             EventHandler.Instance.SetNewState(safeObjId, false);
-
-            // conclude interaction
-            EventHandler.Instance.ConcludeInteraction(UiType.EXAMINE_OBJECT);
-
-            // unload
-            EventHandler.Instance.UnloadUi(sceneName);
+            
         }
+    }
+
+    public void ExitScene()
+    {
+        // immediately unsubscribe, since we only need to know that the prior interaction (interactmsg) has concluded
+        EventHandler.OnInteractConclude -= ExitScene;
+
+        // close and unload this scene
+        EventHandler.Instance.UnloadUi(sceneName);
+
+        // conclude interaction for examine object.
+        EventHandler.Instance.ConcludeInteraction(UiType.EXAMINE_OBJECT);
     }
 
     public void ExitButton()
