@@ -59,6 +59,20 @@ public class DialogueLine
 
     [XmlElement("DialogueEffect")]
     public DialogueEffect effect;        // effect to run
+
+    /// <summary>
+    /// Converting the lines' response tone into its integer equivalent
+    /// </summary>
+    /// <returns></returns>
+    public int ResponseStrToInt()
+    {
+        if (responseTone == "pos")
+            return 1;
+        else if (responseTone == "neg")
+            return -1;
+
+        return 0;
+    }
 }
 
 /// <summary>

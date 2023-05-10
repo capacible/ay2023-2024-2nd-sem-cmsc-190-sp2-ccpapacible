@@ -59,7 +59,7 @@ public class Speaker
     // because speaker traits can be randomized, this is not read during runtime. instead, we add this to the NPC data that
     // will be attached to the gameobject
     [XmlIgnore]
-    public List<int> speakerTraits = new List<int>();
+    public int speakerTrait;
 
     public Speaker Clone()
     {
@@ -79,23 +79,15 @@ public class Speaker
     {
         if (isFillerCharacter)
         {
-            // randomize a set of traits THREE TIMES.
-            for (int count = 0; count < numTraits; count++)
-            {
-                // get the speaker traits in
-                // lookup id of traits from director.
-                speakerTraits.Add( 
-                    Director.NumKeyLookUp(npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)], fromTraits:true)
-                );
-            }
+            // randomize a trait.
+            // get the speaker traits in
+            // lookup id of traits from director.
+            speakerTrait = Director.NumKeyLookUp(npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)], fromTraits: true);
+
         }
         else
         {
-            // set the defailt trauts
-            foreach(string trait in npc.speakerTraits)
-            {
-                speakerTraits.Add(Director.NumKeyLookUp(trait, fromTraits:true));
-            }
+            speakerTrait = -1;
         }
     }
 

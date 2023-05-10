@@ -41,3 +41,39 @@ public static class XMLUtility
     }
 
 }
+
+/// <summary>
+/// Generic collection for everything that's just a collection of strings
+/// </summary>
+[XmlRoot("Main")]
+public class IdCollection
+{
+    [XmlArray("ids"), XmlArrayItem("id")]
+    public string[] allIds;
+
+    /// <summary>
+    /// Loads the string array, and converts it to a dictionary.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public static Dictionary<int, string> LoadArrayAsDict(string path)
+    {
+        if (path == "")
+        {
+            Debug.LogWarning("empty path");
+            // return an empty dict
+            return new Dictionary<int, string>();
+        }
+
+        Dictionary<int, string> returnDict = new Dictionary<int, string>();
+        IdCollection ids = XMLUtility.LoadFromPath<IdCollection>(path);
+
+        for(int i = 0; i < ids.allIds.Length; i++)
+        {
+            // add to a dictionary
+            returnDict.Add(i, ids.allIds[i]);
+        }
+
+        return returnDict;
+    }
+}

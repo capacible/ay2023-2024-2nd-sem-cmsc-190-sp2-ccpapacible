@@ -14,6 +14,11 @@ enum MoodThreshold
 /// </summary>
 public static class Director
 {
+    public const string EVENTS_XML_PATH = "";
+    public const string TOPICS_XML_PATH = "";
+    public const string TRAITS_XML_PATH = "";
+    public const string SPEAKERS_XML_PATH = "Data/XML/Speakers.xml";
+
     // director is active? -- currently being used?
     public static bool isActive;
 
@@ -46,7 +51,7 @@ public static class Director
      * STUFF LOADED AT THE START OF GAME
      */
      
-    public static Dictionary<int, DialogueLine> lineDB { get; private set; }    // dialogue line database
+    public static Dictionary<int, DialogueLine> LineDB { get; private set; }    // dialogue line database
     // xml array "events", xml item "event"
     // actually we might also need a collection for this to handle the things
     private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
@@ -55,15 +60,17 @@ public static class Director
     public static int allRelStatusCount = 3;
 
     // models
-    private static DirectorTraining trainingModel;
-    private static DirectorPredictor predictionModel;
+    private static DirectorModel model;
     private static DirectorData data;
 
-
+    #region INITIALIZATION
     public static void Start()
     {
-
         // load all events and count unique
+        allEvents = IdCollection.LoadArrayAsDict(EVENTS_XML_PATH);
+        allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
+        //LoadTopics();
+
         // temp
         allEvents.Add(0, "1");
         allTraits.Add(0, "1");
@@ -74,21 +81,29 @@ public static class Director
 
         LoadLines();
         LoadSpeakers();
-        
-        // the models
-        trainingModel = new DirectorTraining(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        predictionModel = new DirectorPredictor(allEvents.Count, allTraits.Count, lineDB.Count, allRelStatusCount);
-        data = DirectorData.SetDataUniform(allEvents.Count, allTraits.Count, allRelStatusCount, lineDB.Count);
 
+        // initialize model
+        model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, allRelStatusCount);
     }
-    
+
+    public static void LoadTopics()
+    {
+        IdCollection topicIds = XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
+
+        // add topic ids to topic list, with default topic number
+        foreach(string topic in topicIds.allIds)
+        {
+            topicList.Add(topic, 1);
+        }
+    }
+
     /// <summary>
     /// Loads all the lines from XML files upon startup
     /// </summary>
     public static void LoadLines()
     {
         // we can have a text file here describing the file names of all dialogue XMLs.
-        lineDB = DialogueLineCollection.LoadAll(new string[] {
+        LineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
             "Data/XML/dialogue/dialogueJonathan.xml"
         });
@@ -104,7 +119,7 @@ public static class Director
     public static void LoadSpeakers()
     {
         // create a new speakercollection
-        SpeakerCollection loadSpeakers = XMLUtility.LoadFromPath<SpeakerCollection>("Data/XML/Speakers.xml");
+        SpeakerCollection loadSpeakers = XMLUtility.LoadFromPath<SpeakerCollection>(SPEAKERS_XML_PATH);
 
         Debug.Log(loadSpeakers.Speakers.Length);
         TestPrintSpeakers(loadSpeakers);
@@ -120,6 +135,9 @@ public static class Director
         allSpeakers.Add("player", speakerDefaults["player"].Clone());
         
     }
+    #endregion
+
+    #region TOOLS OR UTILITY
 
     /// <summary>
     /// Looks up the numerical key from the reference list of strings
@@ -208,7 +226,9 @@ public static class Director
     {
         mapEvents.Add(SceneUtility.currentScene, new List<int>());
     }
+    #endregion
 
+    #region DIRECTING
     /// <summary>
     /// This updates the map data as well as the active NPC then requests a starting line
     /// </summary>
@@ -221,24 +241,22 @@ public static class Director
     }
 
     /// <summary>
-    /// Trains our training model and 
+    /// initializes DirectorData as well as merges all global, map, and memory events into one list.
     /// </summary>
-    public static void TrainModel()
+    public static int[] InitData()
     {
-        // lets set the model priors to be the data we currently have
-        // either acquired from posteriors of previous inference @ end of this fxn or
-        // set by default as uniform at start of game
-        trainingModel.SetDirectorData(data);
+        data = model.SetData();
 
-        // train the model
-        int[] allEventsOccurred = new List<int>(globalEvents.Concat(mapEvents[currentMap])).ToArray();
-        int[] allTraitsNPC = allSpeakers[activeNPC].speakerTraits.ToArray();
-        int rel = allSpeakers[activeNPC].RelationshipStatus();
+        List<int> npcMemory = new List<int>();
+        // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
+        allSpeakers[activeNPC].speakerMemories.ForEach(
+            memory => npcMemory.Add(
+                NumKeyLookUp(memory, fromlineDB: true)));
 
-        // make new inferences based on new data
-        data = trainingModel.InferPredictionPriors(allEventsOccurred, allTraitsNPC, rel);
-        // these probabilities in data will then be used in directorpredictor to
-        // infer the actual lines.
+        // we combine all events together
+        List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
+
+        return npcMemory.Union(globalAndMap).ToArray();
     }
 
 
@@ -249,6 +267,10 @@ public static class Director
     /// <returns>DialogueLine.string dialogue selected by the engine</returns>
     public static string[] GetNPCLine(int playerChoice=-1)
     {
+        Debug.Log("Talking to: " + activeNPC);
+        // TESTING FOR JONATHAN ONLY
+        globalEvents.Add(NumKeyLookUp( allEvents[0], fromEvents:true));
+
         // if we have selected some choice...
         if(playerChoice != -1)
         {
@@ -260,14 +282,18 @@ public static class Director
         }
         
         // train
-        TrainModel();
-
-        // make inferences on best line
-        // set the model data for our prediction model
-        predictionModel.SetDirectorData(data);
+        int[] allKnownEvents = InitData();
 
         // our selected npc line will be prevline -- it will be remembered.
-        prevLine = predictionModel.SelectBestNPCLine(topicList, mood);
+        int lineId = model.SelectNPCLine(
+            allKnownEvents,
+            allSpeakers[activeNPC].speakerTrait,
+            allSpeakers[activeNPC].relWithPlayer,
+            data,
+            topicList,
+            mood);
+
+        prevLine = LineDB[lineId];
 
         // update player data given acquired line of NPC
         UpdatePlayerData(prevLine);
@@ -286,18 +312,32 @@ public static class Director
     /// <returns></returns>
     public static List<string> GetPlayerLines()
     {
-        // training
-        TrainModel();
+        // clear player lines
+        playerChoices.Clear();
 
-        // set model data of predictor
-        predictionModel.SetDirectorData(data);
+        /// train
+        int[] allKnownEvents = InitData();
 
-        playerChoices = predictionModel.SelectBestPlayerLines(topicList, mood);
+        // select some player lines.
+        int[] lineIds = model.SelectPlayerLines(
+            allKnownEvents,
+            allSpeakers[activeNPC].speakerTrait,
+            allSpeakers[activeNPC].relWithPlayer,
+            data,
+            topicList,
+            mood);
+
+        foreach(int i in lineIds)
+        {
+            playerChoices.Add(LineDB[i]);
+        }
         
         // from the selected player choices, we return the dialogue TEXT only.
         return playerChoices.Select(s => s.dialogue).ToList();
     }
+    #endregion
 
+    #region UPDATING INFORMATION
 
     // update npc-specific data
     public static void UpdateNPCData(DialogueLine line)
@@ -346,6 +386,8 @@ public static class Director
         // set this line to be said already.
         line.isSaid = true;
 
+        mood = line.ResponseStrToInt();
+
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
         
@@ -391,6 +433,7 @@ public static class Director
             allSpeakers[speaker].speakerMemories.Add(eventId);
         }
     }
+    #endregion
 
     /// <summary>
     /// For testing if speakers are loaded successfully
