@@ -60,7 +60,9 @@
 			<Messages>
 				<Message>
 					<Contents>
-						<Content>"A telephone. There seems to be a message</Content>
+						<Content>A telephone. There seems to be a message, dated April 20. Curious, you let the voicemail play: 'Where are you?! Daisy's party is TODAY. I swear, if you miss this again, I'm leaving you.'</Content>
+						<Content>Another voicemail followed, dated April 21: 'I can't believe you. Again and again, you put that damned museum before your family. You aren't the man I married. That museum... and that wicked woman... has changed you. If you want to see your daughter again, call me back.'</Content>
+						<Content>There is a thin layer of dust on the telephone receiver.</Content>
 					</Contents>
 				</Message>
 			</Messages>
@@ -98,6 +100,15 @@
 				<Message>
 					<Contents>
 						<Content>This door is locked.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="calendar">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>It's this year's calendar. A date is encircled and decorated with what looks to be a birthday cake sticker.</Content>
 					</Contents>
 				</Message>
 			</Messages>

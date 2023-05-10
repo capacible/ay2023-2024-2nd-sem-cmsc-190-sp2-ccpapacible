@@ -142,11 +142,6 @@ public class InventoryHandler : MonoBehaviour
             // changing the item sprite
             iconImg.sprite = Inventory[heldItem].itemSprite;
         }
-        else
-        {
-            // error
-            Debug.LogError("Invalid item index.");
-        }
     }
 
     private void HideUi(object[] obj)

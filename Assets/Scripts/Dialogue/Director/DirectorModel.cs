@@ -177,8 +177,6 @@ public abstract class DirectorModel
         
         var child = Variable.Array<int>(dimension);
                
-        // THERES AN ERROR HERE
-        // cannot open switch after foreach for some reason
         using (Variable.ForEach(dimension))
         using (Variable.Switch(rels[dimension]))
         using (Variable.Switch(traits[dimension]))
@@ -202,6 +200,12 @@ public abstract class DirectorModel
         ProbPrior_RelStatus.ObservedValue = d.relProb;
 
         CPTPrior_Dialogue.ObservedValue = d.dialogueProb;
+
+        Debug.Log("Set the ff:" +
+            "ProbPrior events: "+ d.eventsProb+
+            "Traits: "+d.traitsProb+
+            "Relstatus: "+d.relProb+
+            "cpt: "+d.dialogueProb);
     }
     
 }

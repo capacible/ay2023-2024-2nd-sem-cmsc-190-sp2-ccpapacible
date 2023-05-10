@@ -277,6 +277,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="parameters">
     ///     [0] - Id of interaction
     ///     [1] - id of item
+    ///     [2] - effect id -- for unique effects
     /// </param>
     public void TriggerItemEffect(object[] parameters)
     {

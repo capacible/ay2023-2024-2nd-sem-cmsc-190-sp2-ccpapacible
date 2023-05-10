@@ -66,7 +66,6 @@ public static class Director
         // load all events and count unique
         // temp
         allEvents.Add(0, "1");
-        allEvents.Add(1, "2");
         allTraits.Add(0, "1");
         allTraits.Add(1, "2");
         // load possible traits and count unique
@@ -90,7 +89,8 @@ public static class Director
     {
         // we can have a text file here describing the file names of all dialogue XMLs.
         lineDB = DialogueLineCollection.LoadAll(new string[] {
-            "Data/XML/dialogue/dialoguePlayer.xml"
+            "Data/XML/dialogue/dialoguePlayer.xml",
+            "Data/XML/dialogue/dialogueJonathan.xml"
         });
 
         Debug.Log("success");

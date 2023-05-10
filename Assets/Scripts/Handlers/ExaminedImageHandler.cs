@@ -93,7 +93,7 @@ public class ExaminedImageHandler : MonoBehaviour
     {
         fader.Fade(image, 0.1, true);
         // end interaction then unload
-        EventHandler.Instance.ConcludeInteraction();
+        EventHandler.Instance.ConcludeInteraction(UiType.EXAMINE_OBJECT);
         EventHandler.Instance.UnloadUi(scene);
     }
 

@@ -30,8 +30,14 @@ public class ItemBase : ScriptableObject
     /// </param>
     public virtual void UseItem(string useOnObj)
     {
-        // show some interact msg
-        if (useItemMsgKey != "")
+        // check if the receiving object has npc interaction -- if so, we act as if we are "showing" the held item.
+        if (useOnObj.Contains("NPCInteraction"))
+        {
+            // add to director
+            Director.AddToSpeakerMemory(useOnObj, "ItemShown:" + itemId);
+        }
+        // do something else, otherwise
+        else if (useItemMsgKey != "")
         {
             Debug.Log("Using item, calling this game msg: " + useItemMsgKey);
             EventHandler.Instance.InteractMessage(useItemMsgKey, new Dictionary<string, string> {
@@ -39,11 +45,5 @@ public class ItemBase : ScriptableObject
             });
         }
 
-        // check if the receiving object has a certain id -- determines what kind of interaction
-        if (useOnObj.Contains("NPCInteraction"))
-        {
-            // add to director
-            Director.AddToSpeakerMemory(useOnObj, "ItemShown:" + itemId);
-        }
     }
 }
