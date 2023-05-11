@@ -26,9 +26,11 @@ public class DialogueLine
     [XmlArray("locations"), XmlArrayItem("locationsItem")]
     public string[] locations;
 
-    // list of possible relationship statuses
-    [XmlArray("relPrereqs"), XmlArrayItem("relPrereqsItem")]
-    public string[] relPrereqs;
+    // prereq relationship
+    public string relPrereq;
+    // prereq trait
+    [XmlElement("trait")]
+    public string traitPrereq;
 
     /* 
      * UTILITY FUNCTION RELATED

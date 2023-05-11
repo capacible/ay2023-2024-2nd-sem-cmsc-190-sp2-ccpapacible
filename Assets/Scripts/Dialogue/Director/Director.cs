@@ -14,9 +14,9 @@ enum MoodThreshold
 /// </summary>
 public static class Director
 {
-    public const string EVENTS_XML_PATH = "";
-    public const string TOPICS_XML_PATH = "";
-    public const string TRAITS_XML_PATH = "";
+    public const string EVENTS_XML_PATH = "Data/XML/DB/allEvents.xml";
+    public const string TOPICS_XML_PATH = "Data/XML/DB/allTopics.xml";
+    public const string TRAITS_XML_PATH = "Data/XML/DB/allTraits.xml";
     public const string SPEAKERS_XML_PATH = "Data/XML/Speakers.xml";
 
     // director is active? -- currently being used?
@@ -57,7 +57,7 @@ public static class Director
     private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
     // xml array "traits", xml item "trait"
     private static Dictionary<int, string> allTraits = new Dictionary<int, string>();
-    public static int allRelStatusCount = 3;
+    public static int allRelStatusCount = 4;
 
     // models
     private static DirectorModel model;
@@ -84,6 +84,9 @@ public static class Director
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, allRelStatusCount);
+
+        // start by setting appropriate data.
+        model.Start();
     }
 
     public static void LoadTopics()
@@ -147,7 +150,7 @@ public static class Director
     /// <param name="fromlineDB">Look up from line db dict</param>
     /// <param name="findVal">the string to find the key of</param>
     /// <returns></returns>
-    public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false)
+    public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false, Dictionary<int, string> refDict = null)
     {
         if (fromTraits == true)
         {
@@ -160,6 +163,14 @@ public static class Director
         else if(fromEvents == true)
         {
             foreach(KeyValuePair<int, string> p in allEvents.Where(pair => pair.Value == findVal))
+            {
+                return p.Key;
+            }
+        }
+        // we use a reference dictionary to get the corresponding key from a value.
+        else if(refDict != null)
+        {
+            foreach (KeyValuePair<int, string> p in refDict.Where(pair => pair.Value == findVal))
             {
                 return p.Key;
             }

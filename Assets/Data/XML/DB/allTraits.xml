@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Main>
+	<ids>
+		<id>simple</id>
+		<id>polite</id>
+		<id>eloquent</id>
+		<id>honest</id>
+		<id>forthright</id>
+		<id>friendly</id>
+		<id>loner</id>
+		<id>frazzled</id>
+		<id>gruff</id>
+		<id>quiet</id>
+		<id>prideful</id>
+		<id>impatient</id>
+		<id>shy</id>
+	</ids>
+</Main>

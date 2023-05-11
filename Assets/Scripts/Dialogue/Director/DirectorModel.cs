@@ -1,9 +1,13 @@
 using Microsoft.ML.Probabilistic.Distributions;
 using Microsoft.ML.Probabilistic.Math;
 using Microsoft.ML.Probabilistic.Models;
+using Microsoft.ML.Probabilistic.Serialization;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Xml;
 using UnityEngine;
 
 // BASE CLASS
@@ -60,6 +64,8 @@ public class DirectorModel
 {
     private const double LINE_IS_SAID_WEIGHT_T = 0.2;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
+
+    private const string DLINE_DISTRIBUTION_PATH = "Data/XML/Dialogue/lineCPT.xml";
 
     private int TotalEventCount;
     private int TotalTraitCount;
@@ -125,7 +131,8 @@ public class DirectorModel
     private Dirichlet ProbPost_RelStatus;
     private Dirichlet[][][] ProbPost_Dialogue;
 
-    protected DirectorData recentData;
+    private Dirichlet[][][] importedDLineDist;
+
 
     #region INITIALIZATION
     /// <summary>
@@ -252,13 +259,13 @@ public class DirectorModel
     }
 
     /// <summary>
-    /// Called upon the VERY FIRST interaction ever.
+    /// Called before any interaction.
     /// </summary>
     /// <returns>
-    ///     DirectorData of uniform type
+    ///     DirectorData of uniform type; or directordata where all but dline probability is uniform
     /// </returns>
     public DirectorData UniformDirectorData()
-    {
+    { 
         DirectorData data = new DirectorData
         {
             // set recent data as uniform
@@ -267,11 +274,19 @@ public class DirectorModel
             relProb = Dirichlet.Uniform(TotalRelCount)
         };
 
-        // Dialogue
-        // relcount goes first because it's the outermost value
-        Dirichlet[] parent1 = Enumerable.Repeat(Dirichlet.Uniform(TotalDialogueCount), TotalRelCount).ToArray();
-        Dirichlet[][] parent2 = Enumerable.Repeat(parent1, TotalTraitCount).ToArray();
-        data.dialogueProb = Enumerable.Repeat(parent2, TotalEventCount).ToArray();
+        if(importedDLineDist == null)
+        {
+            // Dialogue
+            // relcount goes first because it's the outermost value
+            //UNIFORM IF WE DON'T HAVE A PREDEFINED DISTRIBUTION
+            Dirichlet[] parent1 = Enumerable.Repeat(Dirichlet.Uniform(TotalDialogueCount), TotalRelCount).ToArray();
+            Dirichlet[][] parent2 = Enumerable.Repeat(parent1, TotalTraitCount).ToArray();
+            data.dialogueProb = Enumerable.Repeat(parent2, TotalEventCount).ToArray();
+        }
+        else
+        {
+            data.dialogueProb = importedDLineDist;
+        }
 
         return data;
     }
@@ -286,10 +301,9 @@ public class DirectorModel
     {
 
         // setting our probabilities in director data
-        // if all of the posteriors are null, we set data as uniform
+        // if all of the posteriors are null (meaning 1st tym), we set the parents to uniform
         if(ProbPost_Events == null && ProbPost_Traits == null && ProbPost_RelStatus == null)
         {
-            // set as uniform
             return UniformDirectorData();
         }
 
@@ -302,9 +316,60 @@ public class DirectorModel
         };
     }
 
+    /// <summary>
+    /// Called during runtime / in-game, we deserialize our line distribution xml and place it into our importedDLineDist variable.
+    /// This will be used in our initial setting of data
+    /// </summary>
+    public void Start()
+    {
+        DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+        
+        using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(DLINE_DISTRIBUTION_PATH, FileMode.Open), new XmlDictionaryReaderQuotas()))
+        {
+            // deserialize/ read the distribution
+            importedDLineDist = (Dirichlet[][][])serializer.ReadObject(reader);
+
+            // test write???
+        }
+    }
+
     #endregion
 
     #region INFERENCE
+
+    /// <summary>
+    /// We learn our cpt values given known outcomes or samples -- our line db
+    /// </summary>
+    /// <param name="dialogueSample"></param>
+    /// <param name="eventSample"></param>
+    /// <param name="traitSample"></param>
+    /// <param name="relSample"></param>
+    /// <param name="priors"></param>
+    /// <returns></returns>
+    public Dirichlet[][][] LearnDialogueCPT(
+        int[] dialogueSample,
+        int[] eventSample,
+        int[] traitSample,
+        int[] relSample,
+        DirectorData priors)
+    {
+        NumOfCases.ObservedValue = dialogueSample.Length;
+
+        // setting our observed
+        Dialogue.ObservedValue = dialogueSample;
+        Events.ObservedValue = eventSample;
+        Traits.ObservedValue = traitSample;
+        RelStatus.ObservedValue = relSample;
+
+        // set our priors
+        CPTPrior_Dialogue.ObservedValue = priors.dialogueProb;
+        ProbPrior_Events.ObservedValue = priors.eventsProb;
+        ProbPrior_Traits.ObservedValue = priors.traitsProb;
+        ProbPrior_RelStatus.ObservedValue = priors.relProb;
+
+        // make inference
+        return engine.Infer<Dirichlet[][][]>(Dialogue);
+    }
 
     /// <summary>
     /// We infer the probabilities of the parents given the data we know
@@ -337,7 +402,6 @@ public class DirectorModel
         ProbPrior_Events.ObservedValue = priors.eventsProb;
         ProbPrior_Traits.ObservedValue = priors.traitsProb;
         ProbPrior_RelStatus.ObservedValue = priors.relProb;
-        // set the cpt also of the dialogue -- for now, it's probably always uniform?
         CPTPrior_Dialogue.ObservedValue = priors.dialogueProb;
 
         // inferring the posteriors
@@ -349,7 +413,7 @@ public class DirectorModel
     /// <summary>
     /// Infers the appropriate dialogue line (the probabilities)
     /// </summary>
-    public List<double> InferDialogueFromPosteriors(
+    public Discrete[] InferDialogueFromPosteriors(
         int[] events,
         int[] traits,
         int[] rels,
@@ -369,11 +433,29 @@ public class DirectorModel
         var dialogueInference = engine.Infer<Discrete[]>(Dialogue);
         Debug.Log("inferred: " + dialogueInference.Length);
 
-        // from here, we use the probabilities in the util funxtion
+        return dialogueInference;
+    }
+
+    /// <summary>
+    /// After making an inference, we convert the discrete into a list of doubles (probabilities) to process in util func
+    /// </summary>
+    /// <param name="events"></param>
+    /// <param name="traits"></param>
+    /// <param name="rels"></param>
+    /// <param name="priors"></param>
+    /// <returns></returns>
+    public List<double> GetDialogueProbabilities(
+        int[] events,
+        int[] traits,
+        int[] rels,
+        DirectorData priors)
+    {
+        // get inference
+        Discrete[] dialogueInference = InferDialogueFromPosteriors(events, traits, rels, priors);
 
         // from discrete[], we get the probability as a double
         List<double> probs = new List<double>();
-        for(int i=0; i < dialogueInference.Length; i++)
+        for (int i = 0; i < dialogueInference.Length; i++)
         {
             // get the probability of the dialogue represented by i index
             probs.Add(dialogueInference[i].GetProbs()[i]);
@@ -381,6 +463,7 @@ public class DirectorModel
 
         return probs;
     }
+
     #endregion
 
     #region UTILITY
@@ -536,7 +619,7 @@ public class DirectorModel
         }
         
         return LineWithBestUtil(
-            InferDialogueFromPosteriors(knownEvents, traitsArr, relArr, data),
+            GetDialogueProbabilities(knownEvents, traitsArr, relArr, data),
             topicList,
             currentMood);
     }
@@ -582,7 +665,7 @@ public class DirectorModel
         }
 
         // we infer our posteriors first.
-        List<double> linePosteriors = InferDialogueFromPosteriors(knownEvents, traitsArr, relArr, data);
+        List<double> linePosteriors = GetDialogueProbabilities(knownEvents, traitsArr, relArr, data);
 
         int[] best3 = new int[3];
         for(int i = 0; i < 3; i++)

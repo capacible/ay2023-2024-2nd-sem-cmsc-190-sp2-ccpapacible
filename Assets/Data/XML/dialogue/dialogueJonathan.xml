@@ -6,63 +6,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"neutral</relPrereqsItem>
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem />
-			</relatedTopics>
-			<responseTone>TalkAboutWeekend</responseTone>
-			<locations>
-				<locationsItem>pos</locationsItem>
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue></dialogue>
-			<relatedEvents>
-				<relatedEventsItem> good"</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem>"It's mostly work</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem> to be honest. I've been reading during my downtime</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem> but I'm basically stuck in this booth.test"</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>neutral</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>neg</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
+			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue>"Oh</dialogue>
+			<dialogue>It's mostly work, to be honest. I've been reading during my downtime, but I'm basically stuck in this booth.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> um... it's fine. Why?"</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -84,16 +40,45 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neg</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Oh, um... it's fine. Why?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>What? How could that happen?</dialogue>
 			<relatedEvents>
@@ -124,24 +109,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"neutral</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem />
+				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>TalkAboutWeekend</responseTone>
-			<locations>
-				<locationsItem>neg</locationsItem>
-			</locations>
+			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>Sorry... I'm not really comfortable sharing that with you.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> bad"</relatedEventsItem>
+				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>Sorry... I'm not really comfortable sharing that with you.</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -163,24 +143,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>0</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"Okay...? Well... I've just been working</dialogue>
+			<dialogue>Okay...? Well... I've just been working, I guess. I'm sure it's nothing interesting for you.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> I guess. I'm sure it's nothing interesting for you."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -202,27 +177,22 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>2</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>bad</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"...Okay</dialogue>
+			<dialogue>...Okay, sorry.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> sorry."</addEventToGlobalItem>
+					<addEventToGlobalItem>HostileToJonathan added to Jonathan's memory</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>HostileToJonathan added to Jonathan's memory</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -241,66 +211,22 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"Well</dialogue>
+			<dialogue>Well, I was guarding the museum last night and the night before. Last night, me and miss Cassandra stayed overtime and everyone else left.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> I was guarding the museum last night and the night before. Last night</addEventToGlobalItem>
+					<addEventToGlobalItem>add to PLAYER memory: TwoPossibleSuspects</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> me and miss Cassandra stayed overtime and everyone else left."</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem>add to PLAYER memory: TwoPossibleSuspects</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>0</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>pos</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"Sorry</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> no. Everyone left last night. It was just me and miss Cassandra."</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem>add to PLAYER memory: TwoPossibleSuspects</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -317,27 +243,21 @@
 		<DialogueLine>
 			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
+			<negWeight>0</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
+			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue>"Uhm</dialogue>
+			<dialogue>Sorry, no. Everyone left last night. It was just me and miss Cassandra.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> ma'am... There's actually something I have to tell you."</addEventToGlobalItem>
+					<addEventToGlobalItem>add to PLAYER memory: TwoPossibleSuspects</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -359,71 +279,26 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"To be honest... There *was* someone suspicious last night. A woman entered the storage unit</dialogue>
+			<dialogue>Uhm, ma'am... There's actually something I have to tell you.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> but I never saw her come out..."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>"add event to both: WomanInStorage</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem> Topic relevance: WomanInStorage = +1"</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"I wasn't sure of what I saw</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> so I didn't tell you... but I saw a woman enter the storage unit and never come out"</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem>"add event to both: WomanInStorage</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem> Topic relevance: WomanInStorage = +1"</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem />
@@ -439,16 +314,81 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>To be honest... There *was* someone suspicious last night. A woman entered the storage unit, but I never saw her come out...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem>add event to both: WomanInStorage{comma} Topic relevance: WomanInStorage = +1</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>I wasn't sure of what I saw, so I didn't tell you... but I saw a woman enter the storage unit and never come out</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem>add event to both: WomanInStorage{comma} Topic relevance: WomanInStorage = +1</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandraAlibi</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>I think miss Cassandra's been working non-stop since last night. I haven't seen her come out of the office.</dialogue>
 			<relatedEvents>
@@ -478,30 +418,25 @@
 			<posWeight>0</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"The thing is</dialogue>
+			<dialogue>The thing is, I didn't want to tell you because she felt unreal. I couldn't tell if I was dreaming or not... I was a bit sleepy.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> I didn't want to tell you because she felt unreal. I couldn't tell if I was dreaming or not... I was a bit sleepy."</addEventToGlobalItem>
+					<addEventToGlobalItem>add event to both character mem: StrangeWomanInStorage{comma} addevent to both charactermem: JonathanSleepy</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>"add event to both character mem: StrangeWomanInStorage</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem> addevent to both charactermem: JonathanSleepy"</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem />
@@ -517,33 +452,28 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I watch the cameras all the time</dialogue>
+			<dialogue>I watch the cameras all the time, so I'm sure she never left. To be honest... when I saw her, I felt some kind of chill down my spine.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> so I'm sure she never left. To be honest... when I saw her</addEventToGlobalItem>
+					<addEventToGlobalItem>add event to both: StrangeWomanInStorage{comma} add event to both: JonathanWatchingCameras</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> I felt some kind of chill down my spine."</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem>"add event to both: StrangeWomanInStorage</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
-					<addToPlayerMemoryItem> add event to both: JonathanWatchingCameras"</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem />
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -556,30 +486,25 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>JonathansAlibi</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I've been here the entire time</dialogue>
+			<dialogue>I've been here the entire time, in my booth. Usually, I'd watch the cameras while listening to a few audiobooks...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> in my booth. Usually</addEventToGlobalItem>
+					<addEventToGlobalItem>addevent to both character memory: JonathanWatchingCameras</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> I'd watch the cameras while listening to a few audiobooks..."</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem>addevent to both character memory: JonathanWatchingCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem />
@@ -595,24 +520,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"You've asked that already. I'm not interested in making small talk with you</dialogue>
+			<dialogue>You've asked that already. I'm not interested in making small talk with you, sorry.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>HostileToJonathan</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> sorry."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -634,27 +554,22 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I don't know what else to say</dialogue>
+			<dialogue>I don't know what else to say, Ma'am. I saw her come in, but she never went out.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanWatchingCameras</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> Ma'am. I saw her come in</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> but she never went out."</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -673,27 +588,22 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"If she left</dialogue>
+			<dialogue>If she left, I would have noticed. Especially with the way the entire booth felt different when I saw her.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanWatchingCameras</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> I would have noticed. Especially with the way the entire booth felt different when I saw her."</addEventToGlobalItem>
+					<addEventToGlobalItem>addevent: StrangeWomanInStorage</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>addevent: StrangeWomanInStorage</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -712,27 +622,22 @@
 			<posWeight>2</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"She has long</dialogue>
+			<dialogue>She has long, black hair. She was wearing one of those fancy shimmering dresses too.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> black hair. She was wearing one of those fancy shimmering dresses too."</addEventToGlobalItem>
+					<addEventToGlobalItem>addevent to both memory: WomanWithBlackHair</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>addevent to both memory: WomanWithBlackHair</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -751,16 +656,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neg</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>My bad. Maybe the cold and the silence was getting to me.</dialogue>
 			<relatedEvents>
@@ -790,16 +690,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>She was beautiful. It looks like she came from a nice dinner because her dress was so shiny.</dialogue>
 			<relatedEvents>
@@ -829,25 +724,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"neut</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem />
+				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>WomanInStorage</responseTone>
-			<locations>
-				<locationsItem>neg</locationsItem>
-			</locations>
+			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>... You know what? Please forget about it. I'm probably mistaken.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> bad"</relatedEventsItem>
 				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>... You know what? Please forget about it. I'm probably mistaken.</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -869,28 +758,23 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>2</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"bad</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+				<relatedTopicsItem>DirectorLocation</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>DirectorLocation</responseTone>
-			<locations>
-				<locationsItem>neut</locationsItem>
-			</locations>
+			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>Sorry, ma'am. I haven't seen him.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> neut"</relatedEventsItem>
 				<relatedEventsItem>HostileToJonathan</relatedEventsItem>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>"Sorry</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> ma'am. I haven't seen him."</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -909,27 +793,22 @@
 			<posWeight>2</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>good</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorLocation</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I haven't seen him</dialogue>
+			<dialogue>I haven't seen him, but... you could check his office. Here's a key.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> but... you could check his office. Here's a key."</addEventToGlobalItem>
+					<addEventToGlobalItem>GAME: get key; add event: KeyToDirectorOffice</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>GAME: get key; add event: KeyToDirectorOffice</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -948,16 +827,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>ArtifactLoc_JonathansIdeas</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>I'm not sure. Maybe the director took it for some reason?</dialogue>
 			<relatedEvents>
@@ -987,24 +861,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsInvolvement</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"You can call him through the phone here</dialogue>
+			<dialogue>You can call him through the phone here, if you want. Just approach the landline over there.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> if you want. Just approach the landline over there."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1026,24 +895,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>good</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsInvolvement</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"If the director's involved</dialogue>
+			<dialogue>If the director's involved, then Cassandra won't be very happy...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> then Cassandra won't be very happy..."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1065,33 +929,28 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"good</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>good</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem />
+				<relatedTopicsItem>ArtifactLoc_JonathansIdeas</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>ArtifactLoc_JonathansIdeas</responseTone>
-			<locations>
-				<locationsItem>pos</locationsItem>
-			</locations>
+			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>No, but let me tell you what. I'll check the camera footage again, and if something seems suspicious I'll let you know. Come back here in a bit.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> neutral"</relatedEventsItem>
+				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>"No</addEventToGlobalItem>
+					<addEventToGlobalItem>Add event to current map: JonathanCheckingCameras</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> but let me tell you what. I'll check the camera footage again</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem> and if something seems suspicious I'll let you know. Come back here in a bit."</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
-					<addToPlayerMemoryItem>Add event to current map: JonathanCheckingCameras</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem />
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -1104,65 +963,22 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"good</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>neutral</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-				<relatedTopicsItem>JonathanCheckingCameras</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>StartConversation / ArtifactDisappearance</responseTone>
-			<locations>
-				<locationsItem>pos</locationsItem>
-			</locations>
+			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>You're back! I'm just reminded of something from last night. I saw a woman on the cameras last night. She came into the storage unit and never left.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> neutral"</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+				<relatedEventsItem>JonathanCheckingCameras</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>You're back! I'm just reminded of something from last night. I saw a woman on the cameras last night. She came into the storage unit and never left.</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem>"Topic relevance: WomanInStorage = +1</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem> add event to both memory: WomanInStorage"</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>neut</relPrereqsItem>
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"G'morning</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> ma'am."</addEventToGlobalItem>
+					<addEventToGlobalItem>Topic relevance: WomanInStorage = +1{comma} add event to both memory: WomanInStorage</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1184,24 +1000,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>good</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>neut</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"Need anything</dialogue>
+			<dialogue>G'morning, ma'am.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> ma'am?"</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1223,16 +1034,45 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>bad</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
+			<portrait>neutral</portrait>
+			<dialogue>Need anything, ma'am?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<dialogue>... hello ma'am.</dialogue>
 			<relatedEvents>
@@ -1262,30 +1102,25 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>"neut</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>neut</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem />
+				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<responseTone>Suspect_Cassandra</responseTone>
-			<locations>
-				<locationsItem>neg</locationsItem>
-			</locations>
+			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue></dialogue>
+			<dialogue>How could you say that so quickly?! I know we're the only ones here, but still...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem> good"</relatedEventsItem>
+				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>"How could you say that so quickly?! I know we're the only ones here</addEventToGlobalItem>
+					<addEventToGlobalItem>decrease relationship</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> but still..."</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem>decrease relationship</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem />
@@ -1301,16 +1136,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>bad</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neg</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>I don't think you should say things like that without proof...</dialogue>
 			<relatedEvents>
@@ -1340,16 +1170,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem>none</relPrereqsItem>
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>Well... maybe.</dialogue>
 			<relatedEvents>
@@ -1379,142 +1204,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I visited Miss Cassandra about two hours after everyone left. I was going to ask her if she was going home</dialogue>
+			<dialogue>I visited Miss Cassandra about two hours after everyone left. I was going to ask her if she was going home, since it's the weekend and all.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> since it's the weekend and all."</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem>Add to memory: JonathanVisitReason</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"Miss Cassandra left the bathroom with a cut on her hand the moment I dropped by. I helped her treat it</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> since it looked pretty nasty."</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem>Add to memory: CassandrasCut</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"Nothing suspicious</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
-				<relatedEventsItem>Suspect_MaybeCass</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> really. Yes</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem> maybe miss Cassandra stole the plinth... but there's no proof."</addEventToMapItem>
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
-			<relatedTopics>
-				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
-			</relatedTopics>
-			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
-			<portrait>neutral</portrait>
-			<dialogue>"The cabinet is pretty dangerous</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CheckedBrokenCabinet</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> if you ask me."</addEventToGlobalItem>
+					<addEventToGlobalItem>Add to memory: JonathanVisitReason</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1536,16 +1238,114 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Miss Cassandra left the bathroom with a cut on her hand the moment I dropped by. I helped her treat it, since it looked pretty nasty.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem>Add to memory: CassandrasCut</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Nothing suspicious, really. Yes, maybe miss Cassandra stole the plinth... but there's no proof.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
+				<relatedEventsItem>Suspect_MaybeCass</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
+			<portrait>neutral</portrait>
+			<dialogue>The cabinet is pretty dangerous, if you ask me.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CheckedBrokenCabinet</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<neutWeight>1</neutWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
+			</relatedTopics>
+			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<dialogue>Miss Cassandra got cut last night because of that cabinet. You should ask the director if he can get it fixed before more people get hurt from it.</dialogue>
 			<relatedEvents>
@@ -1575,24 +1375,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"I've talked about this before</dialogue>
+			<dialogue>I've talked about this before, but I'll say it again: we should get that replaced.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> but I'll say it again: we should get that replaced."</addEventToGlobalItem>
+					<addEventToGlobalItem />
 				</addEventToGlobal>
 				<addEventToMap>
 					<addEventToMapItem />
@@ -1614,30 +1409,25 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
-			<dialogue>"Ah</dialogue>
+			<dialogue>Ah, yes... the plinth...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanPlinthQuestions</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem> yes... the plinth..."</addEventToGlobalItem>
+					<addEventToGlobalItem>add to global{comma} JonathanPlinthQuestions_True</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem>"add to global</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
-					<addToNPCMemoryItem> JonathanPlinthQuestions_True"</addToNPCMemoryItem>
+					<addToNPCMemoryItem />
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem />
@@ -1653,16 +1443,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>2</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neg</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>C-calm down... About the plinth...</dialogue>
 			<relatedEvents>
@@ -1670,10 +1455,10 @@
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>"reduce relationship</addEventToGlobalItem>
+					<addEventToGlobalItem>reduce relationship{comma} add to global JonathanPlinthQuestions_True</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> add to global JonathanPlinthQuestions_True"</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -1692,16 +1477,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>I can't believe you told miss Cassandra that *I* thought she stole it. She confronted me about it a while ago...</dialogue>
 			<relatedEvents>
@@ -1709,10 +1489,10 @@
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
-					<addEventToGlobalItem>"add to player memory: JonathanUpsetAboutCassandraSuspect</addEventToGlobalItem>
+					<addEventToGlobalItem>add to player memory: JonathanUpsetAboutCassandraSuspect{comma} reduce relationship</addEventToGlobalItem>
 				</addEventToGlobal>
 				<addEventToMap>
-					<addEventToMapItem> reduce relationship"</addEventToMapItem>
+					<addEventToMapItem />
 				</addEventToMap>
 				<addToNPCMemory>
 					<addToNPCMemoryItem />
@@ -1731,16 +1511,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
 			</relatedTopics>
 			<responseTone>neut</responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue>I thought we were done with this topic...</dialogue>
 			<relatedEvents>
@@ -1770,16 +1545,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -1809,16 +1579,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -1848,16 +1613,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -1887,16 +1647,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -1926,16 +1681,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -1965,16 +1715,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2004,16 +1749,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2043,16 +1783,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2082,16 +1817,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2121,16 +1851,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2160,16 +1885,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2199,16 +1919,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2238,16 +1953,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2277,16 +1987,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2316,16 +2021,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2355,16 +2055,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2394,16 +2089,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2433,16 +2123,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2472,16 +2157,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2511,16 +2191,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2550,16 +2225,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2589,16 +2259,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2628,16 +2293,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2667,16 +2327,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2706,16 +2361,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2745,16 +2395,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2784,16 +2429,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2823,16 +2463,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2862,16 +2497,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2901,16 +2531,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2940,16 +2565,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -2979,16 +2599,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3018,16 +2633,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3057,16 +2667,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3096,16 +2701,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3135,16 +2735,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3174,16 +2769,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3213,16 +2803,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3252,16 +2837,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3291,16 +2871,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3330,16 +2905,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3369,16 +2939,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3408,16 +2973,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3447,16 +3007,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3486,16 +3041,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3525,16 +3075,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3564,16 +3109,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3603,16 +3143,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3642,16 +3177,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3681,16 +3211,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3720,16 +3245,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3759,16 +3279,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3798,16 +3313,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3837,16 +3347,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3876,16 +3381,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3915,16 +3415,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3954,16 +3449,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -3993,16 +3483,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4032,16 +3517,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4071,16 +3551,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4110,16 +3585,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4149,16 +3619,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4188,16 +3653,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4227,16 +3687,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4266,16 +3721,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4305,16 +3755,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4344,16 +3789,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4383,16 +3823,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4422,16 +3857,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4461,16 +3891,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4500,16 +3925,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4539,16 +3959,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4578,16 +3993,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4617,16 +4027,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4656,16 +4061,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4695,16 +4095,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4734,16 +4129,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4773,16 +4163,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4812,16 +4197,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4851,16 +4231,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4890,16 +4265,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4929,16 +4299,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -4968,16 +4333,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5007,16 +4367,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5046,16 +4401,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5085,16 +4435,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5124,16 +4469,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5163,16 +4503,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5202,16 +4537,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5241,16 +4571,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5280,16 +4605,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5319,16 +4639,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5358,16 +4673,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5397,16 +4707,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5436,16 +4741,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5475,16 +4775,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5514,16 +4809,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5553,16 +4843,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5592,16 +4877,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5631,16 +4911,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5670,16 +4945,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5709,16 +4979,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5748,16 +5013,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5787,16 +5047,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5826,16 +5081,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5865,16 +5115,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5904,16 +5149,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5943,16 +5183,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -5982,16 +5217,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6021,16 +5251,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6060,16 +5285,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6099,16 +5319,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6138,16 +5353,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6177,16 +5387,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6216,16 +5421,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6255,16 +5455,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6294,16 +5489,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6333,16 +5523,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6372,16 +5557,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6411,16 +5591,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6450,16 +5625,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6489,16 +5659,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6528,16 +5693,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6567,16 +5727,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6606,16 +5761,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6645,16 +5795,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6684,16 +5829,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6723,16 +5863,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6762,16 +5897,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6801,16 +5931,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6840,16 +5965,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6879,16 +5999,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6918,16 +6033,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6957,16 +6067,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -6996,16 +6101,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7035,16 +6135,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7074,16 +6169,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7113,16 +6203,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7152,16 +6237,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7191,16 +6271,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7230,16 +6305,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7269,16 +6339,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7308,16 +6373,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7347,16 +6407,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7386,16 +6441,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7425,16 +6475,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7464,16 +6509,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7503,16 +6543,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7542,16 +6577,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7581,16 +6611,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7620,16 +6645,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7659,16 +6679,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7698,16 +6713,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7737,16 +6747,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7776,16 +6781,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7815,16 +6815,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7854,16 +6849,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7893,16 +6883,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7932,16 +6917,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -7971,16 +6951,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8010,16 +6985,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8049,16 +7019,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8088,16 +7053,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8127,16 +7087,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8166,16 +7121,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8205,16 +7155,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8244,16 +7189,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8283,16 +7223,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8322,16 +7257,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8361,16 +7291,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8400,16 +7325,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8439,16 +7359,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8478,16 +7393,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8517,16 +7427,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8556,16 +7461,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8595,16 +7495,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8634,16 +7529,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8673,16 +7563,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8712,16 +7597,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8751,16 +7631,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8790,16 +7665,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8829,16 +7699,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8868,16 +7733,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8907,16 +7767,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8946,16 +7801,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -8985,16 +7835,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9024,16 +7869,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9063,16 +7903,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9102,16 +7937,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9141,16 +7971,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9180,16 +8005,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9219,16 +8039,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9258,16 +8073,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9297,16 +8107,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9336,16 +8141,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9375,16 +8175,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9414,16 +8209,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9453,16 +8243,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9492,16 +8277,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9531,16 +8311,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9570,16 +8345,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9609,16 +8379,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9648,16 +8413,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9687,16 +8447,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9726,16 +8481,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9765,16 +8515,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9804,16 +8549,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9843,16 +8583,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9882,16 +8617,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9921,16 +8651,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9960,16 +8685,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -9999,16 +8719,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10038,16 +8753,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10077,16 +8787,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10116,16 +8821,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10155,16 +8855,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10194,16 +8889,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10233,16 +8923,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10272,16 +8957,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10311,16 +8991,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10350,16 +9025,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10389,16 +9059,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10428,16 +9093,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10467,16 +9127,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10506,16 +9161,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10545,16 +9195,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10584,16 +9229,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10623,16 +9263,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10662,16 +9297,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10701,16 +9331,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10740,16 +9365,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10779,16 +9399,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10818,16 +9433,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10857,16 +9467,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10896,16 +9501,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10935,16 +9535,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -10974,16 +9569,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11013,16 +9603,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11052,16 +9637,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11091,16 +9671,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11130,16 +9705,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11169,16 +9739,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11208,16 +9773,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11247,16 +9807,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11286,16 +9841,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11325,16 +9875,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11364,16 +9909,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11403,16 +9943,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11442,16 +9977,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11481,16 +10011,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11520,16 +10045,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>
@@ -11559,16 +10079,11 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<neutWeight>1</neutWeight>
-			<relPrereqs>
-				<relPrereqsItem />
-			</relPrereqs>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem />
 			</relatedTopics>
 			<responseTone></responseTone>
-			<locations>
-				<locationsItem />
-			</locations>
 			<portrait>neutral</portrait>
 			<dialogue></dialogue>
 			<relatedEvents>

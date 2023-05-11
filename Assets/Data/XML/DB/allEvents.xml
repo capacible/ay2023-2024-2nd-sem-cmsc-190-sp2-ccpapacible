@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Main>
+	<ids>
+		<id>ArtifactNotFound</id>
+		<id>DirectorWhereabouts:main_cass</id>
+		<id>DirectorWhereabouts:main_jonathan</id>
+		<id>PlayerCanUseJonathansPhone</id>
+		<id>PlayerUsedJonathansPhone</id>
+		<id>DirectorVoicemail</id>
+		<id>DirectorWhereabouts:Cassandra</id>
+		<id>ExpressedSuspicions:main_cassandra</id>
+		<id>ExpressedSuspicions:main_jonathan</id>
+		<id>ExpressedSuspicions:custodian</id>
+		<id>ExpressedSuspicions:assistant</id>
+		<id>DirectorWhereabouts:Assistant</id>
+		<id>DirectorMissing</id>
+		<id>PlayerPressuredTheAssistant</id>
+		<id>PlayerDemeanor:Nervous</id>
+		<id>NextSteps:assistant</id>
+		<id>JonathanHasKeysToOffice</id>
+		<id>PlayerAskedForHelp:custodian</id>
+		<id>DeclinedToHelp:Custodian</id>
+		<id>DeclinedToHelp:Assistant</id>
+		<id>HostileToJonathan</id>
+		<id>JonathanWatchingCameras</id>
+		<id>StrangeWomanInStorage</id>
+		<id>CassJonathanTalked</id>
+		<id>Suspect_MaybeCass</id>
+		<id>JonathanPlinthQuestions</id>
+		<id>DidntBelieveJonathanAboutWoman</id>
+		<id>GameStart</id>
+		<id>JonathanCheckingCameras</id>
+		<id>CheckedBrokenCabinet</id>
+		<id>RevealedSuspect_Cass_BlamedJonathan</id>
+		<id>CassTired</id>
+		<id>TopicClosed_TalkAboutWeekend</id>
+		<id>JonathanVisitReason</id>
+		<id>CassandrasCut</id>
+		<id>CassandrasCutReason</id>
+		<id>CassandraAlibi_CompilingNotes</id>
+		<id>CassAccountedForArtifacts</id>
+		<id>CassSuspectingJonathan</id>
+		<id>PlayerAskedForHelp</id>
+	</ids>
+</Main>

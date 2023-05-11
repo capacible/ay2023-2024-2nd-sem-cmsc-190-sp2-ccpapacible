@@ -38,6 +38,7 @@ public static class XMLUtility
             // not sure if this works
             return (T)serializer.Deserialize(stream);
         }
+        
     }
 
 }

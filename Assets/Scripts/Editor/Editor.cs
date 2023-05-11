@@ -510,7 +510,70 @@ public class Editor
         writer.WriteEndDocument();
         writer.Close();
     }
+    
+    /// <summary>
+    /// This is for events, traits, topics db.
+    /// </summary>
+    [UnityEditor.MenuItem("Tools/XML/Generate ids XML from single-column CSV")]
+    static void CreateIdXML()
+    {
+        // READ
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
 
+        List<Dictionary<string, string>> csvData = ReadCSVFile(path);
+
+        // get the filename without the csv extension
+        string filename = Selection.activeObject.name.Split('/')[Selection.activeObject.name.Split('/').Length - 1].Split('.')[0];
+
+        if (csvData == null)
+        {
+            return;
+        }
+
+        string outFile = "Assets/Data/XML/DB";
+
+        if (!AssetDatabase.IsValidFolder(outFile))
+        {
+            AssetDatabase.CreateFolder("Assets/Data/XML", "DB");
+        }
+
+        // set outfile if valid -- same name as the csv file name
+        outFile = outFile + "/" + filename + ".xml";
+
+        // using xmlwriter
+        var writerSettings = new XmlWriterSettings()
+        {
+            Indent = true,
+            IndentChars = "\t"
+        };
+
+        XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
+
+        writer.WriteStartDocument();
+
+        // single column
+        writer.WriteStartElement("Main");
+        writer.WriteStartElement("ids");
+        
+        // row-based, since single column, we only have a single dict entry per row
+        foreach(Dictionary<string, string> row in csvData)
+        {
+            writer.WriteStartElement("id");
+            writer.WriteString(row["ids"]);
+
+            writer.WriteEndElement();
+        }
+
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+
+        writer.WriteEndDocument();
+        writer.Close();
+    }
+    
+    #endregion
+
+    #region LINE XML
     [UnityEditor.MenuItem("Tools/XML/Generate DialogueLine XML from CSV")]
     static void CreateLineXMLFromCSV()
     {
@@ -594,7 +657,7 @@ public class Editor
             {
                 
                 // array or multivalued attribs.
-                if (new List<string>() { "relPrereqs", "relatedEvents", "relatedTopics", "locations" }.Contains(pair.Key))
+                if (new List<string>() { "relatedEvents", "relatedTopics", "locations" }.Contains(pair.Key))
                 {
                     WriteArrayElements(writer, pair.Key, pair.Value);
                 }
@@ -617,6 +680,11 @@ public class Editor
                     else if(pair.Key.Contains("portrait") && pair.Value == "")
                     {
                         writer.WriteString("neutral");
+                    }
+                    // EMPTY REL PREREQ WILL BE NEUTRAL STRING
+                    else if (pair.Key.Contains("relPrereq") && pair.Value == "")
+                    {
+                        writer.WriteString(REL_STATUS_STRING.NONE);
                     }
                     else
                     {
