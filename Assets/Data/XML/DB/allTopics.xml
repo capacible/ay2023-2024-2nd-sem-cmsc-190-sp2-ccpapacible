@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Main>
 	<ids>
-		<id>TalkAboutWeekend</id>
 		<id>MissingArtifact</id>
+		<id>StartConversation</id>
+		<id>LookingForDirector</id>
+		<id>DirectorMissing</id>
+		<id>DirectorsOffice</id>
+		<id>TalkAboutWeekend</id>
 		<id>ArtifactDisappearance</id>
 		<id>CassandraAlibi</id>
 		<id>WomanInStorage</id>
@@ -10,7 +14,6 @@
 		<id>DirectorLocation</id>
 		<id>ArtifactLoc_JonathansIdeas</id>
 		<id>DirectorsInvolvement</id>
-		<id>StartConversation</id>
 		<id>Suspect_Cassandra</id>
 		<id>JonathanAlibi</id>
 		<id>AboutCassandra</id>
@@ -19,7 +22,6 @@
 		<id>PlinthLastSighting</id>
 		<id>ArtifactLoc_CassIdeas</id>
 		<id>PlinthLocation</id>
-		<id>DirectorMissing</id>
-		<id>DirectorsOffice</id>
+		<id>none</id>
 	</ids>
 </Main>

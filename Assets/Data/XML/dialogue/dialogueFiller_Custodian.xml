@@ -5,1487 +5,50 @@
 			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
-			<relPrereq>neutral</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>pos</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>It's mostly work, to be honest. I've been reading during my downtime, but I'm basically stuck in this booth.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Oh, um... it's fine. Why?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>What? How could that happen?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>GameStart</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Sorry... I'm not really comfortable sharing that with you.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>0</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Okay...? Well... I've just been working, I guess. I'm sure it's nothing interesting for you.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>...Okay, sorry.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Well, I was guarding the museum last night and the night before. Last night, me and miss Cassandra stayed overtime and everyone else left.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>0</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>pos</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Sorry, no. Everyone left last night. It was just me and miss Cassandra.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Uhm, ma'am... There's actually something I have to tell you.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>To be honest... There *was* someone suspicious last night. A woman entered the storage unit, but I never saw her come out...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I wasn't sure of what I saw, so I didn't tell you... but I saw a woman enter the storage unit and never come out</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandraAlibi</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I think miss Cassandra's been working non-stop since last night. I haven't seen her come out of the office.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>0</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>The thing is, I didn't want to tell you because she felt unreal. I couldn't tell if I was dreaming or not... I was a bit sleepy.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I watch the cameras all the time, so I'm sure she never left. To be honest... when I saw her, I felt some kind of chill down my spine.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>JonathansAlibi</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I've been here the entire time, in my booth. Usually, I'd watch the cameras while listening to a few audiobooks...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>TalkAboutWeekend</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>You've asked that already. I'm not interested in making small talk with you, sorry.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>HostileToJonathan</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I don't know what else to say, Ma'am. I saw her come in, but she never went out.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>JonathanWatchingCameras</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>If she left, I would have noticed. Especially with the way the entire booth felt different when I saw her.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>JonathanWatchingCameras</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>2</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>She has long, black hair. She was wearing one of those fancy shimmering dresses too.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>My bad. Maybe the cold and the silence was getting to me.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>She was beautiful. It looks like she came from a nice dinner because her dress was so shiny.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>... You know what? Please forget about it. I'm probably mistaken.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>StrangeWomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>DirectorLocation</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Sorry, ma'am. I haven't seen him.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>HostileToJonathan</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>2</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>good</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>DirectorLocation</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I haven't seen him, but... you could check his office. Here's a key.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactLoc_JonathansIdeas</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I'm not sure. Maybe the director took it for some reason?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>DirectorsInvolvement</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>You can call him through the phone here, if you want. Just approach the landline over there.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>good</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>DirectorsInvolvement</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>If the director's involved, then Cassandra won't be very happy...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>good</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>ArtifactLoc_JonathansIdeas</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>pos</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>No, but let me tell you what. I'll check the camera footage again, and if something seems suspicious I'll let you know. Come back here in a bit.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>neutral</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-				<relatedTopicsItem>ArtifactDisappearance</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>pos</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>You're back! I'm just reminded of something from last night. I saw a woman on the cameras last night. She came into the storage unit and never left.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
-				<relatedEventsItem>JonathanCheckingCameras</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>neut</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>G'morning, ma'am.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>good</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Need anything, ma'am?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>... hello ma'am.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>neut</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>How could you say that so quickly?! I know we're the only ones here, but still...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>bad</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I don't think you should say things like that without proof...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>Suspect_Cassandra</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Well... maybe.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I visited Miss Cassandra about two hours after everyone left. I was going to ask her if she was going home, since it's the weekend and all.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Miss Cassandra left the bathroom with a cut on her hand the moment I dropped by. I helped her treat it, since it looked pretty nasty.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>AboutCassandra</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Nothing suspicious, really. Yes, maybe miss Cassandra stole the plinth... but there's no proof.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CassJonathanTalked</relatedEventsItem>
-				<relatedEventsItem>Suspect_MaybeCass</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>The cabinet is pretty dangerous, if you ask me.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CheckedBrokenCabinet</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Miss Cassandra got cut last night because of that cabinet. You should ask the director if he can get it fixed before more people get hurt from it.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BrokenCabinet</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>I've talked about this before, but I'll say it again: we should get that replaced.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>Ah, yes... the plinth...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>JonathanPlinthQuestions</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>JonathanAlibi</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<dialogue>C-calm down... About the plinth...</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>JonathanPlinthQuestions</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>none</trait>
-			<responseTone>neut</responseTone>
+			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue>I can't believe you told miss Cassandra that *I* thought she stole it. She confronted me about it a while ago...</dialogue>
+			<dialogue></dialogue>
 			<relatedEvents>
-				<relatedEventsItem>RevealedSuspect_Cass_BlamedJonathan</relatedEventsItem>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>ArtifactNotFound</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>
@@ -1512,14 +75,1442 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>WomanInStorage</relatedTopicsItem>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait>friendly</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Oh... How can I help?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait>gruff</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>What'dya need?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>frazzled</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Ah... um... I can't help you with that. Director Virgil will get mad at me... haha.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>eloquent</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>I can't help you with that, I'm afraid. I'll need the director's permission first.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>friendly</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>No can do, ma'am. That's going to get me in trouble.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>impatient</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Hmph. Can't help you with that.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>loner</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Can't help you. Now scram, I'm busy.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>polite</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>Sorry, can't really help with that.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>gruff</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue>No.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
 			</relatedTopics>
 			<trait>none</trait>
-			<responseTone>neut</responseTone>
+			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
-			<dialogue>I thought we were done with this topic...</dialogue>
+			<dialogue></dialogue>
 			<relatedEvents>
-				<relatedEventsItem>DidntBelieveJonathanAboutWoman</relatedEventsItem>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem />
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem />
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem />
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem />
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem />
+			</relatedTopics>
+			<trait>none</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<dialogue></dialogue>
+			<relatedEvents>
+				<relatedEventsItem />
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal>

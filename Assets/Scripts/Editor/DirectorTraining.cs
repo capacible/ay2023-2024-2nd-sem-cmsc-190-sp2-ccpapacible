@@ -43,12 +43,17 @@ public class DirectorTraining
         // load events
         Dictionary<int, string> eventsDB = IdCollection.LoadArrayAsDict(Director.EVENTS_XML_PATH);
         Dictionary<int, string> traitsDB = IdCollection.LoadArrayAsDict(Director.TRAITS_XML_PATH);
+
+        Debug.Log(eventsDB.Count);
+        Debug.Log(traitsDB.Count);
+
         int totalRelStatus = TOTAL_REL;
 
         // initialize the lineDb
         Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml"
+            "Data/XML/dialogue/dialogueJonathan.xml",
+            "Data/XML/dialogue/dialogueFiller_Custodian.xml"
         });
 
         // initialize the model
@@ -102,6 +107,12 @@ public class DirectorTraining
             }
             
         }
+
+        Debug.Log("LENGTHS OF THE OBSERVATIONS:\n" +
+            $"line {lineObservations.Count}\n" +
+            $"event {eventObservations.Count}\n" +
+            $"trait {traitObservations.Count}\n" +
+            $"rel {relObservations.Count}\n");
 
         // once all lines are finished, we convert them to array and make inferences.
         // all of these must have the SAME length. this is the overall row count of our "table"

@@ -69,6 +69,8 @@ public class IdCollection
         Dictionary<int, string> returnDict = new Dictionary<int, string>();
         IdCollection ids = XMLUtility.LoadFromPath<IdCollection>(path);
 
+        Debug.Log("success");
+
         for(int i = 0; i < ids.allIds.Length; i++)
         {
             // add to a dictionary

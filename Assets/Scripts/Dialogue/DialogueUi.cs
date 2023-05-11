@@ -103,6 +103,8 @@ public class DialogueUi : MonoBehaviour
     /// <param name="obj"></param>
     public void ShowDialogueWindow(object[] obj)
     {
+        Debug.Log("STARTING DIALOGUE");
+
         NPCData npc = (NPCData) obj[1];
         charPortrait.sprite = npc.dialoguePortraits[0];
 
@@ -137,8 +139,8 @@ public class DialogueUi : MonoBehaviour
         if (retLine.TryDequeue(out string resultLine))
         {
 
-            dialogueText.text = resultLine;  
-
+            dialogueText.text = resultLine;
+            Debug.Log(resultLine);
         }
         else
         {

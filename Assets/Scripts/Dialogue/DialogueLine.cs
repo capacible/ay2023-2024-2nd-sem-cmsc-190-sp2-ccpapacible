@@ -42,7 +42,6 @@ public class DialogueLine
     //      we get the tone of the convo and access the tonal weight of the dialogue line in question to be used in utility fxn
     public int posWeight;
     public int negWeight;
-    public int neutWeight;
 
     // if the line is already said.
     [XmlIgnore]
@@ -94,9 +93,11 @@ public class DialogueLineCollection
 
         foreach(string path in paths)
         {
+            UnityEngine.Debug.Log("loading dialogue at path: " + path);
             // we load individually then access each individual dialogue line to add to the final collection.
             foreach(DialogueLine line in XMLUtility.LoadFromPath<DialogueLineCollection>(path).DialogueLines)
             {
+                UnityEngine.Debug.Log("loaded this line: " + line.receiver);
                 all.Add(count, line);
                 count++;
             }

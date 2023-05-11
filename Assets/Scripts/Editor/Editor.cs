@@ -197,17 +197,8 @@ public class Editor
     [UnityEditor.MenuItem("Tools/ScriptableObjects/Generate NPC Data from CSV")]
     static void CreateNPCData()
     {
-        // READ
-        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
 
-        // if NOT speakers file, invalid
-        if (!path.Contains("speaker"))
-        {
-            Debug.LogError("Incorrect CSV file. Must be a speaker-related file.");
-            return;
-        }
-
-        List<Dictionary<string, string>> csvData = ReadCSVFile(path);
+        List<Dictionary<string, string>> csvData = ReadCSVFile("Assets/Data/CSV/speakers.csv");
         
         // if it's not a csv file
         if (csvData == null)
@@ -563,6 +554,11 @@ public class Editor
 
             writer.WriteEndElement();
         }
+        
+        // dafault <none> option
+        writer.WriteStartElement("id");
+        writer.WriteString("none");
+        writer.WriteEndElement();
 
         writer.WriteEndElement();
         writer.WriteEndElement();
@@ -685,6 +681,14 @@ public class Editor
                     else if (pair.Key.Contains("relPrereq") && pair.Value == "")
                     {
                         writer.WriteString(REL_STATUS_STRING.NONE);
+                    }
+                    else if(pair.Key.Contains("trait") && pair.Value == "")
+                    {
+                        writer.WriteString("none");
+                    }
+                    else if(pair.Key.Contains("responseTone") && pair.Value == "")
+                    {
+                        writer.WriteString("neutral");
                     }
                     else
                     {

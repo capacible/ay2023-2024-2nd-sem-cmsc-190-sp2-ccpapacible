@@ -69,14 +69,8 @@ public static class Director
         // load all events and count unique
         allEvents = IdCollection.LoadArrayAsDict(EVENTS_XML_PATH);
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
-        //LoadTopics();
-
-        // temp
-        allEvents.Add(0, "1");
-        allTraits.Add(0, "1");
-        allTraits.Add(1, "2");
-        // load possible traits and count unique
-
+        LoadTopics();
+        
         // we also need to initialize the mapevents to have all the scenes in the dictionary.
 
         LoadLines();
@@ -93,10 +87,11 @@ public static class Director
     {
         IdCollection topicIds = XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
 
-        // add topic ids to topic list, with default topic number
+        // add topic ids to topic list
+        // UNREFERENCED TOPIC START AT 0.5
         foreach(string topic in topicIds.allIds)
         {
-            topicList.Add(topic, 1);
+            topicList.Add(topic, (float)0.5);
         }
     }
 
@@ -108,9 +103,10 @@ public static class Director
         // we can have a text file here describing the file names of all dialogue XMLs.
         LineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml"
+            "Data/XML/dialogue/dialogueJonathan.xml",
+            "Data/XML/dialogue/dialogueFiller_Custodian.xml"
         });
-
+        
         Debug.Log("success");
     }
 
@@ -152,6 +148,12 @@ public static class Director
     /// <returns></returns>
     public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false, Dictionary<int, string> refDict = null)
     {
+        // if empty, we use the keyword none.
+        if(findVal == "")
+        {
+            findVal = "none";
+        }
+
         if (fromTraits == true)
         {
             foreach (KeyValuePair<int, string> p in allTraits.Where(pair => pair.Value == findVal))
@@ -247,6 +249,11 @@ public static class Director
     {
         activeNPC = npcId;
         currentMap = mapId;
+
+        // set current relevant topic to be startconversation
+        topicList["StartConversation"] = 2;
+        // start with 0 mood -- neutral
+        mood = 0;
         
         return GetNPCLine();
     }
@@ -262,10 +269,16 @@ public static class Director
         // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
         allSpeakers[activeNPC].speakerMemories.ForEach(
             memory => npcMemory.Add(
-                NumKeyLookUp(memory, fromlineDB: true)));
+                NumKeyLookUp(memory, refDict: allEvents)));
 
         // we combine all events together
         List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
+
+        // no event? return { none }
+        if(globalAndMap.Count == 0 && npcMemory.Count == 0)
+        {
+            return new int[] { NumKeyLookUp("none", refDict: allEvents) };
+        }
 
         return npcMemory.Union(globalAndMap).ToArray();
     }
@@ -279,17 +292,22 @@ public static class Director
     public static string[] GetNPCLine(int playerChoice=-1)
     {
         Debug.Log("Talking to: " + activeNPC);
-        // TESTING FOR JONATHAN ONLY
-        globalEvents.Add(NumKeyLookUp( allEvents[0], fromEvents:true));
+        // testing: adding artifactnotfound to memory, then another irrelevant line
+        allSpeakers[activeNPC].speakerMemories.Add("ArtifactNotFound");
+        globalEvents.Add(NumKeyLookUp("GameStart", refDict: allEvents));
 
         // if we have selected some choice...
         if(playerChoice != -1)
         {
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice]);
+            DialogueLine choice = playerChoices[playerChoice];
 
             // update data of NPC given what the player chose.
-            UpdateNPCData(playerChoices[playerChoice]);
+            UpdateNPCData(choice);
+
+            // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
+            UpdateTopics(choice);
         }
         
         // train
@@ -303,6 +321,8 @@ public static class Director
             data,
             topicList,
             mood);
+
+        Debug.Log("selected line: " + lineId);
 
         prevLine = LineDB[lineId];
 
@@ -336,7 +356,8 @@ public static class Director
             allSpeakers[activeNPC].relWithPlayer,
             data,
             topicList,
-            mood);
+            mood,
+            allSpeakers[activeNPC].speakerArchetype);
 
         foreach(int i in lineIds)
         {
@@ -434,6 +455,20 @@ public static class Director
             {
                 mapEvents[currentMap].Add(eventId);
             }
+        }
+    }
+
+    /// <summary>
+    /// Topics that aren't related to the dialogue of choice will be updated to degrade.
+    /// </summary>
+    /// <param name="choice"></param>
+    public static void UpdateTopics(DialogueLine choice)
+    {
+        // for all topics that aren't in the choice's related topics
+        foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
+        {
+            Debug.Log("Updating topic relevance for: " + topic);
+            topicList[topic] -= (float)0.1;
         }
     }
 
