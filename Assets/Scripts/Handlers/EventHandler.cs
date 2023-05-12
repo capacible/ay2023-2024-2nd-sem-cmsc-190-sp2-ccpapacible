@@ -83,7 +83,6 @@ public class EventHandler : MonoBehaviour
     private void InitGame()
     {
         Director.Start();
-        
     }
 
     /// <summary>
@@ -95,6 +94,10 @@ public class EventHandler : MonoBehaviour
     public void StartGame()
     {
         LoadUiScene?.Invoke("_Inventory", null);
+
+        // newgame thingz
+        Director.AddEventString("GameStart");
+        Director.AddToSpeakerMemory("player", "ArtifactNotFound");
     }
 
     #region DIALOGUE SYSTEM

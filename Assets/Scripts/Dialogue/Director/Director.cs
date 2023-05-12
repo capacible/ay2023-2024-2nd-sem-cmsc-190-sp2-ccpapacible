@@ -9,6 +9,13 @@ enum MoodThreshold
     BAD = -1
 }
 
+enum TopicRelevance
+{
+    MAX = 3,
+    DEFAULT = 1,
+    MIN = 0
+}
+
 /// <summary>
 /// In charge of determining the lines to use.
 /// </summary>
@@ -64,6 +71,9 @@ public static class Director
     private static DirectorData data;
 
     #region INITIALIZATION
+    /// <summary>
+    /// Upon starting the game -- not the save
+    /// </summary>
     public static void Start()
     {
         // load all events and count unique
@@ -251,7 +261,7 @@ public static class Director
         currentMap = mapId;
 
         // set current relevant topic to be startconversation
-        topicList["StartConversation"] = 2;
+        topicList["StartConversation"] = (float)TopicRelevance.MAX;
         // start with 0 mood -- neutral
         mood = 0;
         
@@ -261,13 +271,17 @@ public static class Director
     /// <summary>
     /// initializes DirectorData as well as merges all global, map, and memory events into one list.
     /// </summary>
-    public static int[] InitData()
+    /// <param name="npc"> 
+    /// the id of the npc speaker to access the memory of. by default, it's player, but when npc is speaking, it's
+    /// the current active npc.
+    /// </param>
+    public static int[] InitData(string npc="player")
     {
         data = model.SetData();
 
         List<int> npcMemory = new List<int>();
         // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
-        allSpeakers[activeNPC].speakerMemories.ForEach(
+        allSpeakers[npc].speakerMemories.ForEach(
             memory => npcMemory.Add(
                 NumKeyLookUp(memory, refDict: allEvents)));
 
@@ -291,10 +305,9 @@ public static class Director
     /// <returns>DialogueLine.string dialogue selected by the engine</returns>
     public static string[] GetNPCLine(int playerChoice=-1)
     {
+        Debug.Log("==== NPC TURN ====");
+
         Debug.Log("Talking to: " + activeNPC);
-        // testing: adding artifactnotfound to memory, then another irrelevant line
-        allSpeakers[activeNPC].speakerMemories.Add("ArtifactNotFound");
-        globalEvents.Add(NumKeyLookUp("GameStart", refDict: allEvents));
 
         // if we have selected some choice...
         if(playerChoice != -1)
@@ -302,16 +315,15 @@ public static class Director
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice]);
             DialogueLine choice = playerChoices[playerChoice];
-
-            // update data of NPC given what the player chose.
-            UpdateNPCData(choice);
-
+            
             // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
             UpdateTopics(choice);
+            // update data of NPC given what the player chose.
+            UpdateNPCData(choice);
         }
         
         // train
-        int[] allKnownEvents = InitData();
+        int[] allKnownEvents = InitData(activeNPC);
 
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
@@ -343,6 +355,7 @@ public static class Director
     /// <returns></returns>
     public static List<string> GetPlayerLines()
     {
+        Debug.Log("==== PLAYER TURN ====");
         // clear player lines
         playerChoices.Clear();
 
@@ -377,8 +390,10 @@ public static class Director
        
         foreach (string m in line.effect.addToNPCMemory)
         {
+            Debug.Log("adding " + m + " to the memory of " + allSpeakers[activeNPC]);
             AddToSpeakerMemory(activeNPC, m);
         }
+        
 
         UpdateSpeakerData(line);
 
@@ -427,13 +442,13 @@ public static class Director
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "")
         {
-            topicList[line.effect.makeMostRelevantTopic] = 2;
+            topicList[line.effect.makeMostRelevantTopic] = (float)TopicRelevance.MAX;
         }
 
         if (line.effect.closeTopic != "")
         {
             // set teh topic listed to 1 (default value)
-            topicList[line.effect.closeTopic] = 1;
+            topicList[line.effect.closeTopic] = (float)TopicRelevance.DEFAULT;
         }
 
         // add to global events
@@ -456,7 +471,11 @@ public static class Director
                 mapEvents[currentMap].Add(eventId);
             }
         }
+
+        TestPrintEventTrackers();
+        TestPrintTopicRelevance();
     }
+    
 
     /// <summary>
     /// Topics that aren't related to the dialogue of choice will be updated to degrade.
@@ -465,13 +484,22 @@ public static class Director
     public static void UpdateTopics(DialogueLine choice)
     {
         // for all topics that aren't in the choice's related topics
+        // start conversation should also degrade as a topic even if it's in the related topics
+        // the logic is that after starting the conversation, a conversation-starter topic is less relevant now.
         foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
         {
             Debug.Log("Updating topic relevance for: " + topic);
-            topicList[topic] -= (float)0.1;
+            topicList[topic] -= (float)0.3;
         }
+
+        topicList["StartConversation"] = (float)0.0;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="speaker"> speaker ID or object id</param>
+    /// <param name="eventId">event string</param>
     public static void AddToSpeakerMemory(string speaker, string eventId)
     {
         if (!allSpeakers[speaker].speakerMemories.Contains(eventId))
@@ -479,7 +507,59 @@ public static class Director
             allSpeakers[speaker].speakerMemories.Add(eventId);
         }
     }
+
+    /// <summary>
+    /// Add an event to global or map
+    /// </summary>
+    /// <param name="e"></param>
+    public static void AddEventString(string e, string map="global")
+    {
+        int eventId = NumKeyLookUp(e, refDict: allEvents);
+        if (map == "global" && !(globalEvents.Contains(eventId)))
+        {
+            globalEvents.Add(eventId);
+        }
+        else
+        {
+            if(!(mapEvents[map].Contains(eventId)))
+                mapEvents[map].Add(eventId);
+        }
+
+    }
     #endregion
+
+    public static void TestPrintEventTrackers()
+    {
+        Debug.Log("Printing global events");
+        foreach(int ev in globalEvents)
+        {
+            // event with id ev
+            Debug.Log(allEvents[ev]);
+        }
+
+        Debug.Log("Printing map event");
+        foreach (int ev in mapEvents[currentMap])
+        {
+            Debug.Log(allEvents[ev]);
+        }
+
+
+        Debug.Log("Printing npc memory of "+activeNPC);
+        foreach (string ev in allSpeakers[activeNPC].speakerMemories)
+        {
+            Debug.Log(allEvents[NumKeyLookUp(ev, refDict:allEvents)]);
+        }
+    }
+
+    public static void TestPrintTopicRelevance()
+    {
+        Debug.Log("printing topic list: ");
+        foreach(KeyValuePair<string, float> pair in topicList)
+        {
+            Debug.Log($"topic: {pair.Key}\n" +
+                $"value: {pair.Value}");
+        }
+    }
 
     /// <summary>
     /// For testing if speakers are loaded successfully

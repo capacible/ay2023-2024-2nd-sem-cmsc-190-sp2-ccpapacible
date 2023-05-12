@@ -23,8 +23,11 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = 0.2;
+    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
+
+    // minimum probability should probable scale or something based on the first-best option.
+    private const double MINIMUM_PROBABILITY = 0.001;
 
     private const string DLINE_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/lineCPT.xml";
 
@@ -319,6 +322,7 @@ public class DirectorModel
     public DirectorData SetData()
     {
 
+
         // setting our probabilities in director data
         // if all of the posteriors are null (meaning 1st tym), we set the parents to uniform
         if (ProbPost_Events == null && ProbPost_Traits == null && ProbPost_RelStatus == null)
@@ -332,7 +336,7 @@ public class DirectorModel
             eventsProb = ProbPost_Events,
             traitsProb = ProbPost_Traits,
             relProb = ProbPost_RelStatus,
-            dialogueProb = importedDLineDist,   // use our imported dline distribution
+            dialogueProb = ProbPost_Dialogue,   // use our imported dline distribution
         };
     }
 
@@ -373,6 +377,7 @@ public class DirectorModel
         ProbPost_Events = engine.Infer<Dirichlet>(Prob_Events);
         ProbPost_Traits = engine.Infer<Dirichlet>(Prob_Traits);
         ProbPost_RelStatus = engine.Infer<Dirichlet>(Prob_RelStatus);
+        ProbPost_Dialogue = engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
     }
 
     /// <summary>
@@ -524,14 +529,19 @@ public class DirectorModel
         {
             // assuming that our line isn't no_receiver (meaning it's an npc line), we consider both receiver value and
             // any receiver to be a valid option.
-            if(receiver != "no_receiver" && (line.Value.receiver != receiver || line.Value.receiver != "any_receiver"))
+            if(receiver != "no_receiver" && (line.Value.receiver != receiver && line.Value.receiver != "any_receiver"))
             {
+                Debug.Log("filtering those that aren't " + receiver + " or any_receiver");
                 // if the receiver isn't the same, we set the probability to 0.
                 probabilities[line.Key] = 0;
             }
             else if(line.Value.receiver != receiver)
             {
                 probabilities[line.Key] = 0;
+            }
+            else
+            {
+                Debug.Log("line: " + line.Key + " is not filtered out");
             }
         }
 
@@ -542,7 +552,11 @@ public class DirectorModel
     /// Returns the index of the line with the highest utility.
     /// </summary>
     /// <returns></returns>
-    public int LineWithBestUtil(List<double> probabilities, Dictionary<string, float> topicList, int mood, string receiver = "no_receiver")
+    public KeyValuePair<int, double> LineWithBestUtil(
+        List<double> probabilities, 
+        Dictionary<string, float> topicList, 
+        int mood, 
+        string receiver = "no_receiver")
     {
         double highestUtil = 0;
         int bestDialogue = -1;
@@ -590,12 +604,12 @@ public class DirectorModel
         {
             // something went wrong
             Debug.LogWarning("Not able to find a best dialogue. Returning default.");
-            return 0;
+            return new KeyValuePair<int, double>(0, 0.0);
         }
 
         Debug.Log("Highest utility is: " + highestUtil);
 
-        return bestDialogue;
+        return new KeyValuePair<int, double>(bestDialogue, highestUtil);
     }
     #endregion
 
@@ -637,7 +651,7 @@ public class DirectorModel
         return LineWithBestUtil(
             GetDialogueProbabilities(knownEvents, traitsArr, relArr, data),
             topicList,
-            currentMood);
+            currentMood).Key;
     }
 
     /// <summary>
@@ -686,19 +700,19 @@ public class DirectorModel
         // we infer our posteriors first.
         List<double> linePosteriors = GetDialogueProbabilities(knownEvents, traitsArr, relArr, data);
 
-        int[] best3 = new int[3];
+        Dictionary<int, double> best3 = new Dictionary<int, double>();
         for(int i = 0; i < 3; i++)
         {
-            int best = LineWithBestUtil(linePosteriors, topicList, currentMood, activeArchetype);
+            KeyValuePair<int, double> best = LineWithBestUtil(linePosteriors, topicList, currentMood, activeArchetype);
 
-            // we add best to our best 3
-            best3[i] = best;
+            best3.Add(best.Key, best.Value);
 
             // we "delete" the posterior of the best, by setting it to 0 -- which means that all calc will result in this being 0
-            linePosteriors[best] = 0;
+            linePosteriors[best.Key] = 0;
         }
 
-        return best3;
+        // return all lines greater than the minimum probability.
+        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= MINIMUM_PROBABILITY).Contains(best3[id])).ToArray();
     }
 
 
