@@ -33,7 +33,7 @@ public enum REL_STATUS_NUMS
     BAD,        // 0
     NEUTRAL,    // 1
     GOOD,       // 2
-    NONE,       // 4
+    NONE = -1,       // 4
     BAD_THRESH = -20,
     GOOD_THRESH = 20,
 }

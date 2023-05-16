@@ -25,6 +25,13 @@ public class DialogueUi : MonoBehaviour
     public Animator anim;
     public Sprite playerPortrait;
 
+    [Header("Probability Debugging")]
+    public GameObject debugBg;
+    public GameObject topicListBg;
+    public Canvas debugCanvas;
+    public TextMeshProUGUI debugTxt;
+    public TextMeshProUGUI topicListTxt;
+
     // internal elements
     private int maxChoiceCount;         // acquired at initialization from how many buttons we added @ editor.
     private Text[] choiceText;          // used to directly reference the Text component of the choices buttons (para di na mag getComponent)
@@ -40,6 +47,7 @@ public class DialogueUi : MonoBehaviour
         EventHandler.StartDialogue += ShowDialogueWindow;
         EventHandler.FoundNPCLine += ShowNPCDialogue;
         EventHandler.FoundPlayerLines += ShowPlayerChoices;
+        EventHandler.DisplayNewDebugInfo += UpdateDebugText;
 
         Init();
     }
@@ -49,11 +57,13 @@ public class DialogueUi : MonoBehaviour
         EventHandler.StartDialogue -= ShowDialogueWindow;
         EventHandler.FoundNPCLine -= ShowNPCDialogue;
         EventHandler.FoundPlayerLines -= ShowPlayerChoices;
+        EventHandler.DisplayNewDebugInfo -= UpdateDebugText;
     }
 
     private void Init()
     {
         canvas.worldCamera = Camera.main;
+        debugCanvas.worldCamera = Camera.main;
 
         maxChoiceCount = choices.Length;
         anim.SetBool("isActive", true);
@@ -252,4 +262,40 @@ public class DialogueUi : MonoBehaviour
 
         EventHandler.Instance.ConcludeDialogue();
     }
+
+    #region DEBUGGING DIRECTOR
+
+    /// <summary>
+    /// Opens debug window.
+    /// </summary>
+    public void DebugWindow()
+    {
+        // close
+        if (debugBg.activeInHierarchy)
+        {
+            debugBg.gameObject.SetActive(false);
+            topicListBg.gameObject.SetActive(false);
+        }
+        
+        debugBg.gameObject.SetActive(true);
+        topicListBg.gameObject.SetActive(true);
+
+    }
+
+    /// <summary>
+    /// Updates the text.
+    /// </summary>
+    /// <param name="info"></param>
+    public void UpdateDebugText(string[] info)
+    {
+        foreach(string i in info)
+        {
+
+            debugTxt.text = i + "\n";
+        }
+
+        // update the topic lis
+        topicListTxt.text = Director.GetAllTopicRelevance();
+    }
+    #endregion
 }

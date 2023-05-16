@@ -554,11 +554,14 @@ public class Editor
 
             writer.WriteEndElement();
         }
-        
-        // dafault <none> option
-        writer.WriteStartElement("id");
-        writer.WriteString("none");
-        writer.WriteEndElement();
+
+        // dafault <none> option if the file is topics
+        if (filename.ToLower().Contains("topic"))
+        {
+            writer.WriteStartElement("id");
+            writer.WriteString("none");
+            writer.WriteEndElement();
+        }
 
         writer.WriteEndElement();
         writer.WriteEndElement();
@@ -684,7 +687,7 @@ public class Editor
                     }
                     else if(pair.Key.Contains("trait") && pair.Value == "")
                     {
-                        writer.WriteString("none");
+                        writer.WriteString("");
                     }
                     else if(pair.Key.Contains("responseTone") && pair.Value == "")
                     {

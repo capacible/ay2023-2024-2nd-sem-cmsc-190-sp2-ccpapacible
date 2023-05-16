@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-enum MoodThreshold
+public static class DirectorConstants
 {
-    GOOD = 1,
-    BAD = -1
-}
+    public enum MoodThreshold
+    {
+        GOOD = 1,
+        BAD = -1
+    };
 
-enum TopicRelevance
-{
-    MAX = 3,
-    DEFAULT = 1,
-    MIN = 0
+    public enum TopicRelevance
+    {
+        MAX = 3,
+        DEFAULT = 1,
+        MIN = 0
+    };
 }
 
 /// <summary>
@@ -68,9 +71,9 @@ public static class Director
 
     // models
     private static DirectorModel model;
-    private static DirectorData data;
 
     #region INITIALIZATION
+
     /// <summary>
     /// Upon starting the game -- not the save
     /// </summary>
@@ -81,15 +84,13 @@ public static class Director
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
         LoadTopics();
         
-        // we also need to initialize the mapevents to have all the scenes in the dictionary.
-
         LoadLines();
         LoadSpeakers();
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, allRelStatusCount);
 
-        // start by setting appropriate data.
+        // start by setting appropriate data and loading the CPT
         model.Start();
     }
 
@@ -158,12 +159,6 @@ public static class Director
     /// <returns></returns>
     public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false, Dictionary<int, string> refDict = null)
     {
-        // if empty, we use the keyword none.
-        if(findVal == "")
-        {
-            findVal = "none";
-        }
-
         if (fromTraits == true)
         {
             foreach (KeyValuePair<int, string> p in allTraits.Where(pair => pair.Value == findVal))
@@ -261,7 +256,7 @@ public static class Director
         currentMap = mapId;
 
         // set current relevant topic to be startconversation
-        topicList["StartConversation"] = (float)TopicRelevance.MAX;
+        topicList["StartConversation"] = (float)DirectorConstants.TopicRelevance.MAX;
         // start with 0 mood -- neutral
         mood = 0;
         
@@ -277,8 +272,6 @@ public static class Director
     /// </param>
     public static int[] InitData(string npc="player")
     {
-        data = model.SetData();
-
         List<int> npcMemory = new List<int>();
         // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
         allSpeakers[npc].speakerMemories.ForEach(
@@ -330,7 +323,6 @@ public static class Director
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].relWithPlayer,
-            data,
             topicList,
             mood);
 
@@ -367,7 +359,6 @@ public static class Director
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].relWithPlayer,
-            data,
             topicList,
             mood,
             allSpeakers[activeNPC].speakerArchetype);
@@ -442,13 +433,13 @@ public static class Director
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "")
         {
-            topicList[line.effect.makeMostRelevantTopic] = (float)TopicRelevance.MAX;
+            topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
         }
 
         if (line.effect.closeTopic != "")
         {
             // set teh topic listed to 1 (default value)
-            topicList[line.effect.closeTopic] = (float)TopicRelevance.DEFAULT;
+            topicList[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.DEFAULT;
         }
 
         // add to global events
@@ -473,7 +464,7 @@ public static class Director
         }
 
         TestPrintEventTrackers();
-        TestPrintTopicRelevance();
+        GetAllTopicRelevance();
     }
     
 
@@ -551,14 +542,15 @@ public static class Director
         }
     }
 
-    public static void TestPrintTopicRelevance()
+    public static string GetAllTopicRelevance()
     {
-        Debug.Log("printing topic list: ");
+        string output = "TOPIC RELEVANCE:";
         foreach(KeyValuePair<string, float> pair in topicList)
         {
-            Debug.Log($"topic: {pair.Key}\n" +
-                $"value: {pair.Value}");
+            output += $"topic: {pair.Key} | value: {pair.Value}\n";
         }
+
+        return output;
     }
 
     /// <summary>

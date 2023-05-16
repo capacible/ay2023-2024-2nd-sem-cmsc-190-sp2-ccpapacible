@@ -34,6 +34,7 @@ public class EventHandler : MonoBehaviour
     public static event System.Action<object[]> StartDialogue;      // object parameter bc this uses multiple fxns
     public static event System.Action<List<string>> FoundPlayerLines;
     public static event System.Action<object[]> FoundNPCLine;
+    public static event System.Action<string[]> DisplayNewDebugInfo;
 
     // INTERACTIONS
     public static event System.Action<object[]> InteractionTriggered;   // triggering any form of interaction
@@ -174,6 +175,14 @@ public class EventHandler : MonoBehaviour
             });
         }
 
+    }
+
+    /// <summary>
+    /// displays the most recent probabilities acquired from the model
+    /// </summary>
+    public void UpdateDebugDisplay(string[] toDisplay)
+    {
+        DisplayNewDebugInfo?.Invoke(toDisplay);
     }
 
     /// <summary>

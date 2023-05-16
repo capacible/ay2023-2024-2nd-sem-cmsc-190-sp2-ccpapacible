@@ -60,7 +60,7 @@ public class DirectorTraining
         DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, totalRelStatus);
 
         // data is first set as uniform here.
-        DirectorData data = model.SetData();
+        DirectorData data = model.UniformDirectorData();
 
         List<int> lineObservations = new List<int>();
         List<int> eventObservations = new List<int>();
@@ -92,20 +92,78 @@ public class DirectorTraining
             line.relatedEvents.ToList().ForEach(
                 e => prereqEvents.Add(
                     Director.NumKeyLookUp(e, refDict: eventsDB)));
-            
-            // for every related event
-            // we observe that the line with id lineId is the effect
-            // and we also observe that to get said lineId, we also have the trait listed in the Dline and relationship.
-            foreach (int relEvent in prereqEvents)
+
+            /*
+             *  Getting trait and relationship info
+             */
+            int[] traitPrereqs;
+            int[] relPrereqs;
+            int traitPrereq = Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB);
+            int relPrereq = RelStrToInt(line.relPrereq);
+
+            // if trait doesn't exist (EMPTY)
+            if (traitPrereq == -1)
             {
-                // save the line as an observation
-                lineObservations.Add(lineId);
-                // save relEvent as observation
-                eventObservations.Add(relEvent);
-                traitObservations.Add(Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB));
-                relObservations.Add(RelStrToInt(line.relPrereq));
+                traitPrereqs = traitsDB.Keys.ToArray();
             }
-            
+            else
+            {
+                // if the trait does exist, then that's our observation.
+                traitPrereqs = new int[]
+                {
+                    traitPrereq
+                };
+            }
+
+            if(relPrereq == (int)REL_STATUS_NUMS.NONE)
+            {
+                // consider all possible relationships
+                relPrereqs = new int[]
+                {
+                    (int)REL_STATUS_NUMS.GOOD,
+                    (int)REL_STATUS_NUMS.BAD,
+                    (int)REL_STATUS_NUMS.NEUTRAL
+                };
+            }
+            else
+            {
+                relPrereqs = new int[] { relPrereq };
+            }
+
+            // we add each possible observation that can make this dialogue line appear
+            // note that when the dialogue line has an empty trait or relationship field, this just means that
+            // all other traits and relationships are to be considered -- there is no requirement, so any trait/rel goes.
+            foreach(int trait in traitPrereqs)
+            {
+                foreach(int rel in relPrereqs)
+                {
+                    if (prereqEvents.Count == 0)
+                    {
+                        // we basically consider ALL possible events, because prerequisite events being empty = walangv prerequisite
+                        // same idea when it comes to traits and rels as seen in outer loops, by the way.
+                        foreach(int ev in eventsDB.Keys)
+                        {
+                            lineObservations.Add(lineId);
+                            traitObservations.Add(trait);
+                            relObservations.Add(rel);
+                            eventObservations.Add(ev);
+                        }
+                    }
+                    else
+                    {
+                        // for every related event
+                        // we observe that the line with id lineId is the effect
+                        // and we also observe that to get said lineId, we also have the trait listed in the Dline and relationship.
+                        foreach (int ev in prereqEvents)
+                        {
+                            lineObservations.Add(lineId);
+                            traitObservations.Add(trait);
+                            relObservations.Add(rel);
+                            eventObservations.Add(ev);
+                        }
+                    }
+                }
+            }
         }
 
         Debug.Log("LENGTHS OF THE OBSERVATIONS:\n" +
@@ -121,22 +179,33 @@ public class DirectorTraining
         int[] traitArr = traitObservations.ToArray();
         int[] relArr = relObservations.ToArray();
 
-        // make inferences.
-        Dirichlet[][][] dlineDistrib = model.LearnDialogueCPT(lineArr, evArr, traitArr, relArr, data);
+        // make inferences here
+        model.Learn(lineArr, evArr, traitArr, relArr, data);
+        // return the inference as director data
+        DirectorData learned = model.DataFromPosteriors();
 
         // IN HERE WE SERIALIZE THE DIRICHLET INTO AN XML
         string path = "Assets/Data/XML/Dialogue/";
-        string fname = "lineCPT.xml";
 
-        DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet[][][]),
+        SerializeCPT<Dirichlet[][][]>(path, "lineCPT.xml", learned.dialogueProb);
+        SerializeCPT<Dirichlet>(path, "eventCPT.xml", learned.eventsProb);
+        SerializeCPT<Dirichlet>(path, "traitCPT.xml", learned.traitsProb);
+        SerializeCPT<Dirichlet>(path, "relCPT.xml", learned.relProb);
+    }
+
+    public static void SerializeCPT<T>(string path, string fname, object toSerialize)
+    {
+        T distribution = (T)toSerialize;
+
+        DataContractSerializer serializer = new DataContractSerializer(typeof(T),
             new DataContractSerializerSettings
             {
                 DataContractResolver = new InferDataContractResolver()
             });
 
-        using (XmlDictionaryWriter writer = XmlDictionaryWriter.CreateTextWriter(new FileStream(path+fname, FileMode.Create)))
+        using (XmlDictionaryWriter writer = XmlDictionaryWriter.CreateTextWriter(new FileStream(path + fname, FileMode.Create)))
         {
-            serializer.WriteObject(writer, dlineDistrib);
+            serializer.WriteObject(writer, distribution);
         }
     }
 }

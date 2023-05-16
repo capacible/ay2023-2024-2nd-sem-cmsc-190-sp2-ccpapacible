@@ -28,18 +28,22 @@ public class DirectorModel
 
     // minimum probability should probable scale or something based on the first-best option.
     private const double MINIMUM_PROBABILITY = 0.001;
-
+    
     private const string DLINE_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/lineCPT.xml";
+    private const string EVENTS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/eventCPT.xml";
+    private const string TRAITS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/traitCPT.xml";
+    private const string RELS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/relCPT.xml";
 
     private int TotalEventCount;
     private int TotalTraitCount;
     private int TotalRelCount;
     private int TotalDialogueCount;
+
+    private string debugProbStr = "";
     
     // infer
     protected InferenceEngine engine = new InferenceEngine();
-
-    // we always ded
+    
     protected Variable<int> NumOfCases;
 
     /*
@@ -223,7 +227,7 @@ public class DirectorModel
     }
 
     /// <summary>
-    /// Called before any interaction.
+    /// Returns director area where the distribution is uniform 
     /// </summary>
     /// <returns>
     ///     DirectorData of uniform type; or directordata where all but dline probability is uniform
@@ -238,45 +242,102 @@ public class DirectorModel
             relProb = Dirichlet.Uniform(TotalRelCount)
         };
 
-        if(importedDLineDist == null)
-        {
-            // Dialogue
-            // relcount goes first because it's the outermost value
-            //UNIFORM IF WE DON'T HAVE A PREDEFINED DISTRIBUTION
-            Dirichlet[] parent1 = Enumerable.Repeat(Dirichlet.Uniform(TotalDialogueCount), TotalRelCount).ToArray();
-            Dirichlet[][] parent2 = Enumerable.Repeat(parent1, TotalTraitCount).ToArray();
-            data.dialogueProb = Enumerable.Repeat(parent2, TotalEventCount).ToArray();
-        }
-        else
-        {
-            Debug.Log("Using imported distribution...");
-            data.dialogueProb = importedDLineDist;
-        }
 
+        // Dialogue
+        // relcount goes first because it's the outermost value
+        //UNIFORM IF WE DON'T HAVE A PREDEFINED DISTRIBUTION
+        Dirichlet[] parent1 = Enumerable.Repeat(Dirichlet.Uniform(TotalDialogueCount), TotalRelCount).ToArray();
+        Dirichlet[][] parent2 = Enumerable.Repeat(parent1, TotalTraitCount).ToArray();
+        data.dialogueProb = Enumerable.Repeat(parent2, TotalEventCount).ToArray();
+        
         return data;
     }
-
-
+    
     /// <summary>
-    /// Called during runtime / in-game, we deserialize our line distribution xml and place it into our importedDLineDist variable.
+    /// Called during runtime / in-game, we deserialize the necessary cpt-related files to be used as distributions 
     /// This will be used in our initial setting of data
     /// </summary>
     public void Start()
     {
-        DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet[][][]), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
-        
-        using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(DLINE_DISTRIBUTION_PATH, FileMode.Open), new XmlDictionaryReaderQuotas()))
-        {
-            // deserialize/ read the distribution
-            importedDLineDist = (Dirichlet[][][])serializer.ReadObject(reader);
+        CPTPrior_Dialogue.ObservedValue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        ProbPrior_Events.ObservedValue = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
+        ProbPrior_Traits.ObservedValue = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
+        ProbPrior_RelStatus.ObservedValue = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
+    }
 
-            // test write???
+    /// <summary>
+    /// Deserializes an XML file in a given path
+    /// </summary>
+    /// <typeparam name="T"> type to deserialize into </typeparam>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public T DeserializeCPT<T>(string path)
+    {
+        if(path.Contains("CPT") || path.Contains(".xml"))
+        {
+            DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+
+            using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(path, FileMode.Open), new XmlDictionaryReaderQuotas()))
+            {
+                // deserialize/ read the distribution
+                return (T)serializer.ReadObject(reader);
+            }
         }
+
+        Debug.LogWarning("Invalid path.");
+        return default;
     }
 
     #endregion
 
     #region BEFORE-RUNNING
+    
+
+    /// <summary>
+    /// Sets our observations with dialogue (NOT OPTIONAL)
+    /// </summary>
+    /// <param name="events"></param>
+    /// <param name="traits"></param>
+    /// <param name="rels"></param>
+    public void SetObservations(
+        int[] dialogue,
+        int[] events,
+        int[] traits,
+        int[] rels)
+    {
+        NumOfCases.ObservedValue = 1;
+        Dialogue.ObservedValue = dialogue;
+
+        if (events == null)
+        {
+            Events.ClearObservedValue();
+        }
+        else
+        {
+            // setting our parent observed values
+            Events.ObservedValue = events;
+        }
+
+        if (traits == null)
+        {
+            // clear the traits
+            Traits.ClearObservedValue();
+        }
+        else
+        {
+            Traits.ObservedValue = traits;
+        }
+
+        if (rels == null)
+        {
+            RelStatus.ClearObservedValue();
+        }
+        else
+        {
+            RelStatus.ObservedValue = rels;
+        }
+    }
+
     /// <summary>
     /// We learn our cpt values given known outcomes or samples -- our line db
     /// </summary>
@@ -286,20 +347,14 @@ public class DirectorModel
     /// <param name="relSample"></param>
     /// <param name="priors"></param>
     /// <returns></returns>
-    public Dirichlet[][][] LearnDialogueCPT(
+    public void Learn(
         int[] dialogueSample,
         int[] eventSample,
         int[] traitSample,
         int[] relSample,
         DirectorData priors)
     {
-        NumOfCases.ObservedValue = dialogueSample.Length;
-
-        // setting our observed
-        Dialogue.ObservedValue = dialogueSample;
-        Events.ObservedValue = eventSample;
-        Traits.ObservedValue = traitSample;
-        RelStatus.ObservedValue = relSample;
+        SetObservations(dialogueSample, eventSample, traitSample, relSample);
 
         // set our priors
         CPTPrior_Dialogue.ObservedValue = priors.dialogueProb;
@@ -307,38 +362,32 @@ public class DirectorModel
         ProbPrior_Traits.ObservedValue = priors.traitsProb;
         ProbPrior_RelStatus.ObservedValue = priors.relProb;
 
-        // make inference
-        return engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
+        ProbPost_Dialogue = engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
+        ProbPost_Events = engine.Infer<Dirichlet>(Prob_Events);
+        ProbPost_Traits = engine.Infer<Dirichlet>(Prob_Traits);
+        ProbPost_RelStatus = engine.Infer<Dirichlet>(Prob_RelStatus);
+        
     }
-    #endregion
 
-    #region INFERENCE
 
     /// <summary>
-    /// returns a directordata that is based on our previously acquired posterior
-    /// We call this every time BEFORE we get a new line.
+    /// we return a director data based on our posteriors.
     /// </summary>
     /// <returns></returns>
-    public DirectorData SetData()
+    public DirectorData DataFromPosteriors()
     {
-
-
-        // setting our probabilities in director data
-        // if all of the posteriors are null (meaning 1st tym), we set the parents to uniform
-        if (ProbPost_Events == null && ProbPost_Traits == null && ProbPost_RelStatus == null)
-        {
-            return UniformDirectorData();
-        }
-
-        // otherwise, we set the posteriors
         return new DirectorData
         {
             eventsProb = ProbPost_Events,
             traitsProb = ProbPost_Traits,
             relProb = ProbPost_RelStatus,
-            dialogueProb = ProbPost_Dialogue,   // use our imported dline distribution
+            dialogueProb = ProbPost_Dialogue
         };
     }
+    #endregion
+
+    #region INFERENCE IN GAME
+
 
     /// <summary>
     /// We infer the probabilities of the parents given the data we know
@@ -350,22 +399,7 @@ public class DirectorModel
     /// <returns></returns>
     public void LearnParameters(int[] knownEvents, int[] knownTraits, int[] knownRel, DirectorData priors)
     {
-        NumOfCases.ObservedValue = knownEvents.Length;
-
-        // setting our parent observed values
-        Events.ObservedValue = knownEvents;
-
-        if (knownTraits == null)
-        {
-            // clear the traits
-            Traits.ClearObservedValue();
-        }
-        else
-        {
-            Traits.ObservedValue = knownTraits;
-        }
-
-        RelStatus.ObservedValue = knownRel;
+        SetObservations(knownEvents, knownTraits, knownRel);
 
         // setting the priors
         ProbPrior_Events.ObservedValue = priors.eventsProb;
@@ -381,34 +415,51 @@ public class DirectorModel
     }
 
     /// <summary>
-    /// Infers the appropriate dialogue line (the probabilities)
+    /// Sets our observations given optional events, traits, and relationships.
     /// </summary>
-    public Discrete[] InferDialogueFromPosteriors(
+    /// <param name="events"></param>
+    /// <param name="traits"></param>
+    /// <param name="rels"></param>
+    public void SetObservations(
         int[] events,
         int[] traits,
-        int[] rels,
-        DirectorData priors)
+        int[] rels)
     {
-        // we first learn the posteriors of events, traits, and relationships to use them as priors in inferring dialouge
-        LearnParameters(events, traits, rels, priors);
+        if(events == null)
+        {
+            NumOfCases.ObservedValue = 1;
+            Events.ClearObservedValue();
+        }
+        else
+        {
+            NumOfCases.ObservedValue = events.Length;
 
-        Dialogue.ClearObservedValue();
+            // setting our parent observed values
+            Events.ObservedValue = events;
+        }
 
-        ProbPrior_Events.ObservedValue = ProbPost_Events;
-        ProbPrior_Traits.ObservedValue = ProbPost_Traits;
-        ProbPrior_RelStatus.ObservedValue = ProbPost_RelStatus;
-        // no need to set cptprior_dialogue here bc it's done in learnParameters.
+        if (traits == null)
+        {
+            // clear the traits
+            Traits.ClearObservedValue();
+        }
+        else
+        {
+            Traits.ObservedValue = traits;
+        }
 
-        // inference
-        var dialogueInference = engine.Infer<Discrete[]>(Dialogue);
-        Debug.Log("inferred: " + dialogueInference.Length);
-        Debug.Log("probabilities: " + dialogueInference[0].GetProbs().Count);
-
-        return dialogueInference;
+        if(rels == null)
+        {
+            RelStatus.ClearObservedValue();
+        }
+        else
+        {
+            RelStatus.ObservedValue = rels;
+        }
     }
 
     /// <summary>
-    /// After making an inference, we convert the discrete into a list of doubles (probabilities) to process in util func
+    /// Returns a list of probavbilities for each dialogue in the CPT.
     /// </summary>
     /// <param name="events"></param>
     /// <param name="traits"></param>
@@ -419,16 +470,20 @@ public class DirectorModel
         int[] events,
         int[] traits,
         int[] rels,
-        DirectorData priors)
+        DirectorData priors = null)
     {
-        // get inference
-        Discrete[] dialogueInference = InferDialogueFromPosteriors(events, traits, rels, priors);
+        // we set the observed values
+        SetObservations(events, traits, rels);
 
-        // from discrete[], we get the probability as a double
-        List<double> probs = dialogueInference[0].GetProbs().ToList();
+        Dialogue.ClearObservedValue();
 
-        return probs;
-    }
+        // inference
+        var dialogueInference = engine.Infer<Discrete[]>(Dialogue);
+        Debug.Log("inferred: " + dialogueInference.Length);
+        Debug.Log("probabilities: " + dialogueInference[0].GetProbs().Count);
+
+        return dialogueInference[0].GetProbs().ToList();
+    }    
 
     #endregion
 
@@ -437,11 +492,11 @@ public class DirectorModel
     public int GetProperWeight(DialogueLine dl, int mood)
     {
         // return neutral
-        if (mood >= (int)MoodThreshold.GOOD)
+        if (mood >= (int)DirectorConstants.MoodThreshold.GOOD)
         {
             return dl.posWeight;
         }
-        else if (mood <= (int)MoodThreshold.BAD)
+        else if (mood <= (int)DirectorConstants.MoodThreshold.BAD)
         {
             return dl.negWeight;
         }
@@ -609,6 +664,13 @@ public class DirectorModel
 
         Debug.Log("Highest utility is: " + highestUtil);
 
+        debugProbStr += $"SELECTED LINE: {bestDialogue}\n" +
+            $"ORIGINAL PROBABILITY:{probabilities[bestDialogue]}\n" +
+            $"UTILITY: {highestUtil}\n" +
+            $"=================\n";
+
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { debugProbStr });
+
         return new KeyValuePair<int, double>(bestDialogue, highestUtil);
     }
     #endregion
@@ -621,12 +683,13 @@ public class DirectorModel
     /// <returns></returns>
     public int SelectNPCLine(
         int[] knownEvents,
-        int knownTrait,
-        int knownRel,
-        DirectorData data,
+        int knownTrait,         // the trait is optional, not all chars have it -- an optional trait is -1
+        int knownRel,           //  not optional.
         Dictionary<string, float> topicList,
-        int currentMood)
+        int currentMood,
+        DirectorData data = null)
     {
+        debugProbStr = "====== NPC ======\n";
         NumOfCases.ClearObservedValue();
 
         // testing if we passed correct info:
@@ -649,7 +712,7 @@ public class DirectorModel
         }
         
         return LineWithBestUtil(
-            GetDialogueProbabilities(knownEvents, traitsArr, relArr, data),
+            GetDialogueProbabilities(knownEvents, traitsArr, relArr),
             topicList,
             currentMood).Key;
     }
@@ -669,11 +732,14 @@ public class DirectorModel
         int[] knownEvents,
         int knownTrait,
         int knownRel,
-        DirectorData data,
         Dictionary<string, float> topicList,
         int currentMood,
-        string activeArchetype)
+        string activeArchetype,
+        DirectorData data = null)
     {
+        double minProb = 0.0;
+        debugProbStr += "====== PLAYER ======\n";
+
         NumOfCases.ClearObservedValue();
 
         // testing if we passed correct info:
@@ -698,12 +764,18 @@ public class DirectorModel
         }
 
         // we infer our posteriors first.
-        List<double> linePosteriors = GetDialogueProbabilities(knownEvents, traitsArr, relArr, data);
+        List<double> linePosteriors = GetDialogueProbabilities(knownEvents, traitsArr, relArr);
 
         Dictionary<int, double> best3 = new Dictionary<int, double>();
         for(int i = 0; i < 3; i++)
         {
             KeyValuePair<int, double> best = LineWithBestUtil(linePosteriors, topicList, currentMood, activeArchetype);
+
+            // we base our minimum probability on our first "best" line
+            if (i == 0)
+            {
+                minProb = best.Value - (best.Value * 0.05);
+            }
 
             best3.Add(best.Key, best.Value);
 
@@ -712,7 +784,7 @@ public class DirectorModel
         }
 
         // return all lines greater than the minimum probability.
-        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= MINIMUM_PROBABILITY).Contains(best3[id])).ToArray();
+        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb).Contains(best3[id])).ToArray();
     }
 
 
