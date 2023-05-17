@@ -18,18 +18,12 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -53,18 +47,12 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -88,18 +76,12 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -119,22 +101,14 @@
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<dialogue>An important artifact in next week's exhibit is gone. Have you gone to the storage room recently?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
+			<relatedEvents />
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -158,18 +132,12 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -188,16 +156,10 @@
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<dialogue>Have you seen Director Virgil?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem />
-			</relatedEvents>
+			<relatedEvents />
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerAskedDirectorWhereabouts</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -226,12 +188,8 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerExpressedSuspicions</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -260,18 +218,10 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>2</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -294,18 +244,10 @@
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -328,18 +270,12 @@
 				<relatedEventsItem>DirectorWhereabouts:main_cass</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorWhereabouts:Cass</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -362,18 +298,10 @@
 				<relatedEventsItem>DirectorWhereabouts:main_jonathan</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -397,18 +325,10 @@
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -431,18 +351,12 @@
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerCanUseJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>2</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -467,18 +381,12 @@
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerUsedJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -502,19 +410,13 @@
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerUsedJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -538,19 +440,13 @@
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerUsedJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -573,12 +469,8 @@
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerCanUseJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -607,18 +499,12 @@
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerCanUseJonathansPhone</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -644,19 +530,13 @@
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlauerUsedJonathansPhone</addToNPCMemoryItem>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -681,19 +561,13 @@
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerUsedJonathansPhone</addToNPCMemoryItem>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -716,18 +590,12 @@
 				<relatedEventsItem>ExpressedSuspicions:main_cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ExpressedSuspicions:main_cassandra</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -750,18 +618,12 @@
 				<relatedEventsItem>ExpressedSuspicions:main_jonathan</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ExpressedSuspicions:main_jonathan</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -784,18 +646,12 @@
 				<relatedEventsItem>ExpressedSuspicions:custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ExpressedSuspicions:custodian</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -818,18 +674,12 @@
 				<relatedEventsItem>ExpressedSuspicions:assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ExpressedSuspicions:assistant</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -855,18 +705,12 @@
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -891,19 +735,13 @@
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerAskedDirectorWhereabouts</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -928,18 +766,12 @@
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorMissing</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -964,18 +796,12 @@
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorMissing</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>-5</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1000,18 +826,12 @@
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorMissing</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1034,18 +854,12 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>NextSteps:assistant</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>6</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1068,19 +882,13 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>NextSteps:assistant</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerDemeanor:Nervous</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1103,18 +911,12 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>NextSteps:assistant</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1137,12 +939,8 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerPressuredTheAssistant</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1172,18 +970,10 @@
 				<relatedEventsItem>PlayerPressuredTheAssistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>7</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1206,18 +996,10 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1242,19 +1024,13 @@
 				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>DirectorMissing</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerDemeanor:Nervous</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1277,12 +1053,8 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerAskedForHelp:custodian</addToNPCMemoryItem>
@@ -1314,12 +1086,8 @@
 				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerAskedForHelp:assistant</addToNPCMemoryItem>
@@ -1350,12 +1118,8 @@
 				<relatedEventsItem>NextSteps:assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
 					<addToNPCMemoryItem>PlayerAskedForHelp:assistant</addToNPCMemoryItem>
@@ -1386,18 +1150,10 @@
 				<relatedEventsItem>JonathanHasKeysToOffice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1421,18 +1177,10 @@
 				<relatedEventsItem>PlayerAskedForHelp:custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1456,18 +1204,10 @@
 				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1491,18 +1231,10 @@
 				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1525,18 +1257,10 @@
 				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1559,18 +1283,10 @@
 				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
-				<addToNPCMemory>
-					<addToNPCMemoryItem />
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem />
-				</addToPlayerMemory>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1593,12 +1309,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:DirectorWontMind</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1627,12 +1339,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:DirectorWontMind</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1661,12 +1369,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:InTrouble</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1695,12 +1399,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:Overworked</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1729,12 +1429,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:Overworked</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1763,12 +1459,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:InTrouble</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -1797,12 +1489,8 @@
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem />
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem />
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ConvincingAssistant:InTrouble</addToNPCMemoryItem>
 				</addToNPCMemory>

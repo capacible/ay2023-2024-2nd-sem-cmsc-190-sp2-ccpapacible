@@ -17,13 +17,13 @@ public class DialogueLine
      */
      
     // a list of all related events that precede this line (character memory, global, map)
-    [XmlArray("relatedEvents"), XmlArrayItem("relatedEventsItem")]
+    [XmlArray("relatedEvents", IsNullable = true), XmlArrayItem("relatedEventsItem")]
     public string[] relatedEvents;      
     
     public string receiver;               // this will weed out all the lines to pick from
 
     // locations needed for the line (also used to filter like the receiver)
-    [XmlArray("locations"), XmlArrayItem("locationsItem")]
+    [XmlArray("locations", IsNullable = true), XmlArrayItem("locationsItem")]
     public string[] locations;
 
     // prereq relationship
@@ -48,7 +48,7 @@ public class DialogueLine
     public bool isSaid = false;
 
     // a list of topics that determine relevance of line
-    [XmlArray("relatedTopics"), XmlArrayItem("relatedTopicsItem")]
+    [XmlArray("relatedTopics", IsNullable = true), XmlArrayItem("relatedTopicsItem")]
     public string[] relatedTopics;
 
     /*

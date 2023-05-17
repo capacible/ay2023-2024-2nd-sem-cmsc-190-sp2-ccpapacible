@@ -5,6 +5,8 @@ using UnityEngine;
 
 public static class DirectorConstants
 {
+    public static readonly int MAX_REL_STATUS = 3;
+
     public enum MoodThreshold
     {
         GOOD = 1,
@@ -67,7 +69,6 @@ public static class Director
     private static Dictionary<int, string> allEvents = new Dictionary<int, string>();
     // xml array "traits", xml item "trait"
     private static Dictionary<int, string> allTraits = new Dictionary<int, string>();
-    public static int allRelStatusCount = 4;
 
     // models
     private static DirectorModel model;
@@ -88,7 +89,7 @@ public static class Director
         LoadSpeakers();
 
         // initialize model
-        model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, allRelStatusCount);
+        model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
 
         // start by setting appropriate data and loading the CPT
         model.Start();
@@ -143,6 +144,7 @@ public static class Director
 
         // add the player
         allSpeakers.Add("player", speakerDefaults["player"].Clone());
+        Debug.Log("added player -- length of memories: " + allSpeakers["player"].speakerMemories.Count);
         
     }
     #endregion
@@ -179,6 +181,7 @@ public static class Director
         {
             foreach (KeyValuePair<int, string> p in refDict.Where(pair => pair.Value == findVal))
             {
+                Debug.Log("returning " + p.Value + " with key " + p.Key);
                 return p.Key;
             }
         }
@@ -273,10 +276,14 @@ public static class Director
     public static int[] InitData(string npc="player")
     {
         List<int> npcMemory = new List<int>();
-        // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
-        allSpeakers[npc].speakerMemories.ForEach(
-            memory => npcMemory.Add(
-                NumKeyLookUp(memory, refDict: allEvents)));
+        if(allSpeakers[npc].speakerMemories.Count > 0)
+        {
+            Debug.Log("we have memories.");
+            // for each element of speaker memory, we convert that to its respective number id and add to npc memory.
+            allSpeakers[npc].speakerMemories.ForEach(
+                memory => npcMemory.Add(
+                    NumKeyLookUp(memory, refDict: allEvents)));
+        }
 
         // we combine all events together
         List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
@@ -284,7 +291,7 @@ public static class Director
         // no event? return { none }
         if(globalAndMap.Count == 0 && npcMemory.Count == 0)
         {
-            return new int[] { NumKeyLookUp("none", refDict: allEvents) };
+            return null;
         }
 
         return npcMemory.Union(globalAndMap).ToArray();
@@ -315,14 +322,13 @@ public static class Director
             UpdateNPCData(choice);
         }
         
-        // train
         int[] allKnownEvents = InitData(activeNPC);
 
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
-            allSpeakers[activeNPC].relWithPlayer,
+            allSpeakers[activeNPC].RelationshipStatus(),
             topicList,
             mood);
 
@@ -358,7 +364,7 @@ public static class Director
         int[] lineIds = model.SelectPlayerLines(
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
-            allSpeakers[activeNPC].relWithPlayer,
+            allSpeakers[activeNPC].RelationshipStatus(),
             topicList,
             mood,
             allSpeakers[activeNPC].speakerArchetype);
@@ -445,25 +451,17 @@ public static class Director
         // add to global events
         foreach (string e in line.effect.addEventToGlobal)
         {
-            int eventId = NumKeyLookUp(e, fromEvents:true);
-            // only add if the global events are in the list
-            if (!globalEvents.Contains(eventId))
-            {
-                globalEvents.Add(eventId);
-            }
+            AddEventString(e);
         }
 
         // add to map events
         foreach (string e in line.effect.addEventToMap)
         {
-            int eventId = NumKeyLookUp(e, fromEvents:true);
-            if (!mapEvents[currentMap].Contains(eventId))
-            {
-                mapEvents[currentMap].Add(eventId);
-            }
+            int eventId = NumKeyLookUp(e, refDict: allEvents);
+            AddEventString(e, currentMap);
         }
 
-        TestPrintEventTrackers();
+        //TestPrintEventTrackers();
         GetAllTopicRelevance();
     }
     
@@ -506,16 +504,21 @@ public static class Director
     public static void AddEventString(string e, string map="global")
     {
         int eventId = NumKeyLookUp(e, refDict: allEvents);
-        if (map == "global" && !(globalEvents.Contains(eventId)))
+
+        if(eventId == -1)
+        {
+            Debug.Log("event " + e + " does not exist in allEvents");
+            return;
+        }
+
+        if( map == "global" && !(globalEvents.Contains(eventId)))
         {
             globalEvents.Add(eventId);
         }
-        else
+        else if (map != "global" && !(mapEvents[map].Contains(eventId)))
         {
-            if(!(mapEvents[map].Contains(eventId)))
-                mapEvents[map].Add(eventId);
+            mapEvents[map].Add(eventId);
         }
-
     }
     #endregion
 

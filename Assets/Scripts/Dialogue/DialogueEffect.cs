@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class DialogueEffect
 {
-    [XmlArray("addEventToGlobal"), XmlArrayItem("addEventToGlobalItem")]
+    [XmlArray("addEventToGlobal", IsNullable = true), XmlArrayItem("addEventToGlobalItem")]
     public string[] addEventToGlobal;
 
-    [XmlArray("addEventToMap"), XmlArrayItem("addEventToMapItem")]
+    [XmlArray("addEventToMap", IsNullable = true), XmlArrayItem("addEventToMapItem")]
     public string[] addEventToMap;
 
-    [XmlArray("addToNPCMemory"), XmlArrayItem("addToNPCMemoryItem")]
+    [XmlArray("addToNPCMemory", IsNullable = true), XmlArrayItem("addToNPCMemoryItem")]
     public string[] addToNPCMemory;
 
-    [XmlArray("addToPlayerMemory"), XmlArrayItem("addToPlayerMemoryItem")]
+    [XmlArray("addToPlayerMemory", IsNullable = true), XmlArrayItem("addToPlayerMemoryItem")]
     public string[] addToPlayerMemory;
 
     [XmlElement("relationshipEffect")]

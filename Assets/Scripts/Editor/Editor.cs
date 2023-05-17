@@ -687,7 +687,7 @@ public class Editor
                     }
                     else if(pair.Key.Contains("trait") && pair.Value == "")
                     {
-                        writer.WriteString("");
+                        writer.WriteString("none");
                     }
                     else if(pair.Key.Contains("responseTone") && pair.Value == "")
                     {
@@ -729,12 +729,7 @@ public class Editor
 
         // checking if the values.Length == 0, this means walang laman yung csv part na yan. We simply place an empty single
         // value into it.
-        if (values.Length == 0)
-        {
-            writer.WriteStartElement($"{key}Item");
-            writer.WriteEndElement();
-        }
-        else
+        if (values.Length != 0)
         {
             // split all according to ' / ' character (include spaces)
             foreach (string item in values)

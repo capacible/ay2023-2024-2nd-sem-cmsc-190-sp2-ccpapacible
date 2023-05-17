@@ -13,8 +13,6 @@ using UnityEngine;
 /// </summary>
 public class DirectorTraining
 {
-    public const int TOTAL_REL = 4;
-
     public static int RelStrToInt(string rel)
     {
         if (rel == REL_STATUS_STRING.GOOD)
@@ -44,11 +42,9 @@ public class DirectorTraining
         Dictionary<int, string> eventsDB = IdCollection.LoadArrayAsDict(Director.EVENTS_XML_PATH);
         Dictionary<int, string> traitsDB = IdCollection.LoadArrayAsDict(Director.TRAITS_XML_PATH);
 
-        Debug.Log(eventsDB.Count);
-        Debug.Log(traitsDB.Count);
-
-        int totalRelStatus = TOTAL_REL;
-
+        Debug.Log("events "+eventsDB.Count);
+        Debug.Log("traits" + traitsDB.Count);
+        
         // initialize the lineDb
         Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
@@ -57,7 +53,7 @@ public class DirectorTraining
         });
 
         // initialize the model
-        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, totalRelStatus);
+        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS);
 
         // data is first set as uniform here.
         DirectorData data = model.UniformDirectorData();
@@ -87,11 +83,15 @@ public class DirectorTraining
             int lineId = dlPair.Key;
 
             // we get ALL event requirements of the line, and convert them to their respective key
-            List<int> prereqEvents = new List<int>();
-            // converting each related event to respective key...
-            line.relatedEvents.ToList().ForEach(
-                e => prereqEvents.Add(
-                    Director.NumKeyLookUp(e, refDict: eventsDB)));
+            List<int> prereqEvents = null;
+            if(line.relatedEvents != null)
+            {
+                prereqEvents = new List<int>();
+                // converting each related event to respective key...
+                line.relatedEvents.ToList().ForEach(
+                    e => prereqEvents.Add(
+                        Director.NumKeyLookUp(e, refDict: eventsDB)));
+            }
 
             /*
              *  Getting trait and relationship info
@@ -104,7 +104,9 @@ public class DirectorTraining
             // if trait doesn't exist (EMPTY)
             if (traitPrereq == -1)
             {
+                Debug.Log("No trait exists");
                 traitPrereqs = traitsDB.Keys.ToArray();
+                Debug.Log(traitsDB.Count);
             }
             else
             {
@@ -117,6 +119,7 @@ public class DirectorTraining
 
             if(relPrereq == (int)REL_STATUS_NUMS.NONE)
             {
+                Debug.Log("no required relstatus");
                 // consider all possible relationships
                 relPrereqs = new int[]
                 {
@@ -137,8 +140,10 @@ public class DirectorTraining
             {
                 foreach(int rel in relPrereqs)
                 {
-                    if (prereqEvents.Count == 0)
+                    // no prerequisite events
+                    if (prereqEvents == null)
                     {
+                        Debug.Log("no prerequisite; we consider all events len: " + eventsDB.Keys.Count);
                         // we basically consider ALL possible events, because prerequisite events being empty = walangv prerequisite
                         // same idea when it comes to traits and rels as seen in outer loops, by the way.
                         foreach(int ev in eventsDB.Keys)
@@ -156,6 +161,11 @@ public class DirectorTraining
                         // and we also observe that to get said lineId, we also have the trait listed in the Dline and relationship.
                         foreach (int ev in prereqEvents)
                         {
+                            // testing
+                            if(ev >= eventsDB.Count || ev < 0)
+                            {
+                                Debug.Log("an event is somehow an invalid index. number: "+ev);
+                            }
                             lineObservations.Add(lineId);
                             traitObservations.Add(trait);
                             relObservations.Add(rel);
@@ -166,6 +176,7 @@ public class DirectorTraining
             }
         }
 
+        // should have same length
         Debug.Log("LENGTHS OF THE OBSERVATIONS:\n" +
             $"line {lineObservations.Count}\n" +
             $"event {eventObservations.Count}\n" +

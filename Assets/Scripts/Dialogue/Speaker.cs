@@ -33,7 +33,7 @@ public enum REL_STATUS_NUMS
     BAD,        // 0
     NEUTRAL,    // 1
     GOOD,       // 2
-    NONE = -1,       // 4
+    NONE = -1,
     BAD_THRESH = -20,
     GOOD_THRESH = 20,
 }
@@ -63,7 +63,7 @@ public class Speaker
     public List<string> speakerMemories = new List<string>();
 
     [XmlIgnore]
-    public int relWithPlayer = 0;                    // value relationship with player
+    public int relWithPlayer = 0;                    // value relationship with player -- not the numerical rep of gud/bad/neut
 
     [XmlIgnore]
     public string speakerId = "";                    // id related to the game object.

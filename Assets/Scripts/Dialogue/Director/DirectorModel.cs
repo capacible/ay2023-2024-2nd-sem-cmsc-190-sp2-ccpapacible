@@ -1,3 +1,4 @@
+using Microsoft.ML.Probabilistic.Collections;
 using Microsoft.ML.Probabilistic.Distributions;
 using Microsoft.ML.Probabilistic.Math;
 using Microsoft.ML.Probabilistic.Models;
@@ -23,11 +24,8 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
+    private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
-
-    // minimum probability should probable scale or something based on the first-best option.
-    private const double MINIMUM_PROBABILITY = 0.001;
     
     private const string DLINE_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/lineCPT.xml";
     private const string EVENTS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/eventCPT.xml";
@@ -292,9 +290,8 @@ public class DirectorModel
 
     #region BEFORE-RUNNING
     
-
     /// <summary>
-    /// Sets our observations with dialogue (NOT OPTIONAL)
+    /// set the observed values of ALL our variables.
     /// </summary>
     /// <param name="events"></param>
     /// <param name="traits"></param>
@@ -305,7 +302,7 @@ public class DirectorModel
         int[] traits,
         int[] rels)
     {
-        NumOfCases.ObservedValue = 1;
+        NumOfCases.ObservedValue = dialogue.Length;
         Dialogue.ObservedValue = dialogue;
 
         if (events == null)
@@ -339,7 +336,7 @@ public class DirectorModel
     }
 
     /// <summary>
-    /// We learn our cpt values given known outcomes or samples -- our line db
+    /// Learn the posteriors of each variable given our samples + known priors
     /// </summary>
     /// <param name="dialogueSample"></param>
     /// <param name="eventSample"></param>
@@ -387,32 +384,7 @@ public class DirectorModel
     #endregion
 
     #region INFERENCE IN GAME
-
-
-    /// <summary>
-    /// We infer the probabilities of the parents given the data we know
-    /// </summary>
-    /// <param name="knownEvents"> All events that have occurred globally, in map, and in memory. </param>
-    /// <param name="knownTraits"> The trait of the character, same value across whole arr </param>
-    /// <param name="knownRel"> Rel of player with character, same value across all elements of arr </param>
-    /// <param name="priors"> DirectorData that we have set as uniform or acquired from recent posteriors </param>
-    /// <returns></returns>
-    public void LearnParameters(int[] knownEvents, int[] knownTraits, int[] knownRel, DirectorData priors)
-    {
-        SetObservations(knownEvents, knownTraits, knownRel);
-
-        // setting the priors
-        ProbPrior_Events.ObservedValue = priors.eventsProb;
-        ProbPrior_Traits.ObservedValue = priors.traitsProb;
-        ProbPrior_RelStatus.ObservedValue = priors.relProb;
-        CPTPrior_Dialogue.ObservedValue = priors.dialogueProb;
-
-        // inferring the posteriors
-        ProbPost_Events = engine.Infer<Dirichlet>(Prob_Events);
-        ProbPost_Traits = engine.Infer<Dirichlet>(Prob_Traits);
-        ProbPost_RelStatus = engine.Infer<Dirichlet>(Prob_RelStatus);
-        ProbPost_Dialogue = engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
-    }
+    
 
     /// <summary>
     /// Sets our observations given optional events, traits, and relationships.
@@ -427,7 +399,6 @@ public class DirectorModel
     {
         if(events == null)
         {
-            NumOfCases.ObservedValue = 1;
             Events.ClearObservedValue();
         }
         else
@@ -442,6 +413,7 @@ public class DirectorModel
         {
             // clear the traits
             Traits.ClearObservedValue();
+            Debug.Log("traits array is null");
         }
         else
         {
@@ -469,20 +441,49 @@ public class DirectorModel
     public List<double> GetDialogueProbabilities(
         int[] events,
         int[] traits,
-        int[] rels,
-        DirectorData priors = null)
+        int[] rels)
     {
         // we set the observed values
         SetObservations(events, traits, rels);
 
         Dialogue.ClearObservedValue();
 
-        // inference
-        var dialogueInference = engine.Infer<Discrete[]>(Dialogue);
-        Debug.Log("inferred: " + dialogueInference.Length);
-        Debug.Log("probabilities: " + dialogueInference[0].GetProbs().Count);
+        /*
+         * the number of observations or cases determines the length of the discrete[] array. my understanding is that 
+         * for each case, we will infer the probabilities. if we have multiple events, each element i in discrete[]
+         * is the inference in the case where the events[i] is the known event
+         * 
+         * it is NOT making a single inference based on all our sample data.
+         * 
+         * solution? no idea
+         *  > even if we learn the parameters of events, traits, and rels, in order to make an accurate inference sa dialogue,
+         *  we need to take into account all the events (aka parang mixture model) as our observed value and have the
+         *  engine make inference by considering all the entered events as a single case rather than each event being an individual
+         *  case.
+         */
 
-        return dialogueInference[0].GetProbs().ToList();
+        // inference
+        var inferenceMultipleCase = engine.Infer<Discrete[]>(Dialogue);
+
+        // averaging the probabilities of the cases we have inferred (temporary fix)
+        // each case has probabilities for each dialogue line.
+        List<double> avgProbs = new List<double>();
+        
+        for(int i=0; i < TotalDialogueCount; i++)
+        {
+            List<double> probOfCurrentDialogue = new List<double>();
+            // we get the ith element of each Discrete.GetProbs()
+            inferenceMultipleCase.ForEach(c => probOfCurrentDialogue.Add(c.GetProbs()[i]));
+
+            // average this.
+            avgProbs.Add(probOfCurrentDialogue.Average());
+        }
+
+
+        Debug.Log("inferred: " + inferenceMultipleCase.Length);
+        Debug.Log("probabilities: " + avgProbs.Count);
+
+        return avgProbs;
     }    
 
     #endregion
@@ -538,16 +539,24 @@ public class DirectorModel
          */
 
         double overallRelevance = 1;
-        // get probability with the related topics.
-        foreach (string topic in lineContainer.relatedTopics)
+
+        if (lineContainer.relatedTopics == null)
         {
-            if (topic == "")
+            overallRelevance = overallRelevance * topicList["none"];
+        }
+        else
+        {
+            // get probability with the related topics.
+            foreach (string topic in lineContainer.relatedTopics)
             {
-                overallRelevance = overallRelevance * topicList["none"];
-            }
-            else
-            {
-                overallRelevance = overallRelevance * topicList[topic];
+                if (topic == "")
+                {
+                    overallRelevance = overallRelevance * topicList["none"];
+                }
+                else
+                {
+                    overallRelevance = overallRelevance * topicList[topic];
+                }
             }
         }
 
@@ -586,12 +595,15 @@ public class DirectorModel
             // any receiver to be a valid option.
             if(receiver != "no_receiver" && (line.Value.receiver != receiver && line.Value.receiver != "any_receiver"))
             {
+                Debug.Log("the receiver of this line: " + line.Value.receiver);
                 Debug.Log("filtering those that aren't " + receiver + " or any_receiver");
+                Debug.Log("filtered the line: " + line.Value.dialogue);
                 // if the receiver isn't the same, we set the probability to 0.
                 probabilities[line.Key] = 0;
             }
-            else if(line.Value.receiver != receiver)
+            else if(receiver == "no_receiver" && line.Value.receiver != receiver)
             {
+                Debug.Log("the receiver of this line: " + line.Value.receiver + " it's invalid, for this situation");
                 probabilities[line.Key] = 0;
             }
             else
@@ -689,22 +701,43 @@ public class DirectorModel
         int currentMood,
         DirectorData data = null)
     {
+
         debugProbStr = "====== NPC ======\n";
         NumOfCases.ClearObservedValue();
 
-        // testing if we passed correct info:
+        // default values if known events is empty
+        NumOfCases.ObservedValue = 1;
+        int knownEventsCount = 1;
+        // here we check if known events is null or empty; if not, we modify our count on known events and num of cases
+        if (knownEvents != null)
+        {
+            knownEventsCount = knownEvents.Length;
+            NumOfCases.ObservedValue = knownEvents.Length;
+        }
+
+        // testing if we passed correct info:S
         Debug.Log($"num of known events: {knownEvents.Length}\n" +
             $"trait: {knownTrait}\n" +
             $"relationship: {knownRel}");
 
         // array of the same observations, with same length as known events
-        int[] traitsArr = new int[knownEvents.Length];
-        int[] relArr = new int[knownEvents.Length];
+        int[] traitsArr;
+        int[] relArr = new int[knownEventsCount];
 
-        for(int i = 0; i < knownEvents.Length; i++)
+        if (knownTrait == -1)
+        {
+            traitsArr = null;
+        }
+        else
+        {
+            traitsArr = new int[knownEventsCount];
+        }
+
+
+        for(int i = 0; i < knownEventsCount; i++)
         {
             // populate the array
-            if (knownTrait != -1)
+            if (traitsArr != null)
             {
                 traitsArr[i] = knownTrait;
             }
