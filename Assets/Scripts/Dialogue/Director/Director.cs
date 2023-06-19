@@ -37,7 +37,8 @@ public static class Director
     // tracking events and speakers.
     private static string activeNPC;                                 // the current NPC speaking
     private static string currentMap;                               // current location
-
+    public static string activeHeldItem { private get; set; }       // the currently held item, to be added at start 
+                                                                    // and removed at end of convo
     /*
      * TRACKING STUFF; gets edited
      */
@@ -161,6 +162,7 @@ public static class Director
     /// <returns></returns>
     public static int NumKeyLookUp(string findVal, bool fromEvents = false, bool fromTraits = false, bool fromlineDB = false, Dictionary<int, string> refDict = null)
     {
+        Debug.Log("finding key: " + findVal);
         if (fromTraits == true)
         {
             foreach (KeyValuePair<int, string> p in allTraits.Where(pair => pair.Value == findVal))
@@ -262,6 +264,11 @@ public static class Director
         topicList["StartConversation"] = (float)DirectorConstants.TopicRelevance.MAX;
         // start with 0 mood -- neutral
         mood = 0;
+
+        // add currently held item to list of events
+        AddToSpeakerMemory(activeNPC, "ShowItem:"+activeHeldItem);
+
+        Debug.Log("Starting convo...");
         
         return GetNPCLine();
     }
@@ -441,6 +448,15 @@ public static class Director
         {
             topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
         }
+        else
+        {
+            // we use the related topic of the selected line that isn't StartConvo
+            // the idea is, the topic that the line addresses will become the most relevant.
+            foreach(string topic in line.relatedTopics)
+            {
+                topicList[topic] = (float)DirectorConstants.TopicRelevance.MAX;
+            }
+        }
 
         if (line.effect.closeTopic != "")
         {
@@ -478,7 +494,15 @@ public static class Director
         foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
         {
             Debug.Log("Updating topic relevance for: " + topic);
-            topicList[topic] -= (float)0.3;
+            if (topicList[topic] - 0.3 <= 0)    
+            {
+                // if our topic is in the negatives na after computation, we reset the relevance to its default
+                topicList[topic] = (float)DirectorConstants.TopicRelevance.DEFAULT;
+            }
+            else
+            {
+                topicList[topic] -= (float)0.3;
+            }
         }
 
         topicList["StartConversation"] = (float)0.0;
@@ -491,7 +515,8 @@ public static class Director
     /// <param name="eventId">event string</param>
     public static void AddToSpeakerMemory(string speaker, string eventId)
     {
-        if (!allSpeakers[speaker].speakerMemories.Contains(eventId))
+        // we check if the memory already contains our said event, and if the event exists in our event db
+        if (!allSpeakers[speaker].speakerMemories.Contains(eventId) && allEvents.ContainsValue(eventId))
         {
             allSpeakers[speaker].speakerMemories.Add(eventId);
         }

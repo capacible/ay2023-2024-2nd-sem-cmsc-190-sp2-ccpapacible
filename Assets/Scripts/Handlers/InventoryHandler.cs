@@ -44,6 +44,7 @@ public class InventoryHandler : MonoBehaviour
     private void OnDestroy()
     {
         EventHandler.OnPickup -= AddToInventory;
+        EventHandler.ItemEffect -= RemoveFromInventory;
         EventHandler.MapSceneLoaded -= Init;
         EventHandler.OnInteractConclude -= UnhideUi;
         EventHandler.Examine -= HideUi;
@@ -76,7 +77,21 @@ public class InventoryHandler : MonoBehaviour
             RefreshUi();
         }
     }
-    
+   
+    private void RemoveFromInventory(object[] parameters)
+    {
+        // removes the currently-held item if it's discardable
+        if(( (ItemBase)parameters[1] ).discardAfter)
+        {
+            // remove
+            Inventory.RemoveAt(heldItem);
+
+            // change idx if held item is greater than the length of inventory
+            if (heldItem > Inventory.Count)
+                heldItem = 0;   // change held item to first item
+        }
+    }
+
     // on click event listener thingy
     // scroll to next held item; if our length of items is less than max
     // if more than max, we move to the start or 1st item

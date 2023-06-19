@@ -678,8 +678,6 @@ MonoBehaviour:
   msgText: {fileID: 1314710160}
   msgBox: {fileID: 2049171257}
   msgAnim: {fileID: 2049171259}
-  showY: -175
-  hiddenY: -450
   quickText: {fileID: 334714985}
   quickBox: {fileID: 1682226516}
   notifFader: {fileID: 1682226518}

@@ -8,8 +8,6 @@
 		<id>PlayerUsedJonathansPhone</id>
 		<id>DirectorVoicemail</id>
 		<id>DirectorWhereabouts:Cassandra</id>
-		<id>ExpressedSuspicions:main_cassandra</id>
-		<id>ExpressedSuspicions:main_jonathan</id>
 		<id>ExpressedSuspicions:custodian</id>
 		<id>ExpressedSuspicions:assistant</id>
 		<id>DirectorWhereabouts:Assistant</id>
@@ -21,20 +19,96 @@
 		<id>PlayerAskedForHelp:custodian</id>
 		<id>DeclinedToHelp:Custodian</id>
 		<id>DeclinedToHelp:Assistant</id>
-		<id>HostileToJonathan</id>
+		<id>KeyInDirectorsOffice</id>
+		<id>ShowItem:card_from_beth</id>
+		<id>PlayerSawCardOfWoman</id>
+		<id>RichWomanAndDirector</id>
+		<id>RichWomanBringsGifts</id>
+		<id>WhoIsBeth:Cassandra</id>
+		<id>WomanInStorage</id>
+		<id>WomanInStorage:Beth</id>
+		<id>NotDirectorsWife</id>
+		<id>DirectorAttractsBadPeople</id>
+		<id>LearnAboutTheFounder</id>
+		<id>FounderIdentity:Beth</id>
 		<id>JonathanWatchingCameras</id>
-		<id>StrangeWomanInStorage</id>
-		<id>CassJonathanTalked</id>
-		<id>Suspect_MaybeCass</id>
-		<id>JonathanPlinthQuestions</id>
-		<id>DidntBelieveJonathanAboutWoman</id>
-		<id>GameStart</id>
-		<id>JonathanCheckingCameras</id>
-		<id>CheckedBrokenCabinet</id>
-		<id>RevealedSuspect_Cass_BlamedJonathan</id>
+		<id>NoWomanInCamera</id>
+		<id>NoWomanInCameras</id>
+		<id>OverdueBills</id>
+		<id>JonathansCalendar</id>
+		<id>April20th</id>
+		<id>April20th:MarkedByJonathan</id>
+		<id>DirectorFirstName:Jonathan</id>
+		<id>Jonathan:DirectorIsAPrivatePerson</id>
+		<id>DirectorTrustsJonathan</id>
+		<id>DirectorInfatuatedWithFounder</id>
+		<id>FriendsWithDirector:Jonathan</id>
+		<id>Cassandra:TensionWithDirector</id>
+		<id>JonathanProtectingDirector</id>
+		<id>DirectorsOpinion:PlinthIsUnimportant</id>
+		<id>WhoIsBeth</id>
+		<id>CassandraThreatenedToQuit</id>
+		<id>ReasonForOutburst:CassandrasSuspicions</id>
+		<id>ReasonForOutburst:CassandraSuspicions</id>
+		<id>SellThePlinth:Founder</id>
+		<id>InjuryCause:BrokenCabinet</id>
+		<id>DirectorsOpinion:SellThePlinth</id>
+		<id>Alibi:DaggerResearch</id>
+		<id>InjuryTime:BeforeClosing</id>
+		<id>BloodyTissue</id>
+		<id>FlowerInBathroom</id>
+		<id>CustodianTestimony:NoInjury</id>
+		<id>ShowItem:bloody_flower</id>
+		<id>CassandrasRequest:Custodian</id>
+		<id>JonathanTestimony:WithInjury</id>
+		<id>JonathansFirstVisit</id>
+		<id>JonathansFirstVisit:TwoHrsAfterClosed</id>
+		<id>InjuryTime:CassLied</id>
+		<id>InjuryTrueTime:DaggerResearch</id>
+		<id>BrokenCabinet</id>
+		<id>FlowerInBathroom:FromGardenBed</id>
+		<id>CheckedGardenBed</id>
+		<id>CheckedGardenbed:ThornyShrub</id>
+		<id>CheckedGardenBed:ThornyShrub</id>
+		<id>InjuryTrueCause:GardenShrubs</id>
+		<id>Cassandra:BuriedTimeCapsule</id>
+		<id>ShowItem:key_in_directors_office</id>
+		<id>KeyInDirectorsOffice:Cassandras</id>
+		<id>JonathanVisitsCassandra</id>
+		<id>JonathanVisitedTwice</id>
+		<id>JonathansInterest:Artifacts</id>
+		<id>BookInJonathansBooth</id>
+		<id>SecondVisitReason:WomanInCameras</id>
+		<id>CassNoInfo:WomanInCameras</id>
+		<id>SecondVisit:CassNotInCuratorsOffice</id>
+		<id>DeclinedToHelp:custodian</id>
+		<id>CustodiansWeekend:Good</id>
+		<id>CustodiansWeekend:Bad</id>
+		<id>CustodiansInterest:Fishing</id>
+		<id>CustodiansInterest:Baking</id>
+		<id>CustodiansInterest:Knitting</id>
+		<id>CustodiansInterest:Writing</id>
+		<id>DeclinedTohelp:custodian</id>
+		<id>Knitting:Holidays</id>
+		<id>CustodiansFamily</id>
+		<id>CustodiansFamily:Daughter</id>
+		<id>DaughterBirthday</id>
+		<id>StaffRoomPadlock</id>
+		<id>JonathansThoughtsOnFounder</id>
+		<id>PlayerEnterDirectorsOffice</id>
+		<id>Confrontation</id>
+		<id>PlayerAskedDirectorWhereabouts</id>
+		<id>PlayerExpressedSuspicions</id>
+		<id>ExpressedSuspicions:main_cassandra</id>
+		<id>WomanInCamera</id>
+		<id>DirectiorWhereabouts:Jonathan</id>
+		<id>FounderInfo:JonathansSources</id>
 		<id>CassTired</id>
+		<id>RevealedSuspect_Cass_BlamedJonathan</id>
+		<id>Suspect_MaybeCass</id>
 		<id>TopicClosed_TalkAboutWeekend</id>
 		<id>JonathanVisitReason</id>
+		<id>JonathanPlinthQuestions</id>
 		<id>CassandrasCut</id>
 		<id>CassandrasCutReason</id>
 		<id>CassandraAlibi_CompilingNotes</id>

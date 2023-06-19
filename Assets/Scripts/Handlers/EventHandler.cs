@@ -47,6 +47,7 @@ public class EventHandler : MonoBehaviour
     // ITEMS AND INVENTORY
     public static event System.Action<string, ItemBase> OnPickup;       // id of object, itemdata of object
     public static event System.Action<object[]> ItemEffect;
+    public static event System.Action TriggerOnDrop;                    // when item is dropped on floor
 
     // OTHER
     // handling some collision related events
@@ -294,15 +295,6 @@ public class EventHandler : MonoBehaviour
     public void TriggerItemEffect(object[] parameters)
     {
         ItemEffect?.Invoke(parameters);
-    }
-
-    /// <summary>
-    /// Calls SingleUseItem delegate, which is listened to by the inventory handler to remove that item from our inventory
-    /// </summary>
-    /// <param name="parameters"></param>
-    public void DiscardItem(object[] parameters)
-    {
-
     }
 
     /// <summary>

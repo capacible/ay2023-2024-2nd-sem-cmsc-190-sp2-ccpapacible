@@ -6,22 +6,33 @@
 		<id>LookingForDirector</id>
 		<id>DirectorMissing</id>
 		<id>DirectorsOffice</id>
+		<id>CardFromBeth</id>
+		<id>DirectorsFrequentVisitor</id>
+		<id>CameraInTheStorageRoom</id>
+		<id>TheFounder</id>
+		<id>CassandrasOutburst</id>
+		<id>DirtyGardenBeds</id>
+		<id>PlayerSuspiciousOfJonathan</id>
+		<id>CassandraAndDirector</id>
+		<id>Investigation:Jonathan</id>
+		<id>Investigation:Director</id>
+		<id>Investigation:Cassandra</id>
+		<id>CassandrasInjury</id>
+		<id>JonathanVisitedCassandra</id>
+		<id>AboutJonathan</id>
+		<id>JonathanVisitedCass</id>
+		<id>BefriendingCustodian</id>
+		<id>EndConversation</id>
+		<id>WhatCassSaw</id>
 		<id>TalkAboutWeekend</id>
 		<id>ArtifactDisappearance</id>
-		<id>CassandraAlibi</id>
-		<id>WomanInStorage</id>
-		<id>JonathansAlibi</id>
-		<id>DirectorLocation</id>
-		<id>ArtifactLoc_JonathansIdeas</id>
-		<id>DirectorsInvolvement</id>
-		<id>Suspect_Cassandra</id>
-		<id>JonathanAlibi</id>
-		<id>AboutCassandra</id>
-		<id>BrokenCabinet</id>
-		<id>WhatCassSaw</id>
 		<id>PlinthLastSighting</id>
+		<id>JonathanAlibi</id>
+		<id>CassandraAlibi</id>
 		<id>ArtifactLoc_CassIdeas</id>
 		<id>PlinthLocation</id>
+		<id>BrokenCabinet</id>
+		<id>DirectorLocation</id>
 		<id>none</id>
 	</ids>
 </Main>

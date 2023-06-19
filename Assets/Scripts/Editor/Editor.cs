@@ -668,7 +668,8 @@ public class Editor
                     // if it's the dialogue, we first convert the {comma} tags into actual commas.
                     if (pair.Key == "dialogue")
                     {
-                        writer.WriteString(pair.Value.Replace("{comma}", ","));
+                        string val = pair.Value.Replace("{next}", "\n");
+                        writer.WriteString(val.Replace("{comma}", ","));
                     }
                     // EMPTY WEIGHTS ARE 1 BY DEFAULT.
                     else if (pair.Key.Contains("Weight") && pair.Value=="")

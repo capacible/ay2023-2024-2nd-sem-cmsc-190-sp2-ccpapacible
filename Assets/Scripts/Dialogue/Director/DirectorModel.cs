@@ -465,7 +465,7 @@ public class DirectorModel
         // inference
         var inferenceMultipleCase = engine.Infer<Discrete[]>(Dialogue);
 
-        // averaging the probabilities of the cases we have inferred (temporary fix)
+        // averaging the probabilities of the cases we have inferred
         // each case has probabilities for each dialogue line.
         List<double> avgProbs = new List<double>();
         
@@ -584,13 +584,20 @@ public class DirectorModel
     /// </summary>
     /// <param name="probabilities"></param>
     /// <returns></returns>
-    public List<double> FilterLines(List<double> probabilities, string receiver="no_receiver")
+    public List<double> FilterLines(List<double> probabilities, string receiver="no_receiver", string currentMap="")
     {
         // if our receiver is no_receiver (default), it means that any_receiver is also not valid.
 
         Debug.Log("Filtering setting the probabilities of dialogue lines to 0 if receiver is not: " + receiver);
         foreach(KeyValuePair<int, DialogueLine> line in Director.LineDB)
         {
+            // filters by current map, assuming that the current line has any location restrictions.
+            if(currentMap!="" && line.Value.locations.Length > 0 && !line.Value.locations.Contains(currentMap))
+            {
+                probabilities[line.Key] = 0;
+                Debug.Log("The line: ( " + line.Value.dialogue + " ) has prob 0 because the location " + currentMap + "is not in its allowed locations");
+            }
+
             // assuming that our line isn't no_receiver (meaning it's an npc line), we consider both receiver value and
             // any receiver to be a valid option.
             if(receiver != "no_receiver" && (line.Value.receiver != receiver && line.Value.receiver != "any_receiver"))

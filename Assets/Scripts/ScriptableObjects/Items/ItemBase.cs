@@ -21,20 +21,24 @@ public class ItemBase : ScriptableObject
     // sprite in inventory
     public Sprite inventorySprite;
 
+    public bool discardAfter;
+
     /// <summary>
     /// Use function of an item, called when the item is being held when interacting, and when the object we are interacting
     /// with has this item as a valid item to interact with.
     /// </summary>
-    /// <param name="useOnObj">
+    /// <param name="useOnObjId">
     ///     The id of the object we will use the item on
     /// </param>
-    public virtual void UseItem(string useOnObj)
+    public virtual void UseItem(string useOnObjId)
     {
         // check if the receiving object has npc interaction -- if so, we act as if we are "showing" the held item.
-        if (useOnObj.Contains("NPCInteraction"))
+        if (useOnObjId.Contains("NPCInteraction"))
         {
-            // add to director
-            Director.AddToSpeakerMemory(useOnObj, "ItemShown:" + itemId);
+            // set the director's held item
+            Director.activeHeldItem = itemId;
+
+            Debug.Log("setting the held item success");
         }
         // do something else, otherwise
         else if (useItemMsgKey != "")
@@ -43,6 +47,9 @@ public class ItemBase : ScriptableObject
             EventHandler.Instance.InteractMessage(useItemMsgKey, new Dictionary<string, string> {
                 { MSG_TAG_TYPE.ITEM_NAME, itemName }
             });
+
+            // do item effect, passing itself.
+            EventHandler.Instance.TriggerItemEffect(new object[] { useOnObjId, this });
         }
 
     }

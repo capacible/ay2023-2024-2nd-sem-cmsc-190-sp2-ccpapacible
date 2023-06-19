@@ -48,8 +48,8 @@ public class DirectorTraining
         // initialize the lineDb
         Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml",
-            "Data/XML/dialogue/dialogueFiller_Custodian.xml"
+            "Data/XML/dialogue/dialogueJonathan.xml"//,
+            //"Data/XML/dialogue/dialogueFiller_Custodian.xml"
         });
 
         // initialize the model
@@ -84,13 +84,18 @@ public class DirectorTraining
 
             // we get ALL event requirements of the line, and convert them to their respective key
             List<int> prereqEvents = null;
-            if(line.relatedEvents != null)
+            if(line.relatedEvents.Length > 0 || line.relatedEvents != null)
             {
                 prereqEvents = new List<int>();
                 // converting each related event to respective key...
                 line.relatedEvents.ToList().ForEach(
                     e => prereqEvents.Add(
                         Director.NumKeyLookUp(e, refDict: eventsDB)));
+                prereqEvents.RemoveAll(e => e == -1);   // remove the prereq events where e is -1
+            }
+            else
+            {
+                Debug.Log("no prerequisites");
             }
 
             /*
@@ -101,7 +106,7 @@ public class DirectorTraining
             int traitPrereq = Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB);
             int relPrereq = RelStrToInt(line.relPrereq);
 
-            // if trait doesn't exist (EMPTY)
+            // if trait doesn't exist (EMPTY) - consider all possible traits
             if (traitPrereq == -1)
             {
                 Debug.Log("No trait exists");
@@ -141,20 +146,8 @@ public class DirectorTraining
                 foreach(int rel in relPrereqs)
                 {
                     // no prerequisite events
-                    if (prereqEvents == null)
-                    {
-                        Debug.Log("no prerequisite; we consider all events len: " + eventsDB.Keys.Count);
-                        // we basically consider ALL possible events, because prerequisite events being empty = walangv prerequisite
-                        // same idea when it comes to traits and rels as seen in outer loops, by the way.
-                        foreach(int ev in eventsDB.Keys)
-                        {
-                            lineObservations.Add(lineId);
-                            traitObservations.Add(trait);
-                            relObservations.Add(rel);
-                            eventObservations.Add(ev);
-                        }
-                    }
-                    else
+                    // if there are no prerequisite events, we essentially ignore or consider it as an unknown?
+                    if(prereqEvents!=null)
                     {
                         // for every related event
                         // we observe that the line with id lineId is the effect
@@ -189,7 +182,8 @@ public class DirectorTraining
         int[] evArr = eventObservations.ToArray();
         int[] traitArr = traitObservations.ToArray();
         int[] relArr = relObservations.ToArray();
-
+        
+        
         // make inferences here
         model.Learn(lineArr, evArr, traitArr, relArr, data);
         // return the inference as director data

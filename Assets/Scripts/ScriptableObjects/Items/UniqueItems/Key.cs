@@ -11,7 +11,6 @@ public class Key : ItemBase
 
         Debug.Log("Using this to unlock door");
 
-        // unlock a door, passing itself.
-        EventHandler.Instance.TriggerItemEffect(new object[] { useOnObj, this });
+        // IMPORTANT: TEMPORARILY REMOVED THE TRIGGERITEMEFFECT, MOVED TO ITEMBASE SCRIPT.
     }
 }

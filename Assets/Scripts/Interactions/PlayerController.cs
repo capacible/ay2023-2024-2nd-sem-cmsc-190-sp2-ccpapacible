@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum WALK_DIR
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
 /// <summary>
 /// Controls overworld player movement; attached to every single instance of player in separate scenes
 /// This is separate from the script that will handle inventory/held item/whatever else
@@ -18,6 +26,14 @@ public class PlayerController : MonoBehaviour
     // 
     [HideInInspector]
     public List<GameObject> collided = new List<GameObject>();
+
+    public Sprite[] forward;
+    public Sprite[] backward;
+    public Sprite[] left;
+    public Sprite[] right;
+
+    private int currentSpriteI;
+    private int currDir;
 
     // Start is called before the first frame update {
     void Start()
@@ -159,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMove(Vector2 dir)
     {
+
         body.MovePosition(new Vector2(transform.position.x + dir.x * speed, transform.position.y + dir.y * speed));
     }
         

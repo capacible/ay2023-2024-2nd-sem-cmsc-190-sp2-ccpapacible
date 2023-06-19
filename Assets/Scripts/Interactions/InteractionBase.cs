@@ -3,11 +3,15 @@ using UnityEngine;
 public class InteractionBase : MonoBehaviour
 {
     public string objId;
-    public string interactionMsgKey;
-    public ItemBase[] useableItems;
-    public bool interactable;
+    public string interactionMsgKey;        // this determines what interaction message we will show, if any
+    public ItemBase[] useableItems;         // if there are items that will change state upon using an item, we put it here
+    public bool interactable;               // basically if this interaction is active or will respond to the player
 
-    private InteractPrompt prompt;
+    [Header("Director-related")]
+    public string[] addToGlobalEventList;
+    public string[] addToCurrentMapEventList;
+
+    private InteractPrompt prompt;          // prompt component
 
     // Start is called before the first frame update
     void Start()
