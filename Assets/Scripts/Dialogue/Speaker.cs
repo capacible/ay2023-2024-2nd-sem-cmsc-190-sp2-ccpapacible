@@ -27,25 +27,9 @@ using UnityEngine;
  * 
  */
 
-// NUMERICAL VALUE OF RELATIONSHIP STATUS
-public enum REL_STATUS_NUMS
-{
-    BAD,        // 0
-    NEUTRAL,    // 1
-    GOOD,       // 2
-    NONE = -1,
-    BAD_THRESH = -20,
-    GOOD_THRESH = 20,
-}
 
-// STRING VERSION OF RELATIONSHIP STATUS (equivalent to rel_status_nums above)
-public static class REL_STATUS_STRING
-{
-    public static readonly string GOOD = "good";
-    public static readonly string NEUTRAL = "neut";
-    public static readonly string BAD = "bad";
-    public static readonly string NONE = "none";    // no requirement.
-}
+
+
 
 // data container of the NPC to be attached into the NPC object
 public class Speaker
@@ -118,16 +102,16 @@ public class Speaker
     public int RelationshipStatus()
     {
         // good
-        if(relWithPlayer >= (int)REL_STATUS_NUMS.GOOD_THRESH)
+        if(relWithPlayer >= (int)DirectorConstants.REL_STATUS_NUMS.GOOD_THRESH)
         {
-            return (int)REL_STATUS_NUMS.GOOD;
+            return (int)DirectorConstants.REL_STATUS_NUMS.GOOD;
         }
-        else if(relWithPlayer <= (int) REL_STATUS_NUMS.BAD_THRESH)
+        else if(relWithPlayer <= (int) DirectorConstants.REL_STATUS_NUMS.BAD_THRESH)
         {
-            return (int)REL_STATUS_NUMS.BAD;
+            return (int)DirectorConstants.REL_STATUS_NUMS.BAD;
         }
 
-        return (int)REL_STATUS_NUMS.NEUTRAL;
+        return (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL;
     }
 }
 

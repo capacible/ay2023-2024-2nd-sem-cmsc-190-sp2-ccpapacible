@@ -6,6 +6,8 @@ using UnityEngine;
 public static class DirectorConstants
 {
     public static readonly int MAX_REL_STATUS = 3;
+    public static readonly string NONE_DEFAULT = "none";
+    public static readonly string ACTIVE_GAME = "GameIsActive";
 
     public enum MoodThreshold
     {
@@ -19,6 +21,26 @@ public static class DirectorConstants
         DEFAULT = 1,
         MIN = 0
     };
+
+    // NUMERICAL VALUE OF RELATIONSHIP STATUS
+    public enum REL_STATUS_NUMS
+    {
+        BAD,        // 0
+        NEUTRAL,    // 1
+        GOOD,       // 2
+        NONE = -1,
+        BAD_THRESH = -20,
+        GOOD_THRESH = 20,
+    }
+
+    // STRING VERSION OF RELATIONSHIP STATUS (equivalent to DirectorConstants.REL_STATUS_NUMS above)
+    public static class REL_STATUS_STRING
+    {
+        public static readonly string GOOD = "good";
+        public static readonly string NEUTRAL = "neut";
+        public static readonly string BAD = "bad";
+        public static readonly string NONE = "none";    // no requirement.
+    }
 }
 
 /// <summary>
@@ -85,15 +107,16 @@ public static class Director
         allEvents = IdCollection.LoadArrayAsDict(EVENTS_XML_PATH);
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
         LoadTopics();
-        
+
+        // add gamestart event
+        globalEvents.Add(NumKeyLookUp(DirectorConstants.ACTIVE_GAME, refDict:allEvents));
+
         LoadLines();
         LoadSpeakers();
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
-
-        // start by setting appropriate data and loading the CPT
-        model.Start();
+        
     }
 
     public static void LoadTopics()
@@ -274,7 +297,7 @@ public static class Director
     }
 
     /// <summary>
-    /// initializes DirectorData as well as merges all global, map, and memory events into one list.
+    /// Merges all global, map, and memory events into one list.
     /// </summary>
     /// <param name="npc"> 
     /// the id of the npc speaker to access the memory of. by default, it's player, but when npc is speaking, it's

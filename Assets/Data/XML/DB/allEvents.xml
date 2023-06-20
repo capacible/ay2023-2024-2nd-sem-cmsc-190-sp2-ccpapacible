@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Main>
 	<ids>
+		<id>GameIsActive</id>
 		<id>ArtifactNotFound</id>
 		<id>DirectorWhereabouts:main_cass</id>
 		<id>DirectorWhereabouts:main_jonathan</id>

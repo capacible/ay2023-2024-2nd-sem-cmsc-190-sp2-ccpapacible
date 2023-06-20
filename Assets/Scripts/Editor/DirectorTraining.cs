@@ -15,20 +15,20 @@ public class DirectorTraining
 {
     public static int RelStrToInt(string rel)
     {
-        if (rel == REL_STATUS_STRING.GOOD)
+        if (rel == DirectorConstants.REL_STATUS_STRING.GOOD)
         {
-            return (int)REL_STATUS_NUMS.GOOD;
+            return (int)DirectorConstants.REL_STATUS_NUMS.GOOD;
         }
-        else if (rel == REL_STATUS_STRING.BAD)
+        else if (rel == DirectorConstants.REL_STATUS_STRING.BAD)
         {
-            return (int)REL_STATUS_NUMS.BAD;
+            return (int)DirectorConstants.REL_STATUS_NUMS.BAD;
         }
-        else if(rel == REL_STATUS_STRING.NEUTRAL)
+        else if(rel == DirectorConstants.REL_STATUS_STRING.NEUTRAL)
         {
-            return (int)REL_STATUS_NUMS.NEUTRAL;
+            return (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL;
         }
 
-        return (int)REL_STATUS_NUMS.NONE;
+        return (int)DirectorConstants.REL_STATUS_NUMS.NONE;
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public class DirectorTraining
         });
 
         // initialize the model
-        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS);
+        DirectorTrainingModel model = new DirectorTrainingModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS);
 
         // data is first set as uniform here.
         DirectorData data = model.UniformDirectorData();
@@ -106,10 +106,10 @@ public class DirectorTraining
             int traitPrereq = Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB);
             int relPrereq = RelStrToInt(line.relPrereq);
 
-            // if trait doesn't exist (EMPTY) - consider all possible traits
-            if (traitPrereq == -1)
+            // if trait doesn't exist, either thru some error or none value - consider all possible traits
+            if (traitPrereq == -1 || traitPrereq == Director.NumKeyLookUp(DirectorConstants.NONE_DEFAULT, refDict:traitsDB))
             {
-                Debug.Log("No trait exists");
+                Debug.Log("No trait exists -- acquired id is: "+traitPrereq+ " or "+traitsDB[traitPrereq]);
                 traitPrereqs = traitsDB.Keys.ToArray();
                 Debug.Log(traitsDB.Count);
             }
@@ -122,15 +122,15 @@ public class DirectorTraining
                 };
             }
 
-            if(relPrereq == (int)REL_STATUS_NUMS.NONE)
+            if(relPrereq == (int)DirectorConstants.REL_STATUS_NUMS.NONE)
             {
                 Debug.Log("no required relstatus");
                 // consider all possible relationships
                 relPrereqs = new int[]
                 {
-                    (int)REL_STATUS_NUMS.GOOD,
-                    (int)REL_STATUS_NUMS.BAD,
-                    (int)REL_STATUS_NUMS.NEUTRAL
+                    (int)DirectorConstants.REL_STATUS_NUMS.GOOD,
+                    (int)DirectorConstants.REL_STATUS_NUMS.BAD,
+                    (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL,
                 };
             }
             else

@@ -556,7 +556,7 @@ public class Editor
         }
 
         // dafault <none> option if the file is topics
-        if (filename.ToLower().Contains("topic"))
+        if (filename.ToLower().Contains("topic") || filename.ToLower().Contains("trait"))
         {
             writer.WriteStartElement("id");
             writer.WriteString("none");
@@ -684,7 +684,7 @@ public class Editor
                     // EMPTY REL PREREQ WILL BE NEUTRAL STRING
                     else if (pair.Key.Contains("relPrereq") && pair.Value == "")
                     {
-                        writer.WriteString(REL_STATUS_STRING.NONE);
+                        writer.WriteString(DirectorConstants.REL_STATUS_STRING.NONE);
                     }
                     else if(pair.Key.Contains("trait") && pair.Value == "")
                     {
