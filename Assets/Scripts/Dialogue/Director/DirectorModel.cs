@@ -32,6 +32,11 @@ public class DirectorModel : DirectorBase
     private const string EVENTS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/eventCPT.xml";
     private const string TRAITS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/traitCPT.xml";
     private const string RELS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/relCPT.xml";
+
+    Dirichlet[][][] dLinecpt;
+    Dirichlet eventcpt;
+    Dirichlet traitscpt;
+    Dirichlet relscpt;
        
 
     #region INITIALIZATION
@@ -57,7 +62,6 @@ public class DirectorModel : DirectorBase
         NumOfCases = Variable.Observed(0).Named("NumOfCases");
         // number of known cases -- usually the highest number of unique elements, the events
         Range N = new Range(NumOfCases).Named("NCases");
-        NumOfCases.SetValueRange(N);
 
         // possible outcomes or parameters
         EventsRange = new Range(totalEvents).Named("Events");
@@ -72,20 +76,32 @@ public class DirectorModel : DirectorBase
          */
 
         // LOADING PRIORS
-        ProbPrior_Events = Variable.Observed(DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH)).Named("EventPriors");
-        ProbPrior_Traits = Variable.Observed(DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH)).Named("TraitsPriors");
-        ProbPrior_RelStatus = Variable.Observed(DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH)).Named("RelPriors");
+        dLinecpt = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        eventcpt = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
+        traitscpt = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
+        relscpt = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
 
-        // EVENTS
+            /*
+        ProbPrior_Events = Variable.Observed().Named("EventPriors");
+        ProbPrior_Traits = Variable.Observed(DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH)).Named("TraitsPriors");
+        ProbPrior_RelStatus = Variable.Observed(DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH)).Named("RelPriors"); */
+        
+        // EVENTS        
+        ProbPrior_Events = Variable.New<Dirichlet>().Named("EventsPriors");
         Prob_Events = Variable<Vector>.Random(ProbPrior_Events).Named("PossibleEvents");
+        ProbPrior_Events.ObservedValue = null;
         Prob_Events.SetValueRange(EventsRange); // sets the length of vector
 
         // TRAITS
+        ProbPrior_Traits = Variable.New<Dirichlet>().Named("TraitsPriors");
         Prob_Traits = Variable<Vector>.Random(ProbPrior_Traits).Named("PossibleTraits");
+        ProbPrior_Traits.ObservedValue = null;
         Prob_Traits.SetValueRange(TraitsRange);
 
         // RELSTATUS
+        ProbPrior_RelStatus = Variable.New<Dirichlet>().Named("RelStatusPriors");
         Prob_RelStatus = Variable<Vector>.Random(ProbPrior_RelStatus).Named("PossibleRel");
+        ProbPrior_RelStatus.ObservedValue = null;
         Prob_RelStatus.SetValueRange(RelStatusRange);
 
 
@@ -99,16 +115,18 @@ public class DirectorModel : DirectorBase
              remember that this <VariableArray<VariableArray<Dirichlet>, Dirichlet[][]>, Dirichlet[][][]> is the type we declared up above
 
          */
-
+         
         // initialize the CPT
-        CPTPrior_Dialogue = Variable.Observed(DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH), EventsRange, TraitsRange, RelStatusRange).Named("Dialogue_prior");
-
-        // initialize the variable
-        CPT_Dialogue = Variable.Observed<Vector>(null, EventsRange, TraitsRange, RelStatusRange).Named("CPTDialogue");
+        CPTPrior_Dialogue = Variable.Array<VariableArray<VariableArray<Dirichlet>, Dirichlet[][]>, Dirichlet[][][]>(Variable.Array<VariableArray<Dirichlet>, Dirichlet[][]>(Variable.Array<Dirichlet>(RelStatusRange), TraitsRange), EventsRange).Named("DialogueCPTPrior");
+    
+        // initialize the variable cpt_dialogue conditioned on the prior dialogue
+        CPT_Dialogue = Variable.Array<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]>(Variable.Array<VariableArray<Vector>, Vector[][]>(Variable.Array<Vector>(RelStatusRange), TraitsRange), EventsRange).Named("DialogueCPT");
         // create a random variable for all row/cols of the cpt dialogue
         CPT_Dialogue[EventsRange][TraitsRange][RelStatusRange] = Variable<Vector>.Random(CPTPrior_Dialogue[EventsRange][TraitsRange][RelStatusRange]);
         // the values accepted by cpt dialogue is the range of dialogue 
         CPT_Dialogue.SetValueRange(DialogueRange);
+
+        CPTPrior_Dialogue.ObservedValue = null;
 
 
         /*
@@ -426,8 +444,14 @@ public class DirectorModel : DirectorBase
 
     private void SetObserved(int[] events, int[] traits, int[] rels)
     {
-        ia.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+        // PRIORS
+        ia.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, dLinecpt);
+        ia.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventcpt);
+        ia.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitscpt);
+        ia.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relscpt);
 
+        // DATA
+        ia.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
         ia.SetObservedValue(Events.NameInGeneratedCode, events);
         ia.SetObservedValue(Traits.NameInGeneratedCode, traits);
         ia.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
@@ -441,6 +465,7 @@ public class DirectorModel : DirectorBase
     private List<double> DialogueProbabilities(int[] events, int[] traits, int[] rels)
     {
         //ia.Reset();
+        
 
         // setting the observed variables.
         SetObserved(events, traits, rels);

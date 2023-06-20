@@ -116,7 +116,8 @@ public static class Director
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
-        
+
+        Debug.Log("Loaded model.");
     }
 
     public static void LoadTopics()
