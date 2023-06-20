@@ -1,4 +1,5 @@
 using Microsoft.ML.Probabilistic;
+using Microsoft.ML.Probabilistic.Algorithms;
 using Microsoft.ML.Probabilistic.Collections;
 using Microsoft.ML.Probabilistic.Distributions;
 using Microsoft.ML.Probabilistic.Math;
@@ -45,6 +46,7 @@ public class DirectorModel : DirectorBase
     /// </summary>
     public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus)
     {
+        engine.ModelName = "DialogueDirector";
         // set location of generated source code
         engine.Compiler.GeneratedSourceFolder = @"Assets/";
 
@@ -80,11 +82,6 @@ public class DirectorModel : DirectorBase
         eventcpt = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
         traitscpt = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
         relscpt = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
-
-            /*
-        ProbPrior_Events = Variable.Observed().Named("EventPriors");
-        ProbPrior_Traits = Variable.Observed(DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH)).Named("TraitsPriors");
-        ProbPrior_RelStatus = Variable.Observed(DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH)).Named("RelPriors"); */
         
         // EVENTS        
         ProbPrior_Events = Variable.New<Dirichlet>().Named("EventsPriors");
@@ -151,9 +148,15 @@ public class DirectorModel : DirectorBase
         // children
         Dialogue = AddDialogueNodeFrmParents(N, Events, Traits, RelStatus, CPT_Dialogue);
 
+        // debug options
+        engine.Compiler.GenerateInMemory = false;
+        engine.Compiler.WriteSourceFiles = true;
+        engine.Compiler.IncludeDebugInformation = true;
+
         // get inference code
         ia = engine.GetCompiledInferenceAlgorithm(Dialogue);
     }
+    
 
     /// <summary>
     /// Connects child node from three parents
@@ -171,9 +174,9 @@ public class DirectorModel : DirectorBase
         VariableArray<int> rels,
         VariableArray<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]> cptDialogue)
     {
-        var child = Variable.Observed<int>(null, dimension).Named("DialogueChild");
+        //var child = Variable.Observed<int>(null, dimension).Named("DialogueChild");
         
-        //var child = Variable.Array<int>(dimension).Named("DialogueChild");
+        var child = Variable.Array<int>(dimension).Named("DialogueChild");
                
         using (Variable.ForEach(dimension))
         using (Variable.Switch(rels[dimension]))
@@ -464,8 +467,6 @@ public class DirectorModel : DirectorBase
 
     private List<double> DialogueProbabilities(int[] events, int[] traits, int[] rels)
     {
-        //ia.Reset();
-        
 
         // setting the observed variables.
         SetObserved(events, traits, rels);

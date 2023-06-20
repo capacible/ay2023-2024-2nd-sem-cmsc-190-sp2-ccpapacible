@@ -30,7 +30,7 @@ public class DirectorTraining
 
         return (int)DirectorConstants.REL_STATUS_NUMS.NONE;
     }
-
+    
     /// <summary>
     /// Gets the conditional probability table values of the dialogue given all possible values. 
     /// We use all the lines in our linedb as our "observations" or sample.
