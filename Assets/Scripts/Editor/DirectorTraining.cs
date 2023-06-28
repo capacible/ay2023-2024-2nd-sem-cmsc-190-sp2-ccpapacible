@@ -53,7 +53,7 @@ public class DirectorTraining
         });
 
         // initialize the model
-        DirectorTrainingModel model = new DirectorTrainingModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS);
+        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS, "DirectorTraining");
 
         // data is first set as uniform here.
         DirectorData data = model.UniformDirectorData();
@@ -91,11 +91,12 @@ public class DirectorTraining
                 line.relatedEvents.ToList().ForEach(
                     e => prereqEvents.Add(
                         Director.NumKeyLookUp(e, refDict: eventsDB)));
+
                 prereqEvents.RemoveAll(e => e == -1);   // remove the prereq events where e is -1
             }
             else
             {
-                Debug.Log("no prerequisites");
+                Debug.Log("no prerequisites -- line's related events field is NULL");
             }
 
             /*
@@ -106,12 +107,14 @@ public class DirectorTraining
             int traitPrereq = Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB);
             int relPrereq = RelStrToInt(line.relPrereq);
 
-            // if trait doesn't exist, either thru some error or none value - consider all possible traits
-            if (traitPrereq == -1 || traitPrereq == Director.NumKeyLookUp(DirectorConstants.NONE_DEFAULT, refDict:traitsDB))
+            // if trait doesn't exist (EMPTY) set traitprereqs to none
+            if (traitPrereq != -1)
             {
-                Debug.Log("No trait exists -- acquired id is: "+traitPrereq+ " or "+traitsDB[traitPrereq]);
-                traitPrereqs = traitsDB.Keys.ToArray();
-                Debug.Log(traitsDB.Count);
+                Debug.Log("No trait exists--use none");
+                traitPrereqs = new int[]
+                {
+                    Director.NumKeyLookUp(DirectorConstants.NONE_STR, refDict:traitsDB)
+                };
             }
             else
             {
@@ -130,7 +133,7 @@ public class DirectorTraining
                 {
                     (int)DirectorConstants.REL_STATUS_NUMS.GOOD,
                     (int)DirectorConstants.REL_STATUS_NUMS.BAD,
-                    (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL,
+                    (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL
                 };
             }
             else
@@ -145,9 +148,7 @@ public class DirectorTraining
             {
                 foreach(int rel in relPrereqs)
                 {
-                    // no prerequisite events
-                    // if there are no prerequisite events, we essentially ignore or consider it as an unknown?
-                    if(prereqEvents!=null)
+                    if(prereqEvents != null && prereqEvents.Count > 0)
                     {
                         // for every related event
                         // we observe that the line with id lineId is the effect
@@ -159,6 +160,19 @@ public class DirectorTraining
                             {
                                 Debug.Log("an event is somehow an invalid index. number: "+ev);
                             }
+                            lineObservations.Add(lineId);
+                            traitObservations.Add(trait);
+                            relObservations.Add(rel);
+                            eventObservations.Add(ev);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Here we consider all events.");
+                        // consider all events
+                        foreach(int ev in eventsDB.Keys)
+                        {
+
                             lineObservations.Add(lineId);
                             traitObservations.Add(trait);
                             relObservations.Add(rel);

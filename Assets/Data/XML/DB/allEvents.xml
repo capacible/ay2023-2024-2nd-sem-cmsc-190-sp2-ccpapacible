@@ -104,17 +104,5 @@
 		<id>WomanInCamera</id>
 		<id>DirectiorWhereabouts:Jonathan</id>
 		<id>FounderInfo:JonathansSources</id>
-		<id>CassTired</id>
-		<id>RevealedSuspect_Cass_BlamedJonathan</id>
-		<id>Suspect_MaybeCass</id>
-		<id>TopicClosed_TalkAboutWeekend</id>
-		<id>JonathanVisitReason</id>
-		<id>JonathanPlinthQuestions</id>
-		<id>CassandrasCut</id>
-		<id>CassandrasCutReason</id>
-		<id>CassandraAlibi_CompilingNotes</id>
-		<id>CassAccountedForArtifacts</id>
-		<id>CassSuspectingJonathan</id>
-		<id>PlayerAskedForHelp</id>
 	</ids>
 </Main>

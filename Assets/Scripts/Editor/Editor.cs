@@ -559,7 +559,7 @@ public class Editor
         if (filename.ToLower().Contains("topic") || filename.ToLower().Contains("trait"))
         {
             writer.WriteStartElement("id");
-            writer.WriteString("none");
+            writer.WriteString(DirectorConstants.NONE_STR);
             writer.WriteEndElement();
         }
 
@@ -688,7 +688,7 @@ public class Editor
                     }
                     else if(pair.Key.Contains("trait") && pair.Value == "")
                     {
-                        writer.WriteString("none");
+                        writer.WriteString(DirectorConstants.NONE_STR);
                     }
                     else if(pair.Key.Contains("responseTone") && pair.Value == "")
                     {

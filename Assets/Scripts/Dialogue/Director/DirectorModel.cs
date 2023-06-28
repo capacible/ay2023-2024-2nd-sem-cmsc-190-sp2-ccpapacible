@@ -1,5 +1,4 @@
 using Microsoft.ML.Probabilistic;
-using Microsoft.ML.Probabilistic.Algorithms;
 using Microsoft.ML.Probabilistic.Collections;
 using Microsoft.ML.Probabilistic.Distributions;
 using Microsoft.ML.Probabilistic.Math;
@@ -24,31 +23,101 @@ using UnityEngine;
  *          - the ith element in getProbs() is the discrete value/dialogue id.
  * 
  */
-public class DirectorModel : DirectorBase
+public class DirectorModel
 {
     private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
     
-    private const string DLINE_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/lineCPT.xml";
-    private const string EVENTS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/eventCPT.xml";
-    private const string TRAITS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/traitCPT.xml";
-    private const string RELS_DISTRIBUTION_PATH = "Assets/Data/XML/Dialogue/relCPT.xml";
+    private static readonly string DLINE_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/lineCPT.xml";
+    private static readonly string EVENTS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/eventCPT.xml";
+    private static readonly string TRAITS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/traitCPT.xml";
+    private static readonly string RELS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/relCPT.xml";
+    private static readonly string MODEL_FOLDER = $"{Application.dataPath}/Models";
 
-    Dirichlet[][][] dLinecpt;
-    Dirichlet eventcpt;
-    Dirichlet traitscpt;
-    Dirichlet relscpt;
-       
+    private int TotalEventCount;
+    private int TotalTraitCount;
+    private int TotalRelCount;
+    private int TotalDialogueCount;
+
+    private string debugProbStr = "";
+    private string modelFile;
+    private string metaFile;
+
+    // infer
+    protected InferenceEngine engine = new InferenceEngine();
+    private IGeneratedAlgorithm ia;
+
+    private IGeneratedAlgorithm iaEventsRelKnown;
+    private IGeneratedAlgorithm iaTraitsRelKnown;
+    private IGeneratedAlgorithm iaAllKnown;
+    
+    protected Variable<int> NumOfCases;
+
+    /*
+     * RANGES
+     */
+    protected Range EventsRange;
+    protected Range TraitsRange;
+    protected Range RelStatusRange;
+    protected Range DialogueRange;
+
+    /*
+     * RANDOM VARIABLE REPRESENTATIONS
+     *      one element of the array represents one outcome
+     */
+
+    // PARENTS
+    protected VariableArray<int> Events;
+    protected VariableArray<int> Traits;
+    protected VariableArray<int> RelStatus;
+
+    // CHILDREN (depth = 1)
+    protected VariableArray<int> Dialogue;
+
+    /*
+     * PARAMETER OR CPT REPRESENTATIONS
+     *      in vector:
+     *          indices represent the outcome,
+     *          elements represent the probability
+     */
+
+    // PARENTS
+    protected Variable<Vector> Prob_Events;
+    protected Variable<Vector> Prob_Traits;
+    protected Variable<Vector> Prob_RelStatus;
+
+    // CHILDREN
+    protected VariableArray<VariableArray<VariableArray<Vector>, Vector[][]>, Vector[][][]> CPT_Dialogue;
+
+    /*
+     * DISTRIBUTIONS
+     */
+    protected Variable<Dirichlet> ProbPrior_Events;
+    protected Variable<Dirichlet> ProbPrior_Traits;
+    protected Variable<Dirichlet> ProbPrior_RelStatus;
+
+    protected VariableArray<VariableArray<VariableArray<Dirichlet>, Dirichlet[][]>, Dirichlet[][][]> CPTPrior_Dialogue;
+
+    /*
+     *  POSTERIORS
+     */
+    private Dirichlet ProbPost_Events;
+    private Dirichlet ProbPost_Traits;
+    private Dirichlet ProbPost_RelStatus;
+    private Dirichlet[][][] ProbPost_Dialogue;
+
+    private Dirichlet[][][] importedDLineDist;
+
 
     #region INITIALIZATION
     /// <summary>
     /// Creating and instantiating the model
     /// </summary>
-    public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus)
+    public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus, string modelName="DialogueDirector")
     {
-        engine.ModelName = "DialogueDirector";
+        engine.ModelName = modelName;
         // set location of generated source code
-        engine.Compiler.GeneratedSourceFolder = @"Assets/";
+        engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
 
         // our totals
         TotalDialogueCount = totalDialogue;
@@ -61,7 +130,7 @@ public class DirectorModel : DirectorBase
          */
 
         // CREATE NUMBER OF CASES RANGE TO USE DUN SA RANDOM VARIABLE INITIALIZATION MISMO
-        NumOfCases = Variable.Observed(0).Named("NumOfCases");
+        NumOfCases = Variable.New<int>().Named("NumOfCases");
         // number of known cases -- usually the highest number of unique elements, the events
         Range N = new Range(NumOfCases).Named("NCases");
 
@@ -76,29 +145,20 @@ public class DirectorModel : DirectorBase
          *      > create the priors based on our decided distribution
          *      > create random variable parameters based on the priors
          */
-
-        // LOADING PRIORS
-        dLinecpt = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
-        eventcpt = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
-        traitscpt = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
-        relscpt = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
         
         // EVENTS        
         ProbPrior_Events = Variable.New<Dirichlet>().Named("EventsPriors");
         Prob_Events = Variable<Vector>.Random(ProbPrior_Events).Named("PossibleEvents");
-        ProbPrior_Events.ObservedValue = null;
         Prob_Events.SetValueRange(EventsRange); // sets the length of vector
 
         // TRAITS
         ProbPrior_Traits = Variable.New<Dirichlet>().Named("TraitsPriors");
         Prob_Traits = Variable<Vector>.Random(ProbPrior_Traits).Named("PossibleTraits");
-        ProbPrior_Traits.ObservedValue = null;
         Prob_Traits.SetValueRange(TraitsRange);
 
         // RELSTATUS
         ProbPrior_RelStatus = Variable.New<Dirichlet>().Named("RelStatusPriors");
         Prob_RelStatus = Variable<Vector>.Random(ProbPrior_RelStatus).Named("PossibleRel");
-        ProbPrior_RelStatus.ObservedValue = null;
         Prob_RelStatus.SetValueRange(RelStatusRange);
 
 
@@ -123,8 +183,6 @@ public class DirectorModel : DirectorBase
         // the values accepted by cpt dialogue is the range of dialogue 
         CPT_Dialogue.SetValueRange(DialogueRange);
 
-        CPTPrior_Dialogue.ObservedValue = null;
-
 
         /*
          * CREATING THE PRIMARY VARIABLES...
@@ -132,29 +190,19 @@ public class DirectorModel : DirectorBase
         // parents
         // we sort of associate the outcomes (lefthand side) with their probabilities (right hand side, prob_varname) by
 
-        Events = Variable.Observed<int>(null, N).Named("AllEvents");
-        Traits = Variable.Observed<int>(null, N).Named("AllTraits");
-        RelStatus = Variable.Observed<int>(null, N).Named("AllRels");
-
         // setting their variable probabilities to be of the discrete type
+        Events = Variable.Array<int>(N).Named("AllEvents");
         Events[N] = Variable.Discrete(Prob_Events).ForEach(N);
 
-        //Traits = Variable.Array<int>(N).Named("AllTraits");
+        Traits = Variable.Array<int>(N).Named("AllTraits");
         Traits[N] = Variable.Discrete(Prob_Traits).ForEach(N);
 
-        //RelStatus = Variable.Array<int>(N).Named("AllRels");
+        RelStatus = Variable.Array<int>(N).Named("AllRels");
         RelStatus[N] = Variable.Discrete(Prob_RelStatus).ForEach(N);
 
         // children
         Dialogue = AddDialogueNodeFrmParents(N, Events, Traits, RelStatus, CPT_Dialogue);
-
-        // debug options
-        engine.Compiler.GenerateInMemory = false;
-        engine.Compiler.WriteSourceFiles = true;
-        engine.Compiler.IncludeDebugInformation = true;
-
-        // get inference code
-        ia = engine.GetCompiledInferenceAlgorithm(Dialogue);
+       
     }
     
 
@@ -217,7 +265,45 @@ public class DirectorModel : DirectorBase
         return data;
     }
     
+    /// <summary>
+    /// Called during runtime / in-game, we deserialize the necessary cpt-related files to be used as distributions 
+    /// This will be used in our initial setting of data
+    /// </summary>
+    public void Start()
+    {
+        modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
+        string meta = modelFile.Split('.')[0];
+        metaFile = meta;
 
+        CPTPrior_Dialogue.ObservedValue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        ProbPrior_Events.ObservedValue = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
+        ProbPrior_Traits.ObservedValue = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
+        ProbPrior_RelStatus.ObservedValue = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
+
+        // setting observed values.
+        /*
+         *  THERE ARE DIFFERENT TYPES OF POSSIBLE COMPILED ALGORITHMS, CONSIDERING THE VARIOUS TYPES OF AVAILABLE OR KNOWN DATA.
+         */
+         
+        int[] events = new int[] { Director.NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, fromEvents: true) };
+        int[] traits = new int[] { Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true) };
+        int[] rels = new int[] { (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL };
+        NumOfCases.ObservedValue = 1;
+
+        SetPreInferenceObservations(events, null, rels);    // we set the observed value
+        // create the algo for this one
+        iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        // for traits only
+        SetPreInferenceObservations(null, traits, rels);
+        iaTraitsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        // for all applicable
+        SetPreInferenceObservations(events, traits, rels);
+        iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+    }
+    
     /// <summary>
     /// Deserializes an XML file in a given path
     /// </summary>
@@ -242,7 +328,6 @@ public class DirectorModel : DirectorBase
     }
 
     #endregion
-    /*
     #region BEFORE-RUNNING
     
     /// <summary>
@@ -337,56 +422,14 @@ public class DirectorModel : DirectorBase
         };
     }
     #endregion
-        */
-    #region INFERENCE IN GAME
-    
+
+
+    #region DEPRECATED (leaving in here for reference)
+
 
     /// <summary>
-    /// Sets our observations given optional events, traits, and relationships.
-    /// </summary>
-    /// <param name="events"></param>
-    /// <param name="traits"></param>
-    /// <param name="rels"></param>
-    public void SetObservations(
-        int[] events,
-        int[] traits,
-        int[] rels)
-    {
-        if(events == null)
-        {
-            Events.ClearObservedValue();
-        }
-        else
-        {
-            NumOfCases.ObservedValue = events.Length;
-
-            // setting our parent observed values
-            Events.ObservedValue = events;
-        }
-
-        if (traits == null)
-        {
-            // clear the traits
-            Traits.ClearObservedValue();
-            Debug.Log("traits array is null");
-        }
-        else
-        {
-            Traits.ObservedValue = traits;
-        }
-
-        if(rels == null)
-        {
-            RelStatus.ClearObservedValue();
-        }
-        else
-        {
-            RelStatus.ObservedValue = rels;
-        }
-    }
-
-    /// <summary>
-    /// Returns a list of probavbilities for each dialogue in the CPT.
+    /// Returns a list of probavbilities for each dialogue in the CPT -- using Infer(); which recompiles and creates a new assembly.
+    /// Only use this as last resort, if IGeneratedAlgorithm implementation does not work.
     /// </summary>
     /// <param name="events"></param>
     /// <param name="traits"></param>
@@ -399,27 +442,13 @@ public class DirectorModel : DirectorBase
         int[] rels)
     {
         // we set the observed values
-        SetObservations(events, traits, rels);
+        SetPreInferenceObservations(events, traits, rels);
 
         Dialogue.ClearObservedValue();
-
-        /*
-         * the number of observations or cases determines the length of the discrete[] array. my understanding is that 
-         * for each case, we will infer the probabilities. if we have multiple events, each element i in discrete[]
-         * is the inference in the case where the events[i] is the known event
-         * 
-         * it is NOT making a single inference based on all our sample data.
-         * 
-         * solution? no idea
-         *  > even if we learn the parameters of events, traits, and rels, in order to make an accurate inference sa dialogue,
-         *  we need to take into account all the events (aka parang mixture model) as our observed value and have the
-         *  engine make inference by considering all the entered events as a single case rather than each event being an individual
-         *  case.
-         */
-
+        
         // inference
         var inferenceMultipleCase = engine.Infer<Discrete[]>(Dialogue);
-
+                
         // averaging the probabilities of the cases we have inferred
         // each case has probabilities for each dialogue line.
         List<double> avgProbs = new List<double>();
@@ -443,56 +472,133 @@ public class DirectorModel : DirectorBase
 
     #endregion
 
-    #region REAL TIME IN GAME INFERENCE
+    #region IN GAME INFERENCE
 
-    private void SetObserved(int[] events, int[] traits, int[] rels)
+    /// <summary>
+    /// Sets our observations given optional events, traits, and relationships.
+    ///     This gets run in Start() while we initialize our inference algorithms.
+    /// </summary>
+    /// <param name="events"></param>
+    /// <param name="traits"></param>
+    /// <param name="rels"></param>
+    public void SetPreInferenceObservations(
+        int[] events,
+        int[] traits,
+        int[] rels)
     {
-        // PRIORS
-        ia.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, dLinecpt);
-        ia.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventcpt);
-        ia.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitscpt);
-        ia.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relscpt);
-
-        // DATA
-        ia.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
-        ia.SetObservedValue(Events.NameInGeneratedCode, events);
-        ia.SetObservedValue(Traits.NameInGeneratedCode, traits);
-        ia.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-
-        Debug.Log("the number of cases is going to be " + events.Length);
-        Debug.Log("the observed values have the following lengths:" +
-            $"\ntraits: {traits.Length}" +
-            $"\nrels: {rels.Length}");
-    }
-
-    private List<double> DialogueProbabilities(int[] events, int[] traits, int[] rels)
-    {
-
-        // setting the observed variables.
-        SetObserved(events, traits, rels);
-
-        // make an inference
-        ia.Execute(1);
-
-        // retrieve the marginal distributions
-        var probAllCases = ia.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
-
-        // averaging the probabilities of the cases we have inferred
-        // each case has probabilities for each dialogue line.
-        List<double> avgProbs = new List<double>();
-
-        for (int i = 0; i < TotalDialogueCount; i++)
+        if (events == null)
         {
-            List<double> probOfCurrentDialogue = new List<double>();
-
-            // we get the ith element of each Discrete.GetProbs()
-            probAllCases.ForEach(c => probOfCurrentDialogue.Add(c.GetProbs()[i]));
-
-            // average this.
-            avgProbs.Add(probOfCurrentDialogue.Average());
+            Events.ClearObservedValue();
+        }
+        else
+        {
+            // setting our parent observed values
+            Events.ObservedValue = events;
         }
 
-        return avgProbs;
+
+        if (traits == null)
+        {
+            // clear the traits
+            Traits.ClearObservedValue();
+            Debug.Log("traits array is null");
+        }
+        else
+        {
+            Traits.ObservedValue = traits;
+        }
+
+        if (rels == null)
+        {
+            RelStatus.ClearObservedValue();
+        }
+        else
+        {
+            RelStatus.ObservedValue = rels;
+        }
+    }
+
+    /// <summary>
+    /// Setting the observed variables in the selected iGeneratedAlgorithm given the laman of the observation arrays (events, traits, and rels)
+    /// then returns the marginals that are computed.
+    /// </summary>
+    /// <param name="events"></param>
+    /// <param name="traits"></param>
+    /// <param name="rels"></param>
+    /// <returns></returns>
+    public List<double> DialogueProbabilities(
+        int[] events,
+        int[] traits,
+        int[] rels)
+    {
+        bool knowEv = false, knowTrait = false, knowRel = false;
+        if(events!=null)
+        {
+            Debug.Log("EVENT VALUE TRUE");
+            // we set the flag that we know the event data.
+            knowEv = true;
+        }
+
+        if(traits!=null)
+        {
+            Debug.Log("TRAITS VALUE TRUE");
+            // set flag of known trait
+            knowTrait = true;
+        }
+
+        if(rels!=null)
+        {
+            Debug.Log("RELS VALUE TRUE");
+            knowRel = true;
+        }
+
+        // set observed considering w/c are true.
+        if(knowEv && knowTrait && knowRel)
+        {
+            iaAllKnown.Reset();
+            // use iaAll
+            iaAllKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+            iaAllKnown.SetObservedValue(Events.NameInGeneratedCode, events);
+            iaAllKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
+            iaAllKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+
+            // update and get prob
+            iaAllKnown.Update(1);
+            var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            return result[0].GetProbs().ToList();
+        }
+        else if(knowEv)
+        {
+            iaEventsRelKnown.Reset();
+            // for only event and rel known
+            iaEventsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+            iaEventsRelKnown.SetObservedValue(Events.NameInGeneratedCode, events);
+            iaEventsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+
+            // update and get prob
+            iaEventsRelKnown.Update(1);
+            var result = iaEventsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            return result[0].GetProbs().ToList();
+        }
+        else if (knowTrait)
+        {
+            iaTraitsRelKnown.Reset();
+
+            iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
+            iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
+            iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+
+            // update and get prob
+            iaTraitsRelKnown.Update(1);
+            var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            return result[0].GetProbs().ToList();
+        }
+
+        Debug.LogError("OBSERVED VALUE ERROR: all observed values are null");
+        return new List<double>() { 0.0 };
     }
 
     #endregion
@@ -540,18 +646,15 @@ public class DirectorModel : DirectorBase
 
         /*
          *  TOPIC RELEVANCE CALCULATION
-         *      PROBLEM: when there are multiple topics, even if all our topics is 1 in relevance (or even less), we
-         *      are basically doing:
-         *          utility = probability x 1 + probability x 1 ..
-         *      and so on...
-         *          which means that most lines with > 1 topics will be more likely to be selected (it's not supposed to be!!)
+         *      we multiply the initial overall relevance with the relevance of the topic.
+         *      If there are multipe topics with the same x1 relevance, they just have x1 relevance pa rin.
          */
 
         double overallRelevance = 1;
 
         if (lineContainer.relatedTopics == null)
         {
-            overallRelevance = overallRelevance * topicList["none"];
+            overallRelevance = overallRelevance * topicList[DirectorConstants.NONE_STR];
         }
         else
         {
@@ -560,7 +663,7 @@ public class DirectorModel : DirectorBase
             {
                 if (topic == "")
                 {
-                    overallRelevance = overallRelevance * topicList["none"];
+                    overallRelevance = overallRelevance * topicList[DirectorConstants.NONE_STR];
                 }
                 else
                 {
@@ -733,30 +836,24 @@ public class DirectorModel : DirectorBase
             Debug.Log($"num of known events: {knownEvents.Length}\n" +
                 $"trait: {knownTrait}\n" +
                 $"relationship: {knownRel}");
-        }
-        else
-        {
-            // if known events is null, we set known events to be this default here:
-            knownEvents = new int[] { Director.NumKeyLookUp(DirectorConstants.ACTIVE_GAME, fromEvents: true) };
-        }
 
+        }
 
         // array of the same observations, with same length as known events
         int[] traitsArr = new int[knownEventsCount];
         int[] relArr = new int[knownEventsCount];
-        
+
+        if (knownTrait == -1)
+        {
+            traitsArr = null;
+        }
 
         for(int i = 0; i < knownEventsCount; i++)
         {
             // populate the array; if the trait isn't a known trait or negative we set traitsarr to be the key for "none"
-            if (knownTrait != -1)
+            if (traitsArr != null)
             {
                 traitsArr[i] = knownTrait;
-            }
-            else
-            {
-                // if there's some unknown or empty trait input, we simply set traits arttay to the default none key
-                traitsArr[i] = Director.NumKeyLookUp(DirectorConstants.NONE_DEFAULT, fromTraits: true);
             }
 
             relArr[i] = knownRel;
@@ -791,7 +888,7 @@ public class DirectorModel : DirectorBase
         double minProb = 0.0;
         debugProbStr += "====== PLAYER ======\n";
 
-        //NumOfCases.ClearObservedValue();
+        //NumOfCases.ObservedValue = knownEvents.Length;
 
         // testing if we passed correct info:
         Debug.Log($"num of known events: {knownEvents.Length}\n" +
@@ -802,11 +899,17 @@ public class DirectorModel : DirectorBase
         int[] traitsArr = new int[knownEvents.Length];
         int[] relArr = new int[knownEvents.Length];
 
+        if (knownTrait == -1)
+        {
+            traitsArr = null;
+        }
+
+
         for (int i = 0; i < knownEvents.Length; i++)
         {
             // populate the array
             // known trait is optional -- some characters have no traits
-            if (knownTrait != -1)
+            if (traitsArr != null)
             {
                 // if knowntrait is not empty (-1) then we set it to whatever we passed.
                 traitsArr[i] = knownTrait;
@@ -825,7 +928,7 @@ public class DirectorModel : DirectorBase
             // we base our minimum probability on our first "best" line
             if (i == 0)
             {
-                minProb = best.Value - (best.Value * 0.05);
+                minProb = best.Value - (best.Value * 0.75);
             }
 
             best3.Add(best.Key, best.Value);

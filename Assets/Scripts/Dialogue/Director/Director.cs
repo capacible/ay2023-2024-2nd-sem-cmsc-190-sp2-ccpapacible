@@ -6,8 +6,14 @@ using UnityEngine;
 public static class DirectorConstants
 {
     public static readonly int MAX_REL_STATUS = 3;
-    public static readonly string NONE_DEFAULT = "none";
-    public static readonly string ACTIVE_GAME = "GameIsActive";
+    public static readonly string GAME_IS_ACTIVE = "GameIsActive";
+
+    // default data
+    public static readonly string NONE_STR = "none";
+    public static readonly string PLAYER_STR = "player";
+    // topics
+    public static readonly string TOPIC_START_CONVO = "StartConversation";
+    public static readonly string TOPIC_END_CONVO = "EndConversation";
 
     public enum MoodThreshold
     {
@@ -31,16 +37,16 @@ public static class DirectorConstants
         NONE = -1,
         BAD_THRESH = -20,
         GOOD_THRESH = 20,
-    }
+    };
 
-    // STRING VERSION OF RELATIONSHIP STATUS (equivalent to DirectorConstants.REL_STATUS_NUMS above)
+    // STRING VERSION OF RELATIONSHIP STATUS (equivalent to rel_status_nums above)
     public static class REL_STATUS_STRING
     {
         public static readonly string GOOD = "good";
         public static readonly string NEUTRAL = "neut";
         public static readonly string BAD = "bad";
         public static readonly string NONE = "none";    // no requirement.
-    }
+    };
 }
 
 /// <summary>
@@ -48,10 +54,15 @@ public static class DirectorConstants
 /// </summary>
 public static class Director
 {
-    public const string EVENTS_XML_PATH = "Data/XML/DB/allEvents.xml";
-    public const string TOPICS_XML_PATH = "Data/XML/DB/allTopics.xml";
-    public const string TRAITS_XML_PATH = "Data/XML/DB/allTraits.xml";
-    public const string SPEAKERS_XML_PATH = "Data/XML/Speakers.xml";
+    public static readonly string EVENTS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allEvents.xml";
+    public static readonly string TOPICS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTopics.xml";
+    public static readonly string TRAITS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTraits.xml";
+    public static readonly string SPEAKERS_XML_PATH = $"{Application.dataPath}/Data/XML/Speakers.xml";
+    public static readonly string[] DIALOGUE_XML_PATH = new string[]
+    {
+        $"{Application.dataPath}/Data/XML/dialogue/dialoguePlayer.xml",
+        $"{Application.dataPath}/Data/XML/dialogue/dialogueJonathan.xml"
+    };
 
     // director is active? -- currently being used?
     public static bool isActive;
@@ -109,7 +120,7 @@ public static class Director
         LoadTopics();
 
         // add gamestart event
-        globalEvents.Add(NumKeyLookUp(DirectorConstants.ACTIVE_GAME, refDict:allEvents));
+        globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict:allEvents));
 
         LoadLines();
         LoadSpeakers();
@@ -117,9 +128,15 @@ public static class Director
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
 
-        Debug.Log("Loaded model.");
-    }
+        // add to global -- game is active
+        globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict: allEvents));
+        // add to player memory
+        AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
 
+        // start by setting appropriate data and loading the CPT
+        model.Start();
+    }
+    
     public static void LoadTopics()
     {
         IdCollection topicIds = XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
@@ -138,11 +155,7 @@ public static class Director
     public static void LoadLines()
     {
         // we can have a text file here describing the file names of all dialogue XMLs.
-        LineDB = DialogueLineCollection.LoadAll(new string[] {
-            "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml",
-            "Data/XML/dialogue/dialogueFiller_Custodian.xml"
-        });
+        LineDB = DialogueLineCollection.LoadAll( DIALOGUE_XML_PATH );
         
         Debug.Log("success");
     }

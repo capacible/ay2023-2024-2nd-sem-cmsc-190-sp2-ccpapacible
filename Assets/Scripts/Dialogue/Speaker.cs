@@ -29,8 +29,6 @@ using UnityEngine;
 
 
 
-
-
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
@@ -83,7 +81,7 @@ public class Speaker
         }
         else
         {
-            speakerTrait = -1;
+            speakerTrait = Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits:true);
         }
     }
 

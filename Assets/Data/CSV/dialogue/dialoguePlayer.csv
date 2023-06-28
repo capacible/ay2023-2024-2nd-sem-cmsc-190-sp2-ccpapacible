@@ -5,9 +5,9 @@ custodian,,,,ArtifactNotFound,,MissingArtifact / StartConversation,,neut,,,One o
 custodian,,,,,,MissingArtifact / StartConversation,,neg,,,An important artifact in next week's exhibit is gone. Have you gone to the storage room recently?,,,ArtifactNotFound,,,MissingArtifact,,
 assistant,,,,ArtifactNotFound,,MissingArtifact / StartConversation,,neut,,,Hey{comma} have you seen the starry plinth anywhere?,,,ArtifactNotFound,,,MissingArtifact,,
 any_receiver,,,,,,LookingForDirector,,neut,,,Have you seen Director Virgil?,,,PlayerAskedDirectorWhereabouts,PlayerAskedDirectorWhereabouts,,LookingForDirector,,
-any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neg,,,I have to report the missing artifact to the director. Is there... anything I need to know?,,,PlayerExpressedSuspicions,ExpressedSuspicions:{speakerArchetype},,MissingArtifact,,
-any_receiver,,,,ArtifactNotFound,,MissingArtifact,,pos,,,I'm going to have to report the missing artifact to the director. Let me know if you learn anything new{comma} okay?,,,,,2,MissingArtifact,,
-any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neut,,,I'm going to go report the missing artifact to the director. I'll be right back.,,,,,,MissingArtifact,,TRUE
+any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neg,,,I have to report the missing artifact to the director. Is there... anything I need to know?,,,PlayerExpressedSuspicions,ExpressedSuspicions:{speakerArchetype},,MissingArtifact / EndConversation,,
+any_receiver,,,,ArtifactNotFound,,MissingArtifact,,pos,,,I'm going to have to report the missing artifact to the director. Let me know if you learn anything new{comma} okay?,,,,,2,MissingArtifact / EndConversation,,TRUE
+any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neut,,,I'm going to go report the missing artifact to the director. I'll be right back.,,,,,,MissingArtifact / EndConversation,,TRUE
 main_jonathan,,,,ArtifactNotFound,,MissingArtifact,,neut,,,Did you see anything in the security cameras by any chance?,,,,,,CameraInTheStorageRoom,,
 main_jonathan,,,,DirectorWhereabouts:main_cass,,LookingForDirector,,neut,,,I've been looking for Director Virgil for a while. Have you seen him by any chance? Cassandra said they talked yesterday afternoon{comma} but that's it...,,,DirectorWhereabouts:Cass,,,LookingForDirector,,
 main_jonathan,,,,DirectorWhereabouts:main_jonathan,,LookingForDirector,,neut,,,I need to report that the plinth is gone. If he comes by{comma} let him know I need to see him.,,,,,,LookingForDirector,,

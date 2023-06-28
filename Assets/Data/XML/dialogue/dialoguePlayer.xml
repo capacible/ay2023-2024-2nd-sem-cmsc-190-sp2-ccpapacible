@@ -204,7 +204,7 @@
 					<addToPlayerMemoryItem>ExpressedSuspicions:{speakerArchetype}</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
+				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -231,9 +231,9 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>2</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
+				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
-				<exit>false</exit>
+				<exit>true</exit>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -258,7 +258,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
+				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
 			</DialogueEffect>

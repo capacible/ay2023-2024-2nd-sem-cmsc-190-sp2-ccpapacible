@@ -5,7 +5,7 @@
 			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
-			<relPrereq>neut</relPrereq>
+			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
@@ -2420,13 +2420,17 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
+			<relatedTopics>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
 			<trait>none</trait>
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue></dialogue>
-			<relatedEvents />
+			<dialogue>I'll talk to you later.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />

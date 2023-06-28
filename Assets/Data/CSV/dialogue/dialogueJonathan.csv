@@ -1,5 +1,5 @@
 receiver,posWeight,negWeight,relPrereq,eventsInMemory,globalAndMapEvents,relatedTopics,trait,responseTone,portrait,locations,dialogue,effect_addEventToGlobal,effect_addEventToMap,effect_addToNPCMemory,effect_addToPlayerMemory,effect_relationshipEffect,effect_makeMostRelevantTopic,effect_closeTopic,effect_exit
-no_receiver,,,neut,,,StartConversation,,neut,neutral,,G'morning{comma} Ma'am.,,,,,,,,
+no_receiver,,,,,,StartConversation,,neut,neutral,,G'morning{comma} Ma'am.,,,,,,,,
 no_receiver,1,1,,ArtifactNotFound,,MissingArtifact,,neut,sad,,What? How could that happen?,,,,,,,,
 no_receiver,1,1,,ArtifactNotFound / PlayerAskedDirectorWhereabouts,,LookingForDirector,,neut,neutral,,I have no idea where he is{comma} sorry. You could ask one of the custodians or the assistant.,,,DirectorWhereabouts:Jonathan,DirectorWhereabouts:Jonathan ,,,,
 no_receiver,,,,ArtifactNotFound,,CameraInTheStorageRoom,,neut,neutral,,I think I saw a strange woman in the storage room last night. My memory was hazy so I assumed it was just one of the staff.,,,WomanInStorage ,WomanInStorage,,,,
@@ -78,7 +78,7 @@ no_receiver,,,,JonathanVisitsCassandra / JonathanVisitedTwice / SecondVisitReaso
 no_receiver,,,,JonathanVisitsCassandra / JonathanVisitedTwice / SecondVisitReason:WomanInCameras / NoWomanInCamera,,JonathanVisitedCassandra,,,,,I know{comma} I was wrong about that. Either way{comma} I wasn't able to tell her because she wasn't in the office.,,,JonathanWrongAboutWoman / SecondVisit:CassNotInCuratorsOffice,JonathanWrongAboutWoman / SecondVisit:CassNotInCuratorsOffice,,,,
 no_receiver,,,,JonathanVisitsCassandra / JonathanVisitedTwice / SecondVisitReason:WomanInCameras / SecondVisit:CassNotInCuratorsOffice,,JonathanVisitedCass,,,,,When I left the curator's office{comma} I found her by the vending machine{comma} getting coffee.,,,AfterSecondVisit:CassVendingMachine,,,,,
 no_receiver,,,,WomanInStorage / WomanInStorage:Beth / FounderIdentity:Beth / NoWomanInCameras / JonathansThoughtsOnFounder / DirectorAttractsBadPeople / DirectorTrustsJonathan,,CameraInTheStorageRoom,,,,,For my first visit{comma} I just wanted to make small talk about whatever artifact she was researching.{next}In my second visit{comma} I wanted to ask her about the woman in the storage room.{next}I know I was mistaken{comma} and that there was no woman{comma} but at the time{comma} I really wanted to make sure.,,,JonathansInterest:Artifacts / SecondVisitReason:WomanInCameras / JonathanWrongAboutWoman,JonathansInterest:Artifacts / SecondVisitReason:WomanInCameras / JonathanWrongAboutWoman,,,,
-no_receiver,,,,,,,,,,,,,,,,,,,
+no_receiver,,,,ArtifactNotFound,,EndConversation,,,,,I'll talk to you later.,,,,,,,,
 no_receiver,,,,,,,,,,,,,,,,,,,
 no_receiver,,,,,,,,,,,,,,,,,,,
 no_receiver,,,,,,,,,,,,,,,,,,,

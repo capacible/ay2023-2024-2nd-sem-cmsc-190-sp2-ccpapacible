@@ -23,16 +23,6 @@
 		<id>JonathanVisitedCass</id>
 		<id>BefriendingCustodian</id>
 		<id>EndConversation</id>
-		<id>WhatCassSaw</id>
-		<id>TalkAboutWeekend</id>
-		<id>ArtifactDisappearance</id>
-		<id>PlinthLastSighting</id>
-		<id>JonathanAlibi</id>
-		<id>CassandraAlibi</id>
-		<id>ArtifactLoc_CassIdeas</id>
-		<id>PlinthLocation</id>
-		<id>BrokenCabinet</id>
-		<id>DirectorLocation</id>
 		<id>none</id>
 	</ids>
 </Main>
