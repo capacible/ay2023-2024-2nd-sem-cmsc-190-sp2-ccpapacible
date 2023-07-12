@@ -21,6 +21,7 @@ public class DialogueLine
     public string[] relatedEvents;      
     
     public string receiver;               // this will weed out all the lines to pick from
+    public string speakerId;                // the specific speaker this line applies to.
 
     // locations needed for the line (also used to filter like the receiver)
     [XmlArray("locations", IsNullable = true), XmlArrayItem("locationsItem")]
@@ -29,8 +30,8 @@ public class DialogueLine
     // prereq relationship
     public string relPrereq;
     // prereq trait
-    [XmlElement("trait")]
-    public string traitPrereq;
+    [XmlArray("trait", IsNullable =true), XmlArrayItem("traitItem")]
+    public string[] traitPrereq;
 
     /* 
      * UTILITY FUNCTION RELATED

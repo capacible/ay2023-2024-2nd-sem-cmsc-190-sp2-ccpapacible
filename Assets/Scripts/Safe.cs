@@ -18,6 +18,8 @@ public class Safe : MonoBehaviour
     // the images we willl use throughout the puzzle
     public Sprite[] safeImages;
     public string sceneName;
+    public string[] rewardActivateNewObjects;
+    public string[] rewardAddEventToGlobal;
 
     private string safeObjId;
     private int[] enteredPasscode = new int[4] { 0, 0, 0, 0 };
@@ -81,6 +83,17 @@ public class Safe : MonoBehaviour
             // no items will trigger this, we won't also destroy the safe object because it's not an ItemInteraction that listens
             // to the PickupItem delegate
             EventHandler.Instance.PickupItem(safeObjId, puzzleItem);
+
+            // activate reward objects to be interactable
+            foreach(string id in rewardActivateNewObjects)
+            {
+                EventHandler.Instance.SetNewState(id, true);
+            }
+
+            foreach(string ev in rewardAddEventToGlobal)
+            {
+                Director.AddEventString(ev);
+            }
 
             // deactivate the safe puzzle.
             EventHandler.Instance.SetNewState(safeObjId, false);

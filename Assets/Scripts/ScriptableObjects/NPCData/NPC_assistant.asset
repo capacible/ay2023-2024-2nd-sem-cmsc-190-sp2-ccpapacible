@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerArchetype: assistant
   speakerTraits:
-  - eloquent
   - shy
-  - frazzled
   - friendly
   - quiet
   - loner
-  dialoguePortraits: {fileID: 0}
-  worldSprite: {fileID: 0}
+  inkJSON: {fileID: 0}
+  dialoguePortraits:
+  - {fileID: 21300000, guid: 7ff94b5f4e0693d45a506c92a8ac3a40, type: 3}
+  worldSprite: {fileID: 21300000, guid: 70f565481ac276040b325d99658a9a1b, type: 3}
   usesDirector: 1

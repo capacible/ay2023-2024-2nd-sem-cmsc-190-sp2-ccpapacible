@@ -16,5 +16,6 @@ MonoBehaviour:
   itemName: Greeting Card
   itemDesc: 
   useItemMsgKey: 
-  itemSprite: {fileID: 0}
-  inventorySprite: {fileID: 0}
+  itemSprite: {fileID: -1874806616, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
+  inventorySprite: {fileID: -1874806616, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
+  discardAfter: 0

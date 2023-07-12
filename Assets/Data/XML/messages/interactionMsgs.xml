@@ -113,5 +113,114 @@
 				</Message>
 			</Messages>
 		</Interaction>
+		<Interaction interaction_id="guard_booth_calendar">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>It's a calendar for this month. There are a lot of annotations in it, including bill deadlines and birthdays. Interestingly, a lot of past events have been checked off, but most of the bills are not. The most recent unchecked deadline is labelled 'rent,' on May 30th. Today is June 3rd. </Content>
+						<Content>You look through the previous months. The 20th of April is marked.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="custodian_passcode_initial">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The custodian's locker. It's locked, but in front of it is a sticky note: 'ive set up your locker for you. The passcode is my bday :) love you dad.' How sweet.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="custodian_passcode_solved">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>After about 4 tries, you manage to unlock the locker with the passcode 1003</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle_solved_notif">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>In the vase, you hear a clink.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle_solved">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This wasn't here before... you picked up the statue connected to the plinth.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The vase is decorated with a gold inscription that describe a prayer... that's odd, the inscriptions have changed. You are able to read it.</Content>
+						<Content>The inscription says the following:</Content>
+						<Content> Up North, it brings Death.</Content>
+						<Content>Down South, it brings Life.</Content>
+						<Content>It brings Knowledge in the East.</Content>
+						<Content>And in the West, it seeks an Offering.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="guard_booth_telephone">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You call the director.</Content>
+						<Content>...</Content>
+						<Content>.......</Content>
+						<Content>........</Content>
+						<Content> 'Sorry, the number you dialled cannot be reached. Please try again.'</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="broken_cabinet">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The cabinet is broken; steel protrudes from the door. Be careful, it's sharp.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="bathroom_trash">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>A trash can. Inside is... a bloody tissue.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="guard_booth_book">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There's a book here--'The Adventures of the Arbiter.' It appears to be about the historical events that the museum will make an exhibit on.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="outside_storage_after_vase">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There seems to be a commotion in the director's office. Better check it out.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
 	</Interactions>
 </AllInteractions>

@@ -3,4 +3,4 @@ Player,FALSE,player,simple/polite
 Cassandra,FALSE,main_cassandra,eloquent/polite/honest/forthright
 Jonathan,FALSE,main_jonathan,simple/polite/friendly/loner
 The Custodian,TRUE,custodian,polite/frazzled/gruff/quiet/eloquent/prideful/impatient/loner/friendly
-The Assistant,TRUE,assistant,eloquent/shy/frazzled/friendly/quiet/loner
+The Assistant,TRUE,assistant,shy/friendly/quiet/loner

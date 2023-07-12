@@ -7,6 +7,7 @@ public static class DirectorConstants
 {
     public static readonly int MAX_REL_STATUS = 3;
     public static readonly string GAME_IS_ACTIVE = "GameIsActive";
+    public static readonly string DEFAULT_MAP = "current_map";
 
     // default data
     public static readonly string NONE_STR = "none";
@@ -14,6 +15,7 @@ public static class DirectorConstants
     // topics
     public static readonly string TOPIC_START_CONVO = "StartConversation";
     public static readonly string TOPIC_END_CONVO = "EndConversation";
+    public static readonly double TOPIC_DEGRADE_VALUE = 0.075;
 
     public enum MoodThreshold
     {
@@ -61,15 +63,18 @@ public static class Director
     public static readonly string[] DIALOGUE_XML_PATH = new string[]
     {
         $"{Application.dataPath}/Data/XML/dialogue/dialoguePlayer.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueJonathan.xml"
+        $"{Application.dataPath}/Data/XML/dialogue/dialogueJonathan.xml",
+        $"{Application.dataPath}/Data/XML/dialogue/dialogueCassandra.xml",
+        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Custodian.xml",
+        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Assistant.xml"
     };
 
     // director is active? -- currently being used?
     public static bool isActive;
 
     // tracking events and speakers.
-    private static string activeNPC;                                 // the current NPC speaking
-    private static string currentMap;                               // current location
+    public static string activeNPC;                                 // the current NPC speaking
+    public static string currentMap;                               // current location
     public static string activeHeldItem { private get; set; }       // the currently held item, to be added at start 
                                                                     // and removed at end of convo
     /*
@@ -80,9 +85,9 @@ public static class Director
     // dicct of map events that characters from that map rembr
     private static Dictionary<string, List<int>> mapEvents = new Dictionary<string, List<int>>();
     // each unique speaker in the world
-    private static Dictionary<string, Speaker> allSpeakers = new Dictionary<string, Speaker>();
+    public static Dictionary<string, Speaker> allSpeakers { get; private set; } = new Dictionary<string, Speaker>();
     // list of topics
-    private static Dictionary<string, float> topicList = new Dictionary<string, float>();
+    private static Dictionary<string, double> topicList = new Dictionary<string, double>();
     // defaults of each filler archetype to clone
     private static Dictionary<string, Speaker> speakerDefaults = new Dictionary<string, Speaker>();
     
@@ -127,9 +132,7 @@ public static class Director
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
-
-        // add to global -- game is active
-        globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict: allEvents));
+        
         // add to player memory
         AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
 
@@ -188,6 +191,25 @@ public static class Director
     #endregion
 
     #region TOOLS OR UTILITY
+
+    /// <summary>
+    /// For ending or concluding the dialogue
+    /// </summary>
+    public static void Deactivate()
+    {
+        // set isactive to false
+        isActive = false;
+
+        // set end conversation to default value
+        topicList[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+
+        // all topics return to default value
+        List<string> topics = topicList.Keys.ToList();
+        foreach(string topic in topics)
+        {
+            topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+        }
+    }
 
     /// <summary>
     /// Looks up the numerical key from the reference list of strings
@@ -265,15 +287,11 @@ public static class Director
         // set the speaker id to be the object id.
         allSpeakers[npcObjId].speakerId = npcObjId;
 
-        // if filler speaker, we will randomize a set of 3 traits
-        allSpeakers[npcObjId].OverrideTraits(3, npc);
-        allSpeakers[npcObjId].OverrideDisplayName(displayName);
+        // if filler speaker, we will randomize the trait
+        allSpeakers[npcObjId].OverrideTraits(npc);
 
         // if the given display name is not empty, then we will override the speaker's display name with what is given
-        if(displayName != "")
-        {
-            allSpeakers[npcObjId].displayName = displayName;
-        }
+        allSpeakers[npcObjId].OverrideDisplayName(displayName);
 
         Debug.Log($"Added speaker with id {npcObjId}");
     }
@@ -285,6 +303,24 @@ public static class Director
     public static void SceneFirstLoad()
     {
         mapEvents.Add(SceneUtility.currentScene, new List<int>());
+        Debug.Log("Added the map: " + SceneUtility.currentScene);
+    }
+
+    /// <summary>
+    /// Checks if an event has occurred globally
+    /// </summary>
+    /// <param name="eventName"></param>
+    /// <returns></returns>
+    public static bool EventHasOccurred(string eventName)
+    {
+        int eventId = NumKeyLookUp(eventName, refDict: allEvents);
+
+        if(globalEvents.Count > 0 && mapEvents[currentMap].Count > 0 && globalEvents.Union(mapEvents[currentMap]).Contains(eventId))
+        {
+            return true;
+        }
+
+        return false;
     }
     #endregion
 
@@ -298,7 +334,7 @@ public static class Director
         currentMap = mapId;
 
         // set current relevant topic to be startconversation
-        topicList["StartConversation"] = (float)DirectorConstants.TopicRelevance.MAX;
+        topicList[DirectorConstants.TOPIC_START_CONVO] = (float)DirectorConstants.TopicRelevance.MAX;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -357,12 +393,13 @@ public static class Director
         if(playerChoice != -1)
         {
             // show player choice.
-            Debug.Log("Selected line: " + playerChoices[playerChoice]);
+            Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
             
             // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
             UpdateTopics(choice);
             // update data of NPC given what the player chose.
+            // if player choice has an exit condition, then exit tayo kaagad from within NPCData
             UpdateNPCData(choice);
         }
         
@@ -374,11 +411,16 @@ public static class Director
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
             topicList,
-            mood);
+            mood,
+            currentMap,
+            allSpeakers[activeNPC].speakerArchetype);
 
         Debug.Log("selected line: " + lineId);
 
         prevLine = LineDB[lineId];
+
+        // print active speaker traits
+        Debug.Log($"trait of current speaker: {allTraits[ allSpeakers[activeNPC].speakerTrait ]}");
 
         // update player data given acquired line of NPC
         UpdatePlayerData(prevLine);
@@ -397,6 +439,11 @@ public static class Director
     /// <returns></returns>
     public static List<string> GetPlayerLines()
     {
+        if(!isActive)
+        {
+            EventHandler.Instance.ConcludeDialogue();
+        }
+
         Debug.Log("==== PLAYER TURN ====");
         // clear player lines
         playerChoices.Clear();
@@ -411,6 +458,7 @@ public static class Director
             allSpeakers[activeNPC].RelationshipStatus(),
             topicList,
             mood,
+            currentMap,
             allSpeakers[activeNPC].speakerArchetype);
 
         foreach(int i in lineIds)
@@ -443,8 +491,8 @@ public static class Director
         if (line.effect.exit)
         {
             Debug.Log("DEACTIVATING DIRECTOR: The resulting DialogueLine has an exit effect.");
-
-            isActive = false;
+            
+            EventHandler.Instance.ConcludeDialogue();
         }
     }
 
@@ -462,17 +510,27 @@ public static class Director
         // the exit effect differs from player and npc line.
         // we know that there's no other follow up when selecting a player line. thus, we call conclude dialogue agad
         // if exit
+        // we set the director to isactive=false
         if (line.effect.exit)
         {
-            Debug.Log("EXIT VIA DIALOGUE");
-            EventHandler.Instance.ConcludeDialogue();
+            Debug.Log("THE NPC LINE HAS AN EXIT EFFECT");
+            isActive = false;
         }
     }
 
     public static void UpdateSpeakerData(DialogueLine line)
     {
-        // set this line to be said already.
-        line.isSaid = true;
+        // set this line to be said already -- IF ITS NOT A GENERIC STARTER
+        if (line.relatedTopics.Length == 1 && (line.relatedTopics[0].Equals(DirectorConstants.TOPIC_START_CONVO)))
+        {
+            line.isSaid = false;    // generic starter will always be false sa is said.
+            Debug.Log("line isSaid chosen is FALSE");
+        }
+        else
+        {
+            line.isSaid = true;
+            Debug.Log("isSaid of this line becomes TRUE");
+        }
 
         mood = line.ResponseStrToInt();
 
@@ -481,7 +539,7 @@ public static class Director
         
         // update topic relevance table
         // set topic relevance to be the maximum.
-        if(line.effect.makeMostRelevantTopic != "")
+        if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
             topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
         }
@@ -491,11 +549,12 @@ public static class Director
             // the idea is, the topic that the line addresses will become the most relevant.
             foreach(string topic in line.relatedTopics)
             {
-                topicList[topic] = (float)DirectorConstants.TopicRelevance.MAX;
+                if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
+                    topicList[topic] = (float)DirectorConstants.TopicRelevance.MAX;
             }
         }
 
-        if (line.effect.closeTopic != "")
+        if (line.effect.closeTopic != "" || line.effect.closeTopic != null)
         {
             // set teh topic listed to 1 (default value)
             topicList[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.DEFAULT;
@@ -531,18 +590,17 @@ public static class Director
         foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
         {
             Debug.Log("Updating topic relevance for: " + topic);
-            if (topicList[topic] - 0.3 <= 0)    
+            if(topicList[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN)
             {
-                // if our topic is in the negatives na after computation, we reset the relevance to its default
-                topicList[topic] = (float)DirectorConstants.TopicRelevance.DEFAULT;
+                // reset to 1, then subtract
+                topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
             }
-            else
-            {
-                topicList[topic] -= (float)0.3;
-            }
+            topicList[topic] -= DirectorConstants.TOPIC_DEGRADE_VALUE;
         }
 
-        topicList["StartConversation"] = (float)0.0;
+        // the bookends (start and end convo topics) will always be 0.
+        topicList[DirectorConstants.TOPIC_START_CONVO] = 0.0;
+        topicList[DirectorConstants.TOPIC_END_CONVO] = 0.0;
     }
 
     /// <summary>
@@ -553,7 +611,7 @@ public static class Director
     public static void AddToSpeakerMemory(string speaker, string eventId)
     {
         // we check if the memory already contains our said event, and if the event exists in our event db
-        if (!allSpeakers[speaker].speakerMemories.Contains(eventId) && allEvents.ContainsValue(eventId))
+        if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
         {
             allSpeakers[speaker].speakerMemories.Add(eventId);
         }
@@ -610,7 +668,7 @@ public static class Director
     public static string GetAllTopicRelevance()
     {
         string output = "TOPIC RELEVANCE:";
-        foreach(KeyValuePair<string, float> pair in topicList)
+        foreach(KeyValuePair<string, double> pair in topicList)
         {
             output += $"topic: {pair.Key} | value: {pair.Value}\n";
         }

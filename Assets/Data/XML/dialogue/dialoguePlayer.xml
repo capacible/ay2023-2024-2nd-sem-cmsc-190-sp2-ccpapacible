@@ -10,10 +10,11 @@
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I checked the storage unit just now and noticed that one of the new artifacts went missing. You know, the plinth?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -40,10 +41,11 @@
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hey Cass, I just noticed that the starry plinth is gone from storage. Any ideas as to where it went?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -70,10 +72,11 @@
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>One of the artifacts was missing! Did you see where it went, by any chance?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -100,12 +103,15 @@
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>An important artifact in next week's exhibit is gone. Have you gone to the storage room recently?</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -128,10 +134,11 @@
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hey, have you seen the starry plinth anywhere?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -156,13 +163,17 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Have you seen Director Virgil?</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -186,10 +197,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I have to report the missing artifact to the director. Is there... anything I need to know?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -203,9 +215,9 @@
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem>ExpressedSuspicions:{speakerArchetype}</addToPlayerMemoryItem>
 				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<relationshipEffect>-1</relationshipEffect>
+				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
+				<closeTopic>MissingArtifact</closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
 		</DialogueLine>
@@ -217,10 +229,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm going to have to report the missing artifact to the director. Let me know if you learn anything new, okay?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -231,8 +244,8 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>2</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
+				<closeTopic>MissingArtifact</closeTopic>
 				<exit>true</exit>
 			</DialogueEffect>
 		</DialogueLine>
@@ -244,10 +257,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm going to go report the missing artifact to the director. I'll be right back.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -258,8 +272,8 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact / EndConversation</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
+				<closeTopic>MissingArtifact</closeTopic>
 				<exit>true</exit>
 			</DialogueEffect>
 		</DialogueLine>
@@ -271,10 +285,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Did you see anything in the security cameras by any chance?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -298,10 +313,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I've been looking for Director Virgil for a while. Have you seen him by any chance? Cassandra said they talked yesterday afternoon, but that's it...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorWhereabouts:main_cass</relatedEventsItem>
@@ -327,10 +343,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I need to report that the plinth is gone. If he comes by, let him know I need to see him.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorWhereabouts:main_jonathan</relatedEventsItem>
@@ -355,10 +372,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I haven't called him yet. I'll let you know when I do.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
@@ -382,10 +400,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Thanks, Jonathan. I'll do that now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
@@ -412,10 +431,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I haven't called him yet...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -444,10 +464,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Called him and it went straight to voice mail.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -477,10 +498,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>My call went straight to voice mail. Right when we need him the most, am I right?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -509,10 +531,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Thanks, Jonathan.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
@@ -540,10 +563,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Jonathan is letting me use his phone to call the director.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
@@ -568,12 +592,12 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I called the director. It went straight to voice mail...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -602,12 +626,12 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I called the director and it went straight to voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -629,64 +653,6 @@
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>Honestly, I feel like one of the custodians seem suspicious. Don't you think?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ExpressedSuspicions:custodian</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>ExpressedSuspicions:custodian</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>{speakerArchetype:assistant} seems awfully stranger than usual. Do you think so too?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ExpressedSuspicions:assistant</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>ExpressedSuspicions:assistant</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
 			<receiver>assistant</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
@@ -695,10 +661,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. It's unlike him.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -728,10 +695,11 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -760,10 +728,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>So he hasn't contacted you since yesterday? That's really unlike him.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -791,10 +760,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>He hasn't contacted you since yesterday? You didn't bother reaching out or looking for him? That's your job.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -822,10 +792,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>He hasn't contacted you once? With the plinth missing, you must be losing your mind, then...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -853,10 +824,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What do you think we should do?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -882,10 +854,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What should we do... *visibly panic*</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -912,10 +885,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What should we do...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -941,10 +915,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Well. I guess this is your problem now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -972,10 +947,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Sorry, I was kidding.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1000,10 +976,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'll... I'll try to get to the bottom of this.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1028,10 +1005,11 @@
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>The director is missing! *cry*</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1059,10 +1037,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Apparently, {speakerArchetype:assistant} isn't able to contact the director today. I need your help to deal with the plinth while he's not here.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1091,11 +1070,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Please help me!</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Please help me! I want to investigate in the director's office. Do you... have the keys?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 				<relatedEventsItem>NextSteps:assistant</relatedEventsItem>
@@ -1125,11 +1105,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Could you help me out?</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Could you help me out? I'll investigate the director's office.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 				<relatedEventsItem>NextSteps:assistant</relatedEventsItem>
@@ -1158,10 +1139,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Even the assistant doesn't know where the director is. We're pretty much on our own in solving this problem, for now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1187,10 +1169,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I've confirmed with the assistant that she doesn't know where the director is. We have to solve this on our own.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1217,10 +1200,11 @@
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Oh... can I have them?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanHasKeysToOffice</relatedEventsItem>
@@ -1244,10 +1228,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Can you help me get into the director's office? To investigate.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -1272,10 +1257,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Please! I'm begging you, you have to help me out here! Is there anything I can do?!</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
@@ -1300,10 +1286,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Look, my job is on the line too! My family... my life... if this artifact can't be found then why am I here?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1312,8 +1299,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ConvincingAssistant:GuiltTripping</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>ConvincingAssistant:GuiltTripping</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1328,10 +1319,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Please? Maybe I can return the favor somehow. If we don't find that artifact, all of us will get in trouble.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
@@ -1355,10 +1347,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>You know the director won't mind if it's an emergency. *This* is an emergency.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1386,10 +1379,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm sure you won't get in trouble if the director finds out. This is an emergency situation. Wouldn't you like it if he discovers *you* helped *me* find out where it is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1417,10 +1411,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Losing an artifact so close to the exhibit... that's worse than letting me enter his office. Honestly, if you won't help me, you might get into worse trouble.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1448,10 +1443,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm helping you out too, {assistant}. I... I see that Director Virgil overworks you. And I see that he's harsh on you...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1479,10 +1475,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Look, I know the director treats you badly. What do you think will happen if he finds out you stood by while an important artifact is missing?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1510,10 +1507,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I hate to say this, but if he's mean to you now... he might be meaner if you don't help me find this.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1541,10 +1539,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>You might get in trouble if we don't find this either way. But if we find it... I'll make sure to give you the lion's share of the credit.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:Assistant</relatedEventsItem>
@@ -1572,10 +1571,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I got inside the director's office now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -1584,7 +1584,7 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>PlayerEnterDIrectorsOffice</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerEnterDirectorsOffice</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -1601,12 +1601,15 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I don't need you anymore. I got inside the director's office.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1628,10 +1631,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>There's a key on the floor. Do you know whose it is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -1658,10 +1662,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I may have snooped through the director's safe and found a card from some woman. I have it here.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
@@ -1672,10 +1677,11 @@
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ShowItem:card_from_beth</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerSnoopedThroughSafe</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -1688,11 +1694,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>The director's safe was open and I saw a card of some woman. Of course, I didn't take it...</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>The director's safe was open and I saw a card of some woman named Beth. Of course, I didn't take it... Do you know who Beth is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerSawCardOfWoman</relatedEventsItem>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -1705,7 +1712,7 @@
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -1718,11 +1725,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>The director's safe was open and I saw a card of some woman. Of course, I didn't take it... Unless you want to see?</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>The director's safe was open and I saw a card of some woman named Beth. Of course, I didn't take it... Unless you want to see?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerSawCardOfWoman</relatedEventsItem>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -1732,10 +1740,11 @@
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerSawCardOfWoman</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerSnoopedThroughSafe</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -1749,10 +1758,11 @@
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>So I saw the card of from a woman named 'Beth' from the director's open safe. Do you know who that is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
@@ -1780,10 +1790,11 @@
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>After investigating the director's office I saw this card from 'Beth.' Do you know who that is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
@@ -1811,10 +1822,11 @@
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Do you know anything about the woman that visits the director often?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
@@ -1841,10 +1853,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I assume you see her often, because she drops things off to you. What does she look like?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
@@ -1855,10 +1868,11 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>RichWomanAndDirector</addToNPCMemoryItem>
-					<addToNPCMemoryItem>RichWomanBringsGifts</addToNPCMemoryItem>
+					<addToNPCMemoryItem>VisitorAppearance</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory />
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>VisitorAppearance</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1873,14 +1887,15 @@
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Cass thinks 'Beth' could be the rich woman that visits often. Do you know about that?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
-				<relatedEventsItem> WhoIsBeth:Cassandra</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1905,10 +1920,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>There was a woman in the storage room last night?! Why didn't you tell me?!</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -1932,10 +1948,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>There was a woman in the storage room last night?!</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -1959,10 +1976,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What makes you think the woman in the cameras is 'Beth?'</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
@@ -1988,10 +2006,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'll ask other people if they know about the director's situation. Maybe someone has talked to them within the day.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
@@ -2016,10 +2035,11 @@
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Can you help me out somehow? I want to investigate this.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -2044,10 +2064,11 @@
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hmmph. Why did you tell me about it then? That information is useless.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -2058,7 +2079,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>-5</relationshipEffect>
-				<makeMostRelevantTopic>DirectorsOffice / EndConversation</makeMostRelevantTopic>
+				<makeMostRelevantTopic>DirectorsOffice/EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -2072,10 +2093,11 @@
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Oh, it's all right. Thanks for letting me know. I'll ask if the assistant or custodian can help me.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -2086,7 +2108,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>-5</relationshipEffect>
-				<makeMostRelevantTopic>DirectorsOffice / EndConversation</makeMostRelevantTopic>
+				<makeMostRelevantTopic>DirectorsOffice/EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -2099,10 +2121,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Ah, the card does seem a little too affectionate.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NotDirectorsWife</relatedEventsItem>
@@ -2126,10 +2149,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>The... Founder?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NotDirectorsWife</relatedEventsItem>
@@ -2156,10 +2180,11 @@
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What kind of people does the director attract?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NotDirectorsWife</relatedEventsItem>
@@ -2186,10 +2211,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What do you think of the founder?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2217,10 +2243,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>How do you know this?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2248,10 +2275,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Could 'Beth' possibly be the founder?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2280,10 +2308,11 @@
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I asked Cassandra about 'Beth,' too. She thinks it's the woman that always drops by the museum. Since you mostly guard the museum, you must know what she looks like, right?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2310,11 +2339,12 @@
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is a woman that often visits the museum.</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is a woman that often visits the museum, and that she's also Beth.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
@@ -2324,8 +2354,14 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorsFrequentVisitor</addToNPCMemoryItem>
+					<addToNPCMemoryItem>FounderIdentity:Beth</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DirectorsFrequentVisitor</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>FounderIdentity:Beth</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -2341,10 +2377,11 @@
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is the rich woman we talked about earlier.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2372,10 +2409,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I asked Cassandra about 'Beth,' too. She thinks it's the woman that always drops by the museum. Plus, the other staff talks about the same woman bringing gifts every time she drops by.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
@@ -2405,10 +2443,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>If we're working with the idea that Beth, the founder, and the director's lady visitor are all one and the same, then you must have recognized her in the cameras.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -2438,10 +2477,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I checked the footage at the time stamp you were talking about. There was no woman there.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -2466,10 +2506,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Were you lying? There weren't any women in the security footage last night.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -2494,10 +2535,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'll be honest, Jonathan. The fact that there was no woman at all makes me think that you want to throw the founder under the bus somehow. Why?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -2529,10 +2571,11 @@
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I take it you've heard about the director and Cassandra's fight?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -2556,10 +2599,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirtyGardenBeds</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Was there anyone or anything suspicious outside throughout the night? The director is complaining about the messy garden beds out front. It's normally not like that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -2583,10 +2627,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>PlayerSuspiciousOfJonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Are you hiding something, Jonathan? The cameras didn't show anything. You were quick to throw the founder under the bus without any proof.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -2613,10 +2658,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm trying to piece things together once and for all. The director asked me to, after all that happened recently.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -2640,10 +2686,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I assume you're heard of Cassandra's outburst a while ago? She stormed into the director's office looking for the plinth.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -2667,11 +2714,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Do you have any idea why Cassandra would think that of the director?</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Do you have any idea why Cassandra would think badly of the director?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
@@ -2679,11 +2727,11 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>CassandraThreatenedToQuit</addToNPCMemoryItem>
+					<addToNPCMemoryItem>Inquiry:CassandrasThoughtsOnDirector</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>Investigation:Director/Investigation:Cassandra</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -2696,10 +2744,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I've seen the calendar in your booth. Seems like you have a lot of bills that are past their due. Are you alright?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
@@ -2724,10 +2773,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm sorry for this, but I also saw that the 20th of April was marked as a birthday in your calendar. Do you know the director's daughter, by any chance?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>April20th</relatedEventsItem>
@@ -2761,10 +2811,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I guess I ask because I've noticed that you seem to talk about the director more casually.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>April20th</relatedEventsItem>
@@ -2794,10 +2845,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I notice you sometimes accidentally mention him by name. No offense, but usually security guards treat the director with more respect...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorFirstName:Jonathan</relatedEventsItem>
@@ -2825,10 +2877,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I notice how you often accidentally speak of him on a first-name basis. I mean, you use 'Ma'am' with me and Cass all the time, so it's curious how you mention the director by name when you don't do that to anyone else.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorFirstName:Jonathan</relatedEventsItem>
@@ -2856,10 +2909,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>You seem to mention the director by his first name accidentally a lot. You also mentioned he trusts you... and that he's a private person. Do you guys know each other personally?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorFirstName:Jonathan</relatedEventsItem>
@@ -2890,10 +2944,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Is the director's... infatuation... the reason why you claimed to see a woman that looks like Beth in the security cameras?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
@@ -2922,10 +2977,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Given that you're friends with the director, do you know why he'd have tension with Cassandra? I've heard from staff that they often overhear them fight.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>FriendsWithDirector:Jonathan</relatedEventsItem>
@@ -2953,10 +3009,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>"Why do you think framing the founder will ""protect"" the director?"</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
@@ -2988,10 +3045,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>But how does pointing fingers at the founder protect Director Virgil?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
@@ -3023,10 +3081,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'll ask other people, then.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>FriendsWithDirector:Jonathan</relatedEventsItem>
@@ -3051,10 +3110,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Looks like you're struggling financially.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
@@ -3080,10 +3140,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>It doesn't seem logical for the director to just discard the plinth just because he doesn't think it's important, though.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
@@ -3110,10 +3171,11 @@
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is a woman that often visits the museum.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WhoIsBeth</relatedEventsItem>
@@ -3138,10 +3200,11 @@
 				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is the rich woman we talked about earlier.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
@@ -3165,10 +3228,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Do you know why Cassandra went off on the director?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3176,7 +3240,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandrasOutburst:Reason</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3192,10 +3258,13 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
-			<locations />
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Did you know that Cassandra had threatened to quit multiple times? Have you heard of her reasons?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -3204,7 +3273,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandraThreatenedToQuit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3220,10 +3291,13 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
-			<locations />
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>What do you know about the director and Cassandra's relationship as of late?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3247,10 +3321,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm trying to piece things together once and for all. The director asked me to, after your little outburst.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3274,10 +3349,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I got into the director's office with the assistant's help. The director sure is harsh on her. She was terrified of getting in trouble.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -3303,10 +3379,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I got into the director's office. The custodians helped me out... albeit unknowingly...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -3335,10 +3412,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>The custodian helped me get into the director's office. Wanna know what I found?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
@@ -3365,10 +3443,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>So what was that outburst about?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3392,10 +3471,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I heard you actually threatened to quit over your differences with the director. Is that true?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -3403,7 +3483,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandraThreatenedToQuit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3419,10 +3501,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why do you think the director would do that? He only has the museum's best interests at heart.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
@@ -3446,10 +3529,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why would the director do that?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
@@ -3473,10 +3557,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>You confronted the director because of the plinth... then is it reasonable to assume you threatened to quit because of that too?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -3501,10 +3586,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Since when were you having these problems with the director?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
@@ -3512,7 +3598,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:TensionWithDirector</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3525,11 +3613,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I see. What did he want to do with it?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
@@ -3551,16 +3642,19 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Does the founder have anything to do with this?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+				<relatedEventsItem>LearnAboutFounder</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3581,10 +3675,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I heard from the custodians that they overheard Cassandra threatening to quit. Did you know about this?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -3609,10 +3704,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Does Cassandra know about this?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>SellThePlinth:Founder</relatedEventsItem>
@@ -3636,10 +3732,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>If it's unimportant, what did the director plan on doing with it?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
@@ -3663,10 +3760,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why the founder, specifically?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>SellThePlinth:Founder</relatedEventsItem>
@@ -3690,10 +3788,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>TheFounder</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>The founder... do you think it's the rich woman visiting the director?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>SellThePlinth:Founder</relatedEventsItem>
@@ -3702,7 +3801,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>RichWomanAndDirector</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3719,10 +3820,11 @@
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Hey Cass. What's up with your arm?</dialogue>
 			<relatedEvents />
 			<DialogueEffect>
@@ -3744,10 +3846,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Really? They have to fix that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
@@ -3771,10 +3874,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What? I'll let the custodians know that we need to fix that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
@@ -3782,8 +3886,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerReaction:CustodianFix</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerReaction:CustodianFix</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -3798,10 +3906,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Gee, okay, I'll let the director know that he needs to replace that cabinet.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
@@ -3809,8 +3918,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerReaction:DirectorFix</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerReaction:DirectorFix</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -3826,10 +3939,11 @@
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Is everything okay with the two of you?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
@@ -3855,10 +3969,11 @@
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why in the world will he want to sell the plinth?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
@@ -3884,10 +3999,11 @@
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>There's no way he'll sell the plinth. You're crazy.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
@@ -3913,10 +4029,11 @@
 				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Who would he even sell that to?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
@@ -3942,10 +4059,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>When did you get that injury?</dialogue>
 			<relatedEvents />
 			<DialogueEffect>
@@ -3967,10 +4085,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Ah, right. Then you were probably too busy with the dagger when the plinth disappeared.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
@@ -3991,11 +4110,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I see, I see. Jonathan actually told me about a woman in the cameras of the storage room. Have you seen anyone else in the second floor as you worked?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
@@ -4004,8 +4126,14 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>WomanInStorage</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -4017,12 +4145,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Actually, Jonathan saw a woman in the storage room cameras... Maybe you know something about that?</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Actually, Jonathan said he saw a woman in the storage room cameras... Maybe you know something about that?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -4031,8 +4162,14 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>WomanInStorage</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -4047,10 +4184,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Where were you when the plinth disappeared, approximately around past midnight?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -4058,7 +4196,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:Alibi</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4074,10 +4214,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I see. It's probably not relevant to the missing plinth, then.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
@@ -4101,10 +4242,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I see. That's all I got to say about that for now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
@@ -4129,150 +4271,14 @@
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I wanna talk about your injury again.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>I found a bloodied tissue in the bathrooms. The wound bled that much?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>BloodyTissue</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>What's up with the bloody flower in the trash?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>FlowerInBathroom</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>I talked to both of the custodians, and I've been told that they talked to you during closing time and didn't see any scratches on you.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>I fished this out of the trash. (You show her the bloody flower) Why would there be a flower in the trash, and why would it have blood on it?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>BloodyTissue</relatedEventsItem>
-				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<dialogue>You told the custodians to avoid tidying up the office because you'll be staying in the museum to research overnight. You weren't injured then.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
-				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -4294,19 +4300,24 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neut</responseTone>
+			<trait />
+			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>I was told you requested the custodians to avoid tidying the office before they leave because you're staying here overnight.</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>I found a bloodied tissue in the bathrooms. The wound bled that much?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_tissue</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:bloody_tissue</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>ShowItem:bloody_tissue</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -4321,25 +4332,52 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>The timing of your cut wasn't consistent. What's the truth?</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>What's up with the bloody flower in the trash?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
-				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
-				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
-				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
-				<relatedEventsItem>JonathansFirstVisit:TwoHrsAfterClosed</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
-				<addEventToMap>
-					<addEventToMapItem>InjuryTime:CassLied</addEventToMapItem>
-				</addEventToMap>
+				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>InjuryTime:CassLied</addToNPCMemoryItem>
+					<addToNPCMemoryItem>FlowerInBathroom</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>FlowerInBathroom</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I talked to both of the custodians, and I've been told that they talked to you during closing time and didn't see any scratches on you.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodianTestimony:NoInjury</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -4356,10 +4394,140 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
+			<responseTone>neg</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I fished this out of the trash. (You show her the bloody flower) Why would there be a flower in the trash, and why would it have blood on it?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:bloody_flower</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>You told the custodians to avoid tidying up the office because you'll be staying in the museum to research overnight. You weren't injured then.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
+				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandrasRequest:Custodian</addToNPCMemoryItem>
+					<addToNPCMemoryItem>CustodianTestimony:NoInjury</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I was told you requested the custodians to avoid tidying the office before they leave because you're staying here overnight.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandrasRequest:Custodian</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>The timing of your cut wasn't consistent. What's the truth?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
+				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
+				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit:TwoHrsAfterClosed</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>InjuryTime:CassLied</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>InjuryTime:CassLied</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Jonathan told me you were injured, but he said he saw you on his visit to the curator's office, two hours after closing.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
@@ -4369,7 +4537,11 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanTestimony:WithInjury</addToNPCMemoryItem>
+					<addToNPCMemoryItem>JonathansFirstVisit:TwoHrsAfterClosed</addToNPCMemoryItem>
+					<addToNPCMemoryItem>JonathansFirstVisit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4385,10 +4557,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why did Jonathan visit you that night? I'd like to hear your side.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
@@ -4412,10 +4585,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why would you lie about that?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
@@ -4439,10 +4613,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>But the cause is still the same? The broken steel cabinet cut you?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
@@ -4467,10 +4642,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What about the flower? Why did it end up in the trash?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
@@ -4497,17 +4673,18 @@
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Let's talk about your cut again. You better not be lying this time.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -4529,17 +4706,18 @@
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I want to talk about your cut again. I've discovered new information.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -4560,22 +4738,26 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>This flower comes from the shrubs outside. Interestingly enough, before everyone left, the garden bed was undisturbed.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerCheckedGardenBed</addToNPCMemoryItem>
+					<addToNPCMemoryItem>FlowerInBathroom:FromGardenBed</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4591,21 +4773,24 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>The shrubs that this flower comes from is thorny.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenbed:ThornyShrub</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed:ThornyShrub</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerCheckedGardenBed:ThornyShrub</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4621,23 +4806,28 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>This flower comes from the shrubs outside. Interestingly enough, before everyone left, the garden bed was undisturbed. Plus, I've checked and saw that this shrub is filled with large thorns.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed:ThornyShrub</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed:ThornyShrub</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerCheckedGardenBed:ThornyShrub</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerCheckedGardenBed</addToNPCMemoryItem>
+					<addToNPCMemoryItem>FlowerInBathroom:FromGardenBed</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4653,23 +4843,26 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Tell me the truth, Cass. Did you mess with the garden bushes outside?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed</relatedEventsItem>
-				<relatedEventsItem>CheckedGardenBed:ThornyShrub</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed:ThornyShrub</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandrasInjury:RequestedTruth</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4685,10 +4878,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why would you do that? You've gotten yourself hurt in the process.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueCause:GardenShrubs</relatedEventsItem>
@@ -4712,10 +4906,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
-			<responseTone>neutral</responseTone>
+			<trait />
+			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>A... time capsule?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueCause:GardenShrubs</relatedEventsItem>
@@ -4724,8 +4919,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>TimeCapsule:Explanation</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>TimeCapsule:Explanation</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -4740,10 +4939,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Wha-why would you bury a time capsule in a museum of all places? And why in the middle of the night.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTrueCause:GardenShrubs</relatedEventsItem>
@@ -4752,8 +4952,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>TimeCapsule:Explanation</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>TimeCapsule:Explanation</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -4768,10 +4972,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I saw a key to the storage unit in the director's office. Do you know whose key this is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4798,10 +5003,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>How did your key get into the director's office?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4829,10 +5035,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Do you think... the director took them?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4860,10 +5067,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I found Cass's keys in the director's office. Strange, isn't it?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4891,10 +5099,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I found Cass's keys in the director's office. I'm just going to come out and say it--do you think the director stole them? You know him well enough.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4924,10 +5133,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Cass's keys are in the director's office. I know you're closer to the director than all of us combined, so... do you know how it got there?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
@@ -4957,10 +5167,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Where were you at the time that the plinth disappeared?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -4984,10 +5195,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>About how many times were you visiting, and why?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5012,10 +5224,11 @@
 				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Did you notice that Cass was injured then?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5039,10 +5252,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>At which visit did you notice Cass's injury?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5067,10 +5281,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why did you visit those two times?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5096,10 +5311,11 @@
 				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
 				<relatedTopicsItem>AboutJonathan</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>You did have a lot of books about Port Vonn in your booth. I believe you for the first visit.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansInterest:Artifacts</relatedEventsItem>
@@ -5128,10 +5344,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I did talk to Cass about the woman in the cameras, but she doesn't know what that was about.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5158,10 +5375,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>But there wasn't a woman in the cameras.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5188,10 +5406,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>JonathanVisitedCass</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Where could Cass have been in your second visit?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
@@ -5218,10 +5437,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Did you know about Cassandra's injury? She said she got it before the museum closed, the night of the plinth's disappearance.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
@@ -5248,10 +5468,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>A steel cabinet in the storage room cut Cass's arm. You should get that fixed. I'll ask the director about it too.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
@@ -5278,10 +5499,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>She did that?! It doesn't feel possible, she loved the museum.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -5306,10 +5528,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I have to ask someone else about this, if you're sure you overheard that. (Leave)</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
@@ -5334,10 +5557,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I need some help with finding the director. I need clues.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
@@ -5364,10 +5588,11 @@
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>So how was your weekend, {activeNPC}?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5392,10 +5617,11 @@
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm glad that it was good. What were you doing the entire weekend?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5420,10 +5646,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Are you sure you don't want to help? I promise I'll just borrow the keys just this once! It's an emergency!</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5448,11 +5675,12 @@
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>Ah, that's... too bad. I'm sorry I asked.</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>Ah, that's... too bad. I'm sorry I asked. Did you do something any way?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
@@ -5466,7 +5694,7 @@
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
-				<exit>true</exit>
+				<exit>false</exit>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5474,11 +5702,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Woah, that's cute! Do you mostly just bake for family?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5501,11 +5732,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What about knitting makes you enjoy it? I'm curious.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5530,12 +5764,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>I see. Do you fish in</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>I see. Where do you often fish?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
@@ -5557,11 +5794,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue></dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5584,11 +5824,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Oh, I'm sorry I asked! Did you at least do something in that time?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5611,11 +5854,14 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Oh wow! Can you bake for me?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5642,10 +5888,11 @@
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I want to talk more about your weekend.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedTohelp:custodian</relatedEventsItem>
@@ -5670,10 +5917,11 @@
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I want to talk more about your interests.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedTohelp:custodian</relatedEventsItem>
@@ -5698,18 +5946,23 @@
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<dialogue>I want to talk more about your family.</dialogue>
+			<speakerId>player</speakerId>
+			<dialogue>I want to talk about your family.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedTohelp:custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
+				<addEventToMap>
+					<addEventToMapItem>CustodiansFamily</addEventToMapItem>
+				</addEventToMap>
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansFamily</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5722,11 +5975,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neg</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Can you make me a sweater?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5749,11 +6006,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neut</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I actually started to wonder: does knitting make holiday gifts any easier?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5778,11 +6039,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I'm glad your family appreciates them. I would too, since you probably hand-made them with love.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5807,20 +6072,24 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Awww, I'm sure your daughter appreciates all the gifts you have given her through the years.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
 				<relatedEventsItem>CustodiansInterest:Knitting</relatedEventsItem>
 				<relatedEventsItem>Knitting:Holidays</relatedEventsItem>
-				<relatedEventsItem>CustodiansFamily </relatedEventsItem>
+				<relatedEventsItem>CustodiansFamily</relatedEventsItem>
 				<relatedEventsItem>CustodiansFamily:Daughter</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -5839,20 +6108,24 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>You knit for her birthday as well, right? How, when I see you so often in the museum cleaning up the mess made by the tourists?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
 				<relatedEventsItem>CustodiansInterest:Knitting</relatedEventsItem>
 				<relatedEventsItem>Knitting:Holidays</relatedEventsItem>
-				<relatedEventsItem>CustodiansFamily </relatedEventsItem>
+				<relatedEventsItem>CustodiansFamily</relatedEventsItem>
 				<relatedEventsItem>CustodiansFamily:Daughter</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -5873,19 +6146,23 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>What happens when your daughter's birthday falls on a weekday?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
-				<relatedEventsItem>CustodiansFamily </relatedEventsItem>
+				<relatedEventsItem>CustodiansFamily</relatedEventsItem>
 				<relatedEventsItem>CustodiansFamily:Daughter</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -5906,13 +6183,17 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor2</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Do you pick up the slack when {id:NPCInteraction_Floor1_custodian_0} goes home during his daughter's birthday?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5922,7 +6203,10 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansFamily:Daughter</addToNPCMemoryItem>
+					<addToNPCMemoryItem>DaughterBirthday</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5935,11 +6219,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I actually want to try fishing. Though... I don't know where to begin.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5948,7 +6236,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Fishing:Tips</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5961,11 +6251,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I actually want to try knitting. It seems pretty time consuming though. Any tips?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -5974,7 +6268,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Knitting:Tips</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5987,11 +6283,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I actually want to try baking. How did you get started?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6000,7 +6300,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Baking:Tips</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6013,11 +6315,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>I actually want to try writing. I'm bad at it, though.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6026,7 +6332,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Writing:Tips</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>3</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6039,11 +6347,15 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>What about your family? Who are you closest to?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6051,7 +6363,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansFamily</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6064,13 +6378,17 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor2</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Oh, you have sisters! Do you have other family?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6079,7 +6397,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansFamily:Others</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6092,13 +6412,17 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>good</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Are you knitting something for her upcoming birthday, then?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6122,13 +6446,17 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>good</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Are you baking something for her upcoming birthday, then?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6152,13 +6480,17 @@
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>good</relPrereq>
-			<relatedTopics />
-			<trait>none</trait>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
+			<speakerId>player</speakerId>
 			<dialogue>Is there something you want to do for her birthday?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
@@ -6184,10 +6516,11 @@
 			<relatedTopics>
 				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
 			</relatedTopics>
-			<trait>none</trait>
+			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
+			<speakerId>player</speakerId>
 			<dialogue>Why do you think that of the founder?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
@@ -6202,6 +6535,516 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Here's the key I found in the director's office. Do you know whose key it is?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:cass_storage_key</relatedEventsItem>
+				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:cass_storage_key</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>assistant</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Hey, {id:NPCInteraction_Floor2_assistant_0}. Do you happen to know when {id:NPCInteraction_Floor1_custodian_0} asked for a short work day?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodiansFamily:Daughter</relatedEventsItem>
+				<relatedEventsItem>DaughterBirthday</relatedEventsItem>
+				<relatedEventsItem>DaughterBirthday:ShorterWorkDay</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DaughtersBirthday:ShortWorkday</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>custodian</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId>player</speakerId>
+			<dialogue>When was the last time you helped him out then?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodiansFamily:Daughter</relatedEventsItem>
+				<relatedEventsItem>DaughterBirthday</relatedEventsItem>
+				<relatedEventsItem>DaughterBirthday:CustodianHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>custodian</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId>player</speakerId>
+			<dialogue>I heard from {id:NPCInteraction_Floor1_custodian_0} that you talked to Cassandra the night the plinth went missing. She was injured at the time.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>NPCInteraction_Floor1_custodian_0:TalkedToCass</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NPCInteraction_Floor1_custodian_0:TalkedToCass</addToNPCMemoryItem>
+					<addToNPCMemoryItem>InjuryTime:BeforeClosing</addToNPCMemoryItem>
+					<addToNPCMemoryItem>InjuryCause:BrokenCabinet</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>NPCInteraction_Floor1_custodian_0:TalkedToCass</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>InjuryTime:BeforeClosing</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>InjuryCause:BrokenCabinet</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>The plinth for the Aurora exhibit is missing, so I was hoping to report it.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>ArtifactNotFound</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I found this key in the director's office. Do you know whose key it is?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:cass_storage_key</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:cass_storage_key</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Y-you're right. I'll go see what I can do.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>NextSteps:Cass:GoToOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>assistant</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Really? How do I get them?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>assistant</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I know you're terrified of him. He's harsh on you. Do you really think he won't blame you for losing an important artifact?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedForHelp:assistant</relatedEventsItem>
+				<relatedEventsItem>ConvincingAssistant:InTrouble</relatedEventsItem>
+				<relatedEventsItem>DeclinedToHelp:assistant</relatedEventsItem>
+				<relatedEventsItem>Assistant:AfraidOfDirector</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerSays:AssistantAfraid</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerSays:AssistantAfraid</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>custodian</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Did you see the director bring something into the storage room?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorBroughtStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorBroughtStatue</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I found the statue to the missing plinth. Here it is.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:statue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:statue</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Isn't this the statue to the missing plinth?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:statue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ShowItem:statue</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I found a statue in the storage room.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>FoundStatue:Location</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I found it in the storage room.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:statue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>FoundStatue:Location</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Apparently the statue was brought by the director. It was... from the founder.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorBroughtStatue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorBroughtStatue</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neg</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Your accusations hold no water. I just learned that the director *brought* the statue. Why would he bring the statue if he would sell the plinth?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorBroughtStatue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorBroughtStatue</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

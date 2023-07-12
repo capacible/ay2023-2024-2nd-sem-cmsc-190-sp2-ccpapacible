@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class InteractionBase : MonoBehaviour
 {
+    [Header("InteractionBase")]
     public string objId;
     public string interactionMsgKey;        // this determines what interaction message we will show, if any
     public ItemBase[] useableItems;         // if there are items that will change state upon using an item, we put it here
     public bool interactable;               // basically if this interaction is active or will respond to the player
 
-    [Header("Director-related")]
-    public string[] addToGlobalEventList;
+    // upon first interaction, events to add
+    public string[] addToGlobalEventList;   
     public string[] addToCurrentMapEventList;
-
+    public string[] addToPlayerMemory;
+    
     private InteractPrompt prompt;          // prompt component
 
     // Start is called before the first frame update
@@ -81,7 +83,7 @@ public class InteractionBase : MonoBehaviour
     /// </summary>
     /// <param name="id"></param>
     /// <param name="state"></param>
-    private void SetInteractableState(string id, bool state)
+    protected void SetInteractableState(string id, bool state)
     {
         if (id == objId)
         {
@@ -138,10 +140,42 @@ public class InteractionBase : MonoBehaviour
         string id = interactParams[0].ToString();
 
         // if the id of the object the player interacted with is the same as the id of this interaction
-        if(id == objId && interactable)
+        if(id == objId && interactable && interactionMsgKey!=null)
         {
             // some default task -- trigger an interaction message
             EventHandler.Instance.InteractMessage(interactionMsgKey, null);
+
+            AddEventOnInitialInteract();
+        }
+    }
+
+    /// <summary>
+    /// On initial interaction, we add the listed events
+    /// </summary>
+    public void AddEventOnInitialInteract()
+    {
+        // add 
+        if (addToGlobalEventList.Length > 0)
+        {
+            // add all in list to global
+            foreach (string e in addToGlobalEventList)
+            {
+                Director.AddEventString(e);
+            }
+        }
+        if (addToCurrentMapEventList.Length > 0)
+        {
+            foreach (string e in addToCurrentMapEventList)
+            {
+                Director.AddEventString(e, DirectorConstants.DEFAULT_MAP);
+            }
+        }
+        if (addToPlayerMemory.Length > 0)
+        {
+            foreach(string e in addToPlayerMemory)
+            {
+                Director.AddToSpeakerMemory(DirectorConstants.PLAYER_STR, e);
+            }
         }
     }
 

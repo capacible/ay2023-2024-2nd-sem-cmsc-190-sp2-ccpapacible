@@ -16,9 +16,6 @@ MonoBehaviour:
   speakerTraits: []
   inkJSON: {fileID: 4900000, guid: ec45aa8cf6ab7fd48906c625624d3b8b, type: 3}
   dialoguePortraits:
-  - {fileID: -1171941212, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
-  - {fileID: 1071813993, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
-  - {fileID: 829230600, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
-  - {fileID: -1640007229, guid: 024c938f821e7d54da28a7050ba82881, type: 3}
-  worldSprite: {fileID: 0}
+  - {fileID: 21300000, guid: 08807b1dcb9cb1649860f7420822352f, type: 3}
+  worldSprite: {fileID: 21300000, guid: c876922117373c94885f9e68deb2142a, type: 3}
   usesDirector: 0

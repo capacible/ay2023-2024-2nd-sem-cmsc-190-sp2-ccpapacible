@@ -23,6 +23,8 @@ MonoBehaviour:
   - impatient
   - loner
   - friendly
-  dialoguePortraits: {fileID: 0}
-  worldSprite: {fileID: 0}
+  inkJSON: {fileID: 0}
+  dialoguePortraits:
+  - {fileID: 21300000, guid: 477c61f485329e7468249b4f5aabfdb9, type: 3}
+  worldSprite: {fileID: 21300000, guid: 8296e10e74e6bb04ebd3a4c0839373c1, type: 3}
   usesDirector: 1

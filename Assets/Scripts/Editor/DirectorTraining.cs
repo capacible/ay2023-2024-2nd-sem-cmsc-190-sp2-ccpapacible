@@ -48,9 +48,13 @@ public class DirectorTraining
         // initialize the lineDb
         Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
             "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml"//,
-            //"Data/XML/dialogue/dialogueFiller_Custodian.xml"
+            "Data/XML/dialogue/dialogueJonathan.xml",
+            "Data/XML/dialogue/dialogueCassandra.xml",
+            "Data/XML/dialogue/dialogueFiller_Custodian.xml",
+            "Data/XML/dialogue/dialogueFiller_Assistant.xml"
         });
+
+        Debug.Log("LINE SIZE " + lineDB.Count);
 
         // initialize the model
         DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS, "DirectorTraining");
@@ -84,7 +88,7 @@ public class DirectorTraining
 
             // we get ALL event requirements of the line, and convert them to their respective key
             List<int> prereqEvents = null;
-            if(line.relatedEvents.Length > 0 || line.relatedEvents != null)
+            if(line.relatedEvents != null && line.relatedEvents.Length > 0)
             {
                 prereqEvents = new List<int>();
                 // converting each related event to respective key...
@@ -102,28 +106,33 @@ public class DirectorTraining
             /*
              *  Getting trait and relationship info
              */
-            int[] traitPrereqs;
+            List<int> traitPrereqs = new List<int>();
             int[] relPrereqs;
-            int traitPrereq = Director.NumKeyLookUp(line.traitPrereq, refDict: traitsDB);
             int relPrereq = RelStrToInt(line.relPrereq);
 
-            // if trait doesn't exist (EMPTY) set traitprereqs to none
-            if (traitPrereq != -1)
+            // get all traits 
+            if(line.traitPrereq != null && line.traitPrereq.Length > 0)
             {
-                Debug.Log("No trait exists--use none");
-                traitPrereqs = new int[]
-                {
-                    Director.NumKeyLookUp(DirectorConstants.NONE_STR, refDict:traitsDB)
-                };
+                Debug.Log("Getting trait prerequisites");
+                line.traitPrereq.ToList().ForEach(
+                    t => traitPrereqs.Add(
+                        Director.NumKeyLookUp(t, refDict: traitsDB)));
+
+                // remove empty or invalid
+                traitPrereqs.RemoveAll(t => t == -1);
             }
             else
             {
-                // if the trait does exist, then that's our observation.
-                traitPrereqs = new int[]
-                {
-                    traitPrereq
-                };
+                Debug.LogWarning("No trait prerequisite -- will infer on all traits");
             }
+
+            if(traitPrereqs.Count == 0)
+            {
+                Debug.Log("no traits prerequisites");
+                // add all traits
+                traitsDB.Keys.ToList().ForEach(t => traitPrereqs.Add(t));
+            }
+            
 
             if(relPrereq == (int)DirectorConstants.REL_STATUS_NUMS.NONE)
             {
@@ -172,7 +181,7 @@ public class DirectorTraining
                         // consider all events
                         foreach(int ev in eventsDB.Keys)
                         {
-
+                            Debug.Log("adding event: " + ev);
                             lineObservations.Add(lineId);
                             traitObservations.Add(trait);
                             relObservations.Add(rel);

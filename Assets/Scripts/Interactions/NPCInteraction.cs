@@ -27,6 +27,7 @@ public class NPCInteraction : InteractionBase
             // add non-directed npcs here
             if (npc.usesDirector && !Director.SpeakerExists(objId))
             {
+                Debug.Log("adding NPC: " + npc.speakerArchetype + " id of: " + objId);
                 // we add the npc into the allSpeakers list if it doesnt exist yet
                 Director.AddNewSpeaker(npc, objId, npcDisplayName);
             }
@@ -51,7 +52,7 @@ public class NPCInteraction : InteractionBase
         if(id == objId)
         {
             // call dialogue trigger
-            EventHandler.Instance.LoadDialogueScene(new object[] { objId, npc });
+            EventHandler.Instance.LoadDialogueScene(new object[] { objId, new NPCData[] { npc } });
         }
     }
 

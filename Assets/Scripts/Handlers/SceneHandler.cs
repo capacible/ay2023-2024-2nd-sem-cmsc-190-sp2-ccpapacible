@@ -169,6 +169,8 @@ public class SceneHandler : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentMapScene));
 
+        Director.currentMap = currentMapScene;
+
         // position player first
         SceneUtility.PositionPlayer(transitionDestId);
 
@@ -270,20 +272,25 @@ public static class SceneUtility
     {
         foreach(KeyValuePair<string, bool> toUpdate in updateObjects.Where(o => existingObjInScene[currentScene].Contains(o.Key)))
         {
-            EventHandler.Instance.SetNewState(toUpdate.Key, toUpdate.Value);
-            // remove toUpdate from dict
-            updateObjects.Remove(toUpdate.Key);
-        }
+            EventHandler.Instance.SetNewState(toUpdate.Key, toUpdate.Value);        }
     }
 
     /// <summary>
-    /// Function to add to update list.
+    /// Remembers the change in state
     /// </summary>
     /// <param name="objId"></param>
     /// <param name="newState"></param>
     public static void AddToUpdateList(string objId, bool newState)
     {
-        updateObjects.Add(objId, newState);
+        if (updateObjects.ContainsKey(objId))
+        {
+            // replace state
+            updateObjects[objId] = newState;
+        }
+        else
+        {
+            updateObjects.Add(objId, newState);
+        }
     }
 
     /// <summary>

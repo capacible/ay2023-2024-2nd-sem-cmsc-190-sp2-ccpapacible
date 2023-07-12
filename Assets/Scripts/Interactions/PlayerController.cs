@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private bool busy = true;
+    private static readonly KeyCode[] movements = { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D, KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
 
     private Rigidbody2D body;
     private Vector2 movement;
@@ -26,11 +27,7 @@ public class PlayerController : MonoBehaviour
     // 
     [HideInInspector]
     public List<GameObject> collided = new List<GameObject>();
-
-    public Sprite[] forward;
-    public Sprite[] backward;
-    public Sprite[] left;
-    public Sprite[] right;
+    
 
     private int currentSpriteI;
     private int currDir;
@@ -176,7 +173,10 @@ public class PlayerController : MonoBehaviour
     private void PlayerMove(Vector2 dir)
     {
 
+
         body.MovePosition(new Vector2(transform.position.x + dir.x * speed, transform.position.y + dir.y * speed));
     }
-        
+
+    
+    
 }

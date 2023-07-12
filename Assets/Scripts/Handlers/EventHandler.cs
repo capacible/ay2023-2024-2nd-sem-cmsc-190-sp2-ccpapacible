@@ -44,6 +44,7 @@ public class EventHandler : MonoBehaviour
     public static event System.Action<object[]> InGameMessage;          // triggers a message to pop up
     public static event System.Action<object[]> Examine;                // invoked when triggering ExamineInteraction
 
+
     // ITEMS AND INVENTORY
     public static event System.Action<string, ItemBase> OnPickup;       // id of object, itemdata of object
     public static event System.Action<object[]> ItemEffect;
@@ -126,6 +127,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="param">An array of parameters that include:
     ///     - npc id                            [0] - the object id
     ///     - npc data                          [1]
+    ///     - story text asset                  [2]
     /// </param>
     public void DialogueSceneLoaded(object[] param)
     {
@@ -133,14 +135,14 @@ public class EventHandler : MonoBehaviour
         SceneHandler.OnUiLoaded -= DialogueSceneLoaded;
 
         string npcId = (string)param[0];
-        NPCData npc = (NPCData)param[1];
+        NPCData[] npc = (NPCData[])param[1];
 
         // Calls and presents the UI for the dialogue -- this call is for general stuff like the portrait.
         activeUi.Add(UiType.NPC_DIALOGUE);
         StartDialogue?.Invoke(new object[] { UiType.NPC_DIALOGUE, npc });
 
         // The speaker should exist within the director's speaker tracker in order to use the director.
-        if (npc.usesDirector && Director.SpeakerExists(npcId))
+        if (npc.Length == 1 && npc[0].usesDirector && Director.SpeakerExists(npcId))
         {
             Debug.Log("speaker exists! Director is active.");
 
@@ -153,23 +155,42 @@ public class EventHandler : MonoBehaviour
                 new object[] {
                     Director.ActiveNPCDisplayName(),
                     lineData[0],                    // the line itself
-                    lineData[1]                    // the dialogue portrait.
+                    lineData[1],                    // the dialogue portrait.
+                    Director.allSpeakers[Director.activeNPC].speakerArchetype   // archetype of speaker              
                 });
         }
         // IF THE NPC USES A TREE
-        else
+        else if(npc.Length ==1 && !npc[0].usesDirector)
         {
             Debug.Log("We use InkHandler for this one");
 
             // set ink handler to be active dialogue manager
             InkDialogueManager.isActive = true;
 
-            string[] lineData = InkDialogueManager.StartDialogue(npc.inkJSON);
+            string[] lineData = InkDialogueManager.StartDialogue(npc[0].inkJSON);
 
             FoundNPCLine?.Invoke(new object[] {
                 InkDialogueManager.ActiveNPCDisplayName(),
                 lineData[0],                    // line.      
-                lineData[1]                     // dialogue portrait
+                lineData[1],                    // dialogue portrait emote
+                lineData[2]                     // archetype npc data
+            });
+        }
+        else if(npcId == null)
+        {
+            // other.
+            Debug.Log("cutscene dialogue");
+
+            InkDialogueManager.isActive = true;
+
+            string[] lineData = InkDialogueManager.StartDialogue((TextAsset)param[2]);
+
+            // show the line
+            FoundNPCLine?.Invoke(new object[] {
+                InkDialogueManager.ActiveNPCDisplayName(),
+                lineData[0],
+                lineData[1],
+                lineData[2]
             });
         }
 
@@ -198,7 +219,8 @@ public class EventHandler : MonoBehaviour
             {
                 Director.ActiveNPCDisplayName(),
                 lineData[0],                    // the line itself
-                lineData[1]                    // the dialogue portrait.
+                lineData[1],                    // the dialogue portrait.
+                Director.allSpeakers[Director.activeNPC].speakerArchetype
             });
         }
         else if (InkDialogueManager.isActive)
@@ -210,7 +232,8 @@ public class EventHandler : MonoBehaviour
             FoundNPCLine?.Invoke(new object[] {
                 InkDialogueManager.ActiveNPCDisplayName(),
                 lineData[0],                    // line.      
-                lineData[1]                     // dialogue portrait
+                lineData[1],                    // dialogue portrait
+                lineData[2]                     // archetype npc data
             });
             
         }
@@ -230,6 +253,7 @@ public class EventHandler : MonoBehaviour
             Debug.Log("ink handler");
             FoundPlayerLines?.Invoke(InkDialogueManager.GetPlayerChoices());
         }
+
     }
 
     /// <summary>
@@ -241,8 +265,8 @@ public class EventHandler : MonoBehaviour
         UnloadUi("_Dialogue");
 
         // set inactive.
-        if (Director.isActive) { Director.isActive = false; }
-        else if (InkDialogueManager.isActive) { InkDialogueManager.isActive = false; }
+        if (InkDialogueManager.isActive) { InkDialogueManager.isActive = false; }
+        else { Director.Deactivate(); }
 
         // call conclude interaction so we can remove the npc dialogue ui type and subsequently conclude interaction itself.
         ConcludeInteraction(UiType.NPC_DIALOGUE);
@@ -356,6 +380,15 @@ public class EventHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// Drops held item -- calls inventory to remove it from inventory
+    /// </summary>
+    /// <param name="item"></param>
+    public void DropItem()
+    {
+        TriggerOnDrop?.Invoke();
+    }
+
+    /// <summary>
     /// Makes a quick notification appear across the top of the screen.
     /// </summary>
     /// <param name="interactKey">The message or interaction key</param>
@@ -431,6 +464,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="state">state to turn the object to.</param>
     public void SetNewState(string objId, bool state)
     {
+        SceneUtility.AddToUpdateList(objId, state);
         SetStateOfObj?.Invoke(objId, state);
     }
 

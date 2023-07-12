@@ -27,6 +27,8 @@ public class DirectorModel
 {
     private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
+
+    private const double LINE_SELECTION_MINIMUM = 0.001;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/lineCPT.xml";
     private static readonly string EVENTS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/eventCPT.xml";
@@ -276,9 +278,9 @@ public class DirectorModel
         metaFile = meta;
 
         CPTPrior_Dialogue.ObservedValue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
-        ProbPrior_Events.ObservedValue = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
-        ProbPrior_Traits.ObservedValue = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
-        ProbPrior_RelStatus.ObservedValue = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
+        ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
+        ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
+        ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
 
         // setting observed values.
         /*
@@ -629,7 +631,7 @@ public class DirectorModel
     ///     float / probabiloty of line => value
     /// </param>
     /// <returns></returns>
-    public double ComputeExpectedUtility(int dialogueKey, double probability, Dictionary<string, float> topicList, int mood)
+    public double ComputeExpectedUtility(int dialogueKey, double probability, Dictionary<string, double> topicList, int mood)
     {
         // we get the line in our db
         DialogueLine lineContainer = Director.LineDB[dialogueKey];
@@ -696,13 +698,19 @@ public class DirectorModel
     /// </summary>
     /// <param name="probabilities"></param>
     /// <returns></returns>
-    public List<double> FilterLines(List<double> probabilities, string receiver="no_receiver", string currentMap="")
+    public List<double> FilterLines(List<double> probabilities, string receiver="no_receiver", string currentMap="", string currentSpeaker="player")
     {
         // if our receiver is no_receiver (default), it means that any_receiver is also not valid.
 
         Debug.Log("Filtering setting the probabilities of dialogue lines to 0 if receiver is not: " + receiver);
         foreach(KeyValuePair<int, DialogueLine> line in Director.LineDB)
         {
+            // filter out speaker id
+            if(line.Value.speakerId != currentSpeaker)
+            {
+                probabilities[line.Key] = 0;
+            }
+
             // filters by current map, assuming that the current line has any location restrictions.
             if(currentMap!="" && line.Value.locations.Length > 0 && !line.Value.locations.Contains(currentMap))
             {
@@ -740,15 +748,17 @@ public class DirectorModel
     /// <returns></returns>
     public KeyValuePair<int, double> LineWithBestUtil(
         List<double> probabilities, 
-        Dictionary<string, float> topicList, 
+        Dictionary<string, double> topicList, 
         int mood, 
+        string currentMap,
+        string currentSpeaker,
         string receiver = "no_receiver")
     {
         double highestUtil = 0;
         int bestDialogue = -1;
 
         // filter
-        probabilities = FilterLines(probabilities, receiver);
+        probabilities = FilterLines(probabilities, receiver, currentMap, currentSpeaker);
 
         Debug.Log("Probabilities acquired: " + probabilities.Count);
         Debug.Log("Number of lines total: " + TotalDialogueCount);
@@ -816,9 +826,11 @@ public class DirectorModel
         int[] knownEvents,
         int knownTrait,         // the trait is optional, not all chars have it -- an optional trait is -1
         int knownRel,           //  not optional.
-        Dictionary<string, float> topicList,
+        Dictionary<string, double> topicList,
         int currentMood,
-        DirectorData data = null)
+        string map,                 //  current map we are in
+        string activeArchetype     // the current active speaker (speaker id form)
+        )
     {
 
         debugProbStr = "====== NPC ======\n";
@@ -862,7 +874,9 @@ public class DirectorModel
         return LineWithBestUtil(
             DialogueProbabilities(knownEvents, traitsArr, relArr),
             topicList,
-            currentMood).Key;
+            currentMood,
+            map,
+            activeArchetype).Key;
     }
 
     /// <summary>
@@ -874,16 +888,17 @@ public class DirectorModel
     /// <param name="data"></param>
     /// <param name="topicList"></param>
     /// <param name="currentMood"></param>
-    /// <param name="activeArchetype">the ARCHETYPE of the active npc</param>
+    /// <param name="receiverArchetype">the ARCHETYPE of the active npc</param>
     /// <returns></returns>
     public int[] SelectPlayerLines(
         int[] knownEvents,
         int knownTrait,
         int knownRel,
-        Dictionary<string, float> topicList,
-        int currentMood,
-        string activeArchetype,
-        DirectorData data = null)
+        Dictionary<string, double> topicList,
+        int currentMood,                        // mood value
+        string map,                             // map or scene we are in
+        string receiverArchetype                // speaker archetype of who the player is talking to
+        )
     {
         double minProb = 0.0;
         debugProbStr += "====== PLAYER ======\n";
@@ -920,10 +935,11 @@ public class DirectorModel
         // we infer our posteriors first.
         List<double> linePosteriors = DialogueProbabilities(knownEvents, traitsArr, relArr);
 
+        // get the top 3 lines
         Dictionary<int, double> best3 = new Dictionary<int, double>();
         for(int i = 0; i < 3; i++)
         {
-            KeyValuePair<int, double> best = LineWithBestUtil(linePosteriors, topicList, currentMood, activeArchetype);
+            KeyValuePair<int, double> best = LineWithBestUtil(linePosteriors, topicList, currentMood, map, DirectorConstants.PLAYER_STR, receiverArchetype);
 
             // we base our minimum probability on our first "best" line
             if (i == 0)
@@ -936,9 +952,12 @@ public class DirectorModel
             // we "delete" the posterior of the best, by setting it to 0 -- which means that all calc will result in this being 0
             linePosteriors[best.Key] = 0;
         }
-
+        
         // return all lines greater than the minimum probability.
-        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb).Contains(best3[id])).ToArray();
+        // we also have to consider the line minimum aside from the minimum based on the first best value
+        // if the line's probability is less than the minimum probability calculated from the 1st best and the line itself is less than our hard minimum, we
+        // won't show it.
+        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb && prob >= LINE_SELECTION_MINIMUM).Contains(best3[id])).ToArray();
     }
 
 

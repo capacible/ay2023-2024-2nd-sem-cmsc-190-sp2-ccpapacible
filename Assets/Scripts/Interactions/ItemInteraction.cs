@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ItemInteraction : InteractionBase
 {
-    // storage of item data, 
+    // storage of item data
     public ItemBase data;
+    public bool showItem;
 
     private void Start()
     {
         InitializeInteraction();
 
         // instantiate sprite image
-        if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s))
+        if (gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer s) && showItem)
         {
             s.sprite = data.itemSprite;
         }
@@ -40,6 +41,7 @@ public class ItemInteraction : InteractionBase
 
             // call item is picked up
             ItemIsPickedUp();
+            AddEventOnInitialInteract();
         }
     }
 

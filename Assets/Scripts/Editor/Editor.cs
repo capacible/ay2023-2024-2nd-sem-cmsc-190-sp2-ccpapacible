@@ -246,8 +246,10 @@ public class Editor
                     }
                 }
             }
-            
-            
+
+
+            // sort new npc dialogues 0 to 1
+            newNPC.dialoguePortraits = newNPC.dialoguePortraits.OrderBy(x => x.name).ToList(); ;
 
             // create a new asset
             string destPath = "Assets/Scripts/ScriptableObjects/NPCData";
@@ -629,7 +631,7 @@ public class Editor
             writer.WriteStartElement("DialogueLine");
 
             // merge all events in memory and global and map events
-            dictionary.Add("relatedEvents", dictionary["eventsInMemory"] + " / " + dictionary["globalAndMapEvents"]);
+            dictionary.Add("relatedEvents", dictionary["eventsInMemory"] + "/" + dictionary["globalAndMapEvents"]);
 
             // remove events in memory and global
             dictionary.Remove("eventsInMemory");
@@ -656,7 +658,7 @@ public class Editor
             {
                 
                 // array or multivalued attribs.
-                if (new List<string>() { "relatedEvents", "relatedTopics", "locations" }.Contains(pair.Key))
+                if (new List<string>() { "relatedEvents", "relatedTopics", "locations", "trait" }.Contains(pair.Key))
                 {
                     WriteArrayElements(writer, pair.Key, pair.Value);
                 }
@@ -685,10 +687,6 @@ public class Editor
                     else if (pair.Key.Contains("relPrereq") && pair.Value == "")
                     {
                         writer.WriteString(DirectorConstants.REL_STATUS_STRING.NONE);
-                    }
-                    else if(pair.Key.Contains("trait") && pair.Value == "")
-                    {
-                        writer.WriteString(DirectorConstants.NONE_STR);
                     }
                     else if(pair.Key.Contains("responseTone") && pair.Value == "")
                     {
@@ -726,13 +724,13 @@ public class Editor
     {
         writer.WriteStartElement(key);
 
-        string[] values = value.Split(" / ", System.StringSplitOptions.RemoveEmptyEntries);
+        string[] values = value.Split("/", System.StringSplitOptions.RemoveEmptyEntries);
 
         // checking if the values.Length == 0, this means walang laman yung csv part na yan. We simply place an empty single
         // value into it.
         if (values.Length != 0)
         {
-            // split all according to ' / ' character (include spaces)
+            // split all according to '/' character (include spaces)
             foreach (string item in values)
             {
                 writer.WriteStartElement($"{key}Item");

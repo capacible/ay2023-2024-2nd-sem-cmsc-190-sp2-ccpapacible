@@ -13,6 +13,8 @@ public static class InkDialogueManager
     // constant tags so we don't forget the specific tag.
     private const string DISPLAY_NAME_TAG = "display_name";
     private const string PORTRAIT_EMOTE_TAG = "portrait";
+    private const string ADD_EVENT_TO_PLAYER_TAG = "add_to_player";
+    private const string ARCHETYPE_TAG = "archetype";
 
     public static bool isActive;
 
@@ -21,7 +23,9 @@ public static class InkDialogueManager
     public static Dictionary<string, string> currentDTags = new Dictionary<string, string>
     {
         { DISPLAY_NAME_TAG, "" },
-        { PORTRAIT_EMOTE_TAG, "" }
+        { PORTRAIT_EMOTE_TAG, "" },
+        { ADD_EVENT_TO_PLAYER_TAG, "" },
+        { ARCHETYPE_TAG, "" }
     };
 
     public static Story currentDialogue;   // holds our current dialogue.
@@ -41,8 +45,28 @@ public static class InkDialogueManager
         // setting the current story
         currentDialogue = new Story(inkJSON.text);
 
+        // initialize the variable states of each dialogue
+        InitVariables();
+
         // returns the starting NPC line and the portrait result (string form)
         return NPCLine() ;
+    }
+
+    /// <summary>
+    /// sets the values of each variable in the ink file according to the player memories
+    /// </summary>
+    public static void InitVariables()
+    {
+        // we iterate through each memory of the player
+        foreach(string memory in Director.allSpeakers[DirectorConstants.PLAYER_STR].speakerMemories)
+        {
+            if (currentDialogue.variablesState.Contains(memory))
+            {
+                string varName = memory.Replace(':', '_');  // returns original ata if there is no instance of :
+                // replace the memory with underscore then set the variable as true
+                currentDialogue.variablesState[varName] = true;
+            }
+        }
     }
 
     /// <summary>
@@ -51,6 +75,7 @@ public static class InkDialogueManager
     /// <returns>The line to be spoken, as well as the image sprite.</returns>
     public static string[] NPCLine()
     {
+        currentDTags[ADD_EVENT_TO_PLAYER_TAG] = ""; // reset
         if (currentDialogue.canContinue)
         {
             List<string> lines = new List<string>();
@@ -65,11 +90,17 @@ public static class InkDialogueManager
 
             } while (currentDialogue.currentChoices.Count == 0 && currentDialogue.canContinue);
 
+            // add certain event to player memory
+            if(currentDTags[ADD_EVENT_TO_PLAYER_TAG] != "")
+            {
+                Director.AddToSpeakerMemory(DirectorConstants.PLAYER_STR, currentDTags[ADD_EVENT_TO_PLAYER_TAG]);
+            }
+
             // we join all the acquired lines.
             return new string[] { string.Join("\n", lines),  currentDTags[PORTRAIT_EMOTE_TAG] };
         }
 
-        return new string[] { "", currentDTags[PORTRAIT_EMOTE_TAG] };
+        return new string[] { "", currentDTags[PORTRAIT_EMOTE_TAG], currentDTags[ARCHETYPE_TAG] };
     }
 
     /// <summary>

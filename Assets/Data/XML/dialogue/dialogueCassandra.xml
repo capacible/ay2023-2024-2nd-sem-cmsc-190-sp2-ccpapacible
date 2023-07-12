@@ -1,0 +1,2601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LineCollection>
+	<DialogueLines>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Hello. Need help with anything?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'm quite busy. If you need anything, please make it quick.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Are you serious? It was just there last night!</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I haven't seen him. Why?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I haven't seen him. We have to report this to the director though. The exhibit is next week.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Are you accusing me of something? I've done nothing wrong. Please, leave.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>You know I won't do this... are you implying something?
+Just go.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'd prefer that you not throw around baseless accusations.
+Do your job now, I'm busy.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>That's good. Please call him ASAP. We already don't have the plinth's statue. If we lose the plinth...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>That's bad news... You should ask the assistant, maybe she knows where he is.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlauerUsedJonathansPhone</relatedEventsItem>
+				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'm sorry. I don't know where the director is.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlauerUsedJonathansPhone</relatedEventsItem>
+				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>C-calm down. First thing's first, maybe you can go investigate the director's office for clues?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NextSteps:Cass:GoToOffice</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>NextSteps:Cass:GoToOffice</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Hey, calm down. We'll be able to deal with this. I think we should investigate the director's office.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NextSteps:Cass:GoToOffice</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>NextSteps:Cass:GoToOffice</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I suppose so. What do you plan on doing?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I suppose so. I suggest you go investigate the director's office. Maybe it has clues for where the director is.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NextSteps:Cass:GoToOffice</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>NextSteps:Cass:GoToOffice</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Did you find anything?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Great! What did you find?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>NextSteps:Cass:GoToOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'm not sure. You'll have to show me the key.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Wait a minute... that's mine! I've been looking for that key since yesterday. How did it get there?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:cass_storage_key</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>You stole from the director's safe?! Be glad we're friends or you would have been reported...
+Anyway... the card says it's from a woman named Beth. I don't really know who that is...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
+				<relatedEventsItem>PlayerSnoopedThroughSafe</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>If this weren't an emergency, i would be panicking and reporting you. But since it is...
+The card says it's from a woman named Beth. It's not someone I recognize.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
+				<relatedEventsItem>PlayerSnoopedThroughSafe</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I don't know her. The director never mentioned a woman by that name, and I don't think thats the name of his wife...?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerSawCardOfWoman</relatedEventsItem>
+				<relatedEventsItem>PlayerSnoopedThroughSafe</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I never knew you were a gossip. I don't want to see.
+ I don't know who Beth is, either.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerSawCardOfWoman</relatedEventsItem>
+				<relatedEventsItem>PlayerSnoopedThroughSafe</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>-1</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Aren't you ever-the-gossip... I don't know who Beth is, if that's what you want to ask.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerSawCardOfWoman</relatedEventsItem>
+				<relatedEventsItem>PlayerSnoopedThroughSafe</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>-1</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>According to the staff, that woman always brings gifts with her. You'd be better off asking the custodians, if you need specific information. They seem to like her a lot.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>... yes. How kind of the director.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Of course. I'll answer any questions you have.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>You should be on my side. The director... all he cares about is profit.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>How gracious of him to ask you to do what you were already doing.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>You... *stole* the custodians' keys to the director's office?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerStoleCustodiansKey</relatedEventsItem>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Please do share.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes. What did you find?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerEnterDirectorsOffice</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I know he was the one to take the plinth. I'm just... getting him to admit it. He thinks that the plinth is unimportant, so I thought that maybe he'd done somthing to it.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ReasonForOutburst:CassandraSuspicions</addToNPCMemoryItem>
+					<addToNPCMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>ReasonForOutburst:CassandraSuspicions</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>...Yes. I just don't think he cares about the museum as much as everyone thinks.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Are you kidding?! All he cares about is for the museum to be profitable. He thinks that, because the plinth is missing its statue, it has no value and is unimportant.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>The director thinks that the plinth is useless, historically. That there's nothing that the plinth could tell.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I suppose so. You have to understand, this exhibit is important. Every artifact found in the Aurora's End *is important*.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Since we started working on the exhibit, I guess. He wanted to sell the plinth, because it's apparently unimportant.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToNPCMemoryItem>
+					<addToNPCMemoryItem>DirectorsOpinion:SellThePlinth</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DirectorsOpinion:PlinthIsUnimportant</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>DirectorsOpinion:SellThePlinth</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Since we started working on the exhibit. Around the same time that he believes the plinth to be unimportant and suggested selling it off to whoever can pay for it.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>He wants to sell it off.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I think he wants to sell it to her.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+				<relatedEventsItem>LearnAboutFounder</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Oh, um, I cut myself on the broken cabinet in the storage room.</dialogue>
+			<relatedEvents />
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>InjuryCause:BrokenCabinet</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>InjuryCause:BrokenCabinet</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>They really should. My cut was pretty nasty, I had to clean it up in the bathroom.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Thanks.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>PlayerReaction:CustodianFix</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Well, if he'll be willing to help, then sure.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>PlayerReaction:DirectorFix</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:TensionWithDirector</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>Cassandra:TensionWithDirector</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>It's just that I don't think he particularly cares for the museum unless he gets money out of it. He wants to sell the plinth, for example.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorsOpinion:SellThePlinth</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DirectorsOpinion:SellThePlinth</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>It's because he thinks the plinth has no historical significance.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'm not crazy. And you're being an ass. We fought about it multiple times.
+ How convenient is it that the plinth disappears now?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>That's what I'm trying to find out.  It might be that rich woman but I have no proof. Could you help me get proof?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I've tried prying the information from his assistant but she's too quiet. I know she helped you out, so can you talk to her again?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>HelpedPlayerEnter:assistant</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I got it during closing time last night.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>InjuryTime:BeforeClosing</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>InjuryTime:BeforeClosing</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I was researching one of the daggers found in the Aurora's shipwreck at the time the plinth was gone.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:Alibi</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Alibi:DaggerResearch</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes, I was quite busy then.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Cassandra:Alibi</relatedEventsItem>
+				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Cassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I don't know anything about that, I'm sorry. If a woman was in the storage room and I saw her, I would have told everyone immediately.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>JonathanWatchingCameras</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>It's odd that the first thing you think of in my injury is how *I'm* connected to the plinth's disappearance.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>-1</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>You *still* think I'm the one who stole the plinth? Please. This injury has nothing to do with the plinth.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>What about it?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:BeforeClosing</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>It did bleed a lot. It was a very bad gash.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:bloody_tissue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I don't know. I didn't touch or even see that flower there.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FlowerInBathroom</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Gross... why would you fish that out the trash?
+And anyway, I had nothing to do with that.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>N-no... I wasn't. My memory is quite hazy.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+				<relatedEventsItem>CustodianTestimony:NoInjury</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I did ask them that. I have my own organized chaos, so I didn't want them to touch it while I wasn't done working.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasRequest:Custodian</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Fine, I got cut while I was doing my dagger research.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>InjuryTrueTime:DaggerResearch</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>InjuryTrueTime:DaggerResearch</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes, he visited me at that time.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit:TwoHrsAfterClosed</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic>JonathanVisitedCassandra</makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>JonathanVisitedCassandra</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>He wanted to ask about the artifacts I was researching about. Apparently, it's a point of interest for him.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit:TwoHrsAfterClosed</relatedEventsItem>
+				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanVisitReason:Interest</addToNPCMemoryItem>
+					<addToNPCMemoryItem>JonathansInterest:Artifacts</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>JonathanVisitReason:Interest</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>JonathansInterest:Artifacts</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Well... because the cause is embarrassing.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes. I should be more careful, considering the steel cabinet has been broken for ages.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I still honestly don't know anything about the flower in the trash.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'm not lying, I swear! What is it that you found that you keep insisting that?!</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>What is it?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>This is about the flower again? I told you, I have nothing to do with it!</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>W-what does that matter?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed:ThornyShrub</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I... I have nothing to do with it...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>ShowItem:bloody_flower</relatedEventsItem>
+				<relatedEventsItem>FlowerInBathroom:FromGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed</relatedEventsItem>
+				<relatedEventsItem>PlayerCheckedGardenBed:ThornyShrub</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Look... it's complicated. I did mess with the garden shrubs, as you said.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasInjury:RequestedTruth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>InjuryTrueCase:GardenShrubs</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>InjuryTrueCase:GardenShrubs</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I buried a time capsule on the garden bed...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasInjury:RequestedTruth</relatedEventsItem>
+				<relatedEventsItem>InjuryTruthCause:GardenShrubs</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:BuriedTimeCapsule</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>Cassandra:BuriedTimeCapsule</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Yes. The museum is so important to me, so I wanted to bury my best memories in there.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasInjury:RequestedTruth</relatedEventsItem>
+				<relatedEventsItem>InjuryTruthCause:GardenShrubs</relatedEventsItem>
+				<relatedEventsItem>Cassandra:BuriedTimeCapsule</relatedEventsItem>
+				<relatedEventsItem>TimeCapsule:Explanation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I just had a lot of good memories in this museum. this museum taught me to love the history of port vonn and its artifacts... but it's embarrassing to be seen burying something so childish.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CassandrasInjury:RequestedTruth</relatedEventsItem>
+				<relatedEventsItem>InjuryTruthCause:GardenShrubs</relatedEventsItem>
+				<relatedEventsItem>Cassandra:BuriedTimeCapsule</relatedEventsItem>
+				<relatedEventsItem>TimeCapsule:Explanation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:ValuesTheArtifacts</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>Cassandra:ValuesTheArtifacts</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I honestly have no clue! Maybe I dropped it during one of my meetings with him.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>KeyInDirectorsOffice:Cassandras</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Oh... it's possible. All I know is I've been looking for them last night...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>KeyInDirectorsOffice</relatedEventsItem>
+				<relatedEventsItem>ShowItem:key_in_directors_office</relatedEventsItem>
+				<relatedEventsItem>KeyInDirectorsOffice:Cassandras</relatedEventsItem>
+				<relatedEventsItem>DirectorStoleCassandrasKeys</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Oh... that does look like it! Where did you find it?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:statue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I'd like to see it. Come back when you have it!</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FoundStatue:Location</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Who do you think brought it to the storage room?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FoundStatue:Location</relatedEventsItem>
+				<relatedEventsItem>ShowItem:statue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Really? But the plinth is still missing...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorBroughtStatue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>TheStatue</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>W-well, the plinth is still missing, isn't it?! So there must be a reason he stole the plinth.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorBroughtStatue</relatedEventsItem>
+				<relatedEventsItem>SolvedVasePuzzle:FoundStatue</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Let me know if there's anything you need.</dialogue>
+			<relatedEvents />
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+	</DialogueLines>
+</LineCollection>

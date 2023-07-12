@@ -476,7 +476,7 @@ MonoBehaviour:
   - {fileID: 1032800761}
   nextButton: {fileID: 782686064}
   anim: {fileID: 1445441089}
-  playerPortrait: {fileID: 21300000, guid: 2c23ac1990888dc4b93fbbfef9406927, type: 3}
+  playerPortrait: {fileID: 21300000, guid: 61148b73b7d012d42a39e47bff35dcde, type: 3}
   debugBg: {fileID: 1495566247}
   topicListBg: {fileID: 582187061}
   debugCanvas: {fileID: 859304043}
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 78806396}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999492
+  m_Size: 0.99997663
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1766,7 +1766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0009613037, y: -0.00036621094}
+  m_AnchoredPosition: {x: -0.000045776367, y: 0.000015258789}
   m_SizeDelta: {x: 465.9311, y: 178.4559}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218968711
@@ -2883,8 +2883,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1719297691}
   m_HandleRect: {fileID: 1719297690}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999502
+  m_Value: 0
+  m_Size: 0.9999771
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

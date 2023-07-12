@@ -51,6 +51,11 @@ public class ItemBase : ScriptableObject
             // do item effect, passing itself.
             EventHandler.Instance.TriggerItemEffect(new object[] { useOnObjId, this });
         }
+        else
+        {
+            // no msg
+            EventHandler.Instance.TriggerItemEffect(new object[] { useOnObjId, this });
+        }
 
     }
 }

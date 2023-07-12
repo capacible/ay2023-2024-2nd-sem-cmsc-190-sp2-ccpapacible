@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32088dc20512dbb4d9ea98be4edacb62, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
-  itemId: key
+  itemId: cass_storage_key
   itemName: Cassandra's Key
   itemDesc: 
-  itemSprite: {fileID: 21300000, guid: 4687a37f50d341f4885accb0d21f3a0a, type: 3}
-  inventorySprite: {fileID: 21300000, guid: 4687a37f50d341f4885accb0d21f3a0a, type: 3}
+  useItemMsgKey: 
+  itemSprite: {fileID: -1373225910, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
+  inventorySprite: {fileID: -1373225910, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
+  discardAfter: 0

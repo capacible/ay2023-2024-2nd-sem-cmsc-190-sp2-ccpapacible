@@ -12,3 +12,14 @@ unlock_door,You unlocked the door using {item_name}.
 single_use_item,Used {item_name}.
 locked_door,This door is locked.
 calendar,It's this year's calendar. A date is encircled and decorated with what looks to be a birthday cake sticker.
+guard_booth_calendar,It's a calendar for this month. There are a lot of annotations in it{comma} including bill deadlines and birthdays. Interestingly{comma} a lot of past events have been checked off{comma} but most of the bills are not. The most recent unchecked deadline is labelled 'rent{comma}' on May 30th. Today is June 3rd. \nYou look through the previous months. The 20th of April is marked.
+custodian_passcode_initial,The custodian's locker. It's locked{comma} but in front of it is a sticky note: 'ive set up your locker for you. The passcode is my bday :) love you dad.' How sweet.
+custodian_passcode_solved,After about 4 tries{comma} you manage to unlock the locker with the passcode 1003
+vase_puzzle_solved_notif,In the vase{comma} you hear a clink.
+vase_puzzle_solved,This wasn't here before... you picked up the statue connected to the plinth.
+vase_puzzle,The vase is decorated with a gold inscription that describe a prayer... that's odd{comma} the inscriptions have changed. You are able to read it.\nThe inscription says the following:\n Up North{comma} it brings Death.\nDown South{comma} it brings Life.\nIt brings Knowledge in the East.\nAnd in the West{comma} it seeks an Offering.
+guard_booth_telephone,You call the director.\n...\n.......\n........\n 'Sorry{comma} the number you dialled cannot be reached. Please try again.'
+broken_cabinet,The cabinet is broken; steel protrudes from the door. Be careful{comma} it's sharp.
+bathroom_trash,A trash can. Inside is... a bloody tissue.
+guard_booth_book,There's a book here--'The Adventures of the Arbiter.' It appears to be about the historical events that the museum will make an exhibit on.
+outside_storage_after_vase,There seems to be a commotion in the director's office. Better check it out.

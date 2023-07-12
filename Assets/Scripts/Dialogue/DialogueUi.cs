@@ -40,6 +40,7 @@ public class DialogueUi : MonoBehaviour
 
     // list of portraits that current npc will use.
     private List<Sprite> portraitList;
+    private Dictionary<string, Sprite[]> npcPortraits; // string display name of npc data, and the various sprites
     
     void Awake()
     {
@@ -114,16 +115,24 @@ public class DialogueUi : MonoBehaviour
     public void ShowDialogueWindow(object[] obj)
     {
         Debug.Log("STARTING DIALOGUE");
+        
+        NPCData[] npc = (NPCData[]) obj[1];
 
-        NPCData npc = (NPCData) obj[1];
-        charPortrait.sprite = npc.dialoguePortraits[0];
+        npcPortraits = new Dictionary<string, Sprite[]>();        
+        foreach(NPCData n in npc)
+        {
+            npcPortraits.Add(n.speakerArchetype, n.dialoguePortraits.ToArray());
+        }
 
-        // copy dialogue portraits from npc into our current list of portraits
-        portraitList = new List<Sprite>(npc.dialoguePortraits);
-
-        // animate dialogue box entrance
-        anim.SetBool("isActive", true);
-
+        // for player-npc interaction
+        if(npcPortraits.Count == 1)
+        {
+            // set our current sprite
+            charPortrait.sprite = npcPortraits[npc[0].speakerArchetype][0];
+        
+            // animate dialogue box entrance
+            anim.SetBool("isActive", true);
+        }
     }
     
 
@@ -136,6 +145,7 @@ public class DialogueUi : MonoBehaviour
         string npcName = (string)data[0];
         string npcLine = (string)data[1];
         string emote = (string)data[2]; // is simple emption
+        string archetype = (string)data[3]; // the archetype of the speaker.
 
         retLine = new Queue<string>(npcLine.Split("\n", System.StringSplitOptions.RemoveEmptyEntries));
 
@@ -143,6 +153,10 @@ public class DialogueUi : MonoBehaviour
 
         // set values
         charName.text = npcName;
+
+        // convert last element of portraitFile name (w/c is the tag) to number and get the sprite that contains
+        // that number.
+        charPortrait.sprite = npcPortraits[archetype][PortraitNum(emote)];
 
         // we dequeue (fifo) the topmost line.
         // if we have no lines, conclude dialogue.
@@ -157,10 +171,6 @@ public class DialogueUi : MonoBehaviour
             EventHandler.Instance.ConcludeDialogue();
             return;
         }
-
-        // convert last element of portraitFile name (w/c is the tag) to number and get the sprite that contains
-        // that number.
-        charPortrait.sprite = portraitList[PortraitNum(emote)];
         
         // test log
         Debug.Log("set sprite to: " + charPortrait.sprite.name + " done");
@@ -206,7 +216,7 @@ public class DialogueUi : MonoBehaviour
         }
 
         // change portrait to npc
-        charPortrait.sprite = portraitList[0];
+        charPortrait.sprite = npcPortraits[Director.allSpeakers[Director.activeNPC].speakerArchetype][0];
 
         // when choice is selected, call event handler to trigger onDialogueSelected
         // we pass the index of the button selected w/c is representative of the order of the lines we return.

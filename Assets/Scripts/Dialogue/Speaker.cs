@@ -63,21 +63,24 @@ public class Speaker
             speakerArchetype = speakerArchetype,
             relWithPlayer = relWithPlayer,
             speakerMemories = speakerMemories,
-            displayName = displayName
+            displayName = displayName,
+            isFillerCharacter = isFillerCharacter
         };
 
         return newSpeaker;
     }
 
-    public void OverrideTraits(int numTraits, NPCData npc)
+    public void OverrideTraits(NPCData npc)
     {
+        Debug.Log("overriding traits... of character "+speakerArchetype+" is filler? "+isFillerCharacter);
         if (isFillerCharacter)
         {
             // randomize a trait.
             // get the speaker traits in
             // lookup id of traits from director.
-            speakerTrait = Director.NumKeyLookUp(npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count)], fromTraits: true);
-
+            // exclude last index which is the NONE str
+            speakerTrait = Director.NumKeyLookUp(npc.speakerTraits[Random.Range(0, npc.speakerTraits.Count - 1)], fromTraits: true);
+            Debug.Log("npc: " + speakerArchetype + " has the trait id of " + speakerTrait);
         }
         else
         {

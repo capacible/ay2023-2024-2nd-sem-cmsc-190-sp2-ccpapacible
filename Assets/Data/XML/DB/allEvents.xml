@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Main>
 	<ids>
-		<id>GameIsActive</id>
 		<id>ArtifactNotFound</id>
 		<id>DirectorWhereabouts:main_cass</id>
 		<id>DirectorWhereabouts:main_jonathan</id>
@@ -9,8 +8,6 @@
 		<id>PlayerUsedJonathansPhone</id>
 		<id>DirectorVoicemail</id>
 		<id>DirectorWhereabouts:Cassandra</id>
-		<id>ExpressedSuspicions:custodian</id>
-		<id>ExpressedSuspicions:assistant</id>
 		<id>DirectorWhereabouts:Assistant</id>
 		<id>DirectorMissing</id>
 		<id>PlayerPressuredTheAssistant</id>
@@ -20,6 +17,7 @@
 		<id>PlayerAskedForHelp:custodian</id>
 		<id>DeclinedToHelp:Custodian</id>
 		<id>DeclinedToHelp:Assistant</id>
+		<id>DeclinedToHelp:custodian</id>
 		<id>KeyInDirectorsOffice</id>
 		<id>ShowItem:card_from_beth</id>
 		<id>PlayerSawCardOfWoman</id>
@@ -56,7 +54,7 @@
 		<id>DirectorsOpinion:SellThePlinth</id>
 		<id>Alibi:DaggerResearch</id>
 		<id>InjuryTime:BeforeClosing</id>
-		<id>BloodyTissue</id>
+		<id>ShowItem:bloody_tissue</id>
 		<id>FlowerInBathroom</id>
 		<id>CustodianTestimony:NoInjury</id>
 		<id>ShowItem:bloody_flower</id>
@@ -68,9 +66,8 @@
 		<id>InjuryTrueTime:DaggerResearch</id>
 		<id>BrokenCabinet</id>
 		<id>FlowerInBathroom:FromGardenBed</id>
-		<id>CheckedGardenBed</id>
-		<id>CheckedGardenbed:ThornyShrub</id>
-		<id>CheckedGardenBed:ThornyShrub</id>
+		<id>PlayerCheckedGardenBed</id>
+		<id>PlayerCheckedGardenBed:ThornyShrub</id>
 		<id>InjuryTrueCause:GardenShrubs</id>
 		<id>Cassandra:BuriedTimeCapsule</id>
 		<id>ShowItem:key_in_directors_office</id>
@@ -82,7 +79,6 @@
 		<id>SecondVisitReason:WomanInCameras</id>
 		<id>CassNoInfo:WomanInCameras</id>
 		<id>SecondVisit:CassNotInCuratorsOffice</id>
-		<id>DeclinedToHelp:custodian</id>
 		<id>CustodiansWeekend:Good</id>
 		<id>CustodiansWeekend:Bad</id>
 		<id>CustodiansInterest:Fishing</id>
@@ -96,13 +92,62 @@
 		<id>DaughterBirthday</id>
 		<id>StaffRoomPadlock</id>
 		<id>JonathansThoughtsOnFounder</id>
+		<id>ShowItem:cass_storage_key</id>
+		<id>DaughterBirthday:ShorterWorkDay</id>
+		<id>DaughterBirthday:CustodianHelp</id>
+		<id>NPCInteraction_Floor1_custodian_0:TalkedToCass</id>
+		<id>NextSteps:Cass:GoToOffice</id>
+		<id>Assistant:GaveKeysToCustodian</id>
+		<id>PlayerAskedForHelp</id>
+		<id>PlayerAskedForHelp:assistant</id>
+		<id>ConvincingAssistant:InTrouble</id>
+		<id>DeclinedToHelp:assistant</id>
+		<id>Assistant:AfraidOfDirector</id>
+		<id>DirectorBroughtStatue</id>
+		<id>ShowItem:statue</id>
 		<id>PlayerEnterDirectorsOffice</id>
 		<id>Confrontation</id>
+		<id>LearnAboutFounder</id>
+		<id>GameIsActive</id>
+		<id>SolvedVasePuzzle:FoundStatue</id>
 		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>PlayerExpressedSuspicions</id>
 		<id>ExpressedSuspicions:main_cassandra</id>
 		<id>WomanInCamera</id>
 		<id>DirectiorWhereabouts:Jonathan</id>
 		<id>FounderInfo:JonathansSources</id>
+		<id>FoundStatue:Location</id>
+		<id>PlauerUsedJonathansPhone</id>
+		<id>PlayerSnoopedThroughSafe</id>
+		<id>PlayerReaction:CustodianFix</id>
+		<id>PlayerReaction:DirectorFix</id>
+		<id>HelpedPlayerEnter:assistant</id>
+		<id>Cassandra:Alibi</id>
+		<id>CassandrasInjury:RequestedTruth</id>
+		<id>InjuryTruthCause:GardenShrubs</id>
+		<id>TimeCapsule:Explanation</id>
+		<id>DirectorStoleCassandrasKeys</id>
+		<id>PlayerStoleCustodiansKey</id>
+		<id>HelpedPlayerEnter:custodian</id>
+		<id>Knitting:Reason</id>
+		<id>DaughtersBirthday:HowKnit</id>
+		<id>DaughtersBirthday:HowBake</id>
+		<id>CassandrasOutburst:Reason</id>
+		<id>CustodiansFamily:Others</id>
+		<id>Fishing:Tips</id>
+		<id>Knitting:Tips</id>
+		<id>Baking:Tips</id>
+		<id>Writing:Tips</id>
+		<id>Assistant:GaveKeyToCustodian</id>
+		<id>CustodiansPassword</id>
+		<id>ConvincingAssistant:GuiltTripping</id>
+		<id>ConvincingAssistant:DirectorWontMind</id>
+		<id>PlayerSays:AssistantAfraid</id>
+		<id>ConvincingAssistant:OverWorked</id>
+		<id>VisitorAppearance</id>
+		<id>DirectorsFrequentVisitor</id>
+		<id>Inquiry:CassandrasThoughtsOnDirector</id>
+		<id>CassandraThreatenedToQuit </id>
+		<id>SellThePlinth:Founder </id>
 	</ids>
 </Main>

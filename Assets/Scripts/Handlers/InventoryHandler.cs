@@ -39,6 +39,7 @@ public class InventoryHandler : MonoBehaviour
 
         // items
         EventHandler.InteractionTriggered += UseHeldItem;
+        EventHandler.TriggerOnDrop += DropItem;
     }
 
     private void OnDestroy()
@@ -52,6 +53,7 @@ public class InventoryHandler : MonoBehaviour
         EventHandler.StartDialogue -= HideUi;
         // items
         EventHandler.InteractionTriggered -= UseHeldItem;
+        EventHandler.TriggerOnDrop -= DropItem;
     }
 
     // whenever we load a map scene, we reinitialize the world camera of our inventory.
@@ -210,6 +212,25 @@ public class InventoryHandler : MonoBehaviour
                 held.UseItem(interactionParameters[0].ToString());
             }
         }
+    }
+
+    // drops the currently-held item
+    private void DropItem()
+    {
+        EventHandler.Instance.QuickNotification(GENERIC_MSG_ID.ITEM_DROP,
+            new Dictionary<string, string> { { MSG_TAG_TYPE.ITEM_NAME, Inventory[heldItem].itemName }
+        });
+
+        Inventory.RemoveAt(heldItem);
+
+        // if held item is greater than length:
+        if(heldItem >= Inventory.Count)
+        {
+            // modify to be inventory.count-1
+            heldItem = Inventory.Count - 1;
+        }
+
+        RefreshUi();
     }
    
 
