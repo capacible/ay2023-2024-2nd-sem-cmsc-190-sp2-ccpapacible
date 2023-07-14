@@ -119,7 +119,7 @@ public class PuzzleInteraction : InteractionBase
         //is finished? -- notify the player
         if (puzzleProgress.All(p => p == true))
         {
-            EventHandler.Instance.QuickNotification(solvedNotifId, null);
+            EventHandler.Instance.InteractMessage(solvedNotifId, null);
         }
     }
 }

@@ -8,9 +8,9 @@ using System.Linq;
 public class InventoryHandler : MonoBehaviour
 {
     // list of all items
-    private List<ItemBase> Inventory = new List<ItemBase>();
+    private static List<ItemBase> Inventory = new List<ItemBase>();
     // index of our held item
-    private int heldItem = -1;
+    private static int heldItem = -1;
 
     // UI stuff here; click drag the ui stuff into these fields
     public Canvas inventoryCanvas;
@@ -159,6 +159,11 @@ public class InventoryHandler : MonoBehaviour
             // changing the item sprite
             iconImg.sprite = Inventory[heldItem].itemSprite;
         }
+        else
+        {
+            itemName.text = "";
+            iconImg.sprite = null;
+        }
     }
 
     private void HideUi(object[] obj)
@@ -184,6 +189,15 @@ public class InventoryHandler : MonoBehaviour
         }
     }
 
+    public static ItemBase CurrentItem()
+    {
+        if(heldItem == -1)
+        {
+            return null;
+        }
+        return Inventory[heldItem];
+    }
+    
     /// <summary>
     /// Implements the InteractionTriggered delegate
     /// </summary>

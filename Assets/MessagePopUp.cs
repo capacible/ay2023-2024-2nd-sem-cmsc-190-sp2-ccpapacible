@@ -6,8 +6,7 @@ using UnityEngine;
 /// Basically like an interaction with message, but activates by entering the collider range.
 /// </summary>
 public class MessagePopUp : InteractionBase
-{
-    
+{     
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +18,13 @@ public class MessagePopUp : InteractionBase
     {
         Unsubscribe();
     }
-
+            
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.ToLower() == "player")
+        if (collision.tag.ToLower() == "player" && interactable)
         {
-            Debug.Log("handles interaction");
-            // handle interaction
-            EventHandler.Instance.PlayerInteractWith(new object[] { objId, null });
+            // show message
+            EventHandler.Instance.InteractMessage(interactionMsgKey, null);
             // delete self
             EventHandler.Instance.SetNewState(objId, false);
         }

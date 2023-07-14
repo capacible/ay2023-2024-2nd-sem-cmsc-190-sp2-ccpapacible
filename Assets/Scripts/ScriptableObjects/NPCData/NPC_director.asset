@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed631cc7a4217c942b80fa46ddebd199, type: 3}
   m_Name: NPC_director
   m_EditorClassIdentifier: 
-  speakerArchetype: 
+  speakerArchetype: director
   speakerTraits: []
-  inkJSON: {fileID: 4900000, guid: ec45aa8cf6ab7fd48906c625624d3b8b, type: 3}
+  inkJSON: {fileID: 4900000, guid: c8580490565e7184c8b1bde01aa437e1, type: 3}
   dialoguePortraits:
   - {fileID: 21300000, guid: 08807b1dcb9cb1649860f7420822352f, type: 3}
   worldSprite: {fileID: 21300000, guid: c876922117373c94885f9e68deb2142a, type: 3}

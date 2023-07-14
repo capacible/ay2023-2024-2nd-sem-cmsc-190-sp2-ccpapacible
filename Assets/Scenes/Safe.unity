@@ -2329,6 +2329,18 @@ MonoBehaviour:
   - {fileID: -632566258, guid: 9a3f2a97534061f4b8edb3b7db0b36a2, type: 3}
   - {fileID: -889856818, guid: 9a3f2a97534061f4b8edb3b7db0b36a2, type: 3}
   sceneName: Safe
+  rewardActivateNewObjects:
+  - InteractionBase_Drop-south_x
+  - InteractionBase_drop-north_x
+  - InteractionBase_drop-east_x
+  - InteractionBase_drop-west_x
+  - ItemInteraction_Floor2_wood_x
+  - ItemInteraction_Floor2_dagger_x
+  - ItemInteraction_Floor2_bowl_x
+  - ItemInteraction_Floor2_tablet_x
+  - InteractionBase_VasePuzzleMain_x
+  rewardAddEventToGlobal:
+  - SolvedSafePuzzle
 --- !u!4 &1531734225
 Transform:
   m_ObjectHideFlags: 0
