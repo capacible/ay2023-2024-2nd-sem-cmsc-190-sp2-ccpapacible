@@ -85,7 +85,7 @@ public static class Director
     // dicct of map events that characters from that map rembr
     private static Dictionary<string, List<int>> mapEvents = new Dictionary<string, List<int>>();
     // each unique speaker in the world
-    public static Dictionary<string, Speaker> allSpeakers { get; private set; } = new Dictionary<string, Speaker>();
+    public static Dictionary<string, Speaker> allSpeakers = new Dictionary<string, Speaker>();
     // list of topics
     private static Dictionary<string, double> topicList = new Dictionary<string, double>();
     // defaults of each filler archetype to clone

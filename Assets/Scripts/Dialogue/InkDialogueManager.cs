@@ -10,11 +10,26 @@ using System.Linq;
 /// </summary>
 public static class InkDialogueManager
 {
+    // FILE NAMES
+    private const string JONATHAN_ENDING = "";
+    private const string CASS_ENDING = "";
+    private const string DIRECTOR_ENDING = "";
+
+    // scene names
+    private const string TITLE_SCREEN = "";
+    private const string NARRATION_SCENE = "";
+    // other
+    private const string ACCUSED_DONE = "DONE_ACCUSE";
     // constant tags so we don't forget the specific tag.
     private const string DISPLAY_NAME_TAG = "display_name";
     private const string PORTRAIT_EMOTE_TAG = "portrait";
-    private const string ADD_EVENT_TO_PLAYER_TAG = "add_to_player";
     private const string ARCHETYPE_TAG = "archetype";
+    // effect tags
+    private const string ACCUSE_TAG = "accuse";
+    private const string MODIFY_REL_TAG = "effect_modify_rel";
+    private const string ADD_EVENT_TO_PLAYER_TAG = "effect_add_to_player";  // add to player memory
+    private const string SET_REL_VALUE_TAG = "effect_set_rel";              // sets the relationship value
+                                                                            // tag:archetype!value
 
     public static bool isActive;
 
@@ -25,7 +40,10 @@ public static class InkDialogueManager
         { DISPLAY_NAME_TAG, "" },
         { PORTRAIT_EMOTE_TAG, "" },
         { ADD_EVENT_TO_PLAYER_TAG, "" },
-        { ARCHETYPE_TAG, "" }
+        { MODIFY_REL_TAG, "" },
+        { SET_REL_VALUE_TAG, "" },
+        { ARCHETYPE_TAG, "" },
+        { ACCUSE_TAG, "false" }
     };
 
     public static Story currentDialogue;   // holds our current dialogue.
@@ -89,13 +107,7 @@ public static class InkDialogueManager
                 ParseTags();
 
             } while (currentDialogue.currentChoices.Count == 0 && currentDialogue.canContinue);
-
-            // add certain event to player memory
-            if(currentDTags[ADD_EVENT_TO_PLAYER_TAG] != "")
-            {
-                Director.AddToSpeakerMemory(DirectorConstants.PLAYER_STR, currentDTags[ADD_EVENT_TO_PLAYER_TAG]);
-            }
-
+            
             // we join all the acquired lines.
             return new string[] { string.Join("\n", lines),  currentDTags[PORTRAIT_EMOTE_TAG] };
         }
@@ -129,6 +141,11 @@ public static class InkDialogueManager
     /// <returns></returns>
     public static void ParseTags()
     {
+        // reset current dtag for accuse
+        // this is to ensure that when we go and talk to an npc using the inkdmanager, we dont accidentally trigger
+        // the ending whiler responding to them.
+        currentDTags[ACCUSE_TAG] = "false";
+
         // if empty...
         if (currentDialogue.currentTags.Count == 0)
         {
@@ -136,25 +153,56 @@ public static class InkDialogueManager
         }
         else
         {
-
+            // parsing and modifying the current dialogue tags.
             foreach (string tag in currentDialogue.currentTags)
             {
                 // we get the tag in question, separate it by the colon(:)
-                string[] tags = tag.Split(":");
+                string[] tagValPair = tag.Split(":", System.StringSplitOptions.RemoveEmptyEntries);
 
                 // we first have to check if it's a valid tag.
-                if (currentDTags.ContainsKey(tags[0]))
+                if (currentDTags.ContainsKey(tagValPair[0]))
                 {
                     // access the dict entry of the tag and overwrite its old value with the new one.
-                    currentDTags[tags[0]] = tags[1];
+                    currentDTags[tagValPair[0]] = tagValPair[1];
                 }
                 else
                 {
-                    Debug.LogWarning("No such tag as " + tags[0] + ", maybe you misspelled it or did not define it?");
+                    Debug.LogWarning("No such tag as " + tagValPair[0] + ", maybe you misspelled it or did not define it?");
                 }
 
             }
 
+            // parse dtag effects
+            //add certain event to player's memory
+            if (currentDialogue.currentTags.Contains(ADD_EVENT_TO_PLAYER_TAG))
+            {
+                // add the said event to the player's memory
+                Director.AddToSpeakerMemory(
+                    DirectorConstants.PLAYER_STR,
+                    currentDTags[ADD_EVENT_TO_PLAYER_TAG]
+                );
+            }
+
+            // set relationship to specific value
+            if (currentDialogue.currentTags.Contains(SET_REL_VALUE_TAG))
+            {
+                // 0 is the archetype, 1 is the effect value
+                string[] effectVal = currentDTags[SET_REL_VALUE_TAG].Split('!');
+
+                if (int.TryParse(effectVal[1], out int value))
+                    Director.allSpeakers[effectVal[0]].relWithPlayer = value;
+            }
+
+            // modify (+/-) relationship effect
+            if (currentDialogue.currentTags.Contains(MODIFY_REL_TAG))
+            {
+                string[] effectVal = currentDTags[MODIFY_REL_TAG].Split('!');
+
+                if(int.TryParse(effectVal[1], out int mod))
+                {
+                    Director.allSpeakers[effectVal[0]].relWithPlayer += mod;
+                }
+            }
         }
     }
 
@@ -169,7 +217,41 @@ public static class InkDialogueManager
         // sets the new path of the "story" based on ur choice
         currentDialogue.ChooseChoiceIndex(selection);
 
+        // check if our previous npc dialogue triggers the ACCUSE phase.
+        if(currentDTags[ACCUSE_TAG]== "true")
+        {
+            AccusePhase(selection);
+        }
+
         // returns the response.
         return NPCLine();
+    }
+
+    /// <summary>
+    /// Calls the narration scene given pur selected choice.
+    /// </summary>
+    /// <param name="selection"></param>
+    public static void AccusePhase(int selection)
+    {
+
+        // accuse phase
+        if (selection == 0)
+        {
+            // jonathan
+            // load narration scene
+            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, JONATHAN_ENDING, TITLE_SCREEN });
+        }
+        else if (selection == 1)
+        {
+            // jonathan
+            // load narration scene
+            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, CASS_ENDING, TITLE_SCREEN });
+        }
+        else if ( selection == 2)
+        {
+            // jonathan
+            // load narration scene
+            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, DIRECTOR_ENDING, TITLE_SCREEN });
+        }
     }
 }

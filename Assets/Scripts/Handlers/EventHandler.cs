@@ -432,9 +432,12 @@ public class EventHandler : MonoBehaviour
     /// </summary>
     /// <param name="sceneName">Name of scene to switch to</param>
     /// <param name="transitionTo">The exact location or transition object name</param>
-    public void TransitionToScene(string sceneName, string transitionTo)
+    public void TransitionToScene(string sceneName, string transitionTo=null)
     {
-        LoadMapScene?.Invoke(sceneName, new object[] { transitionTo });
+        if (transitionTo != null)
+            LoadMapScene?.Invoke(sceneName, new object[] { transitionTo });
+        else
+            LoadMapScene?.Invoke(sceneName, null);
     }
 
     /// <summary>
@@ -446,6 +449,11 @@ public class EventHandler : MonoBehaviour
     public void LoadedMapScene(object[] param)
     {
         MapSceneLoaded?.Invoke(param);
+    }
+
+    public void LoadUi(string uiScene, object[] param)
+    {
+        LoadUiScene?.Invoke(uiScene, param);
     }
 
     /// <summary>

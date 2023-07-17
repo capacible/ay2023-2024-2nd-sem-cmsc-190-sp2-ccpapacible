@@ -44,65 +44,50 @@ public class VasePuzzlePartInteraction : InteractionBase
         }
         else if (objId.Equals(parameters[0].ToString()) && useableItems.Contains(toDrop))
         {
-            // if it's a valid item to drop
-            if (useableItems.Contains(toDrop))
-            {
-                if (!occupied)
-                {
-                    // drop the item without any fanfare
-                    DropItem(toDrop);
-                }
-                else
-                {
-                    // re-add the previous item to the inventory
-                    EventHandler.Instance.PickupItem(objId, heldItem);
-
-                    if (toDrop != null)
-                    {
-                        // replace held item with new item (toDrop)
-                        heldItem = toDrop;
-                        // change the rendered sprite
-                        spriterenderer.sprite = heldItem.itemSprite;
-                        // remove the item current from inventory
-                        EventHandler.Instance.DropItem();
-                    }
-                    else
-                    {
-                        // pick up and change
-                        heldItem = null;
-                        // change rendered item to null?
-                        spriterenderer.sprite = null;
-                    }
-
-                }
-
-                // check if this item that is dropped satisfies our required item
-                if (toDrop.itemId == requiredItemId)
-                {
-                    // if yes, we invoke puzzle progress to update the puzzle interaction of the vase.
-                    PuzzleInteraction.OnPuzzleProgress?.Invoke(mainPuzzleId, puzzlePartNum, false);
-                }
-            }
-            else
-            {
-                EventHandler.Instance.InteractMessage(INVALID_ITEM, null);
-            }
+            PlaceItem(toDrop);
         }
 
     }
 
     /// <summary>
     /// Placing the item
-    ///     ISSUE: we use item effect in order to handle this interaction -- thus, if there is no item in inventory, the item
-    ///     cannot be picked up
     /// </summary>
-    /// <param name="parameters">
-    ///     0 object name
-    ///     1 item
-    ///     2 special
-    /// </param>
-    private void PlaceItem(object[] parameters)
+    /// <param name="toDrop"> item to drop into floor </param>
+    private void PlaceItem(ItemBase toDrop)
     {
+        // if it's a valid item to drop
+        if (useableItems.Contains(toDrop))
+        {
+            if (!occupied)
+            {
+                // drop the item without any fanfare
+                DropItem(toDrop);
+            }
+            else
+            {
+                // re-add the previous item to the inventory
+                EventHandler.Instance.PickupItem(objId, heldItem);
+                
+                // replace held item with new item (toDrop)
+                heldItem = toDrop;
+                // change the rendered sprite
+                spriterenderer.sprite = heldItem.itemSprite;
+                // remove the item current from inventory
+                EventHandler.Instance.DropItem();
+
+            }
+
+            // check if this item that is dropped satisfies our required item
+            if (toDrop.itemId == requiredItemId)
+            {
+                // if yes, we invoke puzzle progress to update the puzzle interaction of the vase.
+                PuzzleInteraction.OnPuzzleProgress?.Invoke(mainPuzzleId, puzzlePartNum, false);
+            }
+        }
+        else
+        {
+            EventHandler.Instance.InteractMessage(INVALID_ITEM, null);
+        }
     }
 
     private void DropItem(ItemBase toDrop)
