@@ -132,3 +132,7 @@ no_receiver,,,,Knitting:Tips,,BefriendingCustodian,,,,,custodian,I don't have an
 no_receiver,,,,Baking:Tips,,BefriendingCustodian,,,,,custodian,If you're new{comma} I'd suggest following the recipe{comma} I guess. Baking is an exact science.,,,,,,,,
 no_receiver,,,,Writing:Tips,,BefriendingCustodian,,,,,custodian,Sorry{comma} I don't have any tips.,,,,,,,,
 no_receiver,,,,Fishing:Tips,,BefriendingCustodian,,,,,custodian,Well{comma} there's not much I can give you as a tip. It's just my hobby{comma} after all.,,,,,,,,
+no_receiver,,,,,Commotion,StartConversation,,,,Floor2,custodian,You should probably check that out.,,,,,,,,TRUE
+no_receiver,,,,,Confrontation,StartConversation,friendly/polite,,,Floor2,,Hey there. Anything new?,,,,,,,,
+no_receiver,,,,,Confrontation,StartConversation,gruff/impatient,,,Floor2,,Got something more to say?,,,,,,,,
+no_receiver,,,,,Confrontation,StartConversation,eloquent/frazzled,,,Floor2,,Did you find out anything else?,,,,,,,,

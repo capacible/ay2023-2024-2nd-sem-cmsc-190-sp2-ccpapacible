@@ -1,4 +1,7 @@
 ids
+SolvedSafePuzzle
+PlayerDeadDog
+PlayerDivorced
 ArtifactNotFound
 DirectorWhereabouts:main_cass
 DirectorWhereabouts:main_jonathan
@@ -103,6 +106,9 @@ DeclinedToHelp:assistant
 Assistant:AfraidOfDirector
 DirectorBroughtStatue
 ShowItem:statue
+FounderIdentity:Beth:Confirmed
+VoicemailFromWife
+PlayerAskedAboutWife
 PlayerEnterDirectorsOffice
 Confrontation
 LearnAboutFounder
@@ -116,7 +122,9 @@ WomanInCamera
 DirectiorWhereabouts:Jonathan
 FounderInfo:JonathansSources
 FoundStatue:Location
-PlauerUsedJonathansPhone
+UsedToBeFriendsWithJonathan
+PlayerAskedAboutWife:Reason:Truth
+PlayerAskedAboutWife:Reason:Lie
 PlayerSnoopedThroughSafe
 PlayerReaction:CustodianFix
 PlayerReaction:DirectorFix
@@ -126,6 +134,7 @@ CassandrasInjury:RequestedTruth
 InjuryTruthCause:GardenShrubs
 TimeCapsule:Explanation
 DirectorStoleCassandrasKeys
+UsedToBeFriendsWithCassandra
 PlayerStoleCustodiansKey
 HelpedPlayerEnter:custodian
 Knitting:Reason
@@ -137,6 +146,7 @@ Fishing:Tips
 Knitting:Tips
 Baking:Tips
 Writing:Tips
+Commotion
 Assistant:GaveKeyToCustodian
 CustodiansPassword
 ConvincingAssistant:GuiltTripping
@@ -148,3 +158,4 @@ DirectorsFrequentVisitor
 Inquiry:CassandrasThoughtsOnDirector
 CassandraThreatenedToQuit 
 SellThePlinth:Founder 
+UsedToBeFriendsWithAssistant

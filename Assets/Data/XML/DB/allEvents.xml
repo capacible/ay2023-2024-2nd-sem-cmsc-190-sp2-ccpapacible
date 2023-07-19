@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Main>
 	<ids>
+		<id>SolvedSafePuzzle</id>
+		<id>PlayerDeadDog</id>
+		<id>PlayerDivorced</id>
 		<id>ArtifactNotFound</id>
 		<id>DirectorWhereabouts:main_cass</id>
 		<id>DirectorWhereabouts:main_jonathan</id>
@@ -105,6 +108,9 @@
 		<id>Assistant:AfraidOfDirector</id>
 		<id>DirectorBroughtStatue</id>
 		<id>ShowItem:statue</id>
+		<id>FounderIdentity:Beth:Confirmed</id>
+		<id>VoicemailFromWife</id>
+		<id>PlayerAskedAboutWife</id>
 		<id>PlayerEnterDirectorsOffice</id>
 		<id>Confrontation</id>
 		<id>LearnAboutFounder</id>
@@ -117,7 +123,9 @@
 		<id>DirectiorWhereabouts:Jonathan</id>
 		<id>FounderInfo:JonathansSources</id>
 		<id>FoundStatue:Location</id>
-		<id>PlauerUsedJonathansPhone</id>
+		<id>UsedToBeFriendsWithJonathan</id>
+		<id>PlayerAskedAboutWife:Reason:Truth</id>
+		<id>PlayerAskedAboutWife:Reason:Lie</id>
 		<id>PlayerSnoopedThroughSafe</id>
 		<id>PlayerReaction:CustodianFix</id>
 		<id>PlayerReaction:DirectorFix</id>
@@ -127,6 +135,7 @@
 		<id>InjuryTruthCause:GardenShrubs</id>
 		<id>TimeCapsule:Explanation</id>
 		<id>DirectorStoleCassandrasKeys</id>
+		<id>UsedToBeFriendsWithCassandra</id>
 		<id>PlayerStoleCustodiansKey</id>
 		<id>HelpedPlayerEnter:custodian</id>
 		<id>Knitting:Reason</id>
@@ -138,6 +147,7 @@
 		<id>Knitting:Tips</id>
 		<id>Baking:Tips</id>
 		<id>Writing:Tips</id>
+		<id>Commotion</id>
 		<id>Assistant:GaveKeyToCustodian</id>
 		<id>CustodiansPassword</id>
 		<id>ConvincingAssistant:GuiltTripping</id>
@@ -149,5 +159,6 @@
 		<id>Inquiry:CassandrasThoughtsOnDirector</id>
 		<id>CassandraThreatenedToQuit </id>
 		<id>SellThePlinth:Founder </id>
+		<id>UsedToBeFriendsWithAssistant</id>
 	</ids>
 </Main>

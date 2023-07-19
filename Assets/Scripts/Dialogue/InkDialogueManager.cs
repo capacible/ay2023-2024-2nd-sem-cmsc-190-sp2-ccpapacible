@@ -27,6 +27,7 @@ public static class InkDialogueManager
     // effect tags
     private const string ACCUSE_TAG = "accuse";
     private const string MODIFY_REL_TAG = "effect_modify_rel";
+    private const string ADD_TO_GLOBAL_TAG = "effect_add_to_global";
     private const string ADD_EVENT_TO_PLAYER_TAG = "effect_add_to_player";  // add to player memory
     private const string SET_REL_VALUE_TAG = "effect_set_rel";              // sets the relationship value
                                                                             // tag:archetype!value
@@ -45,7 +46,8 @@ public static class InkDialogueManager
         { SET_REL_VALUE_TAG, "" },
         { ARCHETYPE_TAG, "" },
         { ACCUSE_TAG, "false" },
-        { SET_INK_MANAGER_TAG, "" }
+        { SET_INK_MANAGER_TAG, "" },
+        { ADD_TO_GLOBAL_TAG, "" }
     };
 
     public static Story currentDialogue;   // holds our current dialogue.
@@ -91,6 +93,14 @@ public static class InkDialogueManager
         }
     }
 
+    public static bool ChoicesAvailable()
+    {
+        if (currentDialogue.currentChoices.Count > 0)
+            return true;
+
+        return false;
+    }
+
     /// <summary>
     /// Returns an NPC line.
     /// </summary>
@@ -110,10 +120,11 @@ public static class InkDialogueManager
                 lines.Add(currentDialogue.Continue());
                 ParseTags();
 
-            } while (currentDialogue.currentChoices.Count == 0 && currentDialogue.canContinue);
+            } while (!ChoicesAvailable() && currentDialogue.canContinue 
+                && (currentDTags.All(pair => currentDialogue.currentTags.Contains(pair.Key.Concat(pair.Value)))) );
             
             // we join all the acquired lines.
-            return new string[] { string.Join("\n", lines),  currentDTags[PORTRAIT_EMOTE_TAG] };
+            return new string[] { string.Join("\n", lines),  currentDTags[PORTRAIT_EMOTE_TAG], currentDTags[ARCHETYPE_TAG] };
         }
 
         return new string[] { "", currentDTags[PORTRAIT_EMOTE_TAG], currentDTags[ARCHETYPE_TAG] };
@@ -186,6 +197,13 @@ public static class InkDialogueManager
                     DirectorConstants.PLAYER_STR,
                     currentDTags[ADD_EVENT_TO_PLAYER_TAG]
                 );
+            }
+
+            // add an event globally
+            if (currentDialogue.currentTags.Contains(ADD_TO_GLOBAL_TAG))
+            {
+                // add the said event to the player's memory
+                Director.AddEventString(currentDTags[ADD_TO_GLOBAL_TAG]);
             }
 
             // set relationship to specific value

@@ -307,7 +307,7 @@ Do your job now, I'm busy.</dialogue>
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>That's bad news... You should ask the assistant, maybe she knows where he is.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlauerUsedJonathansPhone</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
 			</relatedEvents>
@@ -337,7 +337,7 @@ Do your job now, I'm busy.</dialogue>
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>I'm sorry. I don't know where the director is.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlauerUsedJonathansPhone</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2595,6 +2595,94 @@ And anyway, I had nothing to do with that.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I have a theory for who she could be, though... Do you reckon that it's the founder that Director Virgil always fusses about?
+Either way, let me know you confirm her identity.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WhoIsBeth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WhoIsBeth:Cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I knew it! I knew there was something suspicious about the way the Director talks about the founder sometimes.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FounderIdentity:Beth:Confirmed</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>Hey, how are you holding up?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>UsedToBeFriendsWithCassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
 			</DialogueEffect>
 		</DialogueLine>
 	</DialogueLines>

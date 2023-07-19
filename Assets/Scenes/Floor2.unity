@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: objId
       value: NPCInteraction_Floor2_assistant_x
       objectReference: {fileID: 0}
+    - target: {fileID: 5996489036615963552, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
+      propertyPath: npcDisplayName
+      value: Annie
+      objectReference: {fileID: 0}
     - target: {fileID: 5996489036615963555, guid: 21283aa450889cc4b8af1eee10a07cfd, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1413,6 +1417,14 @@ PrefabInstance:
     - target: {fileID: -2328634900527621400, guid: 75905b73df5878742a5f388e227c8270, type: 3}
       propertyPath: interactionMsgKey
       value: director_telephone_voicemail
+      objectReference: {fileID: 0}
+    - target: {fileID: -2328634900527621400, guid: 75905b73df5878742a5f388e227c8270, type: 3}
+      propertyPath: addToPlayerMemory.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2328634900527621400, guid: 75905b73df5878742a5f388e227c8270, type: 3}
+      propertyPath: addToPlayerMemory.Array.data[0]
+      value: VoicemailFromWife
       objectReference: {fileID: 0}
     - target: {fileID: 3183986865035245432, guid: 75905b73df5878742a5f388e227c8270, type: 3}
       propertyPath: m_Name
@@ -11652,6 +11664,14 @@ PrefabInstance:
     - target: {fileID: 769775062722400459, guid: 3265f0ee682d8d74a8dccfd1c327fdb1, type: 3}
       propertyPath: interactionMsgKey
       value: outside_storage_after_vase
+      objectReference: {fileID: 0}
+    - target: {fileID: 769775062722400459, guid: 3265f0ee682d8d74a8dccfd1c327fdb1, type: 3}
+      propertyPath: addToCurrentMapEventList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 769775062722400459, guid: 3265f0ee682d8d74a8dccfd1c327fdb1, type: 3}
+      propertyPath: addToCurrentMapEventList.Array.data[0]
+      value: Commotion
       objectReference: {fileID: 0}
     - target: {fileID: 2503247315046163548, guid: 3265f0ee682d8d74a8dccfd1c327fdb1, type: 3}
       propertyPath: m_Size.y

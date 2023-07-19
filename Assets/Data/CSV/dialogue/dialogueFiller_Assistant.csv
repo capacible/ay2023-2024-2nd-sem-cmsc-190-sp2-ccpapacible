@@ -74,3 +74,8 @@ no_receiver,,,,,,EndConversation,,,,,assistant,Goodbye.,,,,,,,,TRUE
 no_receiver,,,,ShowItem:statue,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,assistant,Woah! The statue is more beautiful than I thought. Where did you find it?,,,,,,,,
 no_receiver,,,,ShowItem:statue/FoundStatue:Location,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,assistant,The statue is so pretty... I wonder who brought this in{comma} though.,,,,,,,,
 no_receiver,,,,PlayerAskedDirectorWhereabouts/ArtifactNotFound,,MissingArtifact,,,,,assistant,What?! The artifact is gone?! We have to tell the director ASAP!,,,,,,,,
+no_receiver,,,,UsedToBeFriendsWithAssistant,,StartConversation,,,,,assistant,Welcome back{comma} Enid. We missed you.,,,,,,,,
+no_receiver,,,,,Commotion,StartConversation,,,,,assistant,Oh no... They're fighting again...,,,,,,,,TRUE
+no_receiver,,,,,Confrontation,StartConversation,shy/quiet,,,,assistant,I'm glad the fighting's over... How can I help you?,,,,,,,,
+no_receiver,,,,,Confrontation,StartConversation,loner,,,,assistant,Is there anything else you need?,,,,,,,,
+no_receiver,,,,,Confrontation,StartConversation,friendly,,,,assistant,If there's any information you want to know{comma} feel free to ask me.,,,,,,,,

@@ -2471,5 +2471,152 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<exit>false</exit>
 			</DialogueEffect>
 		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Welcome back, Enid. We missed you.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>UsedToBeFriendsWithAssistant</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Oh no... They're fighting again...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Commotion</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>shy</traitItem>
+				<traitItem>quiet</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>I'm glad the fighting's over... How can I help you?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Is there anything else you need?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>If there's any information you want to know, feel free to ask me.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
 	</DialogueLines>
 </LineCollection>

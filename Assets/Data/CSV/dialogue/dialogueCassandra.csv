@@ -9,8 +9,8 @@ no_receiver,1,2,neut,ArtifactNotFound/PlayerExpressedSuspicions,,MissingArtifact
 no_receiver,1,2,good,ArtifactNotFound/PlayerExpressedSuspicions,,MissingArtifact/EndConversation,,neut,sad,,main_cassandra,You know I won't do this... are you implying something?{next}Just go.,,,,,,,,TRUE
 no_receiver,1,2,bad,ArtifactNotFound/PlayerExpressedSuspicions,,MissingArtifact/EndConversation,,neut,angry,,main_cassandra,I'd prefer that you not throw around baseless accusations.{next}Do your job now{comma} I'm busy.,,,,,,,,TRUE
 no_receiver,1,1,,PlayerCanUseJonathansPhone,,LookingForDirector,,,happy,,main_cassandra,That's good. Please call him ASAP. We already don't have the plinth's statue. If we lose the plinth...,,,,,,,,
-no_receiver,1,2,,PlauerUsedJonathansPhone/DirectorVoicemail/PlayerAskedDirectorWhereabouts,,LookingForDirector,,,sad,,main_cassandra,That's bad news... You should ask the assistant{comma} maybe she knows where he is.,,,,,,,,
-no_receiver,1,1,,PlauerUsedJonathansPhone/DirectorVoicemail,,LookingForDirector,,,sad,,main_cassandra,I'm sorry. I don't know where the director is.,,,,,,,,
+no_receiver,1,2,,PlayerUsedJonathansPhone/DirectorVoicemail/PlayerAskedDirectorWhereabouts,,LookingForDirector,,,sad,,main_cassandra,That's bad news... You should ask the assistant{comma} maybe she knows where he is.,,,,,,,,
+no_receiver,1,1,,PlayerUsedJonathansPhone/DirectorVoicemail,,LookingForDirector,,,sad,,main_cassandra,I'm sorry. I don't know where the director is.,,,,,,,,
 no_receiver,1,2,,DirectorMissing/PlayerDemeanor:Nervous,,DirectorMissing/StartConversation,,,,,main_cassandra,C-calm down. First thing's first{comma} maybe you can go investigate the director's office for clues?,,,NextSteps:Cass:GoToOffice,NextSteps:Cass:GoToOffice,,,,TRUE
 no_receiver,1,2,good,DirectorMissing/PlayerDemeanor:Nervous,,DirectorMissing/StartConversation,,,,,main_cassandra,Hey{comma} calm down. We'll be able to deal with this. I think we should investigate the director's office.,,,NextSteps:Cass:GoToOffice,NextSteps:Cass:GoToOffice,,,,
 no_receiver,1,1,,DirectorMissing,,DirectorMissing,,,sad,,main_cassandra,I suppose so. What do you plan on doing?,,,,,,,,
@@ -85,3 +85,6 @@ no_receiver,,,,FoundStatue:Location/ShowItem:statue,SolvedVasePuzzle:FoundStatue
 no_receiver,,,,DirectorBroughtStatue,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,main_cassandra,Really? But the plinth is still missing...,,,,,,,,
 no_receiver,,2,,DirectorBroughtStatue,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,main_cassandra,W-well{comma} the plinth is still missing{comma} isn't it?! So there must be a reason he stole the plinth.,,,,,,,,
 no_receiver,,1,,,,EndConversation,,,,,main_cassandra,Let me know if there's anything you need.,,,,,,,,TRUE
+no_receiver,,,,WhoIsBeth,,CardFromBeth,,,,,main_cassandra,I have a theory for who she could be{comma} though... Do you reckon that it's the founder that Director Virgil always fusses about?{next}Either way{comma} let me know you confirm her identity.,,,WhoIsBeth:Cassandra,,,,,
+no_receiver,,,,FounderIdentity:Beth:Confirmed/WhoIsBeth:Cassandra,,Investigation:Director,,,,,main_cassandra,I knew it! I knew there was something suspicious about the way the Director talks about the founder sometimes.,,,,,,,,
+no_receiver,,,,UsedToBeFriendsWithCassandra,,StartConversation,,,,,main_cassandra,Hey{comma} how are you holding up?,,,,,,,,

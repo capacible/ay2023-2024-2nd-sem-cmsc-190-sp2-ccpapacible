@@ -243,6 +243,11 @@ public class DialogueUi : MonoBehaviour
             // more to say.
             EventHandler.Instance.ConcludeDialogue();
         }
+        else if (InkDialogueManager.isActive && !InkDialogueManager.ChoicesAvailable())
+        {
+            // if no choices available, we get more npc lines
+            EventHandler.Instance.DisplayNPCLine(-1);
+        }
         else
         {
             // clear dialogue text and set new char name

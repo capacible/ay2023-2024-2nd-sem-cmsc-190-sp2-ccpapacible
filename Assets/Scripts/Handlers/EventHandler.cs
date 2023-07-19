@@ -210,7 +210,18 @@ public class EventHandler : MonoBehaviour
     /// <param name="selectedLine"></param>
     public void DisplayNPCLine(int selectedLine)
     {
-        if (Director.isActive)
+        if (selectedLine == -1 && InkDialogueManager.isActive)
+        {
+            string[] lineData = InkDialogueManager.NPCLine();
+
+            FoundNPCLine?.Invoke(new object[]{
+                InkDialogueManager.ActiveNPCDisplayName(),
+                lineData[0],
+                lineData[1],
+                lineData[2]
+            });
+        }
+        else if (Director.isActive)
         {
             Debug.Log("Director");
             string[] lineData = Director.GetNPCLine(selectedLine);

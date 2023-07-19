@@ -316,8 +316,14 @@ public static class Director
     {
         int eventId = NumKeyLookUp(eventName, refDict: allEvents);
 
-        if(globalEvents.Count > 0 && mapEvents[currentMap].Count > 0 && globalEvents.Union(mapEvents[currentMap]).Contains(eventId))
+        if(globalEvents.Count == 0 && mapEvents[currentMap].Count == 0)
         {
+            return false;
+        }
+
+        if(globalEvents.Count >= 0 && mapEvents[currentMap].Count >= 0 && globalEvents.Union(mapEvents[currentMap]).Contains(eventId))
+        {
+            Debug.Log("event " + eventName + " has occurred in game");
             return true;
         }
 

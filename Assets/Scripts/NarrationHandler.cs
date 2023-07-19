@@ -118,6 +118,13 @@ public class NarrationHandler : MonoBehaviour
             // show narration
             ShowNarration(line);
         }
+        else if (InkDialogueManager.isActive && !InkDialogueManager.ChoicesAvailable())
+        {
+            // if no choices available, we get more npc lines
+            string[] l = InkDialogueManager.NPCLine();
+            dLines = new Queue<string>(l[0].Split('\n', System.StringSplitOptions.RemoveEmptyEntries));
+            ShowNarration(dLines.Dequeue());
+        }
         else if (!InkDialogueManager.isActive)
         {
             Debug.Log("The ink manager is no longer active. Deactivating the narration scene...");

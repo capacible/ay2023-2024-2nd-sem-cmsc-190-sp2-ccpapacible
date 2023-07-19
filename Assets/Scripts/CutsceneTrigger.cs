@@ -13,8 +13,9 @@ public class CutsceneTrigger : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(validTriggers.All(ev => Director.EventHasOccurred(ev)) && collision.tag.ToLower() == "player")
+        if(validTriggers.All(ev => Director.EventHasOccurred(ev)) && collision.gameObject.tag == "Player")
         {
+            Debug.Log("activating cutscene...");
             // trigger cutscene
             cutscene.StartCutscene();
         }

@@ -609,7 +609,7 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>PlauerUsedJonathansPhone</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerUsedJonathansPhone</addToNPCMemoryItem>
 					<addToNPCMemoryItem>DirectorVoicemail</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
@@ -7046,6 +7046,203 @@
 					<addToNPCMemoryItem>DirectorBroughtStatue</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>any_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I found out that Beth is the name of the founder.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FounderIdentity:Beth:Confirmed</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_cassandra</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>You were right -- Beth is the name of the museum's founder.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>FounderIdentity:Beth:Confirmed</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_jonathan</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Do you happen to know anything about director Virgil's relationship with his wife?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>VoicemailFromWife</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutWife</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerAskedAboutWife</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_jonathan</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I just heard a little voicemail while investigating the director's office. They seem to have some marital troubles. Do you happen to know why?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>VoicemailFromWife</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWife</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>VoicemailFromWife</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedAboutWife:Reason:Truth</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>VoicemailFromWife</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>PlayerAskedAboutWife:Reason:Truth</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_jonathan</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Just a shot in the dark. I know you're close with the director, so I was wondering if you knew anything.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>VoicemailFromWife</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWife</relatedEventsItem>
+				<relatedEventsItem>FriendsWithDirector:Jonathan</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>VoicemailFromWife</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedAboutWife:Reason:Lie</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>VoicemailFromWife</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>PlayerAskedAboutWife:Reason:Lie</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_jonathan</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Director</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>Just a shot in the dark.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>VoicemailFromWife</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWife</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>VoicemailFromWife</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedAboutWife:Reason:Lie</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>VoicemailFromWife</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>PlayerAskedAboutWife:Reason:Lie</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>

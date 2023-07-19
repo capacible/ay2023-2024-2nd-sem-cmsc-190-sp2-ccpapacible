@@ -4337,5 +4337,134 @@ I didn't see any wounds on her, though.</dialogue>
 				<exit>false</exit>
 			</DialogueEffect>
 		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>You should probably check that out.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Commotion</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+				<traitItem>polite</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId></speakerId>
+			<dialogue>Hey there. Anything new?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>gruff</traitItem>
+				<traitItem>impatient</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId></speakerId>
+			<dialogue>Got something more to say?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+				<traitItem>frazzled</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor2</locationsItem>
+			</locations>
+			<speakerId></speakerId>
+			<dialogue>Did you find out anything else?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
 	</DialogueLines>
 </LineCollection>
