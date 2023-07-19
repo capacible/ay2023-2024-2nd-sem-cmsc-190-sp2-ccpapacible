@@ -222,5 +222,33 @@
 				</Message>
 			</Messages>
 		</Interaction>
+		<Interaction interaction_id="wrong_item">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Hmmm... This won't work.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="flower_pickup">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This flower... it looks like the ones from the bushes outside.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="garden_bed">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Between the bushes, I can see a disturbed patch of soil.</Content>
+						<Content>I should be careful when looking around. The bushes are incredibly thorny.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
 	</Interactions>
 </AllInteractions>

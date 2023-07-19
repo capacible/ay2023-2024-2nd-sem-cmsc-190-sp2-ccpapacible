@@ -23,3 +23,6 @@ broken_cabinet,The cabinet is broken; steel protrudes from the door. Be careful{
 bathroom_trash,A trash can. Inside is... a bloody tissue.
 guard_booth_book,There's a book here--'The Adventures of the Arbiter.' It appears to be about the historical events that the museum will make an exhibit on.
 outside_storage_after_vase,There seems to be a commotion in the director's office. Better check it out.
+wrong_item,Hmmm... This won't work.
+flower_pickup,This flower... it looks like the ones from the bushes outside.
+garden_bed,Between the bushes{comma} I can see a disturbed patch of soil.\nI should be careful when looking around. The bushes are incredibly thorny.

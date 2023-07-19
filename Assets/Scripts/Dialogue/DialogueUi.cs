@@ -41,7 +41,9 @@ public class DialogueUi : MonoBehaviour
     // list of portraits that current npc will use.
     private List<Sprite> portraitList;
     private Dictionary<string, Sprite[]> npcPortraits; // string display name of npc data, and the various sprites
-    
+    private string currentArchetype;
+
+
     void Awake()
     {
         // subscriptions
@@ -129,6 +131,7 @@ public class DialogueUi : MonoBehaviour
         {
             // set our current sprite
             charPortrait.sprite = npcPortraits[npc[0].speakerArchetype][0];
+            currentArchetype = npc[0].speakerArchetype;
         
             // animate dialogue box entrance
             anim.SetBool("isActive", true);
@@ -194,6 +197,9 @@ public class DialogueUi : MonoBehaviour
         // we change the text of the choice buttons to be the choicces we acquired from the manager.
         for (int i = 0; i < allChoices.Count; i++)
         {
+            if (allChoices[i] == "")
+                continue;
+
             Debug.Log(i);
             // set the button as active
             choices[i].gameObject.SetActive(true);
@@ -216,7 +222,7 @@ public class DialogueUi : MonoBehaviour
         }
 
         // change portrait to npc
-        charPortrait.sprite = npcPortraits[Director.allSpeakers[Director.activeNPC].speakerArchetype][0];
+        charPortrait.sprite = npcPortraits[currentArchetype][0];
 
         // when choice is selected, call event handler to trigger onDialogueSelected
         // we pass the index of the button selected w/c is representative of the order of the lines we return.

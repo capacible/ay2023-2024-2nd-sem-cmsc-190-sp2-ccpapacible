@@ -108,6 +108,7 @@ public static class InkDialogueManager
     public static string[] NPCLine()
     {
         currentDTags[ADD_EVENT_TO_PLAYER_TAG] = ""; // reset
+        currentDTags[PORTRAIT_EMOTE_TAG] = "neutral";
         if (currentDialogue.canContinue)
         {
             List<string> lines = new List<string>();

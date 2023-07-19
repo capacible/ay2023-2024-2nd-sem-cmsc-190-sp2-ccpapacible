@@ -7,7 +7,7 @@ public class Cutscene : MonoBehaviour
     public TextAsset cutsceneDialogue;  // json text asset
     public SpriteRenderer[] sprites;    // sprites that must be moved in the cutscene
     public NPCData[] relatedNPCData;
-    public string[] activateObjects;    // activates objects after cutscene
+    public GameObject[] activateObjects;    // activates objects after cutscene
 
     public void StartCutscene()
     {
@@ -25,9 +25,9 @@ public class Cutscene : MonoBehaviour
             s.gameObject.SetActive(true);
         }
 
-        foreach(string o in activateObjects)
+        foreach(GameObject o in activateObjects)
         {
-            EventHandler.Instance.SetNewState(o, true);
+            o.SetActive(true);
         }
     }
 }

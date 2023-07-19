@@ -48,6 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objId: 
   interactionMsgKey: 
+  useableItems: []
+  interactable: 0
+  addToGlobalEventList: []
+  addToCurrentMapEventList: []
+  addToPlayerMemory: []
 --- !u!1001 &3255239325640892907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +61,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8031039059275397139}
     m_Modifications:
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1325417267, guid: f1288d544000878478f8fd5498b0b7dd, type: 3}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6739477829523441514, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -127,6 +148,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8031039059275397139}
     m_Modifications:
+    - target: {fileID: 1598210936395087286, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598210936395087286, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5764462803348491318, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
       propertyPath: interactPrompt
       value: 

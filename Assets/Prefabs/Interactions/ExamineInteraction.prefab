@@ -50,6 +50,9 @@ MonoBehaviour:
   interactionMsgKey: 
   useableItems: []
   interactable: 1
+  addToGlobalEventList: []
+  addToCurrentMapEventList: []
+  addToPlayerMemory: []
   examineSceneToLoad: _ExaminedImageGenericScene
   imgToLoad: 
 --- !u!1001 &2519828937458903138
@@ -61,6 +64,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 9045282992939840959}
     m_Modifications:
     - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1325417267, guid: f1288d544000878478f8fd5498b0b7dd, type: 3}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573715971916354645, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
@@ -70,11 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6739477829523441514, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6739477829523441514, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.142
+      value: 1.179
       objectReference: {fileID: 0}
     - target: {fileID: 6739477829523441514, guid: 98df16487dadf184ebe3ac58c0cddfc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -135,6 +154,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9045282992939840959}
     m_Modifications:
+    - target: {fileID: 1598210936395087286, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598210936395087286, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5764462803348491318, guid: b7862a05deef5f2499a34eb556fc2e99, type: 3}
       propertyPath: interactPrompt
       value: 
