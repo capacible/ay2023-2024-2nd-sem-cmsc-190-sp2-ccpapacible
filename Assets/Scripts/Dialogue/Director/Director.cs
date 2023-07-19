@@ -27,7 +27,8 @@ public static class DirectorConstants
     {
         MAX = 3,
         DEFAULT = 1,
-        MIN = 0
+        MIN = 0,
+        CLOSE = -10
     };
 
     // NUMERICAL VALUE OF RELATIONSHIP STATUS
@@ -89,7 +90,7 @@ public static class Director
     // list of topics
     private static Dictionary<string, double> topicList = new Dictionary<string, double>();
     // defaults of each filler archetype to clone
-    private static Dictionary<string, Speaker> speakerDefaults = new Dictionary<string, Speaker>();
+    public static Dictionary<string, Speaker> speakerDefaults = new Dictionary<string, Speaker>();
     
     // remember the previous line said by NPC
     private static DialogueLine prevLine;
@@ -557,7 +558,7 @@ public static class Director
         if (line.effect.closeTopic != "" || line.effect.closeTopic != null)
         {
             // set teh topic listed to 1 (default value)
-            topicList[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.DEFAULT;
+            topicList[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.CLOSE;
         }
 
         // add to global events
@@ -590,7 +591,8 @@ public static class Director
         foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
         {
             Debug.Log("Updating topic relevance for: " + topic);
-            if(topicList[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN)
+            if(topicList[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN 
+                && topicList[topic] != (double) DirectorConstants.TopicRelevance.CLOSE )
             {
                 // reset to 1, then subtract
                 topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;

@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_ExaminedImageGenericScene.unity
     guid: aa638e31f8a46014ab730eaec5dff35a
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 57a1f753ec894bf478d6d4fcdc099820
+  - enabled: 1
+    path: Assets/Scenes/_NarrationScene.unity
+    guid: 412b946286176514eab3127e7b0872aa
+  - enabled: 1
+    path: Assets/Scenes/_InstructionScene.unity
+    guid: 83e96dd14f2a4444daa19ce04f51ff56
   m_configObjects: {}

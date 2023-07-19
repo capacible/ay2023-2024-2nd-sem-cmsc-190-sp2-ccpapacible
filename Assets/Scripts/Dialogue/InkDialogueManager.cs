@@ -30,6 +30,7 @@ public static class InkDialogueManager
     private const string ADD_EVENT_TO_PLAYER_TAG = "effect_add_to_player";  // add to player memory
     private const string SET_REL_VALUE_TAG = "effect_set_rel";              // sets the relationship value
                                                                             // tag:archetype!value
+    private const string SET_INK_MANAGER_TAG = "active_ink";
 
     public static bool isActive;
 
@@ -43,7 +44,8 @@ public static class InkDialogueManager
         { MODIFY_REL_TAG, "" },
         { SET_REL_VALUE_TAG, "" },
         { ARCHETYPE_TAG, "" },
-        { ACCUSE_TAG, "false" }
+        { ACCUSE_TAG, "false" },
+        { SET_INK_MANAGER_TAG, "" }
     };
 
     public static Story currentDialogue;   // holds our current dialogue.
@@ -60,6 +62,8 @@ public static class InkDialogueManager
     /// <param name="inkJSON"></param>
     public static string[] StartDialogue(TextAsset inkJSON)
     {
+        isActive = true;
+
         // setting the current story
         currentDialogue = new Story(inkJSON.text);
 
@@ -145,6 +149,7 @@ public static class InkDialogueManager
         // this is to ensure that when we go and talk to an npc using the inkdmanager, we dont accidentally trigger
         // the ending whiler responding to them.
         currentDTags[ACCUSE_TAG] = "false";
+        currentDTags[SET_INK_MANAGER_TAG] = "true";
 
         // if empty...
         if (currentDialogue.currentTags.Count == 0)
@@ -189,8 +194,9 @@ public static class InkDialogueManager
                 // 0 is the archetype, 1 is the effect value
                 string[] effectVal = currentDTags[SET_REL_VALUE_TAG].Split('!');
 
+                // modifies the value of the archetype
                 if (int.TryParse(effectVal[1], out int value))
-                    Director.allSpeakers[effectVal[0]].relWithPlayer = value;
+                    Director.speakerDefaults[effectVal[0]].relWithPlayer = value;
             }
 
             // modify (+/-) relationship effect
@@ -203,6 +209,11 @@ public static class InkDialogueManager
                     Director.allSpeakers[effectVal[0]].relWithPlayer += mod;
                 }
             }
+            
+            if (bool.TryParse(currentDTags[SET_INK_MANAGER_TAG], out bool active))
+                isActive = active;
+            else
+                Debug.LogWarning("The value for " + SET_INK_MANAGER_TAG + " tag is invalid.");
         }
     }
 

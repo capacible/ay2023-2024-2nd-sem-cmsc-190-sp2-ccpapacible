@@ -54,7 +54,7 @@ public class SceneHandler : MonoBehaviour
         //
         //  TEMP CODE BLOCK -- "STARTS" GAME TO INCLUDE ALL STUFF
         //
-        EventHandler.Instance.StartGame();
+        //EventHandler.Instance.StartGame();
     }
 
     private void OnDestroy()

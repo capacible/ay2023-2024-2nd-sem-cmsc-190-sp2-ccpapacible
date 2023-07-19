@@ -821,8 +821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c075c31360fbb64aacf338efa85c6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGameFile: {fileID: 0}
-  nextMapScene: 
+  startGameFile: {fileID: 4900000, guid: 0332e39878046ff44a82029a4aa1ad4f, type: 3}
+  nextMapScene: Floor1
 --- !u!4 &1602904198
 Transform:
   m_ObjectHideFlags: 0

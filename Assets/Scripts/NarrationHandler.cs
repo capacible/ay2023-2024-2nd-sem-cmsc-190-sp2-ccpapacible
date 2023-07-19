@@ -9,6 +9,7 @@ public class NarrationHandler : MonoBehaviour
     public Fader fader;
     public string sceneName;
     public Image cover;
+    public Canvas canvas;
 
     // the following starts off deactivated
     public Button[] buttons;
@@ -41,6 +42,8 @@ public class NarrationHandler : MonoBehaviour
     {
         // unsubscribe
         SceneHandler.OnUiLoaded -= StartNarration;
+
+        canvas.worldCamera = Camera.main;
 
         // fade in the text box
         fader.Fade(textBox, fadeOut: false);
@@ -95,7 +98,7 @@ public class NarrationHandler : MonoBehaviour
     public void ShowChoices()
     {
         // set buttons to be acctive
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < choices.Count; i++)
         {
             buttons[i].gameObject.SetActive(true);
             // change text
@@ -111,17 +114,21 @@ public class NarrationHandler : MonoBehaviour
         // try to dequeue
         if (dLines.TryDequeue(out string line))
         {
+            Debug.Log("showing more narration");
             // show narration
             ShowNarration(line);
-            next.gameObject.SetActive(true);
         }
         else if (!InkDialogueManager.isActive)
         {
+            Debug.Log("The ink manager is no longer active. Deactivating the narration scene...");
             // exiting dialogue now
             // transitions to next scene
             EventHandler.Instance.TransitionToScene(nextScene);
             // unload this scene
             EventHandler.Instance.UnloadUi(sceneName);
+            // load or do other stuff
+            if (startOfGame)
+                EventHandler.Instance.StartGame();
         }
         else
         {
