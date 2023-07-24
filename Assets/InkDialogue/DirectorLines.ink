@@ -34,33 +34,36 @@ VAR INITIAL_TALK = true
 
 // start of conversation here
 === MAIN_THREAD ===
-{INITIAL_TALK: -> INITIAL_MESSAGE }
--> REGULAR_GENERIC_TALK
-->END
+{INITIAL_TALK:
+    ->INITIAL_MESSAGE
+  - else:
+    ->REGULAR_GENERIC_TALK
+}
+
+->DONE
 
 === REGULAR_GENERIC_TALK ===
 Hello there, Enid. Need something? #display_name:Director Virgil #archetype:director
 ->START_THREAD_CHOICES
--> END
+-> DONE
 
 === GENERIC_CIRCLE_BACK ===
 Anything else? #display_name:Director Virgil #archetype:director
 ->START_THREAD_CHOICES
-->END
+->DONE
 
 === INITIAL_MESSAGE ===
-Well, if it isn't Enid. How's your vacation? By the way, can you tell the custodians to clean up the shrubs outside? Some animal messed around out front. #display_name:Director Virgil #archetype:director
-    ->START_THREAD_CHOICES
 // setting the initial flag to false
 ~INITIAL_TALK = false
--> END
+Well, if it isn't Enid. How's your vacation? By the way, can you tell the custodians to clean up the shrubs outside? Some animal messed around out front. #display_name:Director Virgil #archetype:director
+    ->START_THREAD_CHOICES
+-> DONE
 
 // choices after the initial talk.
 === START_THREAD_CHOICES ===
 * [{TALKED_ABOUT_CONFRONTATION == false: What in the world happened just now? }] -> ABOUT_CONFRONTATION
-+ -> ABOUT_FOUNDER
 * [{Cassandra_BuriedTimeCapsule: I just checked the garden. Apparently Cassandra buried a time capsule out front.}] ->ABOUT_GARDEN
-+ [{MUST_SOLVE_MYSTERY: I know who stole the plinth.}] -> ACCUSE
++ [{MUST_SOLVE_MYSTERY==true: I know who stole the plinth.}] -> ACCUSE
 + [Let's talk about the founder.] ->ABOUT_FOUNDER
 * [{PlayerSawCardOfWoman: Who is Beth? Is that the name of the founder?}] ->ABOUT_BETH
 * [{ DirectorStoleCassandrasKeys: Did you steal Cassandra's keys to the storage office? }]
@@ -68,7 +71,10 @@ Well, if it isn't Enid. How's your vacation? By the way, can you tell the custod
 * [ {DirectorTrustsJonathan: It seems like you and Jonathan are close. You seem to trust him more than you ought to as his employer.} ] -> ABOUT_DIRECTOR_AND_JONATHAN
 * [ {DID_NOT_PROMISE: Fine, I promise I'll tell no one.} ]
     Great! ->ABOUT_JONATHAN_REL
-->END
+* [{SolvedVasePuzzle_FoundStatue:I found a statue with a gem in the storage room.}]
+    That's the statue I brought in! I've brought it in about a day ago. #add_to_player:DirectorBroughtStatue #display_name:Director Virgil #archetype:director
+        + + [How did you get that?] ->ABOUT_STATUE_SOURCE
+->DONE
 
 === ABOUT_DIRECTOR_AND_JONATHAN ===
 Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #archetype:director
@@ -78,7 +84,7 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
         -> ABOUT_JONATHAN_REL
     ++ [Can't promise that. But what is it? ]
         You'd have to promise. Get back to me if you're willing to keep what I'm going to say a secret. God knows Jonathan can't.#display_name:Director Virgil #archetype:director
-        ->END
+        ->DONE
 + [ {DirectorAttractsBadPeople: It seems he knows enough about your relationship with { CONFIRMATION_IS_BETH: Beth } { not CONFIRMATION_IS_BETH: the Founder }.} ]
     Really? What did he say?#display_name:Director Virgil #archetype:director
     + + [ Not good things. ]
@@ -93,10 +99,10 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
 + [ He told me himself. What is the background between you two? ]
     ->ABOUT_JONATHAN_REL
     
-->END
+->DONE
 
     === ABOUT_JONATHAN_REL
-    Jonathan and I go way back. He was a close college friend of mine, but he dropped out because of some troubles. He's always been interested in history, but he had no credentials. Couldn't find a job.#display_name:Director Virgil #archetype:director
+    Jonathan and I go way back. He was a close college friDONE of mine, but he dropped out because of some troubles. He's always been interested in history, but he had no credentials. Couldn't find a job.#display_name:Director Virgil #archetype:director
         He needed a job because he's fallen on hard times, so I wanted to help him out a bit.#display_name:Director Virgil #archetype:director
         -> JONATHAN_QUESTIONS
         
@@ -110,7 +116,7 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
         + [I have other questions ]
             Alright then, shoot.#display_name:Director Virgil #archetype:director 
             ->START_THREAD_CHOICES
-        -> END
+        -> DONE
         
         = JONATHAN_INTEREST
         Oh, yes. He has always had an interest in studying history. I guess, it'd be more specific to say that he wanted to study artifacts like you do.#display_name:Director Virgil #archetype:director #effect_add_to_player:JonathansInterest_Artifacts
@@ -123,21 +129,21 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
             The Aurora isn't special in that regard.#display_name:Director Virgil #archetype:director
             ->JONATHAN_QUESTIONS
         
-        -> END
+        -> DONE
         
         = JONATHAN_DROPPED_OUT
         He did. I won't tell you anything about what happened or why he did so, as I don't know the details myself.#display_name:Director Virgil #archetype:director
         ->JONATHAN_QUESTIONS
-        -> END
+        -> DONE
         
         =JONATHAN_STRUGGLES
-        He's been struggling to make ends meet recently. He's always been doing the odd job here and there ever since he dropped out, but it seems the rising prices have been difficult to keep up with.#display_name:Director Virgil #archetype:director
+        He's been struggling to make DONEs meet recently. He's always been doing the odd job here and there ever since he dropped out, but it seems the rising prices have been difficult to keep up with.#display_name:Director Virgil #archetype:director
         I've been contemplating giving him a raise, but he doesn't really perform exceptionally as a security guard. I can't go around giving raises to people I'm close with.#display_name:Director Virgil #archetype:director
         That's going to make me appear like I have favoritism.#display_name:Director Virgil #archetype:director
         -> JONATHAN_QUESTIONS
-        ->END
+        ->DONE
     
-    -> END
+    -> DONE
     
     === ABOUT_JONATHAN_WORRIES
     He thinks I'm ruining my marriage, running after { CONFIRMATION_IS_BETH: Beth } { not CONFIRMATION_IS_BETH: the Founder}. He thinks she's a bad person.#display_name:Director Virgil #archetype:director
@@ -151,7 +157,7 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
                 -> GENERIC_CIRCLE_BACK
             + + [ Sure... ]
                 -> GENERIC_CIRCLE_BACK
-    ->END
+    ->DONE
 
 
 === ABOUT_CONFRONTATION ===
@@ -170,41 +176,36 @@ Oh, well, Cassandra was just telling me to show her where the plinth is. Apparen
 
     = QUESTION_DIRECTOR
     What are you on about? Of course not. I've been too busy looking for the statue it's supposed to be attached to.  #display_name:Director Virgil #archetype:director
-            * [{SolvedVasePuzzle_FoundStatue:You mean the statue with the gem? I found it in the storage room}]
-                Yes, that's the one! I've brought it in about a day ago. #add_to_player:DirectorBroughtStatue #display_name:Director Virgil #archetype:director
-                    + + [How did you get that?] ->ABOUT_STATUE_SOURCE
     -> DIRECTORS_REQUEST
-    
-
 
 ~TALKED_ABOUT_CONFRONTATION = true
 
-->END
+->DONE
 
 === DIRECTORS_REQUEST ===
-Could you do me a favor, Enid? Can you figure out what happened to the plinth and get back to me? This whole mess is giving me a headache. #display_name:Director Virgil #archetype:director
 ~MUST_SOLVE_MYSTERY = true
+Could you do me a favor, Enid? Can you figure out what happened to the plinth and get back to me? This whole mess is giving me a headache. #display_name:Director Virgil #archetype:director
 
-+ [ Let's talk about something else. ] ->START_THREAD_CHOICES
++ [ Let's talk about something else. ] ->GENERIC_CIRCLE_BACK
 
-->END
+->DONE
 
 === ABOUT_STATUE_SOURCE ===
 I received the statue from the founder. Apparently, before the excavation, some kid had snuck into the site and took the 'prettiest thing on the site.' It got sold for a ridiculously high price.#display_name:Director Virgil #archetype:director 
 ->ABOUT_STATUE_SOURCE_FOUNDER
 = ABOUT_STATUE_SOURCE_FOUNDER
 * [ The founder bought it? ]
-    Yes and no. One of her friends bought it during the auction, and when the founder heard that we're putting together an exhibit on The Arbiter and The Aurora, well... let's just say she managed to buy it from that friend. #display_name:Director Virgil #archetype:director
+    Yes and no. One of her friDONEs bought it during the auction, and when the founder heard that we're putting together an exhibit on The Arbiter and The Aurora, well... let's just say she managed to buy it from that friDONE. #display_name:Director Virgil #archetype:director
     -> ABOUT_STATUE_SOURCE_FOUNDER
 * [ How did it get into the founder's hands? ]
-    Another friend of the founder bought it off that auction. When she heard we were putting together an exhibit on The Arbiter and The Aurora, she went and convinced her friend to sell it to her.#display_name:Director Virgil #archetype:director
+    Another friDONE of the founder bought it off that auction. When she heard we were putting together an exhibit on The Arbiter and The Aurora, she went and convinced her friDONE to sell it to her.#display_name:Director Virgil #archetype:director
     The founder donated the statue to us. We should be grateful. #display_name:Director Virgil #archetype:director
     ->ABOUT_STATUE_SOURCE_FOUNDER
 * [ So you didn't steal the plinth, like Cassandra says? ]
     Goodness no! Why would I do that?... sigh. #display_name:Director Virgil #archetype:director
     ->DIRECTORS_REQUEST
 
-->END
+->DONE
 
 === ABOUT_BETH ===
 Ah, Beth... {MUST_SOLVE_MYSTERY: if you must ask this to solve our problem, then yes, Beth is the founder.} {not MUST_SOLVE_MYSTERY: Yes, Beth is the founder.} How did you know her name, by the way? #effect_add_to_player:FounderIdentity_Beth_Confirmed#display_name:Director Virgil #archetype:director
@@ -215,11 +216,11 @@ Ah, Beth... {MUST_SOLVE_MYSTERY: if you must ask this to solve our problem, then
 + [ (Lie) I heard other people talk about her as I investigated.]
     You heard other people talk about her? Who? As far as I know, no one knows of her personally.#display_name:Director Virgil #archetype:director
         + + [ Why does she visit so often? The frequency was enough for the staff to recall all the gifts she brought. ] -> ABOUT_DIRECTOR_VISITOR_REASON
-->END
+->DONE
 
 === ABOUT_DIRECTOR_VISITOR ===
 
-->END
+->DONE
 
 === ABOUT_DIRECTOR_VISITOR_REASON ===
 She often visits to check on the state of the museum. She's a good person, you know. The entire museum was built because of her.#display_name:Director Virgil #archetype:director
@@ -233,10 +234,10 @@ She often visits to check on the state of the museum. She's a good person, you k
     ->START_THREAD_CHOICES
 + -> START_THREAD_CHOICES
 
--> END
+-> DONE
 
 === ABOUT_SELLING_PLINTH ===
--> END
+-> DONE
 
 === ABOUT_FOUNDER ===
 What about her?#display_name:Director Virgil #archetype:director
@@ -244,10 +245,10 @@ What about her?#display_name:Director Virgil #archetype:director
 + [ {RichWomanAndDirector: Is she the woman who drops by all the time?}] -> ABOUT_DIRECTOR_VISITOR
 + [ {SellThePlinth_Founder: I heard you were planning on selling the plinth to the founder. Is that true?} {Cassandra_TensionWithDirector: Is that why you were having issues with Cassandra?} ] -> ABOUT_SELLING_PLINTH
 + [ I think the plinth was stolen by the founder. ] -> ABOUT_PLINTH_AND_FOUNDER
--> END
+-> DONE
 
 === ABOUT_PLINTH_AND_FOUNDER ===
-->END
+->DONE
 
 === ABOUT_GARDEN ===
 ~TALKED_ABOUT_GARDEN = true
@@ -255,56 +256,24 @@ Why would she do that? #display_name:Director Virgil #archetype:director
 + [{TimeCapsule_Explanation: She loves the museum, you know. Enough to want what's best for it} Talk to her yourself, if you want.] ->TIME_CAPSULE
 + [No idea, to be honest. You'll have to ask her yourself.] ->TIME_CAPSULE
 
--> END
+-> DONE
 
 === TIME_CAPSULE ===
 I would, but you know she is angry with me. Haven't you seen her sling accusations at me just now? #display_name:Director Virgil #archetype:director
 ->START_THREAD_CHOICES
-->END
+->DONE
 
 === ACCUSE ===
 Who took the plinth? #display_name:Director Virgil #archetype:director #accuse:true
 * [Cassandra.] 
     ~DONE_ACCUSE = true
-    -> FINISH_GAME_CASS
+    ->DONE
 * [Jonathan.] 
     ~DONE_ACCUSE = true
-    -> FINISH_GAME_JONATHAN
+    -> DONE
 * [You.] 
     ~DONE_ACCUSE = true
-    -> FINISH_GAME_DIRECTOR
+    -> DONE
 
-->END
+->DONE
 
-=== FINISH_GAME_CASS ===
-I blamed Cassandra for the missing plinth.
-She got fired, and eventually admitted that she stowed it away in the time capsule.
-Sure enough, when we retrieved the time capsule, the plinth was there.
-But with Cass gone, I became responsible for the exhibit.
-I worked with both artifacts closely as the days blur by. Sometimes, in the corner of my eye, I see an ethereal person flitting by.
-I want to keep the statue for myself... but I know what happens if I get caught.
-Perhaps I can do better than Cass.
-->END
-
-
-=== FINISH_GAME_JONATHAN ===
-I blamed Jonathan for the missing plinth.
-Despite the Director's hesitance, he fired him.
-I never saw Jonathan again. Last I heard, he was taking odd jobs to make ends meet.
-We never found the plinth, either.
-I started to regret blaming Jonathan... but he seemed the most suspicious from all my investigations.
-Either way, the exhibit went pretty well--or as well as it would have while missing one artifact.
-->END
-
-
-=== FINISH_GAME_DIRECTOR ===
-I blamed the director for the missing plinth.
-After a long and arduous investigation, Director Virgil was proven innocent of any wrongdoing.
-It didn't help that the plinth was nowhere to be found, and no clues other than Cassandra's keys in the director's office pointed to Director Virgil being the culprit.
-While the investigation was ongoing, the director underwent some soul-searching, and realized that he was too obsessed with the founder, when she simply treated him as a colleague.
-He entered marriage counseling with his wife, and eventually resolved their conflicts, albeit slowly.
-After the investigation, I got fired for making baseless accusations.
-When I left the museum, I took one last look at the building.
-Something about the garden beds didn't feel right...
-Oh well. It's not my business anymore.
-->END

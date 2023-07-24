@@ -26,11 +26,8 @@ public class PlayerController : MonoBehaviour
     
     // 
     [HideInInspector]
-    public List<GameObject> collided = new List<GameObject>();
+    public List<InteractionBase> collided = new List<InteractionBase>();
     
-
-    private int currentSpriteI;
-    private int currDir;
 
     // Start is called before the first frame update {
     void Start()
@@ -120,15 +117,15 @@ public class PlayerController : MonoBehaviour
         if(collided.Count > 0)
         {
             // our interaction will go kung ano yung last na nalapitan
-            GameObject coll = collided[collided.Count - 1];
+            InteractionBase interaction = collided[collided.Count - 1];
             
             // we get any interaction component here.
-            if(coll.TryGetComponent<InteractionBase>(out var interaction))
-            {
+            //if(coll.TryGetComponent<InteractionBase>(out var interaction))
+            //{
                 // player interacts with the object / get the object id of that interaction so that the right object will do stuff
                 // and other processes will do important stuff
                 EventHandler.Instance.PlayerInteractWith(new object[] { interaction.objId, interaction.useableItems });
-            }
+            //}
         }
         
     }
@@ -137,12 +134,12 @@ public class PlayerController : MonoBehaviour
     /// Adds the game object that the player collides with to the list of objects that the player is currently colliding with
     /// </summary>
     /// <param name="obj"></param>
-    private void AddCollision(GameObject obj)
+    private void AddCollision(InteractionBase obj)
     {
         collided.Add(obj);
     }
 
-    private void RemoveCollision(GameObject obj)
+    private void RemoveCollision(InteractionBase obj)
     {
         collided.Remove(obj);
     }

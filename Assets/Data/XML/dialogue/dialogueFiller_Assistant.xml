@@ -835,6 +835,7 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 				<relatedEventsItem>NextSteps:assistant</relatedEventsItem>
 				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+				<relatedEventsItem>Inquiry:AssistantsExtraKey</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -872,6 +873,7 @@
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 				<relatedEventsItem>NextSteps:assistant</relatedEventsItem>
 				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+				<relatedEventsItem>Inquiry:AssistantsExtraKey</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1995,6 +1997,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<speakerId>assistant</speakerId>
 			<dialogue>Yes, I heard them fight, just as you did.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2026,6 +2029,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<speakerId>assistant</speakerId>
 			<dialogue>That's good... If you need any help, I'll be right here.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2057,6 +2061,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<speakerId>assistant</speakerId>
 			<dialogue>Okay. Ask me anything if you need any help.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2119,6 +2124,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<dialogue>He didn't plan to discard it. He was... he was planning to sell it to the founder of the museum.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+				<relatedEventsItem>PlinthIsUnimportant:IsIllogical</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2214,6 +2220,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<dialogue>She knows he wants to sell the plinth to *someone*, but I don't think she knows he'll sell it to the founder of the museum.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>SellThePlinth:Founder</relatedEventsItem>
+				<relatedEventsItem>SellThePlinth:CassandrasThoughts</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2246,6 +2253,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<dialogue>The director plans on selling the plinth off, most likely to the founder of the museum. Artifacts can fetch a decent price, even if director Virgil thinks that it doesn't have much value to the exhibit.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+				<relatedEventsItem>PlinthIsUnimportant:NextStep</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2280,6 +2288,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<dialogue>I've heard rumors that the founder has an obsession with collecting artifacts. Plus, she funds this museum, so I can imagine that the director wants some rapport with her.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>SellThePlinth:Founder</relatedEventsItem>
+				<relatedEventsItem>SellThePlinth:Founder:Reason</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2343,7 +2352,9 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<portrait>neutral</portrait>
 			<speakerId>assistant</speakerId>
 			<dialogue>Usually he asks for a short work day at the first week of October.</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>DaughtersBirthday:ShortWorkday</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />

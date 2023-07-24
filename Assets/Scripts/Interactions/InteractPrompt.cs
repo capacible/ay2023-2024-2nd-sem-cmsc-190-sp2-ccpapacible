@@ -11,12 +11,14 @@ public class InteractPrompt : MonoBehaviour
     public SpriteRenderer interactPrompt;
 
     // the object that is associated with this prompt; what the player will interact with
-    private GameObject parentObject;
+    private InteractionBase iBase;
 
     private void Start()
     {
         // get the parent
-        parentObject = gameObject.transform.parent.gameObject;
+        GameObject parentObject = gameObject.transform.parent.gameObject;
+
+        iBase = parentObject.GetComponent<InteractionBase>();
     }
 
     /// <summary>
@@ -38,7 +40,7 @@ public class InteractPrompt : MonoBehaviour
                 interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 1);
             }
 
-            EventHandler.Instance.CollidingWithPlayer(parentObject);
+            EventHandler.Instance.CollidingWithPlayer(iBase);
             
         }
     }
@@ -54,7 +56,7 @@ public class InteractPrompt : MonoBehaviour
                 interactPrompt.color = new Color(interactPrompt.color.r, interactPrompt.color.g, interactPrompt.color.b, 0);
             }
 
-            EventHandler.Instance.NotCollidingWithPlayer(parentObject);
+            EventHandler.Instance.NotCollidingWithPlayer(iBase);
 
         }
     }

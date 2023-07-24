@@ -11,13 +11,13 @@ using System.Linq;
 public static class InkDialogueManager
 {
     // FILE NAMES
-    private const string JONATHAN_ENDING = "";
-    private const string CASS_ENDING = "";
-    private const string DIRECTOR_ENDING = "";
+    private const string JONATHAN_ENDING = "Jonathan_ending";
+    private const string CASS_ENDING = "Cass_ending";
+    private const string DIRECTOR_ENDING = "Director_ending";
 
     // scene names
-    private const string TITLE_SCREEN = "";
-    private const string NARRATION_SCENE = "";
+    private const string TITLE_SCREEN = "TitleScreen";
+    private const string NARRATION_SCENE = "_NarrationScene";
     // other
     private const string ACCUSED_DONE = "DONE_ACCUSE";
     // constant tags so we don't forget the specific tag.
@@ -34,6 +34,12 @@ public static class InkDialogueManager
     private const string SET_INK_MANAGER_TAG = "active_ink";
 
     public static bool isActive;
+
+    private static string prevStory;
+    private static string prevStoryFname = "";
+    // we store the in-ink index of the top 3 choices, so that we can accurately remember which choice
+    // was displayed.
+    private static int[] displayedIndices = new int[3];
 
     // holds npc display name and all other tags needed
     // initialize to hold no values for all tags.
@@ -65,9 +71,20 @@ public static class InkDialogueManager
     public static string[] StartDialogue(TextAsset inkJSON)
     {
         isActive = true;
+        
+        if (prevStoryFname.Equals(inkJSON.name))
+        {
+            // we load the previous story if same yung name ng previous sa iloload sana.
+            currentDialogue.state.LoadJson(prevStory);
+        }
+        else
+        {
+            prevStoryFname = inkJSON.name;
 
-        // setting the current story
-        currentDialogue = new Story(inkJSON.text);
+            // setting the current story
+            currentDialogue = new Story(inkJSON.text);
+        }
+
 
         // initialize the variable states of each dialogue
         InitVariables();
@@ -84,9 +101,10 @@ public static class InkDialogueManager
         // we iterate through each memory of the player
         foreach(string memory in Director.allSpeakers[DirectorConstants.PLAYER_STR].speakerMemories)
         {
-            if (currentDialogue.variablesState.Contains(memory))
+            string varName = memory.Replace(':', '_');  // returns original ata if there is no instance of :
+
+            if (currentDialogue.variablesState.Contains(varName))
             {
-                string varName = memory.Replace(':', '_');  // returns original ata if there is no instance of :
                 // replace the memory with underscore then set the variable as true
                 currentDialogue.variablesState[varName] = true;
             }
@@ -120,6 +138,7 @@ public static class InkDialogueManager
                 // we ensure that this is done at least once (if kunwari doing continue() already follows with choices.)
                 lines.Add(currentDialogue.Continue());
                 ParseTags();
+                Debug.Log(currentDialogue.variablesState["MUST_SOLVE_MYSTERY"]);
 
             } while (!ChoicesAvailable() && currentDialogue.canContinue 
                 && (currentDTags.All(pair => currentDialogue.currentTags.Contains(pair.Key.Concat(pair.Value)))) );
@@ -143,11 +162,15 @@ public static class InkDialogueManager
         {
             Debug.LogWarning("Too many choices, we're gonna cut off to the first 3 choices only.");
 
-            // selects 3 string choices.
-            return choices.Select(choice => choice.text).Take(3).ToList();
+            // selects 3 choices that ARE NOT EMPTY through their index
+            displayedIndices = choices.Where(choice => choice.text != "").Select(choice => choice.index).Take(3).ToArray();
+
+            return choices.Where(choice => displayedIndices.Contains(choice.index)).Select(choice => choice.text).Take(3).ToList();
         }
 
-        // else we return the whole thing as string.
+        displayedIndices = new int[] { 0, 1, 2};
+
+        // else we return the whole thing
         return choices.Select(choice => choice.text).ToList();
     }
 
@@ -193,18 +216,23 @@ public static class InkDialogueManager
             //add certain event to player's memory
             if (currentDialogue.currentTags.Contains(ADD_EVENT_TO_PLAYER_TAG))
             {
+                string[] split = currentDTags[ADD_EVENT_TO_PLAYER_TAG].Split('_');
+                string toAdd = string.Join(':', split);
+
                 // add the said event to the player's memory
                 Director.AddToSpeakerMemory(
                     DirectorConstants.PLAYER_STR,
-                    currentDTags[ADD_EVENT_TO_PLAYER_TAG]
+                    toAdd
                 );
             }
 
             // add an event globally
             if (currentDialogue.currentTags.Contains(ADD_TO_GLOBAL_TAG))
             {
+                string[] split = currentDTags[ADD_TO_GLOBAL_TAG].Split('_');
+                string toAdd = string.Join(':', split);
                 // add the said event to the player's memory
-                Director.AddEventString(currentDTags[ADD_TO_GLOBAL_TAG]);
+                Director.AddEventString(toAdd);
             }
 
             // set relationship to specific value
@@ -244,8 +272,11 @@ public static class InkDialogueManager
     /// <returns></returns>
     public static string[] BranchOutGivenChoice(int selection)
     {
+        // get the ACTUAL CHOICE INDEX from selection
+        int actualChoiceIdx = displayedIndices[selection];
+
         // sets the new path of the "story" based on ur choice
-        currentDialogue.ChooseChoiceIndex(selection);
+        currentDialogue.ChooseChoiceIndex(actualChoiceIdx);
 
         // check if our previous npc dialogue triggers the ACCUSE phase.
         if(currentDTags[ACCUSE_TAG]== "true")
@@ -269,13 +300,13 @@ public static class InkDialogueManager
         {
             // jonathan
             // load narration scene
-            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, JONATHAN_ENDING, TITLE_SCREEN });
+            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, CASS_ENDING, TITLE_SCREEN });
         }
         else if (selection == 1)
         {
             // jonathan
             // load narration scene
-            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, CASS_ENDING, TITLE_SCREEN });
+            EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, JONATHAN_ENDING, TITLE_SCREEN });
         }
         else if ( selection == 2)
         {
@@ -283,5 +314,17 @@ public static class InkDialogueManager
             // load narration scene
             EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, DIRECTOR_ENDING, TITLE_SCREEN });
         }
+    }
+
+    public static void Deactivate()
+    {
+        isActive = false;
+
+        currentDialogue.state.ForceEnd();
+        currentDialogue.state.GoToStart();
+
+        // save the storystate
+        prevStory = currentDialogue.state.ToJson();
+        
     }
 }

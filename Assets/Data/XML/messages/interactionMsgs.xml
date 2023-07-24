@@ -250,5 +250,14 @@
 				</Message>
 			</Messages>
 		</Interaction>
+		<Interaction interaction_id="cameras">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You open the security cameras, having been allowed by Jonathan. The footage of the storage unit last night did not reveal any new information--there was no woman in sight.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
 	</Interactions>
 </AllInteractions>

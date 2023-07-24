@@ -28,7 +28,7 @@ public class DirectorModel
     private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_SELECTION_MINIMUM = 0.001;
+    private const double LINE_HARD_MIN_PROB = 0.005;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/lineCPT.xml";
     private static readonly string EVENTS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/eventCPT.xml";
@@ -41,7 +41,7 @@ public class DirectorModel
     private int TotalRelCount;
     private int TotalDialogueCount;
 
-    private string debugProbStr = "";
+    //private string debugProbStr = "";
     private string modelFile;
     private string metaFile;
 
@@ -804,13 +804,13 @@ public class DirectorModel
         }
 
         Debug.Log("Highest utility is: " + highestUtil);
-
+        /*
         debugProbStr += $"SELECTED LINE: {bestDialogue}\n" +
             $"ORIGINAL PROBABILITY:{probabilities[bestDialogue]}\n" +
             $"UTILITY: {highestUtil}\n" +
             $"=================\n";
 
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { debugProbStr });
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { debugProbStr });*/
 
         return new KeyValuePair<int, double>(bestDialogue, highestUtil);
     }
@@ -833,7 +833,7 @@ public class DirectorModel
         )
     {
 
-        debugProbStr = "====== NPC ======\n";
+        //debugProbStr = "====== NPC ======\n";
         //NumOfCases.ClearObservedValue();
 
         // default values if known events is empty
@@ -901,7 +901,7 @@ public class DirectorModel
         )
     {
         double minProb = 0.0;
-        debugProbStr += "====== PLAYER ======\n";
+        //debugProbStr += "====== PLAYER ======\n";
 
         //NumOfCases.ObservedValue = knownEvents.Length;
 
@@ -957,7 +957,7 @@ public class DirectorModel
         // we also have to consider the line minimum aside from the minimum based on the first best value
         // if the line's probability is less than the minimum probability calculated from the 1st best and the line itself is less than our hard minimum, we
         // won't show it.
-        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb && prob >= LINE_SELECTION_MINIMUM).Contains(best3[id])).ToArray();
+        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb && prob >= LINE_HARD_MIN_PROB).Contains(best3[id])).ToArray();
     }
 
 

@@ -563,7 +563,9 @@
 			<locations />
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I'm not sure I can help... I guess Virgil--I mean, the director--leaves a spare key for his office here.</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>DirectorMissing</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -598,6 +600,7 @@
 			<dialogue>Oh. I can't. The director is a pretty private person. He wouldn't want me to give away the key randomly.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanHasKeysToOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedForKeys</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -627,6 +630,7 @@
 			<dialogue>Ah, sure. I'll help you out. Just as long as you won't tell him I gave you the keys.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanHasKeysToOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedForKeys</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -660,6 +664,7 @@
 			<dialogue>Oh... I... I can't. Sorry. The director trusted me with the key, and he's a very private person...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanHasKeysToOffice</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedForKeys</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -837,7 +842,9 @@
 			<locations />
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>Yes, the founder. She funded and helped build the museum. Rumors say she uses the museum as a way to collect some nautical artifacts. If she wants to collect it, she buys it from us.</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedAboutTheFounder</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -1257,6 +1264,7 @@ It's certainly not his wife though.</dialogue>
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>Oh... yes. I heard of it.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>TalkAboutConfrontation</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1360,6 +1368,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
+				<relatedEventsItem>JonathansThoughts:Founder</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1755,6 +1764,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
 				<relatedEventsItem>FriendsWithDirector:Jonathan</relatedEventsItem>
+				<relatedEventsItem>Inquiry:DirectorsInfatuation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1794,6 +1804,7 @@ He's not the same man I once knew.</dialogue>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
 				<relatedEventsItem>FriendsWithDirector:Jonathan</relatedEventsItem>
 				<relatedEventsItem>April20th:MarkedByJonathan</relatedEventsItem>
+				<relatedEventsItem>Inquiry:DirectorsInfatuation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1958,6 +1969,7 @@ He's not the same man I once knew.</dialogue>
 			<dialogue>Wh-what?! Did you look at my calendar?! Mind your own business! I'm done talking.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutOverdueBills</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1988,6 +2000,7 @@ He's not the same man I once knew.</dialogue>
 			<dialogue>...yes. Just for the record, you shouldn't look at people's personal items.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutOverdueBills</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2018,6 +2031,7 @@ He's not the same man I once knew.</dialogue>
 			<dialogue>Yes, I've been struggling recently. That's all I can say about that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutOverdueBills</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2169,6 +2183,7 @@ He's not the same man I once knew.</dialogue>
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I was in my booth over there. Although, there were times that I would visit Ma'am Cass throughout the night.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>Inquiry:JonathanWhereaboutsDuringDisappearance</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2204,6 +2219,7 @@ He's not the same man I once knew.</dialogue>
 			<dialogue>I visited her twice.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
+				<relatedEventsItem>Inquiry:JonathanVisit:Frequency</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2233,6 +2249,7 @@ He's not the same man I once knew.</dialogue>
 			<dialogue>Yes, I did. She was walking out the bathroom with a pretty big gash. I helped her clean it up.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
+				<relatedEventsItem>Inquiry:JonathanVisit:CassInjury</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2262,6 +2279,8 @@ He's not the same man I once knew.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
+				<relatedEventsItem>Inquiry:JonathanVisit:CassInjury</relatedEventsItem>
+				<relatedEventsItem>WhichVisit</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2297,6 +2316,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
+				<relatedEventsItem>Inquiry:JonathanVisit:Reason</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2329,7 +2349,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>You did have a lot of books about Port Vonn in your booth. I believe you for the first visit.</dialogue>
+			<dialogue>"Thanks for believing me</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansInterest:Artifacts</relatedEventsItem>
 				<relatedEventsItem>BookInJonathansBooth</relatedEventsItem>
@@ -2337,7 +2357,9 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal />
+				<addEventToGlobal>
+					<addEventToGlobalItem> I guess."</addEventToGlobalItem>
+				</addEventToGlobal>
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
@@ -2366,6 +2388,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
 				<relatedEventsItem>CassNoInfo:WomanInCameras</relatedEventsItem>
+				<relatedEventsItem>CassDoesntKnowAboutWomanInCameras</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2401,6 +2424,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
 				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>Contradiction:NoWomanInCamera</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2438,6 +2462,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
 				<relatedEventsItem>SecondVisit:CassNotInCuratorsOffice</relatedEventsItem>
+				<relatedEventsItem>Inquiry:Jonathan2ndVisit:CassLocation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2476,6 +2501,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
+				<relatedEventsItem>Inquiry:JonathanVisit:Reason</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2910,16 +2936,117 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
+			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<speakerId></speakerId>
-			<dialogue></dialogue>
-			<relatedEvents />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>"Miss Cassandra could be correct</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Beth:DirectorsVisitor</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem> but... I'm sorry</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap>
+					<addEventToMapItem> I don't know what the visitor looks like."</addEventToMapItem>
+				</addEventToMap>
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirtyGardenBeds</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>"Garden beds? No</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>AskAboutSuspiciousActivity</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem> I didn't notice anything particularly suspicious."</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Yes... It's not really your business anymore.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>OverdueBills</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutOverdueBills</relatedEventsItem>
+				<relatedEventsItem>UsedToBeFriendsWithJonathan</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver></receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>"Thanks for doing this</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
+				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem> even if it's not really your responsibility."</addEventToGlobalItem>
+				</addEventToGlobal>
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />

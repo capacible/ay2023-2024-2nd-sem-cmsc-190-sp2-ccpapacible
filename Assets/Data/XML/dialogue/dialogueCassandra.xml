@@ -126,7 +126,7 @@
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_cassandra</speakerId>
-			<dialogue>I haven't seen him. Why?</dialogue>
+			<dialogue>I haven't seen him since last night. Why?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
 				<relatedEventsItem>GameIsActive</relatedEventsItem>
@@ -134,7 +134,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorWhereabouts:main_cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -335,7 +337,7 @@ Do your job now, I'm busy.</dialogue>
 			<portrait>sad</portrait>
 			<locations />
 			<speakerId>main_cassandra</speakerId>
-			<dialogue>I'm sorry. I don't know where the director is.</dialogue>
+			<dialogue>That's bad news... You should ask the assistant, maybe she knows where he is.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
@@ -794,6 +796,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>... yes. How kind of the director.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -822,6 +825,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>Of course. I'll answer any questions you have.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -850,6 +854,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>You should be on my side. The director... all he cares about is profit.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -878,6 +883,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>How gracious of him to ask you to do what you were already doing.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -992,6 +998,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>I know he was the one to take the plinth. I'm just... getting him to admit it. He thinks that the plinth is unimportant, so I thought that maybe he'd done somthing to it.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>Inquiry:CassandrasOutburst</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1055,6 +1062,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<dialogue>Are you kidding?! All he cares about is for the museum to be profitable. He thinks that, because the plinth is missing its statue, it has no value and is unimportant.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:DirectorSellThePlinth:Reasons</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1085,6 +1093,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<dialogue>The director thinks that the plinth is useless, historically. That there's nothing that the plinth could tell.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
+				<relatedEventsItem>DirectorSellThePlinth:Reasons</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1117,6 +1126,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
 				<relatedEventsItem>ReasonForOutburst:CassandraSuspicions</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>DirectorSellThePlinth:CassThreatensToQuit</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1210,6 +1220,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
+				<relatedEventsItem>PlinthIsUnimportant:NextStep</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1239,7 +1250,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>ReasonForOutburst:CassandrasSuspicions</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:PlinthIsUnimportant</relatedEventsItem>
-				<relatedEventsItem>LearnAboutFounder</relatedEventsItem>
+				<relatedEventsItem>ThePlinth:Founder</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1267,7 +1278,9 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<locations />
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>Oh, um, I cut myself on the broken cabinet in the storage room.</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>PlayerInquiry:Arm</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -1426,6 +1439,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>DirectorSellThePlinth:Reasons</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1458,6 +1472,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:DirectorSellThePlinth</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1489,6 +1504,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
+				<relatedEventsItem>DirectorSellThePlinth:Buyer</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1520,6 +1536,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 				<relatedEventsItem>Cassandra:TensionWithDirector</relatedEventsItem>
 				<relatedEventsItem>DirectorsOpinion:SellThePlinth</relatedEventsItem>
 				<relatedEventsItem>HelpedPlayerEnter:assistant</relatedEventsItem>
+				<relatedEventsItem>DirectorSellThePlinth:Buyer</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1548,6 +1565,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<dialogue>I got it during closing time last night.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>Inquiry:CassInjuryTime</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1612,6 +1630,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>Cassandra:Alibi</relatedEventsItem>
 				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>Cassandra:BusyDuringDisappearance</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1964,6 +1983,7 @@ And anyway, I had nothing to do with that.</dialogue>
 				<relatedEventsItem>JonathanTestimony:WithInjury</relatedEventsItem>
 				<relatedEventsItem>JonathansFirstVisit:TwoHrsAfterClosed</relatedEventsItem>
 				<relatedEventsItem>JonathansFirstVisit</relatedEventsItem>
+				<relatedEventsItem>JonathansVisit:CassandraTestimony</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1999,6 +2019,7 @@ And anyway, I had nothing to do with that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
+				<relatedEventsItem>Inquiry:CassandraLiedAboutInjury</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2029,6 +2050,7 @@ And anyway, I had nothing to do with that.</dialogue>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>BrokenCabinet</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
+				<relatedEventsItem>Inquiry:CassLiedAboutInjuryTime:SameCause</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2059,6 +2081,7 @@ And anyway, I had nothing to do with that.</dialogue>
 				<relatedEventsItem>InjuryTrueTime:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>InjuryTime:CassLied</relatedEventsItem>
 				<relatedEventsItem>FlowerInBathroom</relatedEventsItem>
+				<relatedEventsItem>Inquiry:BloodyFlower</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

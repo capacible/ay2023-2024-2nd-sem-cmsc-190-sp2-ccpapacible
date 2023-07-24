@@ -18,8 +18,9 @@ public class CutsceneTrigger : MonoBehaviour
             Debug.Log("activating cutscene...");
             // trigger cutscene
             cutscene.StartCutscene();
-        }
 
+            gameObject.SetActive(false);
+        }
     }
     
 }

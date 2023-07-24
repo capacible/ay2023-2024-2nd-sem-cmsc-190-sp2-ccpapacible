@@ -123,13 +123,19 @@ public static class Director
         // load all events and count unique
         allEvents = IdCollection.LoadArrayAsDict(EVENTS_XML_PATH);
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
-        LoadTopics();
+        IdCollection topicIds = LoadTopics();
 
         // add gamestart event
         globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict:allEvents));
 
         LoadLines();
         LoadSpeakers();
+
+        // add topics to the speakers
+        foreach(Speaker s in speakerDefaults.Values)
+        {
+            s.InitializeTopics(topicIds, 0.5);
+        }
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
@@ -141,16 +147,9 @@ public static class Director
         model.Start();
     }
     
-    public static void LoadTopics()
+    public static IdCollection LoadTopics()
     {
-        IdCollection topicIds = XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
-
-        // add topic ids to topic list
-        // UNREFERENCED TOPIC START AT 0.5
-        foreach(string topic in topicIds.allIds)
-        {
-            topicList.Add(topic, (float)0.5);
-        }
+        return XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
     }
 
     /// <summary>
@@ -181,6 +180,7 @@ public static class Director
         foreach(Speaker s in loadSpeakers.Speakers)
         {
             speakerDefaults.Add(s.speakerArchetype, s);
+            // add topics to the speaker default
             Debug.Log($"adding speaker {s} with archetype {s.speakerArchetype}");
         }
 
@@ -202,13 +202,16 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        topicList[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.DEFAULT;
 
+        
         // all topics return to default value
-        List<string> topics = topicList.Keys.ToList();
+        List<string> topics = allSpeakers[activeNPC].topics.Keys.ToList();
         foreach(string topic in topics)
         {
-            topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+            // if we haven't closed the topic then we should return to default
+            if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TopicRelevance.CLOSE)
+                topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
         }
     }
 
@@ -341,7 +344,7 @@ public static class Director
         currentMap = mapId;
 
         // set current relevant topic to be startconversation
-        topicList[DirectorConstants.TOPIC_START_CONVO] = (float)DirectorConstants.TopicRelevance.MAX;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.MAX;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -381,6 +384,8 @@ public static class Director
             return null;
         }
 
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Join('/', allSpeakers[npc].speakerMemories) });
+
         return npcMemory.Union(globalAndMap).ToArray();
     }
 
@@ -417,7 +422,7 @@ public static class Director
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
-            topicList,
+            allSpeakers[activeNPC].topics,
             mood,
             currentMap,
             allSpeakers[activeNPC].speakerArchetype);
@@ -463,7 +468,7 @@ public static class Director
             allKnownEvents,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
-            topicList,
+            allSpeakers[activeNPC].topics,
             mood,
             currentMap,
             allSpeakers[activeNPC].speakerArchetype);
@@ -533,10 +538,14 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
-        else
+        else if(line.speakerId!=DirectorConstants.PLAYER_STR)
         {
             line.isSaid = true;
-            Debug.Log("isSaid of this line becomes TRUE");
+            Debug.Log("if the speaker is not a player, then isSaid is valid");
+        }
+        else
+        {
+            line.isSaid = false;    // uncaught cases will always be false
         }
 
         mood = line.ResponseStrToInt();
@@ -548,7 +557,8 @@ public static class Director
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
-            topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
+            allSpeakers[activeNPC].topics[line.effect.makeMostRelevantTopic] = (double)DirectorConstants.TopicRelevance.MAX;
+            //topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
         }
         else
         {
@@ -557,14 +567,14 @@ public static class Director
             foreach(string topic in line.relatedTopics)
             {
                 if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
-                    topicList[topic] = (float)DirectorConstants.TopicRelevance.MAX;
+                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.MAX;
             }
         }
 
         if (line.effect.closeTopic != "" || line.effect.closeTopic != null)
         {
             // set teh topic listed to 1 (default value)
-            topicList[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.CLOSE;
+            allSpeakers[activeNPC].topics[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.CLOSE;
         }
 
         // add to global events
@@ -594,21 +604,21 @@ public static class Director
         // for all topics that aren't in the choice's related topics
         // start conversation should also degrade as a topic even if it's in the related topics
         // the logic is that after starting the conversation, a conversation-starter topic is less relevant now.
-        foreach(string topic in topicList.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
+        foreach(string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
         {
             Debug.Log("Updating topic relevance for: " + topic);
-            if(topicList[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN 
-                && topicList[topic] != (double) DirectorConstants.TopicRelevance.CLOSE )
+            if(allSpeakers[activeNPC].topics[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN 
+                && allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE )
             {
                 // reset to 1, then subtract
-                topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
             }
-            topicList[topic] -= DirectorConstants.TOPIC_DEGRADE_VALUE;
+            allSpeakers[activeNPC].topics[topic] -= DirectorConstants.TOPIC_DEGRADE_VALUE;
         }
 
         // the bookends (start and end convo topics) will always be 0.
-        topicList[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        topicList[DirectorConstants.TOPIC_END_CONVO] = 0.0;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
     }
 
     /// <summary>
@@ -676,7 +686,7 @@ public static class Director
     public static string GetAllTopicRelevance()
     {
         string output = "TOPIC RELEVANCE:";
-        foreach(KeyValuePair<string, double> pair in topicList)
+        foreach(KeyValuePair<string, double> pair in allSpeakers[activeNPC].topics)
         {
             output += $"topic: {pair.Key} | value: {pair.Value}\n";
         }

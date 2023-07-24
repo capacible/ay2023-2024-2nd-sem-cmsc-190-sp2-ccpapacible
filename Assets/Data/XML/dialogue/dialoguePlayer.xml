@@ -163,7 +163,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -212,9 +211,7 @@
 				<addToNPCMemory>
 					<addToNPCMemoryItem>PlayerExpressedSuspicions</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>ExpressedSuspicions:{speakerArchetype}</addToPlayerMemoryItem>
-				</addToPlayerMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>-1</relationshipEffect>
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
 				<closeTopic>MissingArtifact</closeTopic>
@@ -320,7 +317,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>I've been looking for Director Virgil for a while. Have you seen him by any chance? Cassandra said they talked yesterday afternoon, but that's it...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>DirectorWhereabouts:main_cass</relatedEventsItem>
+				<relatedEventsItem>DirectorWhereabouts:main_cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1212,7 +1209,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedForKeys</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
@@ -1241,7 +1240,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerBeggedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
@@ -1270,7 +1271,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerBeggedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
@@ -1615,7 +1618,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerEnterDirectorsOffice</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2047,8 +2052,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerAskedForHelp:main_jonathan</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>DirectorsOffice</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -2163,7 +2172,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutTheFounder</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>TheFounder</makeMostRelevantTopic>
@@ -2322,7 +2333,10 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Beth:DirectorsVisitor</addToNPCMemoryItem>
+					<addToNPCMemoryItem>WhoIsBeth:Cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2393,7 +2407,10 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Beth:DirectorsVisitor</addToNPCMemoryItem>
+					<addToNPCMemoryItem>WhoIsBeth:Cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2490,7 +2507,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NoWomanInCamera</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2519,7 +2538,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NoWomanInCamera</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2583,7 +2604,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>TalkAboutConfrontation</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2611,7 +2634,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>AskAboutSuspiciousActivity</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2642,7 +2667,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerIsInvestigating</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2670,7 +2697,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerIsInvestigating</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2698,7 +2727,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>TalkAboutConfrontation</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2757,7 +2788,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutOverdueBills</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2960,7 +2993,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:DirectorsInfatuation</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3124,6 +3159,7 @@
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>OverdueBills</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedAboutOverdueBills</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -3154,7 +3190,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlinthIsUnimportant:IsIllogical</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3178,12 +3216,14 @@
 			<speakerId>player</speakerId>
 			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is a woman that often visits the museum.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>WhoIsBeth</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WhoIsBeth:Cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3208,11 +3248,14 @@
 			<dialogue>Cassandra thinks that the woman in this card, 'Beth,' is the rich woman we talked about earlier.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WhoIsBeth:Cassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3305,7 +3348,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:DirectorAndCassandra</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3319,7 +3364,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>CassandraAndDirector</relatedTopicsItem>
+				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -3333,7 +3378,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerIsInvestigating</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3455,7 +3502,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CassandrasOutburst</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3513,7 +3562,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerDisbelief:DirectorSellThePlinth:Reasons</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3541,7 +3592,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorSellThePlinth:Reasons</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3570,7 +3623,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorSellThePlinth:CassThreatensToQuit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3629,7 +3684,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlinthIsUnimportant:NextStep</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3659,7 +3716,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ThePlinth:Founder</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3688,7 +3747,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassandraThreatenedToQuit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3716,7 +3777,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>SellThePlinth:CassandrasThoughts</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3744,7 +3807,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlinthIsUnimportant:NextStep</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3772,7 +3837,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>SellThePlinth:Founder:Reason</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3830,36 +3897,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>main_cassandra</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>Really? They have to fix that.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerInquiry:Arm</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerInquiry:Arm</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -3882,6 +3925,7 @@
 			<dialogue>What? I'll let the custodians know that we need to fix that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>PlayerInquiry:Arm</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3914,6 +3958,7 @@
 			<dialogue>Gee, okay, I'll let the director know that he needs to replace that cabinet.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
+				<relatedEventsItem>PlayerInquiry:Arm</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3952,7 +3997,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CassandraAndDirector</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -3982,7 +4029,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorSellThePlinth:Reasons</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4012,7 +4061,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerDisbelief:DirectorSellThePlinth</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4043,7 +4094,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorSellThePlinth:Buyer</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4069,7 +4122,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CassInjuryTime</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4097,7 +4152,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Cassandra:BusyDuringDisappearance</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4569,7 +4626,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathansVisit:CassandraTestimony</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4597,7 +4656,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CassandraLiedAboutInjury</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4626,7 +4687,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CassLiedAboutInjuryTime:SameCause</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4656,7 +4719,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:BloodyFlower</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -4692,7 +4757,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>StartConversation/CassandrasInjury</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -4725,7 +4790,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>CassandrasInjury/StartConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 			</DialogueEffect>
@@ -5179,7 +5244,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:JonathanWhereaboutsDuringDisappearance</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5207,7 +5274,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:JonathanVisit:Frequency</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5236,7 +5305,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:JonathanVisit:CassInjury</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5265,7 +5336,10 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:JonathanVisit:CassInjury</addToNPCMemoryItem>
+					<addToNPCMemoryItem>WhichVisit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5294,7 +5368,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:JonathanVisit:Reason</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5359,7 +5435,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CassDoesntKnowAboutWomanInCameras</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5390,7 +5468,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Contradiction:NoWomanInCamera</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5421,7 +5501,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:Jonathan2ndVisit:CassLocation</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5512,7 +5594,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerDisbelief:CassandraThreatendeToQuit</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5600,7 +5684,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutWeekend</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5630,7 +5716,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutWeekend:Good</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5689,7 +5777,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutWeekend:Bad</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5719,7 +5809,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodianBakes:ForWhom</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5781,37 +5873,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>custodian</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue></dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
-				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
-				<relatedEventsItem>CustodiansInterest:Writing</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodianFishes:Where</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5841,7 +5905,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerAskedAboutWeekend:Bad</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>1</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5871,67 +5937,11 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodianBakes:PlayerAskedThemToBake</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>-1</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>custodian</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I want to talk more about your weekend.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DeclinedTohelp:custodian</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>custodian</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I want to talk more about your interests.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DeclinedTohelp:custodian</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
@@ -5993,7 +6003,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodianKnits:PlayerAskedForASweater</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6433,7 +6445,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansDaughter:Gift</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6467,7 +6481,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansDaughter:Gift</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6500,7 +6516,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>CustodiansDaughter:Gift</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6534,7 +6552,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathansThoughts:Founder</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6632,7 +6652,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:CustodianHelpedWhen</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -6793,7 +6815,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:AssistantsExtraKey</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -7073,7 +7097,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>FounderIdentity:Beth:Confirmed</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -7103,7 +7129,9 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>FounderIdentity:Beth:Confirmed</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

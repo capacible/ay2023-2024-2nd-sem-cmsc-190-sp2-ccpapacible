@@ -587,6 +587,10 @@ MonoBehaviour:
   sceneName: _NarrationScene
   cover: {fileID: 0}
   canvas: {fileID: 1833811642}
+  endings:
+  - {fileID: 4900000, guid: 584465f1b8ea986478607452314eb43a, type: 3}
+  - {fileID: 4900000, guid: 8dafc6456b94245489342711d4e26bbe, type: 3}
+  - {fileID: 4900000, guid: c46d68cbc591cd84eb4774c18978b0b4, type: 3}
   buttons:
   - {fileID: 48022588}
   - {fileID: 1252655576}

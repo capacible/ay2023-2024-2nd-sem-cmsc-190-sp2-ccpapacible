@@ -5,7 +5,7 @@
 		<id>PlayerDeadDog</id>
 		<id>PlayerDivorced</id>
 		<id>ArtifactNotFound</id>
-		<id>DirectorWhereabouts:main_cass</id>
+		<id>DirectorWhereabouts:main_cassandra</id>
 		<id>DirectorWhereabouts:main_jonathan</id>
 		<id>PlayerCanUseJonathansPhone</id>
 		<id>PlayerUsedJonathansPhone</id>
@@ -48,12 +48,12 @@
 		<id>Cassandra:TensionWithDirector</id>
 		<id>JonathanProtectingDirector</id>
 		<id>DirectorsOpinion:PlinthIsUnimportant</id>
-		<id>WhoIsBeth</id>
 		<id>CassandraThreatenedToQuit</id>
 		<id>ReasonForOutburst:CassandrasSuspicions</id>
 		<id>ReasonForOutburst:CassandraSuspicions</id>
 		<id>SellThePlinth:Founder</id>
 		<id>InjuryCause:BrokenCabinet</id>
+		<id>PlayerInquiry:Arm</id>
 		<id>DirectorsOpinion:SellThePlinth</id>
 		<id>Alibi:DaggerResearch</id>
 		<id>InjuryTime:BeforeClosing</id>
@@ -87,12 +87,12 @@
 		<id>CustodiansInterest:Fishing</id>
 		<id>CustodiansInterest:Baking</id>
 		<id>CustodiansInterest:Knitting</id>
-		<id>CustodiansInterest:Writing</id>
 		<id>DeclinedTohelp:custodian</id>
 		<id>Knitting:Holidays</id>
 		<id>CustodiansFamily</id>
 		<id>CustodiansFamily:Daughter</id>
 		<id>DaughterBirthday</id>
+		<id>CustodiansInterest:Writing</id>
 		<id>StaffRoomPadlock</id>
 		<id>JonathansThoughtsOnFounder</id>
 		<id>ShowItem:cass_storage_key</id>
@@ -121,33 +121,79 @@
 		<id>ExpressedSuspicions:main_cassandra</id>
 		<id>WomanInCamera</id>
 		<id>DirectiorWhereabouts:Jonathan</id>
+		<id>PlayerAskedForKeys</id>
+		<id>PlayerAskedAboutTheFounder</id>
 		<id>FounderInfo:JonathansSources</id>
+		<id>TalkAboutConfrontation</id>
+		<id>JonathansThoughts:Founder</id>
+		<id>Inquiry:DirectorsInfatuation</id>
+		<id>PlayerAskedAboutOverdueBills</id>
+		<id>Inquiry:JonathanWhereaboutsDuringDisappearance</id>
+		<id>Inquiry:JonathanVisit:Frequency</id>
+		<id>Inquiry:JonathanVisit:CassInjury</id>
+		<id>WhichVisit</id>
+		<id>Inquiry:JonathanVisit:Reason</id>
+		<id>CassDoesntKnowAboutWomanInCameras</id>
+		<id>Contradiction:NoWomanInCamera</id>
+		<id>Inquiry:Jonathan2ndVisit:CassLocation</id>
 		<id>FoundStatue:Location</id>
 		<id>UsedToBeFriendsWithJonathan</id>
 		<id>PlayerAskedAboutWife:Reason:Truth</id>
 		<id>PlayerAskedAboutWife:Reason:Lie</id>
+		<id>Beth:DirectorsVisitor</id>
+		<id>AskAboutSuspiciousActivity</id>
+		<id>PlayerIsInvestigating</id>
 		<id>PlayerSnoopedThroughSafe</id>
+		<id>Inquiry:CassandrasOutburst</id>
+		<id>PlayerDisbelief:DirectorSellThePlinth:Reasons</id>
+		<id>DirectorSellThePlinth:Reasons</id>
+		<id>DirectorSellThePlinth:CassThreatensToQuit</id>
+		<id>PlinthIsUnimportant:NextStep</id>
+		<id>ThePlinth:Founder</id>
 		<id>PlayerReaction:CustodianFix</id>
 		<id>PlayerReaction:DirectorFix</id>
+		<id>PlayerDisbelief:DirectorSellThePlinth</id>
+		<id>DirectorSellThePlinth:Buyer</id>
 		<id>HelpedPlayerEnter:assistant</id>
+		<id>Inquiry:CassInjuryTime</id>
 		<id>Cassandra:Alibi</id>
+		<id>Cassandra:BusyDuringDisappearance</id>
+		<id>JonathansVisit:CassandraTestimony</id>
+		<id>Inquiry:CassandraLiedAboutInjury</id>
+		<id>Inquiry:CassLiedAboutInjuryTime:SameCause</id>
+		<id>Inquiry:BloodyFlower</id>
 		<id>CassandrasInjury:RequestedTruth</id>
 		<id>InjuryTruthCause:GardenShrubs</id>
 		<id>TimeCapsule:Explanation</id>
 		<id>DirectorStoleCassandrasKeys</id>
+		<id>WhoIsBeth</id>
 		<id>UsedToBeFriendsWithCassandra</id>
 		<id>PlayerStoleCustodiansKey</id>
 		<id>HelpedPlayerEnter:custodian</id>
+		<id>PlayerAskedAboutWeekend</id>
+		<id>PlayerAskedAboutWeekend:Good</id>
+		<id>PlayerAskedAboutWeekend:Bad</id>
 		<id>Knitting:Reason</id>
+		<id>CustodianBakes:ForWhom</id>
+		<id>CustodianFishes:Where</id>
+		<id>CustodianBakes:PlayerAskedThemToBake</id>
+		<id>CustodianKnits:PlayerAskedForASweater</id>
 		<id>DaughtersBirthday:HowKnit</id>
 		<id>DaughtersBirthday:HowBake</id>
+		<id>Inquiry:CustodianHelpedWhen</id>
 		<id>CassandrasOutburst:Reason</id>
+		<id>Inquiry:DirectorAndCassandra</id>
+		<id>PlayerDisbelief:CassandraThreatendeToQuit</id>
 		<id>CustodiansFamily:Others</id>
 		<id>Fishing:Tips</id>
 		<id>Knitting:Tips</id>
 		<id>Baking:Tips</id>
 		<id>Writing:Tips</id>
+		<id>PlayerBeggedForHelp</id>
+		<id>DeclinedToHelp</id>
+		<id>CustodiansDaughter:Gift</id>
 		<id>Commotion</id>
+		<id>Inquiry:AssistantsExtraKey</id>
 		<id>Assistant:GaveKeyToCustodian</id>
 		<id>CustodiansPassword</id>
 		<id>ConvincingAssistant:GuiltTripping</id>
@@ -157,8 +203,12 @@
 		<id>VisitorAppearance</id>
 		<id>DirectorsFrequentVisitor</id>
 		<id>Inquiry:CassandrasThoughtsOnDirector</id>
+		<id>PlinthIsUnimportant:IsIllogical</id>
 		<id>CassandraThreatenedToQuit </id>
+		<id>SellThePlinth:CassandrasThoughts</id>
+		<id>SellThePlinth:Founder:Reason</id>
 		<id>SellThePlinth:Founder </id>
+		<id>DaughtersBirthday:ShortWorkday</id>
 		<id>UsedToBeFriendsWithAssistant</id>
 	</ids>
 </Main>

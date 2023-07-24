@@ -308,7 +308,7 @@
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
-				<traitItem>frazzled</traitItem>
+				<traitItem>gruff</traitItem>
 			</trait>
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
@@ -1474,6 +1474,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>It was pretty good.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1506,6 +1507,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Good.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1538,6 +1540,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>A-aahhhh... It's not great. I shouldn't tell you.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1570,6 +1573,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Not good. I'd tell you, if we weren't at work now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1602,6 +1606,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Bad.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1634,6 +1639,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I went fishing.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Good</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1668,6 +1674,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I just went fishing. It's uneventful so I reckon you won't want to hear about it.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Good</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1702,6 +1709,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I was... knitting. Don't tell anyone else.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Good</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1736,6 +1744,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I just sat by the fire and did some knitting. That was the only enjoyable thing I did over the weekend.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Bad</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Bad</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1804,6 +1813,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I baked a cake over the weekend.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Good</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Good</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1838,6 +1848,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>I wrote my novel by the beach.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Bad</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Bad</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1872,6 +1883,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Did some baking.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansWeekend:Bad</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedAboutWeekend:Bad</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1906,6 +1918,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Yes! I love baking for my loved ones.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+				<relatedEventsItem>CustodianBakes:ForWhom</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1936,6 +1949,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>... yes. I do it for my family.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+				<relatedEventsItem>CustodianBakes:ForWhom</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1966,6 +1980,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>That's none of your business. Bother someone else.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+				<relatedEventsItem>CustodianBakes:ForWhom</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1994,6 +2009,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>For the most part, I fish near the port. It's the closest, and most convenient.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Fishing</relatedEventsItem>
+				<relatedEventsItem>CustodianFishes:Where</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2024,6 +2040,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Oh... um... You'll have to pay me for the work! Haha!</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+				<relatedEventsItem>CustodianBakes:PlayerAskedThemToBake</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2054,6 +2071,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Absolutely not.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+				<relatedEventsItem>CustodianBakes:PlayerAskedThemToBake</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2084,6 +2102,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>That better be a joke. I don't work for free.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Knitting</relatedEventsItem>
+				<relatedEventsItem>CustodianKnits:PlayerAskedForASweater</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2114,6 +2133,7 @@ Have you asked the assistant for help?</dialogue>
 			<dialogue>Uhm! Hahaha. L-let's talk about that later.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CustodiansInterest:Knitting</relatedEventsItem>
+				<relatedEventsItem>CustodianKnits:PlayerAskedForASweater</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2398,6 +2418,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<dialogue>Probably around the first week of October.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DaughterBirthday:CustodianHelp</relatedEventsItem>
+				<relatedEventsItem>Inquiry:CustodianHelpedWhen</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2730,6 +2751,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<speakerId>custodian</speakerId>
 			<dialogue>Yes, that's always a good idea. I'll be here if you have any questions.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2761,6 +2783,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<speakerId>custodian</speakerId>
 			<dialogue>Good. I'm tired of the drama.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2791,6 +2814,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<speakerId>custodian</speakerId>
 			<dialogue>O-okay. I'll help whenever I can.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2822,6 +2846,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<speakerId>custodian</speakerId>
 			<dialogue>Great. Let me know if you need help.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -3183,6 +3208,8 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<dialogue>I've already told you--their relationship is pretty rocky recently. She threatened to quit over something.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+				<relatedEventsItem>Inquiry:DirectorAndCassandra</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:CassandraThreatendeToQuit</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -3217,6 +3244,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 			<speakerId>custodian</speakerId>
 			<dialogue>Their relationship is pretty rocky recently. She threatened to quit over something.</dialogue>
 			<relatedEvents>
+				<relatedEventsItem>Inquiry:DirectorAndCassandra</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -3379,6 +3407,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<dialogue>That's what I thought, too! But something must have been bothering her to threaten that.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:CassandraThreatendeToQuit</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -3414,6 +3443,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<dialogue>I had the same thoughts. Something probably bothered her enough to want to quit.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:CassandraThreatendeToQuit</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -3448,6 +3478,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<dialogue>I thought similarly... but she must have had her reasons. Otherwise, why would she leave a job she loves?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>CassandraThreatenedToQuit</relatedEventsItem>
+				<relatedEventsItem>PlayerDisbelief:CassandraThreatendeToQuit</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -4384,7 +4415,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<locations>
 				<locationsItem>Floor2</locationsItem>
 			</locations>
-			<speakerId></speakerId>
+			<speakerId>custodian</speakerId>
 			<dialogue>Hey there. Anything new?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -4417,7 +4448,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<locations>
 				<locationsItem>Floor2</locationsItem>
 			</locations>
-			<speakerId></speakerId>
+			<speakerId>custodian</speakerId>
 			<dialogue>Got something more to say?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -4450,10 +4481,230 @@ I didn't see any wounds on her, though.</dialogue>
 			<locations>
 				<locationsItem>Floor2</locationsItem>
 			</locations>
-			<speakerId></speakerId>
+			<speakerId>custodian</speakerId>
 			<dialogue>Did you find out anything else?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>"I really</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerBeggedForHelp</relatedEventsItem>
+				<relatedEventsItem>DeclinedToHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal>
+					<addEventToGlobalItem> really can't help you. I swear"</addEventToGlobalItem>
+				</addEventToGlobal>
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+				<traitItem>impatient</traitItem>
+				<traitItem>polite</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>I suppose that makes sense. The woman that visits seems close with the director.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>gruff</traitItem>
+				<traitItem>friendly</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>That makes a lot of sense. They look pretty close.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsFrequentVisitor</relatedTopicsItem>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>frazzled</traitItem>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>I see... that explains how often the visitor looks for the director.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>Yes... I plan to give her a stuffed toy...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodiansDaughter:Gift</relatedEventsItem>
+				<relatedEventsItem>CustodiansInterest:Knitting</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>Yes... I plan to bake her a cake...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodiansDaughter:Gift</relatedEventsItem>
+				<relatedEventsItem>CustodiansInterest:Baking</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>Yes... but what I plan to do is a secret...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>CustodiansDaughter:Gift</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

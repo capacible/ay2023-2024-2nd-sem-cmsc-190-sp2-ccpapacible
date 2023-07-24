@@ -52,8 +52,8 @@ public class EventHandler : MonoBehaviour
 
     // OTHER
     // handling some collision related events
-    public static event System.Action<GameObject> OnPlayerCollision;
-    public static event System.Action<GameObject> OnPlayerNotCollision;
+    public static event System.Action<InteractionBase> OnPlayerCollision;
+    public static event System.Action<InteractionBase> OnPlayerNotCollision;
 
     // SCENES
     public static event System.Action<string, object[]> LoadUiScene;
@@ -276,8 +276,14 @@ public class EventHandler : MonoBehaviour
         UnloadUi("_Dialogue");
 
         // set inactive.
-        if (InkDialogueManager.isActive) { InkDialogueManager.isActive = false; }
-        else { Director.Deactivate(); }
+        if (InkDialogueManager.isActive)
+        {
+            InkDialogueManager.Deactivate();
+        }
+        else
+        {
+            Director.Deactivate();
+        }
 
         // call conclude interaction so we can remove the npc dialogue ui type and subsequently conclude interaction itself.
         ConcludeInteraction(UiType.NPC_DIALOGUE);
@@ -290,7 +296,7 @@ public class EventHandler : MonoBehaviour
     /// Called when player enters the interact prompt trigger zone.
     /// </summary>
     /// <param name="collisionObj"> The parent object of the collider or interact prompt. </param>
-    public void CollidingWithPlayer(GameObject collisionObj)
+    public void CollidingWithPlayer(InteractionBase collisionObj)
     {
         OnPlayerCollision?.Invoke(collisionObj);
     }
@@ -299,7 +305,7 @@ public class EventHandler : MonoBehaviour
     /// When object is no longer colliding w/ player.
     /// </summary>
     /// <param name="collisionObj">Parent object of collider.</param>
-    public void NotCollidingWithPlayer(GameObject collisionObj)
+    public void NotCollidingWithPlayer(InteractionBase collisionObj)
     {
         OnPlayerNotCollision?.Invoke(collisionObj);
     }

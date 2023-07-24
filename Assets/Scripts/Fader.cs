@@ -23,20 +23,24 @@ public class Fader : MonoBehaviour
         // disappears!
         if (fadeOut)
         {
-            for(float i=1; i>=0; i -= Time.deltaTime/duration)
+            float i = 1;
+            while (toFade.color.a >= 0)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i -= Time.deltaTime / duration;
                 yield return null;
             }
         }
         // fade in
         else
         {
-            for (float i = 0; i <= 1; i += Time.deltaTime/duration)
+            float i = 0;
+            while (toFade.color.a <= 1)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i += Time.deltaTime / duration;
                 yield return null;
             }
         }
@@ -56,20 +60,24 @@ public class Fader : MonoBehaviour
         // disappears!
         if (fadeOut)
         {
-            for (float i = 1; i >= 0; i -= Time.deltaTime/duration)
+            float i = 1;
+            while (toFade.color.a >= 0)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i -= Time.deltaTime / duration;
                 yield return null;
             }
         }
         // fade in
         else
         {
-            for (float i = 0; i <= 1; i += Time.deltaTime/duration)
+            float i = 0;
+            while (toFade.color.a <= 1)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i += Time.deltaTime / duration;
                 yield return null;
             }
         }
@@ -89,20 +97,24 @@ public class Fader : MonoBehaviour
         // disappears!
         if (fadeOut)
         {
-            for (float i = 1; i >= 0; i -= Time.deltaTime / duration)
+            float i = 1;
+            while (toFade.color.a >= 0)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i -= Time.deltaTime / duration;
                 yield return null;
             }
         }
         // fade in
         else
         {
-            for (float i = 0; i <= 1; i += Time.deltaTime / duration)
+            float i = 0;
+            while (toFade.color.a <= 1)
             {
                 // set color alpha
                 toFade.color = new Color(toFade.color.r, toFade.color.g, toFade.color.b, i);
+                i += Time.deltaTime / duration;
                 yield return null;
             }
         }

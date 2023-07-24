@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class NarrationHandler : MonoBehaviour
     public string sceneName;
     public Image cover;
     public Canvas canvas;
+
+    public TextAsset[] endings;
 
     // the following starts off deactivated
     public Button[] buttons;
@@ -54,11 +57,10 @@ public class NarrationHandler : MonoBehaviour
 
         if (!startOfGame)
         {
-            // if we're not at start of game, we use file name, because nasa end of game na tong narration na to
-            // file i/o
-            string txt = "test";
-            // create text asset
-            file = new TextAsset(txt);
+            string fname = parameters[1].ToString();
+
+            // find the file in endings that correspond to this
+            file = endings.Single(f => f.name.Contains(fname));
         }
         else
         {
@@ -136,8 +138,10 @@ public class NarrationHandler : MonoBehaviour
             // load or do other stuff
             if (startOfGame)
                 EventHandler.Instance.StartGame();
+            else
+                EventHandler.Instance.UnloadUi("_Inventory");
         }
-        else
+        else if(startOfGame)
         {
             // get player choice
             choices = InkDialogueManager.GetPlayerChoices();

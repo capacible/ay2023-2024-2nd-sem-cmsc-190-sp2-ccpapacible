@@ -55,6 +55,17 @@ public class Speaker
     [XmlIgnore]
     public int speakerTrait;
 
+    [XmlIgnore]
+    public Dictionary<string, double> topics = new Dictionary<string, double>();
+    
+    public void InitializeTopics(IdCollection topicColl, double initialVal)
+    {
+        foreach(string topic in topicColl.allIds)
+        {
+            topics.Add(topic, initialVal);
+        }
+    }
+
     public Speaker Clone()
     {
         Speaker newSpeaker = new Speaker
@@ -64,7 +75,8 @@ public class Speaker
             relWithPlayer = relWithPlayer,
             speakerMemories = speakerMemories,
             displayName = displayName,
-            isFillerCharacter = isFillerCharacter
+            isFillerCharacter = isFillerCharacter,
+            topics = topics
         };
 
         return newSpeaker;
