@@ -116,6 +116,7 @@ GameIsActive
 SolvedVasePuzzle:FoundStatue
 
 PlayerAskedDirectorWhereabouts
+Inquiry:SecurityCameras
 PlayerExpressedSuspicions
 ExpressedSuspicions:main_cassandra
 WomanInCamera
@@ -142,6 +143,8 @@ PlayerAskedAboutWife:Reason:Lie
 Beth:DirectorsVisitor
 AskAboutSuspiciousActivity
 PlayerIsInvestigating
+NoSuspiciousPersonInCameras
+PlayerAskedDirectorWhereabouts:Reason
 PlayerSnoopedThroughSafe
 Inquiry:CassandrasOutburst
 PlayerDisbelief:DirectorSellThePlinth:Reasons

@@ -9,6 +9,7 @@ public class InventoryHandler : MonoBehaviour
 {
     // list of all items
     private static List<ItemBase> Inventory = new List<ItemBase>();
+    private static Dictionary<string, ItemBase> itemDb = new Dictionary<string, ItemBase>();
     // index of our held item
     private static int heldItem = -1;
 
@@ -19,10 +20,16 @@ public class InventoryHandler : MonoBehaviour
     public Button next;
     public Button prev;
     public TextMeshProUGUI itemName;
+    public ItemBase[] allItems;
 
     private void Awake()
     {
         Debug.Log("Instantiated invenotry");
+
+        foreach(ItemBase item in allItems)
+        {
+            itemDb.Add(item.itemId, item);
+        }
     }
 
     private void Start()
@@ -31,11 +38,12 @@ public class InventoryHandler : MonoBehaviour
         EventHandler.MapSceneLoaded += Init;
 
         // subscribing -- interactions
-        EventHandler.OnPickup += AddToInventory;
+        EventHandler.OnPickupItem += AddToInventory;
         EventHandler.OnInteractConclude += UnhideUi;
         EventHandler.Examine += HideUi;
         EventHandler.InGameMessage += HideUi;
         EventHandler.StartDialogue += HideUi;
+        EventHandler.OnPickupStr += AddStrToInventory;
 
         // items
         EventHandler.InteractionTriggered += UseHeldItem;
@@ -44,7 +52,8 @@ public class InventoryHandler : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventHandler.OnPickup -= AddToInventory;
+        EventHandler.OnPickupItem -= AddToInventory;
+        EventHandler.OnPickupStr -= AddStrToInventory;
         EventHandler.ItemEffect -= RemoveFromInventory;
         EventHandler.MapSceneLoaded -= Init;
         EventHandler.OnInteractConclude -= UnhideUi;
@@ -78,6 +87,17 @@ public class InventoryHandler : MonoBehaviour
             // update ui
             RefreshUi();
         }
+    }
+
+    private string AddStrToInventory(string itemId)
+    {
+        // get item given id
+        ItemBase item = itemDb[itemId];
+
+        AddToInventory(null, item);
+
+        // return item name
+        return item.itemName;
     }
    
     private void RemoveFromInventory(object[] parameters)

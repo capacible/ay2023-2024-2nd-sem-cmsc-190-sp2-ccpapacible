@@ -30,6 +30,7 @@
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -61,6 +62,7 @@
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -92,6 +94,7 @@
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -123,6 +126,7 @@
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -154,6 +158,7 @@
 				<makeMostRelevantTopic>MissingArtifact</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -186,6 +191,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -216,6 +222,7 @@
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
 				<closeTopic>MissingArtifact</closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -244,6 +251,7 @@
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
 				<closeTopic>MissingArtifact</closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -272,6 +280,7 @@
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
 				<closeTopic>MissingArtifact</closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -294,12 +303,15 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Inquiry:SecurityCameras</addToNPCMemoryItem>
+				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic>CameraInTheStorageRoom</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -330,6 +342,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -358,6 +371,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -387,6 +401,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -417,6 +432,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -450,6 +466,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -484,6 +501,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -518,6 +536,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -550,6 +569,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -580,6 +600,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -614,6 +635,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -647,6 +669,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -681,6 +704,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -715,6 +739,7 @@
 				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -747,6 +772,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -779,6 +805,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -811,6 +838,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -841,6 +869,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -872,6 +901,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -902,6 +932,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -934,6 +965,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -963,6 +995,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -991,6 +1024,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1024,6 +1058,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1057,6 +1092,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1092,6 +1128,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1126,6 +1163,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1156,6 +1194,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1186,6 +1225,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1217,6 +1257,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1248,6 +1289,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1279,6 +1321,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1312,6 +1355,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1340,6 +1384,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1372,6 +1417,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1404,6 +1450,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1436,6 +1483,7 @@
 				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1468,6 +1516,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1500,6 +1549,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1532,6 +1582,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1564,6 +1615,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1594,6 +1646,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1626,6 +1679,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1657,6 +1711,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1689,6 +1744,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1720,6 +1776,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1752,6 +1809,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1784,6 +1842,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1816,6 +1875,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1848,6 +1908,7 @@
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1882,6 +1943,7 @@
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1915,6 +1977,7 @@
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1943,6 +2006,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1971,6 +2035,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2001,6 +2066,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2029,6 +2095,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2062,6 +2129,7 @@
 				<makeMostRelevantTopic>DirectorsOffice</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2091,6 +2159,7 @@
 				<makeMostRelevantTopic>DirectorsOffice/EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2120,6 +2189,7 @@
 				<makeMostRelevantTopic>DirectorsOffice/EndConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2148,6 +2218,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2180,6 +2251,7 @@
 				<makeMostRelevantTopic>TheFounder</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2212,6 +2284,7 @@
 				<makeMostRelevantTopic>CardFromBeth</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2244,6 +2317,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2276,6 +2350,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2308,6 +2383,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2342,6 +2418,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2380,6 +2457,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2416,6 +2494,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2450,6 +2529,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2484,6 +2564,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2515,6 +2596,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2546,6 +2628,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2581,6 +2664,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2612,6 +2696,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2642,6 +2727,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2675,6 +2761,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2705,6 +2792,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2735,6 +2823,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2765,6 +2854,7 @@
 				<makeMostRelevantTopic>Investigation:Director/Investigation:Cassandra</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2796,6 +2886,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2834,6 +2925,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2868,6 +2960,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2900,6 +2993,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2932,6 +3026,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2966,6 +3061,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3001,6 +3097,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3033,6 +3130,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3069,6 +3167,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3105,6 +3204,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3135,6 +3235,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3166,6 +3267,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3198,6 +3300,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3229,6 +3332,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3261,6 +3365,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3291,6 +3396,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3324,6 +3430,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3356,6 +3463,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3386,6 +3494,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3416,6 +3525,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3449,6 +3559,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3480,6 +3591,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3510,6 +3622,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3540,6 +3653,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3570,6 +3684,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3600,6 +3715,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3631,6 +3747,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3661,6 +3778,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3692,6 +3810,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3724,6 +3843,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3755,6 +3875,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3785,6 +3906,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3815,6 +3937,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3845,6 +3968,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3876,6 +4000,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3907,6 +4032,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3940,6 +4066,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3973,6 +4100,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4005,6 +4133,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4037,6 +4166,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4069,6 +4199,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4102,6 +4233,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4130,6 +4262,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4160,6 +4293,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4195,6 +4329,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4231,6 +4366,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4261,6 +4397,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4289,6 +4426,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4317,6 +4455,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic>CassandrasInjury</closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4347,6 +4486,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4379,6 +4519,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4411,6 +4552,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4441,6 +4583,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4471,6 +4614,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4504,6 +4648,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4534,6 +4679,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4570,6 +4716,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4604,6 +4751,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4634,6 +4782,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4664,6 +4813,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4695,6 +4845,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4727,6 +4878,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4760,6 +4912,7 @@
 				<makeMostRelevantTopic>StartConversation/CassandrasInjury</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4793,6 +4946,7 @@
 				<makeMostRelevantTopic>CassandrasInjury/StartConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4828,6 +4982,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4861,6 +5016,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4898,6 +5054,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4933,6 +5090,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4961,6 +5119,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4994,6 +5153,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5027,6 +5187,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5058,6 +5219,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5090,6 +5252,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5122,6 +5285,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5154,6 +5318,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5188,6 +5353,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5222,6 +5388,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5252,6 +5419,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5282,6 +5450,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5313,6 +5482,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5345,6 +5515,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5376,6 +5547,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5410,6 +5582,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5443,6 +5616,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5476,6 +5650,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5509,6 +5684,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5540,6 +5716,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5571,6 +5748,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5602,6 +5780,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5631,6 +5810,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5661,6 +5841,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5692,6 +5873,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5724,6 +5906,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5753,6 +5936,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5785,6 +5969,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5817,6 +6002,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5849,6 +6035,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5881,6 +6068,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5913,6 +6101,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5945,6 +6134,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -5967,9 +6157,7 @@
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
-				<addEventToMap>
-					<addEventToMapItem>CustodiansFamily</addEventToMapItem>
-				</addEventToMap>
+				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>CustodiansFamily</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -5978,6 +6166,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6011,6 +6200,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6044,6 +6234,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6077,6 +6268,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6113,6 +6305,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6151,6 +6344,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6188,6 +6382,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6224,6 +6419,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6256,6 +6452,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6288,6 +6485,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6320,6 +6518,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6352,6 +6551,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6383,6 +6583,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6417,6 +6618,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6453,6 +6655,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6489,6 +6692,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6524,6 +6728,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6560,6 +6765,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6592,6 +6798,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6625,6 +6832,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6660,6 +6868,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6700,6 +6909,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6724,7 +6934,7 @@
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedDirectorWhereabouts:Reason</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem>ArtifactNotFound</addToPlayerMemoryItem>
@@ -6733,6 +6943,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6764,6 +6975,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6793,6 +7005,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6823,6 +7036,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6859,6 +7073,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6889,6 +7104,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6920,6 +7136,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6951,6 +7168,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -6981,6 +7199,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7012,6 +7231,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7043,6 +7263,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7074,6 +7295,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7105,6 +7327,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7137,6 +7360,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7169,6 +7393,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7204,6 +7429,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7240,6 +7466,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -7275,6 +7502,40 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>main_jonathan</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I checked the cameras. Sorry if I didn't ask. There appears to be no suspicious person in the storage area at the time of the plinth's disappearance.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>NoSuspiciousPersonInCameras</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>NoSuspiciousPersonInCameras</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 	</DialogueLines>

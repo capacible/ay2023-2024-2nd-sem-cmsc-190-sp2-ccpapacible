@@ -33,4 +33,7 @@ public class DialogueEffect
     // exit the dialogue.
     [XmlElement("exit")]
     public bool exit;
+
+    [XmlElement("item")]
+    public string item;
 }

@@ -1089,6 +1089,18 @@ MonoBehaviour:
   next: {fileID: 1340617061}
   prev: {fileID: 182157320}
   itemName: {fileID: 337466037}
+  allItems:
+  - {fileID: 11400000, guid: 5524366e813a12841ae308e183c4a717, type: 2}
+  - {fileID: 11400000, guid: 2f4f3fbd482618542be94fb557120a8d, type: 2}
+  - {fileID: 11400000, guid: c9b7443d3f64b544e88143e19f25c843, type: 2}
+  - {fileID: 11400000, guid: 2c6dde5e4c2e9494690ac10b73367a55, type: 2}
+  - {fileID: 11400000, guid: fee3c1f06f4764d4cb5ddb2e2d21d025, type: 2}
+  - {fileID: 11400000, guid: 419fd5db163ebf943956032568ec0932, type: 2}
+  - {fileID: 11400000, guid: 38be2e9759f6d32449c818f8888f0b87, type: 2}
+  - {fileID: 11400000, guid: f8866a1d798217f4eaa99accbaed32cd, type: 2}
+  - {fileID: 11400000, guid: d3c9a79b4bf3de04f93fbc198523ca37, type: 2}
+  - {fileID: 11400000, guid: e9317730a66f4d04cbb7bff68503d574, type: 2}
+  - {fileID: 11400000, guid: c9bb75952bd7b294d945e3526c9c740e, type: 2}
 --- !u!4 &1842836598
 Transform:
   m_ObjectHideFlags: 0

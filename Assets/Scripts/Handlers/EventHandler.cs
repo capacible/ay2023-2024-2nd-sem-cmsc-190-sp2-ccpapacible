@@ -46,7 +46,8 @@ public class EventHandler : MonoBehaviour
 
 
     // ITEMS AND INVENTORY
-    public static event System.Action<string, ItemBase> OnPickup;       // id of object, itemdata of object
+    public static event System.Action<string, ItemBase> OnPickupItem;       // id of object, itemdata of object
+    public static event System.Func<string, string> OnPickupStr;
     public static event System.Action<object[]> ItemEffect;
     public static event System.Action TriggerOnDrop;                    // when item is dropped on floor
 
@@ -386,7 +387,7 @@ public class EventHandler : MonoBehaviour
     /// </summary>
     public void PickupItem(string objId, ItemBase item)
     {
-        OnPickup?.Invoke(objId, item);
+        OnPickupItem?.Invoke(objId, item);
 
         Dictionary<string, string> parameters = new Dictionary<string, string> { 
             { MSG_TAG_TYPE.ITEM_NAME, item.itemName }
@@ -394,6 +395,21 @@ public class EventHandler : MonoBehaviour
         
         QuickNotification(GENERIC_MSG_ID.ITEM_PICKUP, parameters);
         
+    }
+
+    /// <summary>
+    /// Pick up with ID
+    /// </summary>
+    /// <param name="itemId"></param>
+    public void PickupItem(string itemId)
+    {
+        string itemName = OnPickupStr?.Invoke(itemId);
+
+        Dictionary<string, string> parameters = new Dictionary<string, string> {
+            { MSG_TAG_TYPE.ITEM_NAME, itemName }
+        };
+
+        QuickNotification(GENERIC_MSG_ID.ITEM_PICKUP, parameters);
     }
 
     /// <summary>

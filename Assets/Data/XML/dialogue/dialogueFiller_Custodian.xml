@@ -31,6 +31,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -61,6 +62,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -89,6 +91,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -117,6 +120,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -147,6 +151,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -177,6 +182,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -205,6 +211,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -233,6 +240,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -265,6 +273,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -297,6 +306,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -333,6 +343,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -369,6 +380,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -405,6 +417,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -441,6 +454,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -477,6 +491,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -513,6 +528,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -549,6 +565,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -582,6 +599,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -615,6 +633,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -648,6 +667,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -681,6 +701,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -714,6 +735,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -747,6 +769,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -779,6 +802,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -810,6 +834,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -842,6 +867,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -873,6 +899,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -904,6 +931,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -938,6 +966,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -972,6 +1001,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1003,6 +1033,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1035,6 +1066,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1066,6 +1098,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1099,6 +1132,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1129,6 +1163,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1160,6 +1195,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1191,6 +1227,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1223,6 +1260,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1255,6 +1293,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1288,6 +1327,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1320,6 +1360,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1352,6 +1393,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1386,6 +1428,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1420,6 +1463,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1453,6 +1497,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1487,6 +1532,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1520,6 +1566,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1553,6 +1600,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1586,6 +1634,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1619,6 +1668,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1654,6 +1704,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1689,6 +1740,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1724,6 +1776,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1759,6 +1812,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1793,6 +1847,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1828,6 +1883,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1863,6 +1919,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1898,6 +1955,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1929,6 +1987,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1960,6 +2019,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1991,6 +2051,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2020,6 +2081,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2051,6 +2113,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2082,6 +2145,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2113,6 +2177,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2144,6 +2209,7 @@ Have you asked the assistant for help?</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2177,6 +2243,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2207,6 +2274,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2237,6 +2305,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2267,6 +2336,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2297,6 +2367,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2329,6 +2400,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2364,6 +2436,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2398,6 +2471,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2431,6 +2505,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2464,6 +2539,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2496,6 +2572,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2528,6 +2605,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2562,6 +2640,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2594,6 +2673,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2623,6 +2703,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2660,6 +2741,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2697,6 +2779,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2731,6 +2814,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2763,6 +2847,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2795,6 +2880,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2826,6 +2912,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2858,6 +2945,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2891,6 +2979,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2930,6 +3019,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2968,6 +3058,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3006,6 +3097,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3045,6 +3137,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3085,6 +3178,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3119,6 +3213,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3154,6 +3249,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3188,6 +3284,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3225,6 +3322,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3256,6 +3354,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3287,6 +3386,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3322,6 +3422,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3356,6 +3457,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3384,6 +3486,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3419,6 +3522,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3455,6 +3559,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3490,6 +3595,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3525,6 +3631,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3561,6 +3668,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3593,6 +3701,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3626,6 +3735,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3657,6 +3767,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3688,6 +3799,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3720,6 +3832,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3750,6 +3863,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3779,6 +3893,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3808,6 +3923,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3837,6 +3953,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3874,6 +3991,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3912,6 +4030,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3946,6 +4065,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3981,6 +4101,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4017,6 +4138,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4051,6 +4173,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4086,6 +4209,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4121,6 +4245,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4154,6 +4279,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4188,6 +4314,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4224,6 +4351,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4254,6 +4382,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4282,6 +4411,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4310,6 +4440,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4338,6 +4469,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4366,6 +4498,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4396,6 +4529,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4429,6 +4563,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4462,6 +4597,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4495,6 +4631,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4510,15 +4647,13 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>"I really</dialogue>
+			<dialogue>I really{comma] really can't help you. I swear</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerBeggedForHelp</relatedEventsItem>
 				<relatedEventsItem>DeclinedToHelp</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> really can't help you. I swear"</addEventToGlobalItem>
-				</addEventToGlobal>
+				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
@@ -4526,6 +4661,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4559,6 +4695,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4591,6 +4728,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4623,6 +4761,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4654,6 +4793,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4685,6 +4825,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -4715,6 +4856,208 @@ I didn't see any wounds on her, though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>gruff</traitItem>
+				<traitItem>impatient</traitItem>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Yeah{comma] I got that. Can't help you{comma] though. I don't know where the boss has gone.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+				<traitItem>frazzled</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Right{comma] but I'm not sure where Director Virgil went today. Last I saw him was yesterday.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>I know{comma] I'm sorry. You'll have to ask someone else{comma] as I don't know anything right now.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>gruff</traitItem>
+				<traitItem>impatient</traitItem>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Damn{comma] miss Cass'll blow her fuse if she finds out. That plinth seemed important to her.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+				<traitItem>frazzled</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Really? I hope you're not panicking too much{comma] I'll help out when I can.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>I'll be sure to keep an eye out.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 	</DialogueLines>

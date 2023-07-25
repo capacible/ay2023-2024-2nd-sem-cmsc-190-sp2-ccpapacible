@@ -590,6 +590,11 @@ public static class Director
             AddEventString(e, currentMap);
         }
 
+        if(line.effect.item != "")
+        {
+            EventHandler.Instance.PickupItem(line.effect.item);
+        }
+
         //TestPrintEventTrackers();
         GetAllTopicRelevance();
     }

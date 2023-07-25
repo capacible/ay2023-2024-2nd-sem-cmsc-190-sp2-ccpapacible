@@ -28,6 +28,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -56,6 +57,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -84,6 +86,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -112,6 +115,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -142,6 +146,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -174,6 +179,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -202,6 +208,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -234,6 +241,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -266,6 +274,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -302,6 +311,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -340,6 +350,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -378,6 +389,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -416,6 +428,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -449,6 +462,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -482,6 +496,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -514,6 +529,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -550,6 +566,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -586,6 +603,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -619,6 +637,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -652,6 +671,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -684,6 +704,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -716,6 +737,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -745,6 +767,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -778,6 +801,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -812,6 +836,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -850,6 +875,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -888,6 +914,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -920,6 +947,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -952,6 +980,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -984,6 +1013,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1016,6 +1046,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1051,6 +1082,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1087,6 +1119,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1122,6 +1155,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1157,6 +1191,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1191,6 +1226,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1225,6 +1261,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1257,6 +1294,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1288,6 +1326,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1323,6 +1362,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1357,6 +1397,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1391,6 +1432,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1423,6 +1465,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1464,6 +1507,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1501,6 +1545,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1533,6 +1578,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1565,6 +1611,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1600,6 +1647,7 @@
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1635,6 +1683,7 @@
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1673,6 +1722,7 @@ Anyway... I don't know who Beth is. Perhaps one of the custodians have an idea o
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1709,6 +1759,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic>DirectorsFrequentVisitor</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1738,6 +1789,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1767,6 +1819,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1803,6 +1856,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1837,6 +1891,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1876,6 +1931,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1915,6 +1971,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1945,6 +2002,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1980,6 +2038,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2009,6 +2068,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2041,6 +2101,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2073,6 +2134,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2106,6 +2168,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2142,6 +2205,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2171,6 +2235,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2202,6 +2267,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2235,6 +2301,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2270,6 +2337,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2303,6 +2371,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2336,6 +2405,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2366,6 +2436,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2392,6 +2463,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2421,6 +2493,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2451,6 +2524,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2480,6 +2554,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2508,6 +2583,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2536,6 +2612,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2567,6 +2644,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2597,6 +2675,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2627,6 +2706,141 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>shy</traitItem>
+				<traitItem>quiet</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>I will ummm... I'll try to contact him. Let me know if you're able to{comma] too.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>loner</traitItem>
+				<traitItem>friendly</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>I'll try calling him over and over. This should be an emergency.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>shy</traitItem>
+				<traitItem>quiet</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>What?! I'll call him for you. Please let me know if you can contact him too.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>loner</traitItem>
+				<traitItem>friendly</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>What?! I-I'll have to call him! You should have told me this as soon as you saw me...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 	</DialogueLines>

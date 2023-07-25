@@ -117,6 +117,7 @@
 		<id>GameIsActive</id>
 		<id>SolvedVasePuzzle:FoundStatue</id>
 		<id>PlayerAskedDirectorWhereabouts</id>
+		<id>Inquiry:SecurityCameras</id>
 		<id>PlayerExpressedSuspicions</id>
 		<id>ExpressedSuspicions:main_cassandra</id>
 		<id>WomanInCamera</id>
@@ -143,6 +144,8 @@
 		<id>Beth:DirectorsVisitor</id>
 		<id>AskAboutSuspiciousActivity</id>
 		<id>PlayerIsInvestigating</id>
+		<id>NoSuspiciousPersonInCameras</id>
+		<id>PlayerAskedDirectorWhereabouts:Reason</id>
 		<id>PlayerSnoopedThroughSafe</id>
 		<id>Inquiry:CassandrasOutburst</id>
 		<id>PlayerDisbelief:DirectorSellThePlinth:Reasons</id>

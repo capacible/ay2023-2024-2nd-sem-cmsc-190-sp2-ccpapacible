@@ -25,6 +25,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -53,6 +54,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -86,6 +88,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -104,6 +107,7 @@
 			<dialogue>I think I saw a strange woman in the storage room last night. My memory was hazy so I assumed it was just one of the staff.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>Inquiry:SecurityCameras</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -118,6 +122,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -150,6 +155,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -182,6 +188,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -215,6 +222,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -244,6 +252,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -276,6 +285,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -308,6 +318,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -340,6 +351,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -374,6 +386,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -403,6 +416,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -432,6 +446,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -461,6 +476,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -490,6 +506,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -518,6 +535,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -546,6 +564,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -581,6 +600,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -611,6 +631,7 @@
 				<makeMostRelevantTopic>EndConversation/DirectorsOffice</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -645,6 +666,7 @@
 				<makeMostRelevantTopic>EndConversation/DirectorsOffice</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -675,6 +697,7 @@
 				<makeMostRelevantTopic>EndConversation/DirectorsOffice</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -704,6 +727,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -733,6 +757,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -766,6 +791,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -798,6 +824,7 @@
 				<makeMostRelevantTopic>TheFounder</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -826,6 +853,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -856,6 +884,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -884,6 +913,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -912,6 +942,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -942,6 +973,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -970,6 +1002,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item>director_office_key</item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -998,6 +1031,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1027,6 +1061,7 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1057,6 +1092,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1088,6 +1124,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1119,6 +1156,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1153,6 +1191,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1184,6 +1223,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1215,6 +1255,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1246,6 +1287,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1276,6 +1318,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1309,6 +1352,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1343,6 +1387,7 @@ It's certainly not his wife though.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1381,6 +1426,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1415,6 +1461,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1455,6 +1502,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1487,6 +1535,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1515,6 +1564,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1547,6 +1597,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1581,6 +1632,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1615,6 +1667,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1643,6 +1696,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1676,6 +1730,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1711,6 +1766,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1741,6 +1797,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1779,6 +1836,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1819,6 +1877,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1849,6 +1908,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1883,6 +1943,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1921,6 +1982,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1951,6 +2013,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -1982,6 +2045,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2013,6 +2077,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2044,6 +2109,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2073,6 +2139,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2103,6 +2170,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2134,6 +2202,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2165,6 +2234,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2201,6 +2271,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2230,6 +2301,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2260,6 +2332,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2295,6 +2368,7 @@ He's not the same man I once knew.</dialogue>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2333,6 +2407,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2349,7 +2424,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>"Thanks for believing me</dialogue>
+			<dialogue>Thanks for believing me{comma] I guess.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansInterest:Artifacts</relatedEventsItem>
 				<relatedEventsItem>BookInJonathansBooth</relatedEventsItem>
@@ -2357,9 +2432,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> I guess."</addEventToGlobalItem>
-				</addEventToGlobal>
+				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
@@ -2367,6 +2440,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2403,6 +2477,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2441,6 +2516,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2475,6 +2551,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2520,6 +2597,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2546,6 +2624,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2576,6 +2655,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2606,6 +2686,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2639,6 +2720,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2651,7 +2733,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
+			<portrait>happy</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>Oh, this is the statue?! That's mesmerizing...</dialogue>
@@ -2668,6 +2750,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2696,6 +2779,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2726,6 +2810,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2738,7 +2823,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
+			<portrait>sad</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>H...hey, Enid. How was the vacation?</dialogue>
@@ -2754,6 +2839,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2784,6 +2870,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2812,6 +2899,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2841,6 +2929,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2871,6 +2960,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2899,6 +2989,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2929,6 +3020,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2944,24 +3036,21 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>"Miss Cassandra could be correct</dialogue>
+			<dialogue>Miss Cassandra could be correct{comma] but... I'm sorry{comma] I don't know what the visitor looks like.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Beth:DirectorsVisitor</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> but... I'm sorry</addEventToGlobalItem>
-				</addEventToGlobal>
-				<addEventToMap>
-					<addEventToMapItem> I don't know what the visitor looks like."</addEventToMapItem>
-				</addEventToMap>
+				<addEventToGlobal />
+				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -2977,15 +3066,13 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>"Garden beds? No</dialogue>
+			<dialogue>Garden beds? No{comma] I didn't notice anything particularly suspicious.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>AskAboutSuspiciousActivity</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> I didn't notice anything particularly suspicious."</addEventToGlobalItem>
-				</addEventToGlobal>
+				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
@@ -2993,6 +3080,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
@@ -3023,10 +3111,11 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
-			<receiver></receiver>
+			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
@@ -3038,15 +3127,13 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>"Thanks for doing this</dialogue>
+			<dialogue>Thanks for doing this{comma] even if it's not really your responsibility.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
-				<addEventToGlobal>
-					<addEventToGlobalItem> even if it's not really your responsibility."</addEventToGlobalItem>
-				</addEventToGlobal>
+				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
@@ -3054,6 +3141,101 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>It's okay{comma] you don't have to ask. And wait--you're saying there's no one suspicious on it? Because I could have sworn I saw a suspicious woman last night...</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>NoSuspiciousPersonInCameras</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WomanInStorage</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Right. Unfortunately{comma] I don't know where the director is. Do you know who could have done it?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>What? Is there a way for me to help?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
 	</DialogueLines>

@@ -44,7 +44,7 @@ Eventually, I decided...
     -> NUMBNESS
 
     = ISOLATION
-    It didn't work. #effect_modify_rel:main_jonathan!-15 #effect_modify_rel:main_cassandra!-5 #effect_modify_rel:assistant!-5 #effect_add_to_player:UsedToBeFriendsWithJonathan
+    It didn't work. #effect_modify_rel:main_jonathan!-15 #effect_modify_rel:main_cassandra!-5 #effect_modify_rel:assistant!-5 #effect_add_to_global:UsedToBeFriendsWithJonathan
     Now, I had less people to help me. I had less avenues to feel better.
     I thought that being alone will help me process my pain, and that it would preserve what people think of me--as a cheerful curator, not the mess that I currently am.
     -> AFTER_CHOICE_3
@@ -70,7 +70,7 @@ Eventually, I decided...
     -> NUMBNESS
 
     = ISOLATION
-    It didn't work. #effect_modify_rel:main_jonathan!-5 #effect_modify_rel:main_cassandra!-15 #effect_modify_rel:assistant!-5 #effect_add_to_player:UsedToBeFriendsWithCassandra
+    It didn't work. #effect_modify_rel:main_jonathan!-5 #effect_modify_rel:main_cassandra!-15 #effect_modify_rel:assistant!-5 #effect_add_to_global:UsedToBeFriendsWithCassandra
     Now, I had less people to help me. I had less avenues to feel better.
     I thought that being alone will help me process my pain, and that it would preserve what people think of me--as a cheerful curator, not the mess that I currently am.
     -> AFTER_CHOICE_3
@@ -97,7 +97,7 @@ Eventually, I decided...
     -> NUMBNESS
 
     = ISOLATION
-    It didn't work. #effect_modify_rel:main_jonathan!-5 #effect_modify_rel:main_cassandra!-5 #effect_modify_rel:assistant!-15 #effect_add_to_player:UsedToBeFriendsWithAssistant
+    It didn't work. #effect_modify_rel:main_jonathan!-5 #effect_modify_rel:main_cassandra!-5 #effect_modify_rel:assistant!-15 #effect_add_to_global:UsedToBeFriendsWithAssistant
     Now, I had less people to help me. I had less avenues to feel better.
     I thought that being alone will help me process my pain, and that it would preserve what people think of me--as a cheerful curator, not the mess that I currently am.
     -> AFTER_CHOICE_3
