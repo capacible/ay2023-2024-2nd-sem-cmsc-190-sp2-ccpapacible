@@ -309,6 +309,11 @@ public class DialogueUi : MonoBehaviour
     /// <param name="info"></param>
     public void UpdateDebugText(string[] info)
     {
+        if (!debugBg.activeInHierarchy)
+        {
+            return;
+        }
+
         foreach(string i in info)
         {
 

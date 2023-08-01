@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
     private Vector2 movement;
     private SpriteRenderer r;
+    public Animator playerAnimator;
     
     // 
     [HideInInspector]
@@ -87,9 +88,13 @@ public class PlayerController : MonoBehaviour
         if (!busy)
         {
             // movement
-            movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-            PlayerMove(movement);
+            playerAnimator.SetFloat("horizontal", movement.x);
+            playerAnimator.SetFloat("vertical", movement.y);
+            playerAnimator.SetFloat("speed", movement.magnitude);
+
+            PlayerMove();
             
             PlayerAction();
 
@@ -167,11 +172,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlayerMove(Vector2 dir)
+    private void PlayerMove()
     {
 
 
-        body.MovePosition(new Vector2(transform.position.x + dir.x * speed, transform.position.y + dir.y * speed));
+        body.MovePosition(body.position + movement * speed * Time.fixedDeltaTime);
     }
 
     
