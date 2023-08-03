@@ -113,6 +113,10 @@ public static class Director
     // models
     private static DirectorModel model;
 
+    private static Queue<DialogueLine> shortTermMemory = new Queue<DialogueLine>();
+    private static readonly int MAX_SHORT_TERM_MEMORY = 5; 
+    // when max, dequeue and change the isSaid to true permanently
+    
     #region INITIALIZATION
 
     /// <summary>
@@ -346,6 +350,12 @@ public static class Director
         activeNPC = npcId;
         currentMap = mapId;
 
+        // reset the values of isSaid in short term memory
+        foreach(DialogueLine line in shortTermMemory)
+        {
+            line.isSaid = false;
+        }
+        
         // set current relevant topic to be startconversation
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.MAX;
         // start with 0 mood -- neutral
@@ -541,14 +551,27 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
+        /*
         else if(line.speakerId!=DirectorConstants.PLAYER_STR)
         {
             line.isSaid = true;
             Debug.Log("if the speaker is not a player, then isSaid is valid");
+        }*/
+        else if (line.speakerId == DirectorConstants.PLAYER_STR)
+        {
+            // add the line into the short term memory
+            line.isSaid = true;
+            shortTermMemory.Enqueue(line);
+            
+            if(shortTermMemory.Count == MAX_SHORT_TERM_MEMORY)
+            {
+                // dequeue and permanently make the line isSaid to be true.
+                shortTermMemory.Dequeue().isSaid = true;
+            }
         }
         else
         {
-            line.isSaid = false;    // uncaught cases will always be false
+            line.isSaid = true;    // uncaught cases will always be false
         }
 
         mood = line.ResponseStrToInt();
@@ -560,7 +583,8 @@ public static class Director
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
-            allSpeakers[activeNPC].topics[line.effect.makeMostRelevantTopic] = (double)DirectorConstants.TopicRelevance.MAX;
+            foreach(string topic in line.effect.makeMostRelevantTopic.Split('/'))
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.MAX;
             //topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
         }
         else

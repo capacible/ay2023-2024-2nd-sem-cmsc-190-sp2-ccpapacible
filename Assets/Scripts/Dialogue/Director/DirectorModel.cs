@@ -26,15 +26,15 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = -100.0;
+    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
     private const double LINE_HARD_MIN_PROB = 0.005;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
-    private static readonly string EVENTS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/eventCPT.xml";
-    private static readonly string TRAITS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/traitCPT.xml";
-    private static readonly string RELS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/relCPT.xml";
+    private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
+    private static readonly string TRAITS_DISTRIBUTION_PATH = "XMLs/Dialogue/traitCPT";
+    private static readonly string RELS_DISTRIBUTION_PATH = "XMLs/Dialogue/relCPT";
     private static readonly string MODEL_FOLDER = $"{Application.dataPath}/Models";
 
     private int TotalEventCount;
@@ -282,12 +282,22 @@ public class DirectorModel
          */
 
         // create the algo for this one
+        /*
+        iaEventsRelKnown = null;
+        iaAllKnown = null;
+        iaTraitsRelKnown = null;*/
+        
+        
         iaEventsRelKnown = new Models.DialogueDirector_EP();
         iaTraitsRelKnown = new Models.DialogueDirector0_EP();
         iaAllKnown = new Models.DialogueDirector1_EP();
+        
 
         // set the observed values.
         Dirichlet[][][] loadedProbs = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        Dirichlet eventProbs = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
+        Dirichlet traitProbs = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
+        Dirichlet relProbs = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
 
         // cpt of dialogue
         iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
@@ -295,19 +305,19 @@ public class DirectorModel
         iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
 
         // cpt of events
-        iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
-        iaTraitsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
-        iaAllKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
+        iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
+        iaAllKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
 
         // cpt of traits
-        iaEventsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
-        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
-        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
+        iaEventsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
+        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
 
         // cpt of rels
-        iaEventsRelKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
-        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
-        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
+        iaEventsRelKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, relProbs);
+        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, relProbs);
 
 
         Debug.Log("All inferences algo loaded successfully");
@@ -347,23 +357,18 @@ public class DirectorModel
         modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
         string meta = modelFile.Split('.')[0];
         metaFile = meta;
-        string path = "Assets/Resources/XMLs/dialogue/lineCPT.xml";
+        string path = "Assets/Resources/XMLs/dialogue/";
 
         
         InferenceEngine.DefaultEngine.ShowFactorGraph = true;
         engine.SaveFactorGraphToFolder = "Assets/Models";
 
-        DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet[][][]), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+        CPTPrior_Dialogue.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet[][][]>(path + "lineCPT.xml");
 
-        using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(path, FileMode.Open), new XmlDictionaryReaderQuotas()))
-        {
-            // deserialize/ read the distribution
-            CPTPrior_Dialogue.ObservedValue = (Dirichlet[][][])serializer.ReadObject(reader);
-        }
+        ProbPrior_Events.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "eventCPT.xml");
+        ProbPrior_Traits.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "traitCPT.xml");
+        ProbPrior_RelStatus.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "relCPT.xml");
 
-        ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
-        ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
-        ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
 
         // setting observed values.
         /*
@@ -392,6 +397,17 @@ public class DirectorModel
         Debug.Log("All inferences algo loaded successfully");
     }
     
+    public T DeserializeCPTGivenFullPath<T>(string path)
+    {
+        DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+
+        using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(path, FileMode.Open), new XmlDictionaryReaderQuotas()))
+        {
+            // deserialize/ read the distribution
+            return (T)serializer.ReadObject(reader);
+        }
+    }
+
     /// <summary>
     /// set the observed values of ALL our variables.
     /// </summary>

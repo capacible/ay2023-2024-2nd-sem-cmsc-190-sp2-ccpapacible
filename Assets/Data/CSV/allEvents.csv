@@ -109,6 +109,8 @@ ShowItem:statue
 FounderIdentity:Beth:Confirmed
 VoicemailFromWife
 PlayerAskedAboutWife
+LockedDoor
+AssistantLocksTheDoor
 PlayerEnterDirectorsOffice
 Confrontation
 LearnAboutFounder
@@ -212,3 +214,4 @@ SellThePlinth:Founder:Reason
 SellThePlinth:Founder 
 DaughtersBirthday:ShortWorkday
 UsedToBeFriendsWithAssistant
+Inquiry:DirectorsOfficeClues

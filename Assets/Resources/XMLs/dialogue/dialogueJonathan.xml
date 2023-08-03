@@ -15,7 +15,9 @@
 			<locations />
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>G'morning, Ma'am.</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -2424,7 +2426,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Thanks for believing me{comma] I guess.</dialogue>
+			<dialogue>Thanks for believing me, I guess.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansInterest:Artifacts</relatedEventsItem>
 				<relatedEventsItem>BookInJonathansBooth</relatedEventsItem>
@@ -3036,7 +3038,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Miss Cassandra could be correct{comma] but... I'm sorry{comma] I don't know what the visitor looks like.</dialogue>
+			<dialogue>Miss Cassandra could be correct, but... I'm sorry, I don't know what the visitor looks like.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Beth:DirectorsVisitor</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
@@ -3066,7 +3068,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Garden beds? No{comma] I didn't notice anything particularly suspicious.</dialogue>
+			<dialogue>Garden beds? No, I didn't notice anything particularly suspicious.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>AskAboutSuspiciousActivity</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3127,7 +3129,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Thanks for doing this{comma] even if it's not really your responsibility.</dialogue>
+			<dialogue>Thanks for doing this, even if it's not really your responsibility.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3157,7 +3159,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>It's okay{comma] you don't have to ask. And wait--you're saying there's no one suspicious on it? Because I could have sworn I saw a suspicious woman last night...</dialogue>
+			<dialogue>It's okay, you don't have to ask. And wait--you're saying there's no one suspicious on it? Because I could have sworn I saw a suspicious woman last night...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NoSuspiciousPersonInCameras</relatedEventsItem>
 			</relatedEvents>
@@ -3189,7 +3191,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>sad</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Right. Unfortunately{comma] I don't know where the director is. Do you know who could have done it?</dialogue>
+			<dialogue>Right. Unfortunately, I don't know where the director is. Do you know who could have done it?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -3230,6 +3232,125 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>No, but I happen to know someone who does. The custodians keep an extra in their locker.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Not really. Plus, it's not like I'd be able to tell you, considering my priority is security.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Oh, I'm sorry, I can't tell you that.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver></receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>No, but...
+F-fine. The custodians keep an extra key in their locker. You should ask around for the passcode.
+I'm just helping you for our old friendship.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+				<relatedEventsItem>UsedToBeFriendsWithJonathan</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

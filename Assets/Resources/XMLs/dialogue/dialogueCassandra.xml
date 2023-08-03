@@ -1311,7 +1311,6 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
@@ -1617,6 +1616,7 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relatedEvents>
 				<relatedEventsItem>InjuryCause:BrokenCabinet</relatedEventsItem>
 				<relatedEventsItem>Inquiry:CassInjuryTime</relatedEventsItem>
+				<relatedEventsItem>PlayerInquiry:Arm</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2852,6 +2852,35 @@ Either way, let me know you confirm her identity.</dialogue>
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver></receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_cassandra</speakerId>
+			<dialogue>I haven't been to the office since the weekend.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

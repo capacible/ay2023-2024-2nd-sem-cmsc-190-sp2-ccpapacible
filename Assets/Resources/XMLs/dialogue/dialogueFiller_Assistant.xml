@@ -2726,7 +2726,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<locations />
 			<portrait>neutral</portrait>
 			<speakerId>assistant</speakerId>
-			<dialogue>I will ummm... I'll try to contact him. Let me know if you're able to{comma] too.</dialogue>
+			<dialogue>I will ummm... I'll try to contact him. Let me know if you're able to, too.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -2830,6 +2830,66 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<dialogue>What?! I-I'll have to call him! You should have told me this as soon as you saw me...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Oh, yes. I lock the door behind me whenever the director's not around.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>AssistantLocksTheDoor</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Oh... I don't really know, Ma'am. I haven't noticed anything out of the ordinary.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Inquiry:DirectorsOfficeClues</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
