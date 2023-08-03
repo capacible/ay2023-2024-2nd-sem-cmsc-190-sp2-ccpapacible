@@ -36,19 +36,19 @@ public class DirectorTraining
     {
 
         // load events
-        Dictionary<int, string> eventsDB = IdCollection.LoadArrayAsDict(Director.EVENTS_XML_PATH);
-        Dictionary<int, string> traitsDB = IdCollection.LoadArrayAsDict(Director.TRAITS_XML_PATH);
+        Dictionary<int, string> eventsDB = IdCollection.LoadArrayFromPath("Resources/" + Director.EVENTS_XML_PATH + ".xml");
+        Dictionary<int, string> traitsDB = IdCollection.LoadArrayFromPath("Resources/" + Director.TRAITS_XML_PATH + ".xml");
 
         Debug.Log("events " + eventsDB.Count);
         Debug.Log("traits" + traitsDB.Count);
 
         // initialize the lineDb
-        Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
-            "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml",
-            "Data/XML/dialogue/dialogueCassandra.xml",
-            "Data/XML/dialogue/dialogueFiller_Custodian.xml",
-            "Data/XML/dialogue/dialogueFiller_Assistant.xml"
+        Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAllFromPath(new string[] {
+            "Resources/XMLs/dialogue/dialoguePlayer.xml",
+            "Resources/XMLs/dialogue/dialogueJonathan.xml",
+            "Resources/XMLs/dialogue/dialogueCassandra.xml",
+            "Resources/XMLs/dialogue/dialogueFiller_Custodian.xml",
+            "Resources/XMLs/dialogue/dialogueFiller_Assistant.xml"
         });
 
         Debug.Log("LINE SIZE " + lineDB.Count);
@@ -69,19 +69,19 @@ public class DirectorTraining
     public static void GetDialogueCPT()
     {
         // load events
-        Dictionary<int, string> eventsDB = IdCollection.LoadArrayAsDict(Director.EVENTS_XML_PATH);
-        Dictionary<int, string> traitsDB = IdCollection.LoadArrayAsDict(Director.TRAITS_XML_PATH);
+        Dictionary<int, string> eventsDB = IdCollection.LoadArrayFromPath("Resources/"+Director.EVENTS_XML_PATH+".xml");
+        Dictionary<int, string> traitsDB = IdCollection.LoadArrayFromPath("Resources/"+Director.TRAITS_XML_PATH + ".xml");
 
         Debug.Log("events "+eventsDB.Count);
         Debug.Log("traits" + traitsDB.Count);
         
         // initialize the lineDb
-        Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAll(new string[] {
-            "Data/XML/dialogue/dialoguePlayer.xml",
-            "Data/XML/dialogue/dialogueJonathan.xml",
-            "Data/XML/dialogue/dialogueCassandra.xml",
-            "Data/XML/dialogue/dialogueFiller_Custodian.xml",
-            "Data/XML/dialogue/dialogueFiller_Assistant.xml"
+        Dictionary<int, DialogueLine> lineDB = DialogueLineCollection.LoadAllFromPath(new string[] {
+            "Resources/XMLs/dialogue/dialoguePlayer.xml",
+            "Resources/XMLs/dialogue/dialogueJonathan.xml",
+            "Resources/XMLs/dialogue/dialogueCassandra.xml",
+            "Resources/XMLs/dialogue/dialogueFiller_Custodian.xml",
+            "Resources/XMLs/dialogue/dialogueFiller_Assistant.xml"
         });
 
         Debug.Log("LINE SIZE " + lineDB.Count);
@@ -243,7 +243,7 @@ public class DirectorTraining
         DirectorData learned = model.DataFromPosteriors();
 
         // IN HERE WE SERIALIZE THE DIRICHLET INTO AN XML
-        string path = "Assets/Data/XML/Dialogue/";
+        string path = "Assets/Resources/XMLs/dialogue/";
 
         SerializeCPT<Dirichlet[][][]>(path, "lineCPT.xml", learned.dialogueProb);
         SerializeCPT<Dirichlet>(path, "eventCPT.xml", learned.eventsProb);

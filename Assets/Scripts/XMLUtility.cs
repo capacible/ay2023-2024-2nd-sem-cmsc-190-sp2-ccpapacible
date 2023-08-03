@@ -81,4 +81,27 @@ public class IdCollection
 
         return returnDict;
     }
+
+    public static Dictionary<int, string> LoadArrayFromPath(string path)
+    {
+        if (path == "")
+        {
+            Debug.LogWarning("empty path");
+            // return an empty dict
+            return new Dictionary<int, string>();
+        }
+        
+        Dictionary<int, string> returnDict = new Dictionary<int, string>();
+        IdCollection ids = XMLUtility.LoadFromPath<IdCollection>(path);
+
+        Debug.Log("success");
+
+        for (int i = 0; i < ids.allIds.Length; i++)
+        {
+            // add to a dictionary
+            returnDict.Add(i, ids.allIds[i]);
+        }
+
+        return returnDict;
+    }
 }

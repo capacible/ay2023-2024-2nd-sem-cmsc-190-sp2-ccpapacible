@@ -109,4 +109,25 @@ public class DialogueLineCollection
 
         return all;
     }
+
+    public static Dictionary<int, DialogueLine> LoadAllFromPath(string[] paths)
+    {
+        Dictionary<int, DialogueLine> all = new Dictionary<int, DialogueLine>();
+
+        int count = 0;
+
+        foreach (string path in paths)
+        {
+            UnityEngine.Debug.Log("loading dialogue at path: " + path);
+            // we load individually then access each individual dialogue line to add to the final collection.
+            foreach (DialogueLine line in XMLUtility.LoadFromPath<DialogueLineCollection>(path).DialogueLines)
+            {
+                UnityEngine.Debug.Log("loaded this line: " + line.receiver);
+                all.Add(count, line);
+                count++;
+            }
+        }
+
+        return all;
+    }
 }

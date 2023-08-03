@@ -1,4 +1,5 @@
 using Microsoft.ML.Probabilistic;
+using Microsoft.ML.Probabilistic.Algorithms;
 using Microsoft.ML.Probabilistic.Collections;
 using Microsoft.ML.Probabilistic.Distributions;
 using Microsoft.ML.Probabilistic.Math;
@@ -25,7 +26,7 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = -1.0;
+    private const double LINE_IS_SAID_WEIGHT_T = -100.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
     private const double LINE_HARD_MIN_PROB = 0.005;
@@ -117,9 +118,11 @@ public class DirectorModel
     /// </summary>
     public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus, string modelName="DialogueDirector")
     {
+
+        engine.Algorithm = new ExpectationPropagation();
         engine.ModelName = modelName;
         // set location of generated source code
-        //engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
+        engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
 
         // our totals
         TotalDialogueCount = totalDialogue;
@@ -273,38 +276,39 @@ public class DirectorModel
     /// </summary>
     public void Start()
     {
-        modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
-        string meta = modelFile.Split('.')[0];
-        metaFile = meta;
-
-        CPTPrior_Dialogue.ObservedValue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
-        ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
-        ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
-        ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
-
         // setting observed values.
         /*
          *  THERE ARE DIFFERENT TYPES OF POSSIBLE COMPILED ALGORITHMS, CONSIDERING THE VARIOUS TYPES OF AVAILABLE OR KNOWN DATA.
          */
-         
-        int[] events = new int[] { Director.NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, fromEvents: true) };
-        int[] traits = new int[] { Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true) };
-        int[] rels = new int[] { (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL };
-        NumOfCases.ObservedValue = 1;
 
-        Debug.Log("Getting the inference algorithms...");
-
-        SetPreInferenceObservations(events, null, rels);    // we set the observed value
         // create the algo for this one
-        iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        iaEventsRelKnown = new Models.DialogueDirector_EP();
+        iaTraitsRelKnown = new Models.DialogueDirector0_EP();
+        iaAllKnown = new Models.DialogueDirector1_EP();
 
-        // for traits only
-        SetPreInferenceObservations(null, traits, rels);
-        iaTraitsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        // set the observed values.
+        Dirichlet[][][] loadedProbs = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
 
-        // for all applicable
-        SetPreInferenceObservations(events, traits, rels);
-        iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        // cpt of dialogue
+        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
+        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
+        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
+
+        // cpt of events
+        iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
+        iaAllKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, Dirichlet.Uniform(TotalEventCount));
+
+        // cpt of traits
+        iaEventsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
+        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalTraitCount));
+
+        // cpt of rels
+        iaEventsRelKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
+        iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
+        iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, Dirichlet.Uniform(TotalRelCount));
+
 
         Debug.Log("All inferences algo loaded successfully");
 
@@ -343,7 +347,11 @@ public class DirectorModel
         modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
         string meta = modelFile.Split('.')[0];
         metaFile = meta;
-        string path = "Assets/Resources/XMLs/Dialogue/lineCPT";
+        string path = "Assets/Resources/XMLs/dialogue/lineCPT.xml";
+
+        
+        InferenceEngine.DefaultEngine.ShowFactorGraph = true;
+        engine.SaveFactorGraphToFolder = "Assets/Models";
 
         DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet[][][]), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
 
@@ -617,7 +625,7 @@ public class DirectorModel
             iaAllKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
 
             // update and get prob
-            iaAllKnown.Update(1);
+            iaAllKnown.Execute(events.Length);
             var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             return result[0].GetProbs().ToList();
@@ -631,7 +639,7 @@ public class DirectorModel
             iaEventsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
 
             // update and get prob
-            iaEventsRelKnown.Update(1);
+            iaEventsRelKnown.Execute(events.Length);
             var result = iaEventsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             return result[0].GetProbs().ToList();
@@ -645,7 +653,7 @@ public class DirectorModel
             iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
 
             // update and get prob
-            iaTraitsRelKnown.Update(1);
+            iaTraitsRelKnown.Execute(traits.Length);
             var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             return result[0].GetProbs().ToList();

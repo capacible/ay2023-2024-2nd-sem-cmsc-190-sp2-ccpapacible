@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="node0" Label="DialogueCPT[AllEvents[NCases]][AllTraits[NCases]][AllRels[NCases]]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node1" Label="Discrete" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node2" Label="AllEvents[NCases]==Events" FontSize="0" Foreground="Black" Background="Empty" Group="Expanded" />
+    <Node Id="node3" Label="AllTraits[NCases]==Traits" FontSize="0" Foreground="Black" Background="Empty" Group="Expanded" />
+    <Node Id="node4" Label="AllRels[NCases]==Rel" FontSize="0" Foreground="Black" Background="Empty" Group="Expanded" />
+    <Node Id="node5" Label="AllRels[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node6" Label="AllTraits[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node7" Label="AllEvents[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node8" Label="DialogueChild[NCases]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node9" Label="PossibleEvents" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node10" Label="Discrete" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node11" Label="EventsPriors" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node12" Label="Random" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node13" Label="PossibleTraits" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node14" Label="Discrete" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node15" Label="TraitsPriors" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node16" Label="Random" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node17" Label="PossibleRel" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node18" Label="Discrete" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node19" Label="RelStatusPriors" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node20" Label="Random" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node21" Label="DialogueCPTPrior[Events][Traits][Rel]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node22" Label="Random" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />
+    <Node Id="node23" Label="DialogueCPT[Events][Traits][Rel]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+  </Nodes>
+  <Links>
+    <Link Source="node5" Target="node4" Label="" FontSize="0" />
+    <Link Source="node4" Target="node3" Label="" FontSize="0" Category="Contains" />
+    <Link Source="node6" Target="node3" Label="" FontSize="0" />
+    <Link Source="node3" Target="node2" Label="" FontSize="0" Category="Contains" />
+    <Link Source="node7" Target="node2" Label="" FontSize="0" />
+    <Link Source="node2" Target="node1" Label="" FontSize="0" Category="Contains" />
+    <Link Source="node0" Target="node1" Label="probs" FontSize="8" />
+    <Link Source="node1" Target="node8" Label="" FontSize="8" />
+    <Link Source="node9" Target="node10" Label="probs" FontSize="8" />
+    <Link Source="node10" Target="node7" Label="" FontSize="8" />
+    <Link Source="node11" Target="node12" Label="dist" FontSize="8" />
+    <Link Source="node12" Target="node9" Label="" FontSize="8" />
+    <Link Source="node13" Target="node14" Label="probs" FontSize="8" />
+    <Link Source="node14" Target="node6" Label="" FontSize="8" />
+    <Link Source="node15" Target="node16" Label="dist" FontSize="8" />
+    <Link Source="node16" Target="node13" Label="" FontSize="8" />
+    <Link Source="node17" Target="node18" Label="probs" FontSize="8" />
+    <Link Source="node18" Target="node5" Label="" FontSize="8" />
+    <Link Source="node19" Target="node20" Label="dist" FontSize="8" />
+    <Link Source="node20" Target="node17" Label="" FontSize="8" />
+    <Link Source="node21" Target="node22" Label="dist" FontSize="8" />
+    <Link Source="node22" Target="node23" Label="" FontSize="8" />
+    <Link Source="node23" Target="node0" Label="" FontSize="0" />
+  </Links>
+</DirectedGraph>
