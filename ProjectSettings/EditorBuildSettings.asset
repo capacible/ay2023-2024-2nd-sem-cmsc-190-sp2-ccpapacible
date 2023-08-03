@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/_Dialogue.unity
-    guid: f495767a4798154489db0e91b9474e04
-  - enabled: 1
     path: Assets/Scenes/__Main.unity
     guid: b1fc6ffa6de08ee4a89b4ea888f46b4a
+  - enabled: 1
+    path: Assets/Scenes/_Dialogue.unity
+    guid: f495767a4798154489db0e91b9474e04
   - enabled: 1
     path: Assets/Scenes/_Inventory.unity
     guid: 7d4d90bb08a21644fa295efe3c88b837
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Floor2.unity
     guid: 31354909a4aed4943b52de5c65c8e9a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CameraPuzzle.unity
     guid: 86293ca01b383ea408b9c625bf08c7d4
   - enabled: 1
@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_NarrationScene.unity
     guid: 412b946286176514eab3127e7b0872aa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/_InstructionScene.unity
     guid: 83e96dd14f2a4444daa19ce04f51ff56
   m_configObjects: {}

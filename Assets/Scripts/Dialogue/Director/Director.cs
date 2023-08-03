@@ -57,17 +57,17 @@ public static class DirectorConstants
 /// </summary>
 public static class Director
 {
-    public static readonly string EVENTS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allEvents.xml";
-    public static readonly string TOPICS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTopics.xml";
-    public static readonly string TRAITS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTraits.xml";
-    public static readonly string SPEAKERS_XML_PATH = $"{Application.dataPath}/Data/XML/Speakers.xml";
+    public static readonly string EVENTS_XML_PATH = $"XMLs/DB/allEvents";
+    public static readonly string TOPICS_XML_PATH = $"XMLs/DB/allTopics";
+    public static readonly string TRAITS_XML_PATH = $"XMLs/DB/allTraits";
+    public static readonly string SPEAKERS_XML_PATH = $"XMLs/Speakers";
     public static readonly string[] DIALOGUE_XML_PATH = new string[]
     {
-        $"{Application.dataPath}/Data/XML/dialogue/dialoguePlayer.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueJonathan.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueCassandra.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Custodian.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Assistant.xml"
+        $"XMLs/dialogue/dialoguePlayer",
+        $"XMLs/dialogue/dialogueJonathan",
+        $"XMLs/dialogue/dialogueCassandra",
+        $"XMLs/dialogue/dialogueFiller_Custodian",
+        $"XMLs/dialogue/dialogueFiller_Assistant"
     };
 
     // director is active? -- currently being used?
@@ -149,7 +149,9 @@ public static class Director
     
     public static IdCollection LoadTopics()
     {
-        return XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
+        TextAsset topicAsset = (TextAsset)Resources.Load(TOPICS_XML_PATH);
+
+        return XMLUtility.LoadFromText<IdCollection>(topicAsset);
     }
 
     /// <summary>
@@ -170,8 +172,9 @@ public static class Director
     /// </summary>
     public static void LoadSpeakers()
     {
+        TextAsset speakerResource = (TextAsset) Resources.Load(SPEAKERS_XML_PATH);
         // create a new speakercollection
-        SpeakerCollection loadSpeakers = XMLUtility.LoadFromPath<SpeakerCollection>(SPEAKERS_XML_PATH);
+        SpeakerCollection loadSpeakers = XMLUtility.LoadFromText<SpeakerCollection>(speakerResource);
 
         Debug.Log(loadSpeakers.Speakers.Length);
         TestPrintSpeakers(loadSpeakers);

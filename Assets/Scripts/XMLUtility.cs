@@ -66,8 +66,10 @@ public class IdCollection
             return new Dictionary<int, string>();
         }
 
+        TextAsset toDeserialize = (TextAsset) Resources.Load(path);
+
         Dictionary<int, string> returnDict = new Dictionary<int, string>();
-        IdCollection ids = XMLUtility.LoadFromPath<IdCollection>(path);
+        IdCollection ids = XMLUtility.LoadFromText<IdCollection>(toDeserialize);
 
         Debug.Log("success");
 

@@ -22,6 +22,7 @@ public enum UiType
 /// </summary>
 public class EventHandler : MonoBehaviour
 {
+
     public static EventHandler Instance;
     // for functionality that is supposed to return after interaction uis are done, we have to check first if all active uis are
     // gone.

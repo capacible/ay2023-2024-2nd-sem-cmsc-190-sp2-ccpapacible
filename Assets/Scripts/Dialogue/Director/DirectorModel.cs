@@ -30,7 +30,7 @@ public class DirectorModel
 
     private const double LINE_HARD_MIN_PROB = 0.005;
     
-    private static readonly string DLINE_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/lineCPT.xml";
+    private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/eventCPT.xml";
     private static readonly string TRAITS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/traitCPT.xml";
     private static readonly string RELS_DISTRIBUTION_PATH = Application.dataPath + "/Data/XML/Dialogue/relCPT.xml";
@@ -119,7 +119,7 @@ public class DirectorModel
     {
         engine.ModelName = modelName;
         // set location of generated source code
-        engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
+        //engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
 
         // our totals
         TotalDialogueCount = totalDialogue;
@@ -292,6 +292,8 @@ public class DirectorModel
         int[] rels = new int[] { (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL };
         NumOfCases.ObservedValue = 1;
 
+        Debug.Log("Getting the inference algorithms...");
+
         SetPreInferenceObservations(events, null, rels);    // we set the observed value
         // create the algo for this one
         iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
@@ -303,6 +305,8 @@ public class DirectorModel
         // for all applicable
         SetPreInferenceObservations(events, traits, rels);
         iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        Debug.Log("All inferences algo loaded successfully");
 
     }
     
@@ -318,7 +322,9 @@ public class DirectorModel
         {
             DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
 
-            using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(path, FileMode.Open), new XmlDictionaryReaderQuotas()))
+            TextAsset cpt = (TextAsset) Resources.Load(path);
+
+            using (var reader = XmlReader.Create(new StringReader(cpt.text)))
             {
                 // deserialize/ read the distribution
                 return (T)serializer.ReadObject(reader);
@@ -331,6 +337,52 @@ public class DirectorModel
 
     #endregion
     #region BEFORE-RUNNING
+
+    public void GenerateAlgorithms(int gameActive, int noneStr)
+    {
+        modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
+        string meta = modelFile.Split('.')[0];
+        metaFile = meta;
+        string path = "Assets/Resources/XMLs/Dialogue/lineCPT";
+
+        DataContractSerializer serializer = new DataContractSerializer(typeof(Dirichlet[][][]), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+
+        using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(path, FileMode.Open), new XmlDictionaryReaderQuotas()))
+        {
+            // deserialize/ read the distribution
+            CPTPrior_Dialogue.ObservedValue = (Dirichlet[][][])serializer.ReadObject(reader);
+        }
+
+        ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
+        ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
+        ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
+
+        // setting observed values.
+        /*
+         *  THERE ARE DIFFERENT TYPES OF POSSIBLE COMPILED ALGORITHMS, CONSIDERING THE VARIOUS TYPES OF AVAILABLE OR KNOWN DATA.
+         */
+
+        int[] events = new int[] { gameActive };
+        int[] traits = new int[] { noneStr };
+        int[] rels = new int[] { (int)DirectorConstants.REL_STATUS_NUMS.NEUTRAL };
+        NumOfCases.ObservedValue = 1;
+
+        Debug.Log("Getting the inference algorithms...");
+
+        SetPreInferenceObservations(events, null, rels);    // we set the observed value
+        // create the algo for this one
+        iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        // for traits only
+        SetPreInferenceObservations(null, traits, rels);
+        iaTraitsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        // for all applicable
+        SetPreInferenceObservations(events, traits, rels);
+        iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+
+        Debug.Log("All inferences algo loaded successfully");
+    }
     
     /// <summary>
     /// set the observed values of ALL our variables.

@@ -12,6 +12,7 @@ public class NarrationHandler : MonoBehaviour
     public Image cover;
     public Canvas canvas;
 
+    public TextAsset bg;
     public TextAsset[] endings;
 
     // the following starts off deactivated
@@ -51,6 +52,8 @@ public class NarrationHandler : MonoBehaviour
         // fade in the text box
         fader.Fade(textBox, fadeOut: false);
 
+        Debug.Log("FADEOUT SUCCESS");
+
         startOfGame = (bool)parameters[0];
         nextScene = parameters[2].ToString();
         TextAsset file;
@@ -64,7 +67,7 @@ public class NarrationHandler : MonoBehaviour
         }
         else
         {
-            file = (TextAsset)parameters[1];
+            file = bg;
         }
         
         StartBgNarration(file);
@@ -76,6 +79,7 @@ public class NarrationHandler : MonoBehaviour
     /// </summary>
     private void StartBgNarration(TextAsset file)
     {
+        Debug.Log("STARTING NARRATION");
         // start and get a new line
         string[] line = InkDialogueManager.StartDialogue(file);
         // line[0] is the dialogue itself, while next are the tags
@@ -91,7 +95,10 @@ public class NarrationHandler : MonoBehaviour
     private void ShowNarration(string line = null)
     {
         if (line != null)
+        {
             textBoxText.text = line;
+            Debug.Log("line is shown -- success");
+        }
     }
 
     /// <summary>

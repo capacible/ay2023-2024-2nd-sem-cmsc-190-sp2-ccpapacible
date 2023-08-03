@@ -94,9 +94,12 @@ public class DialogueLineCollection
 
         foreach(string path in paths)
         {
+            // get resource
+            TextAsset dialogueResource = (TextAsset) Resources.Load(path);
+
             UnityEngine.Debug.Log("loading dialogue at path: " + path);
             // we load individually then access each individual dialogue line to add to the final collection.
-            foreach(DialogueLine line in XMLUtility.LoadFromPath<DialogueLineCollection>(path).DialogueLines)
+            foreach(DialogueLine line in XMLUtility.LoadFromText<DialogueLineCollection>(dialogueResource).DialogueLines)
             {
                 UnityEngine.Debug.Log("loaded this line: " + line.receiver);
                 all.Add(count, line);
