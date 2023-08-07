@@ -15,9 +15,7 @@
 			<locations />
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>Yes?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>GameIsActive</relatedEventsItem>
-			</relatedEvents>
+			<relatedEvents />
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -44,9 +42,7 @@
 			<locations />
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>Hello. Need help with anything?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>GameIsActive</relatedEventsItem>
-			</relatedEvents>
+			<relatedEvents />
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -73,9 +69,7 @@
 			<locations />
 			<speakerId>main_cassandra</speakerId>
 			<dialogue>I'm quite busy. If you need anything, please make it quick.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>GameIsActive</relatedEventsItem>
-			</relatedEvents>
+			<relatedEvents />
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />

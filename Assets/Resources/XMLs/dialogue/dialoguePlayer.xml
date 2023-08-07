@@ -220,7 +220,7 @@
 				<addToPlayerMemory />
 				<relationshipEffect>-1</relationshipEffect>
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
-				<closeTopic>MissingArtifact</closeTopic>
+				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
 			</DialogueEffect>
@@ -2583,13 +2583,13 @@
 			<dialogue>I checked the footage at the time stamp you were talking about. There was no woman there.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>NoWomanInCamera</addToNPCMemoryItem>
+					<addToNPCMemoryItem>NoWomanInStorage</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -2615,13 +2615,13 @@
 			<dialogue>Were you lying? There weren't any women in the security footage last night.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>NoWomanInCamera</addToNPCMemoryItem>
+					<addToNPCMemoryItem>NoWomanInStorage</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -2649,13 +2649,13 @@
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>NoWomanInCamera</addToNPCMemoryItem>
+					<addToNPCMemoryItem>NoWomanInStorage</addToNPCMemoryItem>
 					<addToNPCMemoryItem>FounderIdentity:Beth</addToNPCMemoryItem>
 					<addToNPCMemoryItem>WomanInStorage:Beth</addToNPCMemoryItem>
 				</addToNPCMemory>
@@ -2748,7 +2748,7 @@
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3080,7 +3080,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>Is the director's... infatuation... the reason why you claimed to see a woman that looks like Beth in the security cameras?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -3149,7 +3149,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>"Why do you think framing the founder will ""protect"" the director?"</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -3186,7 +3186,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>But how does pointing fingers at the founder protect Director Virgil?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -4349,7 +4349,7 @@
 			<relatedEvents>
 				<relatedEventsItem>Alibi:DaggerResearch</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -5602,14 +5602,14 @@
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
-				<relatedEventsItem>CassNoInfo:WomanInCameras</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
+				<relatedEventsItem>CassNoInfo:WomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>CassDoesntKnowAboutWomanInCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>CassDoesntKnowAboutWomanInStorages</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -5636,14 +5636,14 @@
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>Contradiction:NoWomanInCamera</addToNPCMemoryItem>
+					<addToNPCMemoryItem>Contradiction:NoWomanInStorage</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -5670,7 +5670,7 @@
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
 				<relatedEventsItem>SecondVisit:CassNotInCuratorsOffice</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -6749,7 +6749,7 @@
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
@@ -7520,7 +7520,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>I checked the cameras. Sorry if I didn't ask. There appears to be no suspicious person in the storage area at the time of the plinth's disappearance.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

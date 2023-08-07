@@ -25,8 +25,9 @@ public static class DirectorConstants
 
     public enum TopicRelevance
     {
-        MAX = 3,
-        DEFAULT = 1,
+        PRIORITY = 3,
+        HIGH = 2,
+        BASE = 1,
         MIN = 0,
         CLOSE = -10
     };
@@ -209,7 +210,7 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.BASE;
 
         
         // all topics return to default value
@@ -218,7 +219,7 @@ public static class Director
         {
             // if we haven't closed the topic then we should return to default
             if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TopicRelevance.CLOSE)
-                topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+                topicList[topic] = (double)DirectorConstants.TopicRelevance.BASE;
         }
     }
 
@@ -357,7 +358,7 @@ public static class Director
         }
         
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.MAX;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.PRIORITY;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -426,6 +427,7 @@ public static class Director
             // update data of NPC given what the player chose.
             // if player choice has an exit condition, then exit tayo kaagad from within NPCData
             UpdateNPCData(choice);
+            UpdatePlayerData(choice);
         }
         
         int[] allKnownEvents = InitData(activeNPC);
@@ -447,8 +449,9 @@ public static class Director
         // print active speaker traits
         Debug.Log($"trait of current speaker: {allTraits[ allSpeakers[activeNPC].speakerTrait ]}");
 
-        // update player data given acquired line of NPC
+        // update player data and NPC data given acquired line of NPC
         UpdatePlayerData(prevLine);
+        UpdateNPCData(prevLine);
 
         // we get the line text itself + the resulting "image" or portrait to accompany it.
         return new string[] { prevLine.dialogue, prevLine.portrait };
@@ -551,12 +554,6 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
-        /*
-        else if(line.speakerId!=DirectorConstants.PLAYER_STR)
-        {
-            line.isSaid = true;
-            Debug.Log("if the speaker is not a player, then isSaid is valid");
-        }*/
         else if (line.speakerId == DirectorConstants.PLAYER_STR)
         {
             // add the line into the short term memory
@@ -569,10 +566,6 @@ public static class Director
                 shortTermMemory.Dequeue().isSaid = true;
             }
         }
-        else
-        {
-            line.isSaid = true;    // uncaught cases will always be false
-        }
 
         mood = line.ResponseStrToInt();
 
@@ -584,8 +577,7 @@ public static class Director
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
             foreach(string topic in line.effect.makeMostRelevantTopic.Split('/'))
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.MAX;
-            //topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
         }
         else
         {
@@ -594,7 +586,7 @@ public static class Director
             foreach(string topic in line.relatedTopics)
             {
                 if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
-                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.MAX;
+                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
             }
         }
 
@@ -636,21 +628,16 @@ public static class Director
         // for all topics that aren't in the choice's related topics
         // start conversation should also degrade as a topic even if it's in the related topics
         // the logic is that after starting the conversation, a conversation-starter topic is less relevant now.
-        foreach(string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
+        foreach(string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) || !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
         {
-            Debug.Log("Updating topic relevance for: " + topic);
-            if(allSpeakers[activeNPC].topics[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN 
-                && allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE )
-            {
-                // reset to 1, then subtract
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
-            }
-            allSpeakers[activeNPC].topics[topic] -= DirectorConstants.TOPIC_DEGRADE_VALUE;
+            // all topics that are not in related topics of the line and not in the topics to makee most relevant
+            // will be BASE value
+            allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
         }
 
         // the bookends (start and end convo topics) will always be 0.
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
+        //allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
     }
 
     /// <summary>

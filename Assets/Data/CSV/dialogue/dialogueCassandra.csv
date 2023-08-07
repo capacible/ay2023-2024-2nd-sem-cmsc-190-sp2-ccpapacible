@@ -1,7 +1,7 @@
 receiver,posWeight,negWeight,relPrereq,eventsInMemory,globalAndMapEvents,relatedTopics,trait,responseTone,portrait,locations,speakerId,dialogue,effect_addEventToGlobal,effect_addEventToMap,effect_addToNPCMemory,effect_addToPlayerMemory,effect_relationshipEffect,effect_makeMostRelevantTopic,effect_closeTopic,effect_exit,effect_item
-no_receiver,1,1,neut,,GameIsActive,StartConversation,,neut,,,main_cassandra,Yes?,,,,,,,,,
-no_receiver,1,1,good,,GameIsActive,StartConversation,,neut,,,main_cassandra,Hello. Need help with anything?,,,,,,,,,
-no_receiver,1,1,bad,,GameIsActive,StartConversation,,neut,,,main_cassandra,I'm quite busy. If you need anything{comma} please make it quick.,,,,,,,,,
+no_receiver,1,1,neut,,,StartConversation,,neut,,,main_cassandra,Yes?,,,,,,,,,
+no_receiver,1,1,good,,,StartConversation,,neut,,,main_cassandra,Hello. Need help with anything?,,,,,,,,,
+no_receiver,1,1,bad,,,StartConversation,,neut,,,main_cassandra,I'm quite busy. If you need anything{comma} please make it quick.,,,,,,,,,
 no_receiver,1,1,,ArtifactNotFound,,MissingArtifact,,neut,,,main_cassandra,Are you serious? It was just there last night!,,,,,,,,,
 no_receiver,1,1,,PlayerAskedDirectorWhereabouts,GameIsActive,LookingForDirector,,neut,,,main_cassandra,I haven't seen him since last night. Why?,,,DirectorWhereabouts:main_cassandra,,,,,,
 no_receiver,1,1,,ArtifactNotFound/PlayerAskedDirectorWhereabouts,GameIsActive,LookingForDirector,,neut,,,main_cassandra,I haven't seen him. We have to report this to the director though. The exhibit is next week.,,,,,,,,,

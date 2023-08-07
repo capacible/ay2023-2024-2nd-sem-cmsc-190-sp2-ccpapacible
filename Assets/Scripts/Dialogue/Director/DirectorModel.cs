@@ -26,7 +26,7 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
+    private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
     private const double LINE_HARD_MIN_PROB = 0.005;
@@ -879,7 +879,7 @@ public class DirectorModel
             return new KeyValuePair<int, double>(0, 0.0);
         }
 
-        Debug.Log("Highest utility is: " + highestUtil);
+        Debug.Log("Highest utility is: " + highestUtil + " the line is: "+bestDialogue);
         /*
         debugProbStr += $"SELECTED LINE: {bestDialogue}\n" +
             $"ORIGINAL PROBABILITY:{probabilities[bestDialogue]}\n" +

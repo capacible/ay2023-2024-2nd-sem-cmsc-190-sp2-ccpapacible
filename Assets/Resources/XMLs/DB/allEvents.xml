@@ -34,8 +34,8 @@
 		<id>LearnAboutTheFounder</id>
 		<id>FounderIdentity:Beth</id>
 		<id>JonathanWatchingCameras</id>
-		<id>NoWomanInCamera</id>
-		<id>NoWomanInCameras</id>
+		<id>NoWomanInStorage</id>
+		<id>NoWomanInStorages</id>
 		<id>OverdueBills</id>
 		<id>JonathansCalendar</id>
 		<id>April20th</id>
@@ -79,8 +79,8 @@
 		<id>JonathanVisitedTwice</id>
 		<id>JonathansInterest:Artifacts</id>
 		<id>BookInJonathansBooth</id>
-		<id>SecondVisitReason:WomanInCameras</id>
-		<id>CassNoInfo:WomanInCameras</id>
+		<id>SecondVisitReason:WomanInStorages</id>
+		<id>CassNoInfo:WomanInStorages</id>
 		<id>SecondVisit:CassNotInCuratorsOffice</id>
 		<id>CustodiansWeekend:Good</id>
 		<id>CustodiansWeekend:Bad</id>
@@ -122,8 +122,7 @@
 		<id>Inquiry:SecurityCameras</id>
 		<id>PlayerExpressedSuspicions</id>
 		<id>ExpressedSuspicions:main_cassandra</id>
-		<id>WomanInCamera</id>
-		<id>DirectiorWhereabouts:Jonathan</id>
+		<id>DirectorWhereabouts:Jonathan</id>
 		<id>PlayerAskedForKeys</id>
 		<id>PlayerAskedAboutTheFounder</id>
 		<id>FounderInfo:JonathansSources</id>
@@ -136,8 +135,8 @@
 		<id>Inquiry:JonathanVisit:CassInjury</id>
 		<id>WhichVisit</id>
 		<id>Inquiry:JonathanVisit:Reason</id>
-		<id>CassDoesntKnowAboutWomanInCameras</id>
-		<id>Contradiction:NoWomanInCamera</id>
+		<id>CassDoesntKnowAboutWomanInStorages</id>
+		<id>Contradiction:NoWomanInStorage</id>
 		<id>Inquiry:Jonathan2ndVisit:CassLocation</id>
 		<id>FoundStatue:Location</id>
 		<id>UsedToBeFriendsWithJonathan</id>
