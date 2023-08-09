@@ -99,6 +99,7 @@
 		<id>DaughterBirthday:ShorterWorkDay</id>
 		<id>DaughterBirthday:CustodianHelp</id>
 		<id>NPCInteraction_Floor1_custodian_0:TalkedToCass</id>
+		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>NextSteps:Cass:GoToOffice</id>
 		<id>Assistant:GaveKeysToCustodian</id>
 		<id>PlayerAskedForHelp</id>
@@ -116,12 +117,11 @@
 		<id>PlayerEnterDirectorsOffice</id>
 		<id>Confrontation</id>
 		<id>LearnAboutFounder</id>
-		<id>GameIsActive</id>
 		<id>SolvedVasePuzzle:FoundStatue</id>
-		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>Inquiry:SecurityCameras</id>
 		<id>PlayerExpressedSuspicions</id>
 		<id>ExpressedSuspicions:main_cassandra</id>
+		<id>WomanInStorage:PlayerKnows</id>
 		<id>DirectorWhereabouts:Jonathan</id>
 		<id>PlayerAskedForKeys</id>
 		<id>PlayerAskedAboutTheFounder</id>
@@ -172,6 +172,7 @@
 		<id>DirectorStoleCassandrasKeys</id>
 		<id>WhoIsBeth</id>
 		<id>UsedToBeFriendsWithCassandra</id>
+		<id>GameIsActive</id>
 		<id>PlayerStoleCustodiansKey</id>
 		<id>HelpedPlayerEnter:custodian</id>
 		<id>PlayerAskedAboutWeekend</id>

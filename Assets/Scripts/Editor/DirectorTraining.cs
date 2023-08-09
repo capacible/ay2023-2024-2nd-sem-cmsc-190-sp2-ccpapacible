@@ -13,6 +13,14 @@ using UnityEngine;
 /// </summary>
 public class DirectorTraining
 {
+    [UnityEditor.MenuItem("Tools/Training/Test")]
+    public static void Test()
+    {
+        WetGrassSprinklerRain wgsr = new WetGrassSprinklerRain();
+
+        wgsr.Run();
+    }
+
     public static int RelStrToInt(string rel)
     {
         if (rel == DirectorConstants.REL_STATUS_STRING.GOOD)

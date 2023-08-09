@@ -97,6 +97,7 @@ ShowItem:cass_storage_key
 DaughterBirthday:ShorterWorkDay
 DaughterBirthday:CustodianHelp
 NPCInteraction_Floor1_custodian_0:TalkedToCass
+PlayerAskedDirectorWhereabouts
 NextSteps:Cass:GoToOffice
 Assistant:GaveKeysToCustodian
 PlayerAskedForHelp
@@ -114,13 +115,12 @@ AssistantLocksTheDoor
 PlayerEnterDirectorsOffice
 Confrontation
 LearnAboutFounder
-GameIsActive
 SolvedVasePuzzle:FoundStatue
 
-PlayerAskedDirectorWhereabouts
 Inquiry:SecurityCameras
 PlayerExpressedSuspicions
 ExpressedSuspicions:main_cassandra
+WomanInStorage:PlayerKnows
 DirectorWhereabouts:Jonathan
 PlayerAskedForKeys
 PlayerAskedAboutTheFounder
@@ -171,6 +171,7 @@ TimeCapsule:Explanation
 DirectorStoleCassandrasKeys
 WhoIsBeth
 UsedToBeFriendsWithCassandra
+GameIsActive
 PlayerStoleCustodiansKey
 HelpedPlayerEnter:custodian
 PlayerAskedAboutWeekend

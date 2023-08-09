@@ -15,7 +15,6 @@ public static class DirectorConstants
     // topics
     public static readonly string TOPIC_START_CONVO = "StartConversation";
     public static readonly string TOPIC_END_CONVO = "EndConversation";
-    public static readonly double TOPIC_DEGRADE_VALUE = 0.075;
 
     public enum MoodThreshold
     {
@@ -25,7 +24,6 @@ public static class DirectorConstants
 
     public enum TopicRelevance
     {
-        PRIORITY = 3,
         HIGH = 2,
         BASE = 1,
         MIN = 0,
@@ -139,7 +137,7 @@ public static class Director
         // add topics to the speakers
         foreach(Speaker s in speakerDefaults.Values)
         {
-            s.InitializeTopics(topicIds, 0.5);
+            s.InitializeTopics(topicIds, (double) DirectorConstants.TopicRelevance.BASE);
         }
 
         // initialize model
@@ -358,7 +356,7 @@ public static class Director
         }
         
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.PRIORITY;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.HIGH;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -507,7 +505,7 @@ public static class Director
        
         foreach (string m in line.effect.addToNPCMemory)
         {
-            Debug.Log("adding " + m + " to the memory of " + allSpeakers[activeNPC]);
+            Debug.Log("adding " + m + " to the memory of " + allSpeakers[activeNPC].speakerId);
             AddToSpeakerMemory(activeNPC, m);
         }
         
@@ -625,14 +623,13 @@ public static class Director
     /// <param name="choice"></param>
     public static void UpdateTopics(DialogueLine choice)
     {
-        // for all topics that aren't in the choice's related topics
-        // start conversation should also degrade as a topic even if it's in the related topics
-        // the logic is that after starting the conversation, a conversation-starter topic is less relevant now.
-        foreach(string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) || !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
+        // all topics that are not in related topics of the line and not in the topics to makee most relevant
+        // will be BASE value
+        foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
         {
-            // all topics that are not in related topics of the line and not in the topics to makee most relevant
-            // will be BASE value
-            allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
+            // check if the topic should be closed -- if yes, don't increase to base
+            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE)
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
         }
 
         // the bookends (start and end convo topics) will always be 0.

@@ -26,16 +26,16 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = -1.0;
+    private const double LINE_IS_SAID_WEIGHT_T = 0.05;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.005;
+    private const double LINE_HARD_MIN_PROB = 0;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
     private static readonly string TRAITS_DISTRIBUTION_PATH = "XMLs/Dialogue/traitCPT";
     private static readonly string RELS_DISTRIBUTION_PATH = "XMLs/Dialogue/relCPT";
-    private static readonly string MODEL_FOLDER = $"{Application.dataPath}/Models";
+    public static readonly string MODEL_FOLDER = $"{Application.dataPath}/Models";
 
     private int TotalEventCount;
     private int TotalTraitCount;
@@ -119,7 +119,7 @@ public class DirectorModel
     public DirectorModel(int totalEvents, int totalTraits, int totalDialogue, int totalRelStatus, string modelName="DialogueDirector")
     {
 
-        engine.Algorithm = new ExpectationPropagation();
+        engine.Algorithm = new VariationalMessagePassing();
         engine.ModelName = modelName;
         // set location of generated source code
         engine.Compiler.GeneratedSourceFolder = MODEL_FOLDER;
@@ -288,21 +288,21 @@ public class DirectorModel
         iaTraitsRelKnown = null;*/
         
         
-        iaEventsRelKnown = new Models.DialogueDirector_EP();
-        iaTraitsRelKnown = new Models.DialogueDirector0_EP();
-        iaAllKnown = new Models.DialogueDirector1_EP();
+        iaEventsRelKnown = new Models.DialogueDirector_Gibbs();
+        iaTraitsRelKnown = new Models.DialogueDirector0_Gibbs();
+        iaAllKnown = new Models.DialogueDirector1_Gibbs();
         
 
         // set the observed values.
-        Dirichlet[][][] loadedProbs = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        ProbPost_Dialogue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
         Dirichlet eventProbs = DeserializeCPT<Dirichlet>(EVENTS_DISTRIBUTION_PATH);
         Dirichlet traitProbs = DeserializeCPT<Dirichlet>(TRAITS_DISTRIBUTION_PATH);
         Dirichlet relProbs = DeserializeCPT<Dirichlet>(RELS_DISTRIBUTION_PATH);
 
         // cpt of dialogue
-        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
-        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
-        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, loadedProbs);
+        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
         // cpt of events
         iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
@@ -384,15 +384,15 @@ public class DirectorModel
 
         SetPreInferenceObservations(events, null, rels);    // we set the observed value
         // create the algo for this one
-        iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
 
         // for traits only
         SetPreInferenceObservations(null, traits, rels);
-        iaTraitsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        iaTraitsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
 
         // for all applicable
         SetPreInferenceObservations(events, traits, rels);
-        iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue);
+        iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
 
         Debug.Log("All inferences algo loaded successfully");
     }
@@ -633,44 +633,50 @@ public class DirectorModel
         // set observed considering w/c are true.
         if(knowEv && knowTrait && knowRel)
         {
-            iaAllKnown.Reset();
             // use iaAll
             iaAllKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
             iaAllKnown.SetObservedValue(Events.NameInGeneratedCode, events);
             iaAllKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
             iaAllKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get prob
-            iaAllKnown.Execute(events.Length);
+            iaAllKnown.Execute(1);
+
+            //ProbPost_Dialogue = iaAllKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             return result[0].GetProbs().ToList();
         }
         else if(knowEv)
         {
-            iaEventsRelKnown.Reset();
             // for only event and rel known
             iaEventsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
             iaEventsRelKnown.SetObservedValue(Events.NameInGeneratedCode, events);
             iaEventsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get prob
-            iaEventsRelKnown.Execute(events.Length);
+            iaEventsRelKnown.Execute(1);
+
+            //ProbPost_Dialogue = iaEventsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaEventsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             return result[0].GetProbs().ToList();
         }
         else if (knowTrait)
         {
-            iaTraitsRelKnown.Reset();
-
             iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
             iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
             iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get prob
-            iaTraitsRelKnown.Execute(traits.Length);
+            iaTraitsRelKnown.Execute(1);
+
+            //ProbPost_Dialogue = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
 
             return result[0].GetProbs().ToList();
         }
@@ -696,7 +702,7 @@ public class DirectorModel
         }
 
         // no weight
-        return 1;
+        return 2;
     }
 
     /// <summary>
