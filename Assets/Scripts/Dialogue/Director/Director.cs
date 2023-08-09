@@ -15,7 +15,6 @@ public static class DirectorConstants
     // topics
     public static readonly string TOPIC_START_CONVO = "StartConversation";
     public static readonly string TOPIC_END_CONVO = "EndConversation";
-    public static readonly double TOPIC_DEGRADE_VALUE = 0.075;
 
     public enum MoodThreshold
     {
@@ -25,8 +24,8 @@ public static class DirectorConstants
 
     public enum TopicRelevance
     {
-        MAX = 3,
-        DEFAULT = 1,
+        HIGH = 2,
+        BASE = 1,
         MIN = 0,
         CLOSE = -10
     };
@@ -57,17 +56,17 @@ public static class DirectorConstants
 /// </summary>
 public static class Director
 {
-    public static readonly string EVENTS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allEvents.xml";
-    public static readonly string TOPICS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTopics.xml";
-    public static readonly string TRAITS_XML_PATH = $"{Application.dataPath}/Data/XML/DB/allTraits.xml";
-    public static readonly string SPEAKERS_XML_PATH = $"{Application.dataPath}/Data/XML/Speakers.xml";
+    public static readonly string EVENTS_XML_PATH = $"XMLs/DB/allEvents";
+    public static readonly string TOPICS_XML_PATH = $"XMLs/DB/allTopics";
+    public static readonly string TRAITS_XML_PATH = $"XMLs/DB/allTraits";
+    public static readonly string SPEAKERS_XML_PATH = $"XMLs/Speakers";
     public static readonly string[] DIALOGUE_XML_PATH = new string[]
     {
-        $"{Application.dataPath}/Data/XML/dialogue/dialoguePlayer.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueJonathan.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueCassandra.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Custodian.xml",
-        $"{Application.dataPath}/Data/XML/dialogue/dialogueFiller_Assistant.xml"
+        $"XMLs/dialogue/dialoguePlayer",
+        $"XMLs/dialogue/dialogueJonathan",
+        $"XMLs/dialogue/dialogueCassandra",
+        $"XMLs/dialogue/dialogueFiller_Custodian",
+        $"XMLs/dialogue/dialogueFiller_Assistant"
     };
 
     // director is active? -- currently being used?
@@ -113,6 +112,10 @@ public static class Director
     // models
     private static DirectorModel model;
 
+    private static Queue<DialogueLine> shortTermMemory = new Queue<DialogueLine>();
+    private static readonly int MAX_SHORT_TERM_MEMORY = 5; 
+    // when max, dequeue and change the isSaid to true permanently
+    
     #region INITIALIZATION
 
     /// <summary>
@@ -134,7 +137,7 @@ public static class Director
         // add topics to the speakers
         foreach(Speaker s in speakerDefaults.Values)
         {
-            s.InitializeTopics(topicIds, 0.5);
+            s.InitializeTopics(topicIds, (double) DirectorConstants.TopicRelevance.BASE);
         }
 
         // initialize model
@@ -149,7 +152,9 @@ public static class Director
     
     public static IdCollection LoadTopics()
     {
-        return XMLUtility.LoadFromPath<IdCollection>(TOPICS_XML_PATH);
+        TextAsset topicAsset = (TextAsset)Resources.Load(TOPICS_XML_PATH);
+
+        return XMLUtility.LoadFromText<IdCollection>(topicAsset);
     }
 
     /// <summary>
@@ -170,8 +175,9 @@ public static class Director
     /// </summary>
     public static void LoadSpeakers()
     {
+        TextAsset speakerResource = (TextAsset) Resources.Load(SPEAKERS_XML_PATH);
         // create a new speakercollection
-        SpeakerCollection loadSpeakers = XMLUtility.LoadFromPath<SpeakerCollection>(SPEAKERS_XML_PATH);
+        SpeakerCollection loadSpeakers = XMLUtility.LoadFromText<SpeakerCollection>(speakerResource);
 
         Debug.Log(loadSpeakers.Speakers.Length);
         TestPrintSpeakers(loadSpeakers);
@@ -202,7 +208,7 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.BASE;
 
         
         // all topics return to default value
@@ -211,7 +217,7 @@ public static class Director
         {
             // if we haven't closed the topic then we should return to default
             if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TopicRelevance.CLOSE)
-                topicList[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
+                topicList[topic] = (double)DirectorConstants.TopicRelevance.BASE;
         }
     }
 
@@ -343,8 +349,14 @@ public static class Director
         activeNPC = npcId;
         currentMap = mapId;
 
+        // reset the values of isSaid in short term memory
+        foreach(DialogueLine line in shortTermMemory)
+        {
+            line.isSaid = false;
+        }
+        
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.MAX;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.HIGH;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -413,6 +425,7 @@ public static class Director
             // update data of NPC given what the player chose.
             // if player choice has an exit condition, then exit tayo kaagad from within NPCData
             UpdateNPCData(choice);
+            UpdatePlayerData(choice);
         }
         
         int[] allKnownEvents = InitData(activeNPC);
@@ -434,8 +447,9 @@ public static class Director
         // print active speaker traits
         Debug.Log($"trait of current speaker: {allTraits[ allSpeakers[activeNPC].speakerTrait ]}");
 
-        // update player data given acquired line of NPC
+        // update player data and NPC data given acquired line of NPC
         UpdatePlayerData(prevLine);
+        UpdateNPCData(prevLine);
 
         // we get the line text itself + the resulting "image" or portrait to accompany it.
         return new string[] { prevLine.dialogue, prevLine.portrait };
@@ -491,7 +505,7 @@ public static class Director
        
         foreach (string m in line.effect.addToNPCMemory)
         {
-            Debug.Log("adding " + m + " to the memory of " + allSpeakers[activeNPC]);
+            Debug.Log("adding " + m + " to the memory of " + allSpeakers[activeNPC].speakerId);
             AddToSpeakerMemory(activeNPC, m);
         }
         
@@ -538,14 +552,17 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
-        else if(line.speakerId!=DirectorConstants.PLAYER_STR)
+        else if (line.speakerId == DirectorConstants.PLAYER_STR)
         {
+            // add the line into the short term memory
             line.isSaid = true;
-            Debug.Log("if the speaker is not a player, then isSaid is valid");
-        }
-        else
-        {
-            line.isSaid = false;    // uncaught cases will always be false
+            shortTermMemory.Enqueue(line);
+            
+            if(shortTermMemory.Count == MAX_SHORT_TERM_MEMORY)
+            {
+                // dequeue and permanently make the line isSaid to be true.
+                shortTermMemory.Dequeue().isSaid = true;
+            }
         }
 
         mood = line.ResponseStrToInt();
@@ -557,8 +574,8 @@ public static class Director
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
-            allSpeakers[activeNPC].topics[line.effect.makeMostRelevantTopic] = (double)DirectorConstants.TopicRelevance.MAX;
-            //topicList[line.effect.makeMostRelevantTopic] = (float)DirectorConstants.TopicRelevance.MAX;
+            foreach(string topic in line.effect.makeMostRelevantTopic.Split('/'))
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
         }
         else
         {
@@ -567,7 +584,7 @@ public static class Director
             foreach(string topic in line.relatedTopics)
             {
                 if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
-                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.MAX;
+                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
             }
         }
 
@@ -606,24 +623,18 @@ public static class Director
     /// <param name="choice"></param>
     public static void UpdateTopics(DialogueLine choice)
     {
-        // for all topics that aren't in the choice's related topics
-        // start conversation should also degrade as a topic even if it's in the related topics
-        // the logic is that after starting the conversation, a conversation-starter topic is less relevant now.
-        foreach(string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t)).ToList())
+        // all topics that are not in related topics of the line and not in the topics to makee most relevant
+        // will be BASE value
+        foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
         {
-            Debug.Log("Updating topic relevance for: " + topic);
-            if(allSpeakers[activeNPC].topics[topic] - DirectorConstants.TOPIC_DEGRADE_VALUE <= (double)DirectorConstants.TopicRelevance.MIN 
-                && allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE )
-            {
-                // reset to 1, then subtract
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.DEFAULT;
-            }
-            allSpeakers[activeNPC].topics[topic] -= DirectorConstants.TOPIC_DEGRADE_VALUE;
+            // check if the topic should be closed -- if yes, don't increase to base
+            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE)
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
         }
 
         // the bookends (start and end convo topics) will always be 0.
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
+        //allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
     }
 
     /// <summary>

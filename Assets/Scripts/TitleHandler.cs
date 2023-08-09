@@ -6,21 +6,17 @@ using UnityEngine.UI;
 
 public class TitleHandler : MonoBehaviour
 {
-    public TextAsset startGameFile;
     public string nextMapScene;
-    
-    /// <summary>
-    /// Loads the required scene
-    /// </summary>
-    /// <param name="index"></param>
-    public void GoToInstruction(string scene)
+    public Canvas canvas;
+
+    private void Start()
     {
-        EventHandler.Instance.LoadUi(scene, null);
+        canvas.worldCamera = Camera.main;
     }
 
     public void GoToStart(string scene)
     {
-        EventHandler.Instance.LoadUi(scene, new object[] { true, startGameFile, nextMapScene });
+        EventHandler.Instance.LoadUi(scene, new object[] { true, null, nextMapScene });
     }
     
 }

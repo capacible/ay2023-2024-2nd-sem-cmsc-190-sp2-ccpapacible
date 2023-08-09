@@ -32,8 +32,8 @@ DirectorAttractsBadPeople
 LearnAboutTheFounder
 FounderIdentity:Beth
 JonathanWatchingCameras
-NoWomanInCamera
-NoWomanInCameras
+NoWomanInStorage
+NoWomanInStorages
 OverdueBills
 JonathansCalendar
 April20th
@@ -77,8 +77,8 @@ JonathanVisitsCassandra
 JonathanVisitedTwice
 JonathansInterest:Artifacts
 BookInJonathansBooth
-SecondVisitReason:WomanInCameras
-CassNoInfo:WomanInCameras
+SecondVisitReason:WomanInStorages
+CassNoInfo:WomanInStorages
 SecondVisit:CassNotInCuratorsOffice
 CustodiansWeekend:Good
 CustodiansWeekend:Bad
@@ -97,6 +97,7 @@ ShowItem:cass_storage_key
 DaughterBirthday:ShorterWorkDay
 DaughterBirthday:CustodianHelp
 NPCInteraction_Floor1_custodian_0:TalkedToCass
+PlayerAskedDirectorWhereabouts
 NextSteps:Cass:GoToOffice
 Assistant:GaveKeysToCustodian
 PlayerAskedForHelp
@@ -109,18 +110,18 @@ ShowItem:statue
 FounderIdentity:Beth:Confirmed
 VoicemailFromWife
 PlayerAskedAboutWife
+LockedDoor
+AssistantLocksTheDoor
 PlayerEnterDirectorsOffice
 Confrontation
 LearnAboutFounder
-GameIsActive
 SolvedVasePuzzle:FoundStatue
 
-PlayerAskedDirectorWhereabouts
 Inquiry:SecurityCameras
 PlayerExpressedSuspicions
 ExpressedSuspicions:main_cassandra
-WomanInCamera
-DirectiorWhereabouts:Jonathan
+WomanInStorage:PlayerKnows
+DirectorWhereabouts:Jonathan
 PlayerAskedForKeys
 PlayerAskedAboutTheFounder
 FounderInfo:JonathansSources
@@ -133,8 +134,8 @@ Inquiry:JonathanVisit:Frequency
 Inquiry:JonathanVisit:CassInjury
 WhichVisit
 Inquiry:JonathanVisit:Reason
-CassDoesntKnowAboutWomanInCameras
-Contradiction:NoWomanInCamera
+CassDoesntKnowAboutWomanInStorages
+Contradiction:NoWomanInStorage
 Inquiry:Jonathan2ndVisit:CassLocation
 FoundStatue:Location
 UsedToBeFriendsWithJonathan
@@ -170,6 +171,7 @@ TimeCapsule:Explanation
 DirectorStoleCassandrasKeys
 WhoIsBeth
 UsedToBeFriendsWithCassandra
+GameIsActive
 PlayerStoleCustodiansKey
 HelpedPlayerEnter:custodian
 PlayerAskedAboutWeekend
@@ -212,3 +214,4 @@ SellThePlinth:Founder:Reason
 SellThePlinth:Founder 
 DaughtersBirthday:ShortWorkday
 UsedToBeFriendsWithAssistant
+Inquiry:DirectorsOfficeClues

@@ -362,7 +362,7 @@ public class Editor
         };
 
         // write root stuff
-        string outFile = "Assets/Data/XML/messages/interactionMsgs.xml";
+        string outFile = "Assets/Resources/XMLs/interactionMsgs.xml";
 
         XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
 
@@ -438,11 +438,11 @@ public class Editor
             return;
         }
 
-        string outFile = "Assets/Data/XML";
+        string outFile = "Assets/Resources/XMLs";
 
         if (!AssetDatabase.IsValidFolder(outFile))
         {
-            AssetDatabase.CreateFolder("Assets/Data", "XML");
+            AssetDatabase.CreateFolder("Assets/Resources", "XML");
         }
 
         // set outfile if valid
@@ -523,11 +523,11 @@ public class Editor
             return;
         }
 
-        string outFile = "Assets/Data/XML/DB";
+        string outFile = "Assets/Resources/XMLs/DB";
 
         if (!AssetDatabase.IsValidFolder(outFile))
         {
-            AssetDatabase.CreateFolder("Assets/Data/XML", "DB");
+            AssetDatabase.CreateFolder("Assets/Resources/XMLs", "DB");
         }
 
         // set outfile if valid -- same name as the csv file name
@@ -598,11 +598,11 @@ public class Editor
             return;
         }
 
-        string outFile = "Assets/Data/XML/Dialogue";
+        string outFile = "Assets/Resources/XMLs/Dialogue";
 
         if (!AssetDatabase.IsValidFolder(outFile))
         {
-            AssetDatabase.CreateFolder("Assets/Data/XML", "Dialogue");
+            AssetDatabase.CreateFolder("Assets/Resources/XMLs", "Dialogue");
         }
         
         // set outfile if valid -- same name as the csv file name

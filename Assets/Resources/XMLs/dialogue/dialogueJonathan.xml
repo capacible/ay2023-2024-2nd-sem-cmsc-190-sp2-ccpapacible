@@ -303,7 +303,7 @@
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>Yes, I was watching the cameras throughout the night. I've been a bit sleep-deprived... but I know what I saw.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>WomanInCamera</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -336,7 +336,7 @@
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I'm sorry. I was watching the cameras throughout the night, and I've been a bit sleep-deprived... so I may have forgotten.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>WomanInCamera</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -371,7 +371,7 @@
 			<relatedEvents>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
-				<relatedEventsItem>DirectiorWhereabouts:Jonathan</relatedEventsItem>
+				<relatedEventsItem>DirectorWhereabouts:Jonathan</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1210,13 +1210,13 @@ It's certainly not his wife though.</dialogue>
 			<dialogue>Th-there wasn't? I'm sure there was. I knew I was wide awake then, and I know what I saw...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>NoWomanInCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>NoWomanInStorages</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -1242,13 +1242,13 @@ It's certainly not his wife though.</dialogue>
 			<dialogue>I wasn't lying! I know what I saw...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>NoWomanInCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>NoWomanInStorages</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
@@ -1276,7 +1276,7 @@ It's certainly not his wife though.</dialogue>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1339,7 +1339,7 @@ It's certainly not his wife though.</dialogue>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 			</relatedEvents>
@@ -1373,7 +1373,7 @@ It's certainly not his wife though.</dialogue>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
@@ -1409,7 +1409,7 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
@@ -1816,7 +1816,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>...Yes. I wanted to protect him and his family.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -1856,7 +1856,7 @@ He knows I like history, but since I didn't have any other qualifications, he ju
 			<dialogue>...Yes. I wanted to protect him and his family. Did you know that he's been missing his daughter's birthdays for a while now?
 He's not the same man I once knew.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -1927,7 +1927,7 @@ He's not the same man I once knew.</dialogue>
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I'm not framing her! That's a heavy word to use. I just think that if the founder leaves Virgil alone, he'll go back to normal.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -1962,7 +1962,7 @@ He's not the same man I once knew.</dialogue>
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I guess I was hoping to end whatever relationship they may have. I don't think the founder likes him like that, but Virgil bends over backwards for her.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorInfatuatedWithFounder</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
@@ -2397,11 +2397,11 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>JonathansInterest:Artifacts</addToNPCMemoryItem>
-					<addToNPCMemoryItem>SecondVisitReason:WomanInCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>SecondVisitReason:WomanInStorages</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem>JonathansInterest:Artifacts</addToPlayerMemoryItem>
-					<addToPlayerMemoryItem>SecondVisitReason:WomanInCameras</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>SecondVisitReason:WomanInStorages</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -2424,7 +2424,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Thanks for believing me{comma] I guess.</dialogue>
+			<dialogue>Thanks for believing me, I guess.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>JonathansInterest:Artifacts</relatedEventsItem>
 				<relatedEventsItem>BookInJonathansBooth</relatedEventsItem>
@@ -2460,9 +2460,9 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
-				<relatedEventsItem>CassNoInfo:WomanInCameras</relatedEventsItem>
-				<relatedEventsItem>CassDoesntKnowAboutWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
+				<relatedEventsItem>CassNoInfo:WomanInStorages</relatedEventsItem>
+				<relatedEventsItem>CassDoesntKnowAboutWomanInStorages</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2497,9 +2497,9 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
-				<relatedEventsItem>Contradiction:NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
+				<relatedEventsItem>Contradiction:NoWomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2536,7 +2536,7 @@ In my second visit, I wanted to ask her about the woman in the storage room.</di
 			<relatedEvents>
 				<relatedEventsItem>JonathanVisitsCassandra</relatedEventsItem>
 				<relatedEventsItem>JonathanVisitedTwice</relatedEventsItem>
-				<relatedEventsItem>SecondVisitReason:WomanInCameras</relatedEventsItem>
+				<relatedEventsItem>SecondVisitReason:WomanInStorages</relatedEventsItem>
 				<relatedEventsItem>SecondVisit:CassNotInCuratorsOffice</relatedEventsItem>
 				<relatedEventsItem>Inquiry:Jonathan2ndVisit:CassLocation</relatedEventsItem>
 			</relatedEvents>
@@ -2574,7 +2574,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>NoWomanInCameras</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorages</relatedEventsItem>
 				<relatedEventsItem>JonathansThoughtsOnFounder</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
@@ -2585,12 +2585,12 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>JonathansInterest:Artifacts</addToNPCMemoryItem>
-					<addToNPCMemoryItem>SecondVisitReason:WomanInCameras</addToNPCMemoryItem>
+					<addToNPCMemoryItem>SecondVisitReason:WomanInStorages</addToNPCMemoryItem>
 					<addToNPCMemoryItem>JonathanWrongAboutWoman</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem>JonathansInterest:Artifacts</addToPlayerMemoryItem>
-					<addToPlayerMemoryItem>SecondVisitReason:WomanInCameras</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>SecondVisitReason:WomanInStorages</addToPlayerMemoryItem>
 					<addToPlayerMemoryItem>JonathanWrongAboutWoman</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
@@ -2673,7 +2673,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I'm not trying to throw the founder under the bus. It's just that I saw an unfamiliar woman in the cameras. And I know, there weren't any, but I saw what I saw. No one else but the founder and the staff could have known about the plinth.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 			</relatedEvents>
@@ -2704,7 +2704,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<speakerId>main_jonathan</speakerId>
 			<dialogue>I'm not trying to throw the founder under the bus. It's just that... given what I know about their relationship, it just feels likely for the person to take it to be the founder.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>NoWomanInCamera</relatedEventsItem>
+				<relatedEventsItem>NoWomanInStorage</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 				<relatedEventsItem>DirectorTrustsJonathan</relatedEventsItem>
@@ -3036,7 +3036,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Miss Cassandra could be correct{comma] but... I'm sorry{comma] I don't know what the visitor looks like.</dialogue>
+			<dialogue>Miss Cassandra could be correct, but... I'm sorry, I don't know what the visitor looks like.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Beth:DirectorsVisitor</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
@@ -3066,7 +3066,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Garden beds? No{comma] I didn't notice anything particularly suspicious.</dialogue>
+			<dialogue>Garden beds? No, I didn't notice anything particularly suspicious.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>AskAboutSuspiciousActivity</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3127,7 +3127,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Thanks for doing this{comma] even if it's not really your responsibility.</dialogue>
+			<dialogue>Thanks for doing this, even if it's not really your responsibility.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerIsInvestigating</relatedEventsItem>
 				<relatedEventsItem>Confrontation</relatedEventsItem>
@@ -3157,7 +3157,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>It's okay{comma] you don't have to ask. And wait--you're saying there's no one suspicious on it? Because I could have sworn I saw a suspicious woman last night...</dialogue>
+			<dialogue>It's okay, you don't have to ask. And wait--you're saying there's no one suspicious on it? Because I could have sworn I saw a suspicious woman last night...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NoSuspiciousPersonInCameras</relatedEventsItem>
 			</relatedEvents>
@@ -3189,7 +3189,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<portrait>sad</portrait>
 			<locations />
 			<speakerId>main_jonathan</speakerId>
-			<dialogue>Right. Unfortunately{comma] I don't know where the director is. Do you know who could have done it?</dialogue>
+			<dialogue>Right. Unfortunately, I don't know where the director is. Do you know who could have done it?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -3230,6 +3230,125 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 				<addToNPCMemory>
 					<addToNPCMemoryItem>ArtifactNotFound</addToNPCMemoryItem>
 				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>good</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>No, but I happen to know someone who does. The custodians keep an extra in their locker.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Not really. Plus, it's not like I'd be able to tell you, considering my priority is security.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Oh, I'm sorry, I can't tell you that.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver></receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>bad</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>No, but...
+F-fine. The custodians keep an extra key in their locker. You should ask around for the passcode.
+I'm just helping you for our old friendship.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+				<relatedEventsItem>UsedToBeFriendsWithJonathan</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

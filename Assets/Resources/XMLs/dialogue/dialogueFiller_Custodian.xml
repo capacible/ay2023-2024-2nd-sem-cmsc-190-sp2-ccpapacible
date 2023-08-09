@@ -4647,7 +4647,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>I really{comma] really can't help you. I swear</dialogue>
+			<dialogue>I really, really can't help you. I swear</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerBeggedForHelp</relatedEventsItem>
 				<relatedEventsItem>DeclinedToHelp</relatedEventsItem>
@@ -4877,7 +4877,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>Yeah{comma] I got that. Can't help you{comma] though. I don't know where the boss has gone.</dialogue>
+			<dialogue>Yeah, I got that. Can't help you, though. I don't know where the boss has gone.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -4911,7 +4911,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>Right{comma] but I'm not sure where Director Virgil went today. Last I saw him was yesterday.</dialogue>
+			<dialogue>Right, but I'm not sure where Director Virgil went today. Last I saw him was yesterday.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -4944,7 +4944,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>I know{comma] I'm sorry. You'll have to ask someone else{comma] as I don't know anything right now.</dialogue>
+			<dialogue>I know, I'm sorry. You'll have to ask someone else, as I don't know anything right now.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -4979,7 +4979,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>Damn{comma] miss Cass'll blow her fuse if she finds out. That plinth seemed important to her.</dialogue>
+			<dialogue>Damn, miss Cass'll blow her fuse if she finds out. That plinth seemed important to her.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 			</relatedEvents>
@@ -5012,7 +5012,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>custodian</speakerId>
-			<dialogue>Really? I hope you're not panicking too much{comma] I'll help out when I can.</dialogue>
+			<dialogue>Really? I hope you're not panicking too much, I'll help out when I can.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts:Reason</relatedEventsItem>
 			</relatedEvents>
@@ -5053,6 +5053,117 @@ I didn't see any wounds on her, though.</dialogue>
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>gruff</traitItem>
+				<traitItem>impatient</traitItem>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Absolutely not. Scram, I got work to do.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>Of course not! Do you think I don't value this museum's security?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+				<traitItem>frazzled</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>custodian</speakerId>
+			<dialogue>No way. I'm sorry, Enid, you're great, but I can't do that for you.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DeclinedToHelp</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>

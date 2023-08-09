@@ -34,8 +34,8 @@
 		<id>LearnAboutTheFounder</id>
 		<id>FounderIdentity:Beth</id>
 		<id>JonathanWatchingCameras</id>
-		<id>NoWomanInCamera</id>
-		<id>NoWomanInCameras</id>
+		<id>NoWomanInStorage</id>
+		<id>NoWomanInStorages</id>
 		<id>OverdueBills</id>
 		<id>JonathansCalendar</id>
 		<id>April20th</id>
@@ -79,8 +79,8 @@
 		<id>JonathanVisitedTwice</id>
 		<id>JonathansInterest:Artifacts</id>
 		<id>BookInJonathansBooth</id>
-		<id>SecondVisitReason:WomanInCameras</id>
-		<id>CassNoInfo:WomanInCameras</id>
+		<id>SecondVisitReason:WomanInStorages</id>
+		<id>CassNoInfo:WomanInStorages</id>
 		<id>SecondVisit:CassNotInCuratorsOffice</id>
 		<id>CustodiansWeekend:Good</id>
 		<id>CustodiansWeekend:Bad</id>
@@ -99,6 +99,7 @@
 		<id>DaughterBirthday:ShorterWorkDay</id>
 		<id>DaughterBirthday:CustodianHelp</id>
 		<id>NPCInteraction_Floor1_custodian_0:TalkedToCass</id>
+		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>NextSteps:Cass:GoToOffice</id>
 		<id>Assistant:GaveKeysToCustodian</id>
 		<id>PlayerAskedForHelp</id>
@@ -111,17 +112,17 @@
 		<id>FounderIdentity:Beth:Confirmed</id>
 		<id>VoicemailFromWife</id>
 		<id>PlayerAskedAboutWife</id>
+		<id>LockedDoor</id>
+		<id>AssistantLocksTheDoor</id>
 		<id>PlayerEnterDirectorsOffice</id>
 		<id>Confrontation</id>
 		<id>LearnAboutFounder</id>
-		<id>GameIsActive</id>
 		<id>SolvedVasePuzzle:FoundStatue</id>
-		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>Inquiry:SecurityCameras</id>
 		<id>PlayerExpressedSuspicions</id>
 		<id>ExpressedSuspicions:main_cassandra</id>
-		<id>WomanInCamera</id>
-		<id>DirectiorWhereabouts:Jonathan</id>
+		<id>WomanInStorage:PlayerKnows</id>
+		<id>DirectorWhereabouts:Jonathan</id>
 		<id>PlayerAskedForKeys</id>
 		<id>PlayerAskedAboutTheFounder</id>
 		<id>FounderInfo:JonathansSources</id>
@@ -134,8 +135,8 @@
 		<id>Inquiry:JonathanVisit:CassInjury</id>
 		<id>WhichVisit</id>
 		<id>Inquiry:JonathanVisit:Reason</id>
-		<id>CassDoesntKnowAboutWomanInCameras</id>
-		<id>Contradiction:NoWomanInCamera</id>
+		<id>CassDoesntKnowAboutWomanInStorages</id>
+		<id>Contradiction:NoWomanInStorage</id>
 		<id>Inquiry:Jonathan2ndVisit:CassLocation</id>
 		<id>FoundStatue:Location</id>
 		<id>UsedToBeFriendsWithJonathan</id>
@@ -171,6 +172,7 @@
 		<id>DirectorStoleCassandrasKeys</id>
 		<id>WhoIsBeth</id>
 		<id>UsedToBeFriendsWithCassandra</id>
+		<id>GameIsActive</id>
 		<id>PlayerStoleCustodiansKey</id>
 		<id>HelpedPlayerEnter:custodian</id>
 		<id>PlayerAskedAboutWeekend</id>
@@ -213,5 +215,6 @@
 		<id>SellThePlinth:Founder </id>
 		<id>DaughtersBirthday:ShortWorkday</id>
 		<id>UsedToBeFriendsWithAssistant</id>
+		<id>Inquiry:DirectorsOfficeClues</id>
 	</ids>
 </Main>

@@ -21,11 +21,13 @@ public static class GENERIC_MSG_ID
 /// </summary>
 public class GameMessage : MonoBehaviour
 {
-    public static readonly string INTERACTION_FILE_PATH = "Data/XML/messages/interactionMsgs.xml";
+    public static readonly string INTERACTION_FILE_PATH = "XMLs/messages/interactionMsgs";
     
     // dictionary of our interaction messages
     // this includes generic and non-generic ones.
     public Dictionary<string, InteractionMessage> interactions;
+
+    public Canvas gmCanvas;
 
     // ui for regular interaction message
     [Header("Interaction Msg")]
@@ -57,11 +59,17 @@ public class GameMessage : MonoBehaviour
 
         // subscribe to stuff
         EventHandler.InGameMessage += ShowMessage;
+        SceneHandler.OnUiLoaded += Init;
     }
 
     private void OnDestroy()
     {
         EventHandler.InGameMessage -= ShowMessage;
+    }
+
+    private void Init(object[] obj)
+    {
+        gmCanvas.worldCamera = Camera.main;
     }
 
     /// <summary>
@@ -237,7 +245,8 @@ public class InteractionContainer
         // load the interaction container.
         Dictionary<string, InteractionMessage> retDict = new Dictionary<string, InteractionMessage>();
 
-        InteractionContainer ic = XMLUtility.LoadFromPath<InteractionContainer>(path);
+        TextAsset icAsset = (TextAsset) Resources.Load(path);
+        InteractionContainer ic = XMLUtility.LoadFromText<InteractionContainer>(icAsset);
 
         foreach(InteractionMessage i in ic.interactionList)
         {
