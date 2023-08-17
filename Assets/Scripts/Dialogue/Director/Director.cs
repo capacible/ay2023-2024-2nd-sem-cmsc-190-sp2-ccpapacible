@@ -112,9 +112,12 @@ public static class Director
     // models
     private static DirectorModel model;
 
+    private static List<int> queriedMemories = new List<int>();
+
     private static Queue<DialogueLine> shortTermMemory = new Queue<DialogueLine>();
     private static readonly int MAX_SHORT_TERM_MEMORY = 5; 
     // when max, dequeue and change the isSaid to true permanently
+
     
     #region INITIALIZATION
 
@@ -141,7 +144,7 @@ public static class Director
         }
 
         // initialize model
-        model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS);
+        model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS, new Microsoft.ML.Probabilistic.Algorithms.ExpectationPropagation());
         
         // add to player memory
         AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
@@ -208,8 +211,11 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.BASE;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
 
+        // remove item from memory
+        if(activeHeldItem!= "")
+            allSpeakers[DirectorConstants.PLAYER_STR].speakerMemories.Remove("ShowItem:" + activeHeldItem);
         
         // all topics return to default value
         List<string> topics = allSpeakers[activeNPC].topics.Keys.ToList();
@@ -360,8 +366,12 @@ public static class Director
         // start with 0 mood -- neutral
         mood = 0;
 
-        // add currently held item to list of events
-        AddToSpeakerMemory(activeNPC, "ShowItem:"+activeHeldItem);
+        if (activeHeldItem != "")
+        {
+            // add currently held item to list of events
+            AddToSpeakerMemory(activeNPC, "ShowItem:" + activeHeldItem);
+            AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ShowItem:" + activeHeldItem);
+        }
 
         Debug.Log("Starting convo...");
         
@@ -390,13 +400,27 @@ public static class Director
         // we combine all events together
         List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
 
+        // remove the events that have already been queried -- unremoved yung irereturn
+        queriedMemories.ForEach(mem => globalAndMap.Remove(mem));
+        // update queried memories
+        globalAndMap.ForEach(item => queriedMemories.Add(item));
+
+        // remove events queried in memory of npc
+        allSpeakers[activeNPC].queriedMemories.ForEach(mem => npcMemory.Remove(mem));
+        npcMemory.ForEach(item => allSpeakers[activeNPC].queriedMemories.Add(item));
+
         // no event? return { none }
-        if(globalAndMap.Count == 0 && npcMemory.Count == 0)
+        if (globalAndMap.Count == 0 && npcMemory.Count == 0)
         {
+            EventHandler.Instance.UpdateDebugDisplay(new string[] { "no unqueried events" });
             return null;
         }
 
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Join('/', allSpeakers[npc].speakerMemories) });
+        // testing -- this outputs all the values entered into the model
+        List<string> allEvs = new List<string>();
+        npcMemory.Union(globalAndMap).ToList().ForEach(
+            mem => allEvs.Add(allEvents[mem]));
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Join(',', allEvs) });
 
         return npcMemory.Union(globalAndMap).ToArray();
     }
@@ -416,6 +440,8 @@ public static class Director
         // if we have selected some choice...
         if(playerChoice != -1)
         {
+            CheckExit(prevLine);
+
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
@@ -443,10 +469,7 @@ public static class Director
         Debug.Log("selected line: " + lineId);
 
         prevLine = LineDB[lineId];
-
-        // print active speaker traits
-        Debug.Log($"trait of current speaker: {allTraits[ allSpeakers[activeNPC].speakerTrait ]}");
-
+        
         // update player data and NPC data given acquired line of NPC
         UpdatePlayerData(prevLine);
         UpdateNPCData(prevLine);
@@ -499,6 +522,19 @@ public static class Director
 
     #region UPDATING INFORMATION
 
+    public static void CheckExit(DialogueLine line)
+    {
+
+        // if the line effect is to exit, we need to wait until the player scrolls through all lines before concluding the dialogue
+        // what we can do is to deactivate the director early.
+        if (line.effect.exit)
+        {
+            Debug.Log("DEACTIVATING DIRECTOR: The resulting DialogueLine has an exit effect.");
+
+            EventHandler.Instance.ConcludeDialogue();
+        }
+    }
+
     // update npc-specific data
     public static void UpdateNPCData(DialogueLine line)
     {
@@ -511,15 +547,6 @@ public static class Director
         
 
         UpdateSpeakerData(line);
-
-        // if the line effect is to exit, we need to wait until the player scrolls through all lines before concluding the dialogue
-        // what we can do is to deactivate the director early.
-        if (line.effect.exit)
-        {
-            Debug.Log("DEACTIVATING DIRECTOR: The resulting DialogueLine has an exit effect.");
-            
-            EventHandler.Instance.ConcludeDialogue();
-        }
     }
 
     // update player specific data

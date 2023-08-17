@@ -62,7 +62,7 @@ public class DirectorTraining
         Debug.Log("LINE SIZE " + lineDB.Count);
 
         // initialize the model
-        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS);
+        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS, new Microsoft.ML.Probabilistic.Algorithms.ExpectationPropagation());
 
         model.GenerateAlgorithms(
             Director.NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict: eventsDB),
@@ -95,7 +95,7 @@ public class DirectorTraining
         Debug.Log("LINE SIZE " + lineDB.Count);
 
         // initialize the model
-        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS, "DirectorTraining");
+        DirectorModel model = new DirectorModel(eventsDB.Count, traitsDB.Count, lineDB.Count, DirectorConstants.MAX_REL_STATUS, new Microsoft.ML.Probabilistic.Algorithms.ExpectationPropagation(), "DirectorTraining");
 
         // data is first set as uniform here.
         DirectorData data = model.UniformDirectorData();
@@ -164,15 +164,19 @@ public class DirectorTraining
                 Debug.LogWarning("No trait prerequisite -- will infer on all traits");
             }
 
-            if(traitPrereqs.Count == 0)
+            if (traitPrereqs.Count == 0 && new List<string> { "main_cassandra", "main_jonathan"}.Contains(line.speakerId))
             {
-                Debug.Log("no traits prerequisites");
+                Debug.Log("no traits prerequisites -- uese NONE for main chars");
+                traitPrereqs.Add(Director.NumKeyLookUp(DirectorConstants.NONE_STR, refDict: traitsDB));
+            }
+            else if(traitPrereqs.Count == 0)
+            {
                 // add all traits
                 traitsDB.Keys.ToList().ForEach(t => traitPrereqs.Add(t));
             }
-            
 
-            if(relPrereq == (int)DirectorConstants.REL_STATUS_NUMS.NONE)
+
+            if (relPrereq == (int)DirectorConstants.REL_STATUS_NUMS.NONE)
             {
                 Debug.Log("no required relstatus");
                 // consider all possible relationships

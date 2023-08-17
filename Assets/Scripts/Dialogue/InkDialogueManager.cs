@@ -125,6 +125,7 @@ public static class InkDialogueManager
     /// <returns>The line to be spoken, as well as the image sprite.</returns>
     public static string[] NPCLine()
     {
+
         currentDTags[ADD_EVENT_TO_PLAYER_TAG] = ""; // reset
         currentDTags[PORTRAIT_EMOTE_TAG] = "neutral";
         if (currentDialogue.canContinue)
@@ -183,8 +184,19 @@ public static class InkDialogueManager
         // reset current dtag for accuse
         // this is to ensure that when we go and talk to an npc using the inkdmanager, we dont accidentally trigger
         // the ending whiler responding to them.
-        currentDTags[ACCUSE_TAG] = "false";
-        currentDTags[SET_INK_MANAGER_TAG] = "true";
+        currentDTags = new Dictionary<string, string>
+        {
+            { DISPLAY_NAME_TAG, "" },
+            { PORTRAIT_EMOTE_TAG, "" },
+            { ADD_EVENT_TO_PLAYER_TAG, "" },
+            { MODIFY_REL_TAG, "" },
+            { SET_REL_VALUE_TAG, "" },
+            { ARCHETYPE_TAG, "" },
+            { ACCUSE_TAG, "false" },
+            { SET_INK_MANAGER_TAG, "true" },
+            { ADD_TO_GLOBAL_TAG, "" }
+        };
+
 
         // if empty...
         if (currentDialogue.currentTags.Count == 0)
@@ -214,7 +226,7 @@ public static class InkDialogueManager
 
             // parse dtag effects
             //add certain event to player's memory
-            if (currentDialogue.currentTags.Contains(ADD_EVENT_TO_PLAYER_TAG))
+            if (currentDTags[ADD_EVENT_TO_PLAYER_TAG]!="")
             {
                 string[] split = currentDTags[ADD_EVENT_TO_PLAYER_TAG].Split('_');
                 string toAdd = string.Join(':', split);
@@ -224,36 +236,45 @@ public static class InkDialogueManager
                     DirectorConstants.PLAYER_STR,
                     toAdd
                 );
+
+                Debug.Log("added to player memories: " + toAdd);
             }
 
             // add an event globally
-            if (currentDialogue.currentTags.Contains(ADD_TO_GLOBAL_TAG))
+            if (currentDTags[ADD_TO_GLOBAL_TAG]!="")
             {
                 string[] split = currentDTags[ADD_TO_GLOBAL_TAG].Split('_');
                 string toAdd = string.Join(':', split);
                 // add the said event to the player's memory
                 Director.AddEventString(toAdd);
+
+                Debug.Log("added to global events: " + toAdd);
             }
 
             // set relationship to specific value
-            if (currentDialogue.currentTags.Contains(SET_REL_VALUE_TAG))
+            if (currentDTags[SET_REL_VALUE_TAG]!="")
             {
                 // 0 is the archetype, 1 is the effect value
                 string[] effectVal = currentDTags[SET_REL_VALUE_TAG].Split('!');
 
                 // modifies the value of the archetype
                 if (int.TryParse(effectVal[1], out int value))
+                {
                     Director.speakerDefaults[effectVal[0]].relWithPlayer = value;
+
+                    Debug.Log("relationship with " + effectVal[0] + " has been modified to " + value);
+                }
             }
 
             // modify (+/-) relationship effect
-            if (currentDialogue.currentTags.Contains(MODIFY_REL_TAG))
+            if (currentDTags[MODIFY_REL_TAG]!="")
             {
                 string[] effectVal = currentDTags[MODIFY_REL_TAG].Split('!');
 
                 if(int.TryParse(effectVal[1], out int mod))
                 {
-                    Director.allSpeakers[effectVal[0]].relWithPlayer += mod;
+                    Director.speakerDefaults[effectVal[0]].relWithPlayer += mod;
+                    Debug.Log("relationship with " + effectVal[0] + " has been modified by " + mod);
                 }
             }
             

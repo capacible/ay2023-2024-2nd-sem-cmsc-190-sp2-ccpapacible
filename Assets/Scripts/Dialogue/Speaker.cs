@@ -57,6 +57,9 @@ public class Speaker
 
     [XmlIgnore]
     public Dictionary<string, double> topics = new Dictionary<string, double>();
+
+    [XmlIgnore]
+    public List<int> queriedMemories = new List<int>();
     
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {
