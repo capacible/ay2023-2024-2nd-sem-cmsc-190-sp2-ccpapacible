@@ -8,6 +8,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -39,6 +40,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -70,6 +72,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -101,6 +104,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -132,6 +136,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -376,6 +381,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -436,6 +442,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -446,6 +453,7 @@
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -468,6 +476,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -478,6 +487,7 @@
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -501,6 +511,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -511,6 +522,7 @@
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -609,6 +621,7 @@
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -642,6 +655,7 @@
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -665,6 +679,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -676,6 +691,7 @@
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -698,6 +714,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -708,6 +725,7 @@
 			<relatedEvents>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1016,6 +1034,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -1800,6 +1819,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -1832,6 +1852,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -2657,6 +2678,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -4447,6 +4469,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -4869,6 +4892,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -4902,6 +4926,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -4922,7 +4947,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>CassandrasInjury</makeMostRelevantTopic>
+				<makeMostRelevantTopic>CassandrasInjury/StartConversation</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -6123,6 +6148,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6154,6 +6180,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -6187,6 +6214,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -6220,6 +6248,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>pos</responseTone>
@@ -6253,6 +6282,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6289,6 +6319,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6327,6 +6358,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6364,6 +6396,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6400,6 +6433,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6432,6 +6466,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6464,6 +6499,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6496,6 +6532,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6528,6 +6565,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6559,6 +6597,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6593,6 +6632,7 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6629,6 +6669,7 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6665,6 +6706,7 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6770,6 +6812,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6803,6 +6846,7 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>

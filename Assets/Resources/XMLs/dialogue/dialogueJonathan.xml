@@ -7,6 +7,233 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>I'm not sure who that woman is. Maybe she could be the woman I saw in the cameras.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Hmmm... the name doesn't ring any bells. But! I did forget to tell you, I think I saw a woman in the storage room cameras. Could that be 'Beth'?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WomanInStorage </addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Yes, I was watching the cameras throughout the night. I've been a bit sleep-deprived... but I know what I saw.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage:PlayerKnows</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>I'm sorry. I was watching the cameras throughout the night, and I've been a bit sleep-deprived... so I may have forgotten.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>WomanInStorage</relatedEventsItem>
+				<relatedEventsItem>WomanInStorage:PlayerKnows</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>-5</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>happy</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>If you need to, you can call him through my phone.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
+				<relatedEventsItem>DirectorWhereabouts:Jonathan</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>PlayerCanUseJonathansPhone</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerCanUseJonathansPhone</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Hey, have you called the director already?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neg</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>H-hey, don't be too harsh on him, he's probably busy.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>-1</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
 				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
@@ -219,230 +446,6 @@
 					<addToPlayerMemoryItem>DefendedCassandra:{speaker_archetype}</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>sad</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>I'm not sure who that woman is. Maybe she could be the woman I saw in the cameras.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
-				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>happy</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>Hmmm... the name doesn't ring any bells. But! I did forget to tell you, I think I saw a woman in the storage room cameras. Could that be 'Beth'?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>WomanInStorage </addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>Yes, I was watching the cameras throughout the night. I've been a bit sleep-deprived... but I know what I saw.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>sad</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>I'm sorry. I was watching the cameras throughout the night, and I've been a bit sleep-deprived... so I may have forgotten.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>WomanInStorage</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>JonathanWatchingCameras</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>JonathanWatchingCameras</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>-5</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>happy</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>If you need to, you can call him through my phone.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
-				<relatedEventsItem>DirectorWhereabouts:Jonathan</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>PlayerCanUseJonathansPhone</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>PlayerCanUseJonathansPhone</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>Hey, have you called the director already?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neg</responseTone>
-			<portrait>sad</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>H-hey, don't be too harsh on him, he's probably busy.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>-1</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
@@ -2829,6 +2832,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<dialogue>H...hey, Enid. How was the vacation?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>UsedToBeFriendsWithJonathan</relatedEventsItem>
+				<relatedEventsItem>GameIsActive</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

@@ -1,0 +1,53 @@
+digraph Model
+{
+    node [ fontsize=8, style="filled, rounded", fillcolor=transparent ];
+
+    node0 [ label="DialogueCPT[AllEvents[NCases]][AllTraits[NCases]][AllRels[NCases]]" fontsize="10" fontcolor="#0000FF" shape="box" ];
+    node1 [ label="Discrete" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node2 [ label="AllEvents[NCases]==Events" fontcolor="#000000" shape="box" ];
+    node3 [ label="AllTraits[NCases]==Traits" fontcolor="#000000" shape="box" ];
+    node4 [ label="AllRels[NCases]==Rel" fontcolor="#000000" shape="box" ];
+    node5 [ label="AllRels[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node6 [ label="AllTraits[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node7 [ label="AllEvents[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node8 [ label="DialogueChild[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node9 [ label="PossibleEvents" fontsize="10" fontcolor="#0000FF" shape="box" ];
+    node10 [ label="Discrete" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node11 [ label="EventsPriors" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node12 [ label="Random" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node13 [ label="PossibleTraits" fontsize="10" fontcolor="#0000FF" shape="box" ];
+    node14 [ label="Discrete" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node15 [ label="TraitsPriors" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node16 [ label="Random" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node17 [ label="PossibleRel" fontsize="10" fontcolor="#0000FF" shape="box" ];
+    node18 [ label="Discrete" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node19 [ label="RelStatusPriors" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node20 [ label="Random" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node21 [ label="DialogueCPTPrior[Events][Traits][Rel]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node22 [ label="Random" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
+    node23 [ label="DialogueCPT[Events][Traits][Rel]" fontsize="10" fontcolor="#0000FF" shape="box" ];
+
+    node5 -> node4 [ arrowtail="none" ];
+    node4 -> node3 [ arrowtail="none" ];
+    node6 -> node3 [ arrowtail="none" ];
+    node3 -> node2 [ arrowtail="none" ];
+    node7 -> node2 [ arrowtail="none" ];
+    node2 -> node1 [ arrowtail="none" ];
+    node0 -> node1 [ label="probs" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node1 -> node8 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node9 -> node10 [ label="probs" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node10 -> node7 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node11 -> node12 [ label="dist" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node12 -> node9 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node13 -> node14 [ label="probs" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node14 -> node6 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node15 -> node16 [ label="dist" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node16 -> node13 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node17 -> node18 [ label="probs" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node18 -> node5 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node19 -> node20 [ label="dist" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node20 -> node17 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node21 -> node22 [ label="dist" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node22 -> node23 [ label="" fontsize="8" fontcolor="#D3D3D3" arrowtail="none" ];
+    node23 -> node0 [ arrowtail="none" arrowhead="none" ];
+}
