@@ -24,6 +24,7 @@ public static class DirectorConstants
 
     public enum TopicRelevance
     {
+        PRIO = 3,
         HIGH = 2,
         BASE = 1,
         MIN = 0,
@@ -313,6 +314,9 @@ public static class Director
         // update given traits
         model.DialogueProbabilities(null, new int[] { allSpeakers[npcObjId].speakerTrait }, null);
 
+        // update model given relationship with player
+        model.DialogueProbabilities(null, null, new int[] { allSpeakers[npcObjId].RelationshipStatus() });
+
         Debug.Log($"Added speaker with id {npcObjId}");
     }
 
@@ -366,7 +370,8 @@ public static class Director
         }
         
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.HIGH;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.PRIO;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -599,15 +604,7 @@ public static class Director
         mood = line.ResponseStrToInt();
 
         // access reationship with active npc and update it.
-        allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
-
-        if(allSpeakers[activeNPC].currentRelStatus != allSpeakers[activeNPC].RelationshipStatus())
-        {
-            // update currentrel
-            allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
-            // update model
-            model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
-        }
+        UpdateRelationship(line.effect.relationshipEffect);
         
         // update topic relevance table
         // set topic relevance to be the maximum.
@@ -653,6 +650,19 @@ public static class Director
 
         //TestPrintEventTrackers();
         GetAllTopicRelevance();
+    }
+
+    public static void UpdateRelationship(int value)
+    {
+        allSpeakers[activeNPC].relWithPlayer += value;
+
+        if (allSpeakers[activeNPC].currentRelStatus != allSpeakers[activeNPC].RelationshipStatus())
+        {
+            // update currentrel
+            allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
+            // update model
+            model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
+        }
     }
     
 

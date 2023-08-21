@@ -27,10 +27,10 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = -0.05;
+    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.006;
+    private const double LINE_HARD_MIN_PROB = 0.0055;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -384,16 +384,16 @@ public class DirectorModel
         engine.SaveFactorGraphToFolder = "Assets/Models";
 
         CPTPrior_Dialogue.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet[][][]>(path + "lineCPT.xml");
-        ProbPrior_Events.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "eventCPT.xml");
-        ProbPrior_Traits.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "traitCPT.xml");
-        ProbPrior_RelStatus.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet>(path + "relCPT.xml");
+        ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
+        ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
+        ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
 
         // setting observed values.
         /*
          *  THERE ARE DIFFERENT TYPES OF POSSIBLE COMPILED ALGORITHMS, CONSIDERING THE VARIOUS TYPES OF AVAILABLE OR KNOWN DATA.
          */
 
-        int[] events = new int[] {  };
+        int[] events = new int[] { };
         int[] traits = new int[] {  };
         int[] rels = new int[] {  };
         NumOfCases.ObservedValue = 0;
@@ -674,7 +674,7 @@ public class DirectorModel
             iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaEventsOnly.Update(1);
+            iaEventsOnly.Execute(10);
 
             ProbPost_Dialogue = iaEventsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaEventsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -691,7 +691,7 @@ public class DirectorModel
             iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaTraitsOnly.Execute(1);
+            iaTraitsOnly.Execute(10);
 
             ProbPost_Dialogue = iaTraitsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -708,7 +708,7 @@ public class DirectorModel
             iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaRelOnly.Execute(1);
+            iaRelOnly.Execute(10);
 
             ProbPost_Dialogue = iaRelOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaRelOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
