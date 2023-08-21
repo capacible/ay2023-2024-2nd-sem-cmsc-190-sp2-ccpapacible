@@ -451,7 +451,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I haven't called him yet...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -485,7 +484,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Called him and it went straight to voice mail.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -520,7 +518,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>My call went straight to voice mail. Right when we need him the most, am I right?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -618,7 +615,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I called the director. It went straight to voice mail...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -653,7 +649,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I called the director and it went straight to voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -688,7 +683,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. It's unlike him.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -723,7 +717,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>

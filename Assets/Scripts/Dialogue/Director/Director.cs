@@ -145,12 +145,13 @@ public static class Director
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS, new Microsoft.ML.Probabilistic.Algorithms.ExpectationPropagation());
-        
-        // add to player memory
-        AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
 
         // start by setting appropriate data and loading the CPT
         model.Start();
+
+        // add to player memory
+        AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
+
     }
     
     public static IdCollection LoadTopics()
@@ -308,6 +309,9 @@ public static class Director
 
         // if the given display name is not empty, then we will override the speaker's display name with what is given
         allSpeakers[npcObjId].OverrideDisplayName(displayName);
+
+        // update given traits
+        model.DialogueProbabilities(null, new int[] { allSpeakers[npcObjId].speakerTrait }, null);
 
         Debug.Log($"Added speaker with id {npcObjId}");
     }
@@ -596,6 +600,14 @@ public static class Director
 
         // access reationship with active npc and update it.
         allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
+
+        if(allSpeakers[activeNPC].currentRelStatus != allSpeakers[activeNPC].RelationshipStatus())
+        {
+            // update currentrel
+            allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
+            // update model
+            model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
+        }
         
         // update topic relevance table
         // set topic relevance to be the maximum.
@@ -675,6 +687,8 @@ public static class Director
         if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
         {
             allSpeakers[speaker].speakerMemories.Add(eventId);
+            // update probability table.
+            model.DialogueProbabilities(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, null, null);
         }
     }
 
@@ -700,6 +714,9 @@ public static class Director
         {
             mapEvents[map].Add(eventId);
         }
+
+        // update the probability table
+        model.DialogueProbabilities(new int[] { eventId }, null, null);
     }
     #endregion
 

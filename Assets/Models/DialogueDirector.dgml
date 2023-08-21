@@ -7,8 +7,8 @@
     <Node Id="node3" Label="AllTraits[NCases]==Traits" FontSize="0" Foreground="Black" Background="Empty" Group="Expanded" />
     <Node Id="node4" Label="AllRels[NCases]==Rel" FontSize="0" Foreground="Black" Background="Empty" Group="Expanded" />
     <Node Id="node5" Label="AllRels[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
-    <Node Id="node6" Label="AllTraits[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
-    <Node Id="node7" Label="AllEvents[NCases]" FontSize="10" Foreground="Blue" Background="Empty" Shape="None" />
+    <Node Id="node6" Label="AllTraits[NCases]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
+    <Node Id="node7" Label="AllEvents[NCases]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
     <Node Id="node8" Label="DialogueChild[NCases]" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
     <Node Id="node9" Label="PossibleEvents" FontSize="10" Foreground="Blue" Background="Empty" NodeRadius="0" />
     <Node Id="node10" Label="Discrete" FontSize="8" Foreground="White" Background="Black" NodeRadius="0" />

@@ -60,6 +60,9 @@ public class Speaker
 
     [XmlIgnore]
     public List<int> queriedMemories = new List<int>();
+
+    [XmlIgnore]
+    public int currentRelStatus;
     
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {
@@ -81,6 +84,8 @@ public class Speaker
             isFillerCharacter = isFillerCharacter,
             topics = topics
         };
+
+        newSpeaker.currentRelStatus = newSpeaker.RelationshipStatus();
 
         return newSpeaker;
     }

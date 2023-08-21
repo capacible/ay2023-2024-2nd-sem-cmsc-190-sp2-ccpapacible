@@ -53,7 +53,9 @@ public class DirectorModel
     private IGeneratedAlgorithm iaEventsRelKnown;
     private IGeneratedAlgorithm iaTraitsRelKnown;
     private IGeneratedAlgorithm iaAllKnown;
-    private Models.DirectorTraining_EP directorTraining_EP;
+    private IGeneratedAlgorithm iaEventsOnly;
+    private IGeneratedAlgorithm iaTraitsOnly;
+    private IGeneratedAlgorithm iaRelOnly;
     
     protected Variable<int> NumOfCases;
 
@@ -110,7 +112,7 @@ public class DirectorModel
     private Dirichlet ProbPost_RelStatus;
     private Dirichlet[][][] ProbPost_Dialogue;
 
-    private Dirichlet[][][] importedDLineDist;
+    private List<double> currentProbs = new List<double>();
 
 
     #region INITIALIZATION
@@ -291,6 +293,10 @@ public class DirectorModel
         iaEventsRelKnown = new Models.DialogueDirector_EP();
         iaTraitsRelKnown = new Models.DialogueDirector0_EP();
         iaAllKnown = new Models.DialogueDirector1_EP();
+
+        iaEventsOnly = new Models.DialogueDirector2_EP();
+        iaTraitsOnly = new Models.DialogueDirector3_EP();
+        iaRelOnly = new Models.DialogueDirector4_EP();
         
 
         // set the observed values.
@@ -303,22 +309,38 @@ public class DirectorModel
         iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
         iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
         iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-        
+
+        iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+
         // cpt of events
         iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
         iaTraitsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
         iaAllKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
-        
+
+        iaEventsOnly.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
+        iaTraitsOnly.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
+        iaRelOnly.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
+
         // cpt of traits
         iaEventsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
         iaTraitsRelKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
         iaAllKnown.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
-    
+
+        iaEventsOnly.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
+        iaTraitsOnly.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
+        iaRelOnly.SetObservedValue(ProbPrior_Traits.NameInGeneratedCode, traitProbs);
+
         // cpt of rels
         iaEventsRelKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
         iaTraitsRelKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
         iaAllKnown.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
-        
+
+        iaEventsOnly.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
+        iaTraitsOnly.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
+        iaRelOnly.SetObservedValue(ProbPrior_RelStatus.NameInGeneratedCode, relProbs);
+
         Debug.Log("All inferences algo loaded successfully");
 
     }
@@ -378,6 +400,8 @@ public class DirectorModel
 
         Debug.Log("Getting the inference algorithms...");
 
+
+
         SetPreInferenceObservations(events, null, rels);    // we set the observed value
         // create the algo for this one
         iaEventsRelKnown = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
@@ -389,6 +413,16 @@ public class DirectorModel
         // for all applicable
         SetPreInferenceObservations(events, traits, rels);
         iaAllKnown = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
+
+        // setting for: events only, traits only, rels only
+        SetPreInferenceObservations(events, null, null);
+        iaEventsOnly = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
+
+        SetPreInferenceObservations(null, traits, null);
+        iaTraitsOnly = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
+
+        SetPreInferenceObservations(null, null, rels);
+        iaRelOnly = engine.GetCompiledInferenceAlgorithm(Dialogue, CPT_Dialogue);
 
         Debug.Log("All inferences algo loaded successfully");
     }
@@ -604,7 +638,7 @@ public class DirectorModel
     /// <param name="traits"></param>
     /// <param name="rels"></param>
     /// <returns></returns>
-    public List<double> DialogueProbabilities(
+    public void DialogueProbabilities(
         int[] events,
         int[] traits,
         int[] rels)
@@ -630,74 +664,62 @@ public class DirectorModel
             knowRel = true;
         }
         
-
         // set observed considering w/c are true.
-        if (knowEv && knowTrait && knowRel)
+        if (knowEv)
         {
-            // use iaAll
-            iaAllKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
-            iaAllKnown.SetObservedValue(Events.NameInGeneratedCode, events);
-            iaAllKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
-            iaAllKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            Debug.Log("updating given EVENT");
 
-            // update and get prob
-            iaAllKnown.Update(1);
+            iaEventsOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+            iaEventsOnly.SetObservedValue(Events.NameInGeneratedCode, events);
+            iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
-            //ProbPost_Dialogue = iaAllKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
-            var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
-            Debug.Log("name of dialogue: " + Dialogue.NameInGeneratedCode);
+            // update and get probability
+            iaEventsOnly.Update(1);
 
-            return result[0].GetProbs().ToList();
-        }
-        else if(knowEv)
-        {
+            ProbPost_Dialogue = iaEventsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaEventsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
-            // for only event and rel known
-            iaEventsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
-            iaEventsRelKnown.SetObservedValue(Events.NameInGeneratedCode, events);
-            iaEventsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-
-            // update and get prob
-            iaEventsRelKnown.Update(1);
-
-            //ProbPost_Dialogue = iaEventsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
-            var result = iaEventsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
-            Debug.Log("name of dialogue: " + Dialogue.NameInGeneratedCode);
-
-            return result[0].GetProbs().ToList();
+            // replace probability table
+            currentProbs = result[0].GetProbs().ToList();
         }
         else if (knowTrait)
         {
+            Debug.Log("updating given TRAIT");
 
-            iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
-            iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
-            iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            iaTraitsOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
+            iaTraitsOnly.SetObservedValue(Traits.NameInGeneratedCode, traits);
+            iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
-            // update and get prob
-            iaTraitsRelKnown.Update(1);
+            // update and get probability
+            iaTraitsOnly.Execute(1);
 
-            //ProbPost_Dialogue = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
-            var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
-            Debug.Log("name of dialogue: " + Dialogue.NameInGeneratedCode);
+            ProbPost_Dialogue = iaTraitsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaTraitsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
+            // replace probability table
+            currentProbs = result[0].GetProbs().ToList();
+        }
+        else if (knowRel)
+        {
+            Debug.Log("updating given rel");
 
-            return result[0].GetProbs().ToList();
+            iaRelOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, rels.Length);
+            iaRelOnly.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+
+            // update and get probability
+            iaRelOnly.Execute(1);
+
+            ProbPost_Dialogue = iaRelOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaRelOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+ 
+
+            // replace probability table
+            currentProbs = result[0].GetProbs().ToList();
         }
 
-        Debug.LogError("OBSERVED VALUE ERROR: all observed values are null");
-        return new List<double>() { 0.0 };
+        Debug.Log("avg of probabilities (checking if panay 0) is " + currentProbs.Average());
     }
-
-    public void Reset()
-    {
-        iaAllKnown.Reset();
-        iaEventsRelKnown.Reset();
-        iaTraitsRelKnown.Reset();
-    }
-    
     #endregion
 
     #region UTILITY
@@ -775,6 +797,7 @@ public class DirectorModel
         /*
          *  LINE IS SAID CALCULATION
          */
+
         if (lineContainer.isSaid)
         {
             // it's already said, we multiple line probability with is said true weight
@@ -803,6 +826,7 @@ public class DirectorModel
             // filter out speaker id
             if(line.Value.speakerId != currentSpeaker)
             {
+                Debug.Log("line " + line.Key + " is filtered out, current speaker is " + currentSpeaker +" and not " + line.Value.speakerId);
                 probabilities[line.Key] = 0;
             }
 
@@ -817,15 +841,15 @@ public class DirectorModel
             // any receiver to be a valid option.
             if(receiver != "no_receiver" && (line.Value.receiver != receiver && line.Value.receiver != "any_receiver"))
             {
-                Debug.Log("the receiver of this line: " + line.Value.receiver);
-                Debug.Log("filtering those that aren't " + receiver + " or any_receiver");
-                Debug.Log("filtered the line: " + line.Value.dialogue);
+                //Debug.Log("the receiver of this line: " + line.Value.receiver);
+                //Debug.Log("filtering those that aren't " + receiver + " or any_receiver");
+                //Debug.Log("filtered the line: " + line.Value.dialogue);
                 // if the receiver isn't the same, we set the probability to 0.
                 probabilities[line.Key] = 0;
             }
             else if(receiver == "no_receiver" && line.Value.receiver != receiver)
             {
-                Debug.Log("the receiver of this line: " + line.Value.receiver + " it's invalid, for this situation");
+                //Debug.Log("the receiver of this line: " + line.Value.receiver + " it's invalid, for this situation");
                 probabilities[line.Key] = 0;
             }
             else
@@ -852,14 +876,18 @@ public class DirectorModel
         double highestUtil = 0;
         int bestDialogue = -1;
 
+        Debug.Log("average of line probabilities in util function: " + probabilities.Average());
+
         // filter
-        probabilities = FilterLines(probabilities, receiver, currentMap, currentSpeaker);
+        List<double> filtered_probs = FilterLines(probabilities, receiver, currentMap, currentSpeaker);
 
         Debug.Log("Probabilities acquired: " + probabilities.Count);
         Debug.Log("Number of lines total: " + TotalDialogueCount);
-
+        
+        
         for(int i=0;i<probabilities.Count; i++)
         {
+            
             Debug.Log($"Line {i}, probability: {probabilities[i]}");
             Debug.Log("Line proper: " + Director.LineDB[i].dialogue);
             /*
@@ -870,7 +898,7 @@ public class DirectorModel
              */
             // we add each utility:
             double computedUtility = ComputeExpectedUtility(i, probabilities[i], topicList, mood);
-            Debug.Log("Computed util for line " + i + " is: " + computedUtility);
+           Debug.Log("Computed util for line " + i + " is: " + computedUtility);
             
             // comparing best dialogue
             if(bestDialogue == -1)
@@ -927,47 +955,9 @@ public class DirectorModel
         string activeArchetype     // the current active speaker (speaker id form)
         )
     {
-
-        //debugProbStr = "====== NPC ======\n";
-        //NumOfCases.ClearObservedValue();
-
-        // default values if known events is empty
-        int knownEventsCount = 1;
-        // here we check if known events is null or empty; if not, we modify our count on known events to be used in populating the traits and rels array.
-        if (knownEvents != null)
-        {
-            knownEventsCount = knownEvents.Length;
-            //NumOfCases.ObservedValue = knownEvents.Length;
-
-            // testing if we passed correct info:S
-            Debug.Log($"num of known events: {knownEvents.Length}\n" +
-                $"trait: {knownTrait}\n" +
-                $"relationship: {knownRel}");
-
-        }
-
-        // array of the same observations, with same length as known events
-        int[] traitsArr = new int[knownEventsCount];
-        int[] relArr = new int[knownEventsCount];
-
-        if (knownTrait == -1)
-        {
-            traitsArr = null;
-        }
-
-        for(int i = 0; i < knownEventsCount; i++)
-        {
-            // populate the array; if the trait isn't a known trait or negative we set traitsarr to be the key for "none"
-            if (traitsArr != null)
-            {
-                traitsArr[i] = knownTrait;
-            }
-
-            relArr[i] = knownRel;
-        }
         
         return LineWithBestUtil(
-            DialogueProbabilities(knownEvents, traitsArr, relArr),
+            new List<double>(currentProbs),
             topicList,
             currentMood,
             map,
@@ -996,50 +986,18 @@ public class DirectorModel
         )
     {
         double minProb = 0.0;
-        //debugProbStr += "====== PLAYER ======\n";
-
-        //NumOfCases.ObservedValue = knownEvents.Length;
-
-
-        int knownEventsCount = 1;
-        // testing if we passed correct info:
-        if (knownEvents != null)
-        {
-            knownEventsCount = knownEvents.Length;
-            Debug.Log($"num of known events: {knownEvents.Length}\n" +
-                $"trait: {knownTrait}\n" +
-                $"relationship: {knownRel}");
-        }
-        
-        // array of the same observations, with same length as known events
-        int[] traitsArr = new int[knownEventsCount];
-        int[] relArr = new int[knownEventsCount];
-
-        if (knownTrait == -1)
-        {
-            traitsArr = null;
-        }
-
-
-        for (int i = 0; i < knownEventsCount; i++)
-        {
-            // populate the array
-            // known trait is optional -- some characters have no traits
-            if (traitsArr != null)
-            {
-                // if knowntrait is not empty (-1) then we set it to whatever we passed.
-                traitsArr[i] = knownTrait;
-            }
-            relArr[i] = knownRel;
-        }
 
         // we infer our posteriors first.
-        List<double> linePosteriors = DialogueProbabilities(knownEvents, traitsArr, relArr);
+        List<double> linePosteriors = new List<double>(currentProbs);
+
+        Debug.Log("average line probabilities: " + linePosteriors.Average());
 
         // get the top 3 lines
         Dictionary<int, double> best3 = new Dictionary<int, double>();
         for(int i = 0; i < 3; i++)
         {
+            Debug.Log("getting line number: " + i);
+
             KeyValuePair<int, double> best = LineWithBestUtil(linePosteriors, topicList, currentMood, map, DirectorConstants.PLAYER_STR, receiverArchetype);
 
             // we base our minimum probability on our first "best" line

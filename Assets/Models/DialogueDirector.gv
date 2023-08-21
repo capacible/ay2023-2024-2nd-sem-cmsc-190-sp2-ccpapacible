@@ -8,8 +8,8 @@ digraph Model
     node3 [ label="AllTraits[NCases]==Traits" fontcolor="#000000" shape="box" ];
     node4 [ label="AllRels[NCases]==Rel" fontcolor="#000000" shape="box" ];
     node5 [ label="AllRels[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
-    node6 [ label="AllTraits[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
-    node7 [ label="AllEvents[NCases]" fontsize="10" fontcolor="#0000FF" shape="none" ];
+    node6 [ label="AllTraits[NCases]" fontsize="10" fontcolor="#0000FF" shape="box" ];
+    node7 [ label="AllEvents[NCases]" fontsize="10" fontcolor="#0000FF" shape="box" ];
     node8 [ label="DialogueChild[NCases]" fontsize="10" fontcolor="#0000FF" shape="box" ];
     node9 [ label="PossibleEvents" fontsize="10" fontcolor="#0000FF" shape="box" ];
     node10 [ label="Discrete" fontsize="8" fontcolor="#FFFFFF" fillcolor="#000000" shape="box" ];
