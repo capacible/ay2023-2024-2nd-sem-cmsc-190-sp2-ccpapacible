@@ -4,7 +4,7 @@ main_cassandra,,,,ArtifactNotFound,,MissingArtifact/StartConversation,,neut,,,pl
 custodian,,,,ArtifactNotFound,,MissingArtifact/StartConversation,,neut,,,player,One of the artifacts was missing! Did you see where it went{comma} by any chance?,,,ArtifactNotFound,,,MissingArtifact,,,
 custodian,,,,ArtifactNotFound,,MissingArtifact/StartConversation,,neg,,,player,An important artifact in next week's exhibit is gone. Have you gone to the storage room recently?,,,ArtifactNotFound,,,MissingArtifact,,,
 assistant,,,,ArtifactNotFound,,MissingArtifact/StartConversation,,neut,,,player,Hey{comma} have you seen the starry plinth anywhere?,,,ArtifactNotFound,,,MissingArtifact,,,
-any_receiver,,,,ArtifactNotFound,,LookingForDirector,,neut,,,player,Have you seen Director Virgil?,,,PlayerAskedDirectorWhereabouts,PlayerAskedDirectorWhereabouts,,LookingForDirector,,,
+any_receiver,,,,ArtifactNotFound,,LookingForDirector/StartConversation,,neut,,,player,Have you seen Director Virgil?,,,PlayerAskedDirectorWhereabouts,PlayerAskedDirectorWhereabouts,,LookingForDirector,,,
 any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neg,,,player,I have to report the missing artifact to the director. Is there... anything I need to know?,,,PlayerExpressedSuspicions,,-1,EndConversation,,,
 any_receiver,,,,ArtifactNotFound,,MissingArtifact,,pos,,,player,I'm going to have to report the missing artifact to the director. Let me know if you learn anything new{comma} okay?,,,,,2,EndConversation,MissingArtifact,TRUE,
 any_receiver,,,,ArtifactNotFound,,MissingArtifact,,neut,,,player,I'm going to go report the missing artifact to the director. I'll be right back.,,,,,,EndConversation,MissingArtifact,TRUE,

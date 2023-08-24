@@ -132,8 +132,6 @@ public static class Director
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
         IdCollection topicIds = LoadTopics();
 
-        // add gamestart event
-        globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict:allEvents));
 
         LoadLines();
         LoadSpeakers();
@@ -142,6 +140,7 @@ public static class Director
         foreach(Speaker s in speakerDefaults.Values)
         {
             s.InitializeTopics(topicIds, (double) DirectorConstants.TopicRelevance.BASE);
+            s.PrioritizeTopics("MissingArtifact");
         }
 
         // initialize model
@@ -152,6 +151,8 @@ public static class Director
 
         // add to player memory
         AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
+        // add gamestart event
+        AddEventString(DirectorConstants.GAME_IS_ACTIVE);
 
     }
     
@@ -311,12 +312,6 @@ public static class Director
         // if the given display name is not empty, then we will override the speaker's display name with what is given
         allSpeakers[npcObjId].OverrideDisplayName(displayName);
 
-        // update given traits
-        model.DialogueProbabilities(null, new int[] { allSpeakers[npcObjId].speakerTrait }, null);
-
-        // update model given relationship with player
-        model.DialogueProbabilities(null, null, new int[] { allSpeakers[npcObjId].RelationshipStatus() });
-
         Debug.Log($"Added speaker with id {npcObjId}");
     }
 
@@ -381,6 +376,11 @@ public static class Director
             AddToSpeakerMemory(activeNPC, "ShowItem:" + activeHeldItem);
             AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ShowItem:" + activeHeldItem);
         }
+
+        model.DialogueProbabilities(null, new int[] { allSpeakers[activeNPC].speakerTrait }, null);
+
+        // update model given relationship with player
+        model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].RelationshipStatus() });
 
         Debug.Log("Starting convo...");
         
@@ -449,11 +449,12 @@ public static class Director
         // if we have selected some choice...
         if(playerChoice != -1)
         {
-            CheckExit(prevLine);
 
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
+
+            CheckExit(choice);
             
             // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
             UpdateTopics(choice);
@@ -497,10 +498,8 @@ public static class Director
     /// <returns></returns>
     public static List<string> GetPlayerLines()
     {
-        if(!isActive)
-        {
-            EventHandler.Instance.ConcludeDialogue();
-        }
+
+        CheckExit(prevLine);
 
         Debug.Log("==== PLAYER TURN ====");
         // clear player lines
@@ -568,16 +567,6 @@ public static class Director
         }
 
         UpdateSpeakerData(line);
-
-        // the exit effect differs from player and npc line.
-        // we know that there's no other follow up when selecting a player line. thus, we call conclude dialogue agad
-        // if exit
-        // we set the director to isactive=false
-        if (line.effect.exit)
-        {
-            Debug.Log("THE NPC LINE HAS AN EXIT EFFECT");
-            isActive = false;
-        }
     }
 
     public static void UpdateSpeakerData(DialogueLine line)
@@ -661,7 +650,7 @@ public static class Director
             // update currentrel
             allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
             // update model
-            model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
+            //model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
         }
     }
     
@@ -683,7 +672,7 @@ public static class Director
 
         // the bookends (start and end convo topics) will always be 0.
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        //allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
     }
 
     /// <summary>
