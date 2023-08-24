@@ -377,11 +377,9 @@ public static class Director
             AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ShowItem:" + activeHeldItem);
         }
 
-        model.DialogueProbabilities(null, new int[] { allSpeakers[activeNPC].speakerTrait }, null);
-
-        // update model given relationship with player
-        model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].RelationshipStatus() });
-
+        // update model
+        model.DialogueProbabilities(null, new int[] { allSpeakers[activeNPC].speakerTrait }, new int[] { allSpeakers[activeNPC].RelationshipStatus() });
+        
         Debug.Log("Starting convo...");
         
         return GetNPCLine();
@@ -465,7 +463,7 @@ public static class Director
         }
         
         int[] allKnownEvents = InitData(activeNPC);
-
+        
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
             allKnownEvents,

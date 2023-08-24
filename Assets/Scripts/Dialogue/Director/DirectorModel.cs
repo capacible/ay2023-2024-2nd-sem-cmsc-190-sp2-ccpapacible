@@ -665,7 +665,25 @@ public class DirectorModel
         }
         
         // set observed considering w/c are true.
-        if (knowEv)
+        if(knowEv && knowTrait)
+        {
+            Debug.Log("updating given EVENT");
+
+            iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
+            iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
+            iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+
+            // update and get probability
+            iaTraitsRelKnown.Execute(50);
+
+            ProbPost_Dialogue = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            // replace probability table
+            currentProbs = result[0].GetProbs().ToList();
+        }
+        else if (knowEv)
         {
             Debug.Log("updating given EVENT");
 
@@ -987,7 +1005,6 @@ public class DirectorModel
     {
         double minProb = 0.0;
 
-        // we infer our posteriors first.
         List<double> linePosteriors = new List<double>(currentProbs);
 
         Debug.Log("average line probabilities: " + linePosteriors.Average());
@@ -1003,7 +1020,7 @@ public class DirectorModel
             // we base our minimum probability on our first "best" line
             if (i == 0)
             {
-                minProb = best.Value - (best.Value * 0.05);
+                minProb = best.Value - (best.Value * 0.075);
             }
 
             best3.Add(best.Key, best.Value);
