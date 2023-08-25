@@ -146,6 +146,8 @@ public static class Director
         // start by setting appropriate data and loading the CPT
         model.Start();
 
+        allSpeakers[DirectorConstants.PLAYER_STR].InitializeSpeakerCPT(model);
+
         // add to player memory
         AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
         // add gamestart event
@@ -195,6 +197,7 @@ public static class Director
 
         // add the player
         allSpeakers.Add("player", speakerDefaults["player"].Clone());
+
         Debug.Log("added player -- length of memories: " + allSpeakers["player"].speakerMemories.Count);
         
     }
@@ -317,7 +320,10 @@ public static class Director
         // if the given display name is not empty, then we will override the speaker's display name with what is given
         allSpeakers[npcObjId].OverrideDisplayName(displayName);
 
+        allSpeakers[npcObjId].InitializeSpeakerCPT(model);
+
         Debug.Log($"Added speaker with id {npcObjId}");
+        Debug.Log($"Checking if the probabilities are not empty: {allSpeakers[npcObjId].currentPosteriors.Count}");
     }
 
     /// <summary>
@@ -361,7 +367,6 @@ public static class Director
     public static string[] StartAndGetLine(string npcId, string mapId)
     {
         activeNPC = npcId;
-        currentMap = mapId;
 
         // reset the values of isSaid in short term memory
         foreach(DialogueLine line in shortTermMemory)
@@ -381,9 +386,6 @@ public static class Director
             AddToSpeakerMemory(activeNPC, "ShowItem:" + activeHeldItem);
             AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ShowItem:" + activeHeldItem);
         }
-
-        // update model
-        model.DialogueProbabilities(null, new int[] { allSpeakers[activeNPC].speakerTrait }, new int[] { allSpeakers[activeNPC].RelationshipStatus() });
         
         Debug.Log("Starting convo...");
         
@@ -467,7 +469,7 @@ public static class Director
             UpdatePlayerData(choice);
         }
         
-        int[] allKnownEvents = InitData(activeNPC);
+        int[] allKnownEvents = null;
         
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
@@ -477,7 +479,8 @@ public static class Director
             allSpeakers[activeNPC].topics,
             mood,
             currentMap,
-            allSpeakers[activeNPC].speakerArchetype);
+            allSpeakers[activeNPC].speakerArchetype,
+            allSpeakers[activeNPC].currentPosteriors);
 
         Debug.Log("selected line: " + lineId);
 
@@ -508,18 +511,16 @@ public static class Director
         // clear player lines
         playerChoices.Clear();
 
-        /// train
-        int[] allKnownEvents = InitData();
-
         // select some player lines.
         int[] lineIds = model.SelectPlayerLines(
-            allKnownEvents,
+            null,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
             allSpeakers[activeNPC].topics,
             mood,
             currentMap,
-            allSpeakers[activeNPC].speakerArchetype);
+            allSpeakers[activeNPC].speakerArchetype,
+            allSpeakers[activeNPC].currentPosteriors);
 
         foreach(int i in lineIds)
         {
@@ -653,7 +654,11 @@ public static class Director
             // update currentrel
             allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
             // update model
-            //model.DialogueProbabilities(null, null, new int[] { allSpeakers[activeNPC].currentRelStatus });
+            model.UpdateSpeakerDialogueProbs(null, 
+                null, 
+                new int[] { allSpeakers[activeNPC].currentRelStatus },
+                ref allSpeakers[activeNPC].currentPosteriors,
+                ref allSpeakers[activeNPC].currentDialogueCPT);
         }
     }
     
@@ -689,8 +694,12 @@ public static class Director
         if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
         {
             allSpeakers[speaker].speakerMemories.Add(eventId);
-            // update probability table.
-            model.DialogueProbabilities(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, null, null);
+            // update probability table of the speaker in question
+            model.UpdateSpeakerDialogueProbs(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, 
+                null, 
+                null, 
+                ref allSpeakers[speaker].currentPosteriors,
+                ref allSpeakers[speaker].currentDialogueCPT);
         }
     }
 
@@ -711,14 +720,31 @@ public static class Director
         if( map == "global" && !(globalEvents.Contains(eventId)))
         {
             globalEvents.Add(eventId);
+
+            // update the probability table of ALL speakers in allspeaker list since global
+            foreach (Speaker s in allSpeakers.Values)
+            {
+                model.UpdateSpeakerDialogueProbs(new int[] { eventId },
+                    null,
+                    null,
+                    ref s.currentPosteriors,
+                    ref s.currentDialogueCPT);
+            }
         }
         else if (map != "global" && !(mapEvents[map].Contains(eventId)))
         {
             mapEvents[map].Add(eventId);
-        }
 
-        // update the probability table
-        model.DialogueProbabilities(new int[] { eventId }, null, null);
+            // update the probability table of ALL speakers whose spawn location is the current scene
+            foreach (Speaker s in allSpeakers.Values.Where(sp => sp.spawnLocation == SceneUtility.currentScene))
+            {
+                model.UpdateSpeakerDialogueProbs(new int[] { eventId },
+                    null,
+                    null,
+                    ref s.currentPosteriors,
+                    ref s.currentDialogueCPT);
+            }
+        }
     }
     #endregion
 

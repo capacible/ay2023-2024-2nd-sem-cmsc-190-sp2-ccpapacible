@@ -30,7 +30,7 @@ public class DirectorModel
     private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.006;
+    private const double LINE_HARD_MIN_PROB = 0.0065;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -110,9 +110,7 @@ public class DirectorModel
     private Dirichlet ProbPost_Events;
     private Dirichlet ProbPost_Traits;
     private Dirichlet ProbPost_RelStatus;
-    private Dirichlet[][][] ProbPost_Dialogue;
-
-    private List<double> currentProbs = new List<double>();
+    private Dirichlet[][][] defaultDialoguePriors;
 
 
     #region INITIALIZATION
@@ -300,19 +298,19 @@ public class DirectorModel
         
 
         // set the observed values.
-        ProbPost_Dialogue = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        defaultDialoguePriors = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
         Dirichlet eventProbs = Dirichlet.Uniform(TotalEventCount);
         Dirichlet traitProbs = Dirichlet.Uniform(TotalTraitCount);
         Dirichlet relProbs = Dirichlet.Uniform(TotalRelCount);
         
         // cpt of dialogue
-        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
+        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
+        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
 
-        iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-        iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
-        iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+        iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
+        iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
+        iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
 
         // cpt of events
         iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
@@ -511,7 +509,7 @@ public class DirectorModel
         ProbPrior_Traits.ObservedValue = priors.traitsProb;
         ProbPrior_RelStatus.ObservedValue = priors.relProb;
 
-        ProbPost_Dialogue = engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
+        defaultDialoguePriors = engine.Infer<Dirichlet[][][]>(CPT_Dialogue);
         ProbPost_Events = engine.Infer<Dirichlet>(Prob_Events);
         ProbPost_Traits = engine.Infer<Dirichlet>(Prob_Traits);
         ProbPost_RelStatus = engine.Infer<Dirichlet>(Prob_RelStatus);
@@ -530,7 +528,7 @@ public class DirectorModel
             eventsProb = ProbPost_Events,
             traitsProb = ProbPost_Traits,
             relProb = ProbPost_RelStatus,
-            dialogueProb = ProbPost_Dialogue
+            dialogueProb = defaultDialoguePriors
         };
     }
     #endregion
@@ -638,10 +636,12 @@ public class DirectorModel
     /// <param name="traits"></param>
     /// <param name="rels"></param>
     /// <returns></returns>
-    public void DialogueProbabilities(
+    public void UpdateSpeakerDialogueProbs(
         int[] events,
         int[] traits,
-        int[] rels)
+        int[] rels,
+        ref List<double> dialogueProbability,
+        ref Dirichlet[][][] dialoguePrior)
     {
         bool knowEv = false, knowTrait = false, knowRel = false;
         if(events!=null)
@@ -663,7 +663,18 @@ public class DirectorModel
             Debug.Log("RELS VALUE TRUE");
             knowRel = true;
         }
-        
+
+        // if our passed priors are null, we use the default
+        Dirichlet[][][] usePrior;
+        if (dialoguePrior != null)
+        {
+            usePrior = dialoguePrior;
+        }
+        else
+        {
+            usePrior = defaultDialoguePriors;
+        }
+
         // set observed considering w/c are true.
         if(knowEv && knowTrait)
         {
@@ -672,16 +683,16 @@ public class DirectorModel
             iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
             iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
             iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
 
             // update and get probability
             iaTraitsRelKnown.Execute(1);
 
-            ProbPost_Dialogue = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            dialoguePrior = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
-            // replace probability table
-            currentProbs = result[0].GetProbs().ToList();
+            // replace probability table of the table we pass from speaker
+            dialogueProbability = result[0].GetProbs().ToList();
         }
         else if (knowEv)
         {
@@ -689,16 +700,17 @@ public class DirectorModel
 
             iaEventsOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
             iaEventsOnly.SetObservedValue(Events.NameInGeneratedCode, events);
-            iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
 
             // update and get probability
             iaEventsOnly.Execute(1);
 
-            ProbPost_Dialogue = iaEventsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            // update the prior
+            dialoguePrior = iaEventsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaEventsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             // replace probability table
-            currentProbs = result[0].GetProbs().ToList();
+            dialogueProbability = result[0].GetProbs().ToList();
         }
         else if (knowTrait)
         {
@@ -706,16 +718,16 @@ public class DirectorModel
 
             iaTraitsOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
             iaTraitsOnly.SetObservedValue(Traits.NameInGeneratedCode, traits);
-            iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
 
             // update and get probability
             iaTraitsOnly.Execute(1);
 
-            ProbPost_Dialogue = iaTraitsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            dialoguePrior = iaTraitsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             // replace probability table
-            currentProbs = result[0].GetProbs().ToList();
+            dialogueProbability = result[0].GetProbs().ToList();
         }
         else if (knowRel)
         {
@@ -723,20 +735,20 @@ public class DirectorModel
 
             iaRelOnly.SetObservedValue(NumOfCases.NameInGeneratedCode, rels.Length);
             iaRelOnly.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
+            iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
 
             // update and get probability
             iaRelOnly.Execute(1);
 
-            ProbPost_Dialogue = iaRelOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            dialoguePrior = iaRelOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaRelOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
  
 
             // replace probability table
-            currentProbs = result[0].GetProbs().ToList();
+            dialogueProbability = result[0].GetProbs().ToList();
         }
 
-        Debug.Log("avg of probabilities (checking if panay 0) is " + currentProbs.Average());
+        Debug.Log("avg of probabilities (checking if panay 0) is " + dialogueProbability.Average());
     }
     #endregion
 
@@ -970,12 +982,13 @@ public class DirectorModel
         Dictionary<string, double> topicList,
         int currentMood,
         string map,                 //  current map we are in
-        string activeArchetype     // the current active speaker (speaker id form)
+        string activeArchetype,     // the current active speaker (speaker id form)
+        List<double> probsToUse     // the acquired probability of the npc after running DialogueProbabilities()
         )
     {
         
         return LineWithBestUtil(
-            new List<double>(currentProbs),
+            new List<double>(probsToUse),
             topicList,
             currentMood,
             map,
@@ -1000,12 +1013,14 @@ public class DirectorModel
         Dictionary<string, double> topicList,
         int currentMood,                        // mood value
         string map,                             // map or scene we are in
-        string receiverArchetype                // speaker archetype of who the player is talking to
+        string receiverArchetype,                // speaker archetype of who the player is talking to
+        List<double> probsToUse                 // the probability to use after using DialogueProbability()
         )
     {
         double minProb = 0.0;
 
-        List<double> linePosteriors = new List<double>(currentProbs);
+        // create a deep copy of the probability to use
+        List<double> linePosteriors = new List<double>(probsToUse);
 
         Debug.Log("average line probabilities: " + linePosteriors.Average());
 

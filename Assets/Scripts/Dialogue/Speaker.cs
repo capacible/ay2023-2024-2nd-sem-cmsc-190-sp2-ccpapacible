@@ -1,3 +1,4 @@
+using Microsoft.ML.Probabilistic.Distributions;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -62,7 +63,16 @@ public class Speaker
     public List<int> queriedMemories = new List<int>();
 
     [XmlIgnore]
+    public string spawnLocation;
+
+    [XmlIgnore]
     public int currentRelStatus;
+
+    [XmlIgnore]
+    public List<double> currentPosteriors = new List<double>();
+
+    [XmlIgnore]
+    public Dirichlet[][][] currentDialogueCPT;
     
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {
@@ -88,12 +98,30 @@ public class Speaker
             speakerMemories = speakerMemories,
             displayName = displayName,
             isFillerCharacter = isFillerCharacter,
-            topics = topics
+            topics = topics,
+            currentDialogueCPT = null,
+            currentPosteriors = currentPosteriors,
+            spawnLocation = SceneUtility.currentScene
         };
 
         newSpeaker.currentRelStatus = newSpeaker.RelationshipStatus();
 
         return newSpeaker;
+    }
+
+    /// <summary>
+    /// Initializes the priors of the model
+    /// </summary>
+    /// <param name="model"></param>
+    public void InitializeSpeakerCPT(DirectorModel model)
+    {
+        model.UpdateSpeakerDialogueProbs(null, 
+            new int[] { speakerTrait }, 
+            new int[] { RelationshipStatus() }, 
+            ref currentPosteriors,
+            ref currentDialogueCPT);
+
+        Debug.Log("probabilities updated, average: " + currentPosteriors[0]);
     }
 
     public void OverrideTraits(NPCData npc)
