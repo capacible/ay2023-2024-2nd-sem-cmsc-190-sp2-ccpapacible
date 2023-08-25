@@ -75,7 +75,7 @@ public class Speaker
     public void PrioritizeTopics(params string[] topicarr)
     {
         foreach(string topic in topicarr)
-            topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
+            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
     }
 
     public Speaker Clone()

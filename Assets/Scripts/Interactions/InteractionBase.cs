@@ -12,6 +12,7 @@ public class InteractionBase : MonoBehaviour
     public string[] addToGlobalEventList;   
     public string[] addToCurrentMapEventList;
     public string[] addToPlayerMemory;
+    public string[] prioritizeTopics;
     
     private InteractPrompt prompt;          // prompt component
 
@@ -175,6 +176,13 @@ public class InteractionBase : MonoBehaviour
             foreach(string e in addToPlayerMemory)
             {
                 Director.AddToSpeakerMemory(DirectorConstants.PLAYER_STR, e);
+            }
+        }
+        if (prioritizeTopics.Length > 0)
+        {
+            foreach(string topic in prioritizeTopics)
+            {
+                Director.PrioritizeTopic_AllSpeakers(topic);
             }
         }
     }

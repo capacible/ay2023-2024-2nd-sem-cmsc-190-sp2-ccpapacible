@@ -675,7 +675,7 @@ public class DirectorModel
             iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaTraitsRelKnown.Execute(50);
+            iaTraitsRelKnown.Execute(1);
 
             ProbPost_Dialogue = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -692,7 +692,7 @@ public class DirectorModel
             iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaEventsOnly.Execute(50);
+            iaEventsOnly.Execute(1);
 
             ProbPost_Dialogue = iaEventsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaEventsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -709,7 +709,7 @@ public class DirectorModel
             iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaTraitsOnly.Execute(50);
+            iaTraitsOnly.Execute(1);
 
             ProbPost_Dialogue = iaTraitsOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -726,7 +726,7 @@ public class DirectorModel
             iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, ProbPost_Dialogue);
 
             // update and get probability
-            iaRelOnly.Execute(50);
+            iaRelOnly.Execute(1);
 
             ProbPost_Dialogue = iaRelOnly.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaRelOnly.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
@@ -1020,7 +1020,7 @@ public class DirectorModel
             // we base our minimum probability on our first "best" line
             if (i == 0)
             {
-                minProb = best.Value - (best.Value * 0.075);
+                minProb = best.Value - (best.Value * 0.25);
             }
 
             best3.Add(best.Key, best.Value);

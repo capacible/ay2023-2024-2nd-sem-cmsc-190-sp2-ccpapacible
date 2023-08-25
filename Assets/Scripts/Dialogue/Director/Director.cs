@@ -16,19 +16,16 @@ public static class DirectorConstants
     public static readonly string TOPIC_START_CONVO = "StartConversation";
     public static readonly string TOPIC_END_CONVO = "EndConversation";
 
+    // topic relevance
+    public static readonly double TOPIC_RELEVANCE_PRIO = 3.0;
+    public static readonly double TOPIC_RELEVANCE_HIGH = 2.0;
+    public static readonly double TOPIC_RELEVANCE_BASE = 1.0;
+    public static readonly double TOPIC_RELEVANCE_CLOSE = 0.0;
+
     public enum MoodThreshold
     {
         GOOD = 1,
         BAD = -1
-    };
-
-    public enum TopicRelevance
-    {
-        PRIO = 3,
-        HIGH = 2,
-        BASE = 1,
-        MIN = 0,
-        CLOSE = -10
     };
 
     // NUMERICAL VALUE OF RELATIONSHIP STATUS
@@ -139,7 +136,7 @@ public static class Director
         // add topics to the speakers
         foreach(Speaker s in speakerDefaults.Values)
         {
-            s.InitializeTopics(topicIds, (double) DirectorConstants.TopicRelevance.BASE);
+            s.InitializeTopics(topicIds, (double) DirectorConstants.TOPIC_RELEVANCE_BASE);
             s.PrioritizeTopics("MissingArtifact");
         }
 
@@ -214,7 +211,7 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
 
         // remove item from memory
         if(activeHeldItem!= "")
@@ -225,8 +222,8 @@ public static class Director
         foreach(string topic in topics)
         {
             // if we haven't closed the topic then we should return to default
-            if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TopicRelevance.CLOSE)
-                topicList[topic] = (double)DirectorConstants.TopicRelevance.BASE;
+            if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+                topicList[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
     }
 
@@ -293,6 +290,14 @@ public static class Director
     public static string ActiveNPCDisplayName()
     {
         return allSpeakers[activeNPC].displayName;
+    }
+
+    public static void PrioritizeTopic_AllSpeakers(string topic)
+    {
+        foreach(Speaker s in allSpeakers.Values)
+        {
+            s.PrioritizeTopics(topic);
+        }
     }
 
     /// <summary>
@@ -365,8 +370,8 @@ public static class Director
         }
         
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.PRIO;
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_PRIO;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -598,7 +603,7 @@ public static class Director
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
             foreach(string topic in line.effect.makeMostRelevantTopic.Split('/'))
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
         }
         else
         {
@@ -607,14 +612,14 @@ public static class Director
             foreach(string topic in line.relatedTopics)
             {
                 if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
-                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
+                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
             }
         }
 
         if (line.effect.closeTopic != "" || line.effect.closeTopic != null)
         {
             // set teh topic listed to 1 (default value)
-            allSpeakers[activeNPC].topics[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.CLOSE;
+            allSpeakers[activeNPC].topics[line.effect.closeTopic] = (float)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
         }
 
         // add to global events
@@ -664,13 +669,13 @@ public static class Director
         foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
         {
             // check if the topic should be closed -- if yes, don't increase to base
-            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE)
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
+            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
 
         // the bookends (start and end convo topics) will always be 0.
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
     }
 
     /// <summary>
