@@ -1,7 +1,10 @@
 using Microsoft.ML.Probabilistic.Distributions;
+using Microsoft.ML.Probabilistic.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -33,6 +36,9 @@ using UnityEngine;
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
+    public static readonly string CPT_PATH = "XMLs/Dialogue/";
+    public static readonly string CPT_FILE_NAME = "_lineCPT";
+
     public string speakerArchetype;             // archetype of speaker aka speaker tag
 
     public string displayName;                  // display name of speaker
@@ -73,13 +79,18 @@ public class Speaker
 
     [XmlIgnore]
     public Dirichlet[][][] currentDialogueCPT;
-    
+            
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {
         foreach(string topic in topicColl.allIds)
         {
             topics.Add(topic, initialVal);
         }
+    }
+
+    public void LoadSpeakerDefaultCPT()
+    {
+        currentDialogueCPT = DeserializeCPT<Dirichlet[][][]>(CPT_PATH + speakerArchetype + CPT_FILE_NAME);
     }
 
     public void PrioritizeTopics(params string[] topicarr)
@@ -99,7 +110,7 @@ public class Speaker
             displayName = displayName,
             isFillerCharacter = isFillerCharacter,
             topics = topics,
-            currentDialogueCPT = null,
+            currentDialogueCPT = currentDialogueCPT,    // from speaker default yung cpt, cocopy lang
             currentPosteriors = currentPosteriors,
             spawnLocation = SceneUtility.currentScene
         };
@@ -107,6 +118,31 @@ public class Speaker
         newSpeaker.currentRelStatus = newSpeaker.RelationshipStatus();
 
         return newSpeaker;
+    }
+
+    /// <summary>
+    /// Deserializes an XML file in a given path
+    /// </summary>
+    /// <typeparam name="T"> type to deserialize into </typeparam>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public T DeserializeCPT<T>(string path)
+    {
+        if (path.Contains("CPT") || path.Contains(".xml"))
+        {
+            DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+
+            TextAsset cpt = (TextAsset)Resources.Load(path);
+
+            using (var reader = XmlReader.Create(new StringReader(cpt.text)))
+            {
+                // deserialize/ read the distribution
+                return (T)serializer.ReadObject(reader);
+            }
+        }
+
+        Debug.LogWarning("Invalid path.");
+        return default;
     }
 
     /// <summary>

@@ -1200,7 +1200,7 @@
 			<negWeight>2</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>shy</traitItem>
@@ -1235,7 +1235,7 @@
 			<negWeight>2</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>loner</traitItem>
@@ -1270,7 +1270,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -1303,7 +1303,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -1335,7 +1335,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -1371,7 +1371,7 @@
 			<negWeight>2</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>shy</traitItem>
@@ -1406,7 +1406,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>friendly</traitItem>
@@ -1441,7 +1441,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -1474,7 +1474,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>loner</traitItem>
@@ -1505,7 +1505,7 @@
 				</addToPlayerMemory>
 				<relationshipEffect>-2</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<closeTopic>ConvincingAssistant</closeTopic>
 				<exit>false</exit>
 				<item></item>
 			</DialogueEffect>
@@ -1516,7 +1516,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>shy</traitItem>
@@ -1543,7 +1543,7 @@
 				<addToPlayerMemory />
 				<relationshipEffect>-2</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<closeTopic>ConvincingAssistant</closeTopic>
 				<exit>false</exit>
 				<item></item>
 			</DialogueEffect>
@@ -2849,7 +2849,7 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>

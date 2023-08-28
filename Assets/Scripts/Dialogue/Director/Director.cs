@@ -191,6 +191,7 @@ public static class Director
         foreach(Speaker s in loadSpeakers.Speakers)
         {
             speakerDefaults.Add(s.speakerArchetype, s);
+            s.LoadSpeakerDefaultCPT();
             // add topics to the speaker default
             Debug.Log($"adding speaker {s} with archetype {s.speakerArchetype}");
         }
@@ -414,15 +415,6 @@ public static class Director
         // we combine all events together
         List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
 
-        // remove the events that have already been queried -- unremoved yung irereturn
-        queriedMemories.ForEach(mem => globalAndMap.Remove(mem));
-        // update queried memories
-        globalAndMap.ForEach(item => queriedMemories.Add(item));
-
-        // remove events queried in memory of npc
-        allSpeakers[activeNPC].queriedMemories.ForEach(mem => npcMemory.Remove(mem));
-        npcMemory.ForEach(item => allSpeakers[activeNPC].queriedMemories.Add(item));
-
         // no event? return { none }
         if (globalAndMap.Count == 0 && npcMemory.Count == 0)
         {
@@ -511,9 +503,19 @@ public static class Director
         // clear player lines
         playerChoices.Clear();
 
+        int[] events = InitData();
+
+        // update probabilities
+        model.UpdateSpeakerDialogueProbs(
+            events,
+            null,
+            null,
+            ref allSpeakers[DirectorConstants.PLAYER_STR].currentPosteriors,
+            ref allSpeakers[DirectorConstants.PLAYER_STR].currentDialogueCPT);
+
         // select some player lines.
         int[] lineIds = model.SelectPlayerLines(
-            null,
+            events,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
             allSpeakers[activeNPC].topics,
@@ -581,16 +583,14 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
-        else if (line.speakerId == DirectorConstants.PLAYER_STR)
+        else if(line.speakerId == DirectorConstants.PLAYER_STR)
         {
-            // add the line into the short term memory
             line.isSaid = true;
             shortTermMemory.Enqueue(line);
-            
-            if(shortTermMemory.Count == MAX_SHORT_TERM_MEMORY)
+
+            if(shortTermMemory.Count >= MAX_SHORT_TERM_MEMORY)
             {
-                // dequeue and permanently make the line isSaid to be true.
-                shortTermMemory.Dequeue().isSaid = true;
+                shortTermMemory.Dequeue().isSaid = true;    // permanently turn the line dequeued to issaid = true
             }
         }
 

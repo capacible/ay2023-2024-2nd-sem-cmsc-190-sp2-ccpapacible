@@ -1,12 +1,12 @@
 ids
 MissingArtifact
-StartConversation
 LookingForDirector
+CameraInTheStorageRoom
 DirectorMissing
 DirectorsOffice
+ConvincingAssistant
 CardFromBeth
 DirectorsFrequentVisitor
-CameraInTheStorageRoom
 TheFounder
 CassandrasOutburst
 DirtyGardenBeds
@@ -15,11 +15,13 @@ CassandraAndDirector
 Investigation:Jonathan
 Investigation:Director
 Investigation:Cassandra
+StartConversation
 CassandrasInjury
 JonathanVisitedCassandra
 AboutJonathan
 JonathanVisitedCass
 BefriendingCustodian
 TheStatue
+LockedDoor
 
 EndConversation

@@ -30,7 +30,7 @@ public class DirectorModel
     private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.0065;
+    private const double LINE_HARD_MIN_PROB = 0.00575;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -296,21 +296,10 @@ public class DirectorModel
         iaTraitsOnly = new Models.DialogueDirector3_EP();
         iaRelOnly = new Models.DialogueDirector4_EP();
         
-
-        // set the observed values.
-        defaultDialoguePriors = DeserializeCPT<Dirichlet[][][]>(DLINE_DISTRIBUTION_PATH);
+        
         Dirichlet eventProbs = Dirichlet.Uniform(TotalEventCount);
         Dirichlet traitProbs = Dirichlet.Uniform(TotalTraitCount);
         Dirichlet relProbs = Dirichlet.Uniform(TotalRelCount);
-        
-        // cpt of dialogue
-        iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
-        iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
-        iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
-
-        iaEventsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
-        iaTraitsOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
-        iaRelOnly.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, defaultDialoguePriors);
 
         // cpt of events
         iaEventsRelKnown.SetObservedValue(ProbPrior_Events.NameInGeneratedCode, eventProbs);
@@ -342,31 +331,6 @@ public class DirectorModel
         Debug.Log("All inferences algo loaded successfully");
 
     }
-    
-    /// <summary>
-    /// Deserializes an XML file in a given path
-    /// </summary>
-    /// <typeparam name="T"> type to deserialize into </typeparam>
-    /// <param name="path"></param>
-    /// <returns></returns>
-    public T DeserializeCPT<T>(string path)
-    {
-        if(path.Contains("CPT") || path.Contains(".xml"))
-        {
-            DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
-
-            TextAsset cpt = (TextAsset) Resources.Load(path);
-
-            using (var reader = XmlReader.Create(new StringReader(cpt.text)))
-            {
-                // deserialize/ read the distribution
-                return (T)serializer.ReadObject(reader);
-            }
-        }
-
-        Debug.LogWarning("Invalid path.");
-        return default;
-    }
 
     #endregion
     #region BEFORE-RUNNING
@@ -376,17 +340,15 @@ public class DirectorModel
         modelFile = Path.Combine(Application.dataPath, engine.ModelName);// delete meta file
         string meta = modelFile.Split('.')[0];
         metaFile = meta;
-        string path = "Assets/Resources/XMLs/dialogue/";
                 
         InferenceEngine.DefaultEngine.ShowFactorGraph = true;
         engine.SaveFactorGraphToFolder = "Assets/Models";
 
-        CPTPrior_Dialogue.ObservedValue = DeserializeCPTGivenFullPath<Dirichlet[][][]>(path + "lineCPT.xml");
+        CPTPrior_Dialogue.ObservedValue = new Dirichlet[TotalEventCount][][];
         ProbPrior_Events.ObservedValue = Dirichlet.Uniform(TotalEventCount);
         ProbPrior_Traits.ObservedValue = Dirichlet.Uniform(TotalTraitCount);
         ProbPrior_RelStatus.ObservedValue = Dirichlet.Uniform(TotalRelCount);
-
-        // setting observed values.
+        
         /*
          *  THERE ARE DIFFERENT TYPES OF POSSIBLE COMPILED ALGORITHMS, CONSIDERING THE VARIOUS TYPES OF AVAILABLE OR KNOWN DATA.
          */
@@ -676,7 +638,24 @@ public class DirectorModel
         }
 
         // set observed considering w/c are true.
-        if(knowEv && knowTrait)
+        if(knowEv && knowRel && knowTrait)
+        {
+            iaAllKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+            iaAllKnown.SetObservedValue(Events.NameInGeneratedCode, events);
+            iaAllKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
+            iaAllKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaAllKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
+
+            // update and get probability
+            iaAllKnown.Execute(1);
+
+            dialoguePrior = iaAllKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            // replace probability table of the table we pass from speaker
+            dialogueProbability = result[0].GetProbs().ToList();
+        }
+        else if(knowEv && knowTrait)
         {
             Debug.Log("updating given EVENT");
 
@@ -690,6 +669,22 @@ public class DirectorModel
 
             dialoguePrior = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
+
+            // replace probability table of the table we pass from speaker
+            dialogueProbability = result[0].GetProbs().ToList();
+        }
+        else if(knowEv && knowRel)
+        {
+            iaEventsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, events.Length);
+            iaEventsRelKnown.SetObservedValue(Events.NameInGeneratedCode, events);
+            iaEventsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
+            iaEventsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
+
+            // update and get probability
+            iaEventsRelKnown.Execute(1);
+
+            dialoguePrior = iaEventsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
+            var result = iaEventsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             // replace probability table of the table we pass from speaker
             dialogueProbability = result[0].GetProbs().ToList();

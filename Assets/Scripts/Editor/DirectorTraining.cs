@@ -105,6 +105,8 @@ public class DirectorTraining
         List<int> traitObservations = new List<int>();
         List<int> relObservations = new List<int>();
 
+        string prev_speaker = null;
+
         // compiling our observations from lineDb
         foreach (KeyValuePair<int, DialogueLine> dlPair in lineDB)
         {
@@ -123,6 +125,24 @@ public class DirectorTraining
             // for eazy access
             DialogueLine line = dlPair.Value;
             int lineId = dlPair.Key;
+
+            // change current speaker
+            string speaker = line.speakerId;
+
+            // compare the speaker of the previous line and the current line
+            // if different sila, this means last line na ng prev speaker and we make inferences for the speaker na.
+            if (prev_speaker != null && speaker != prev_speaker)
+            {
+                // make inferences for the previous speaker
+                LearnAndSerialize(lineObservations, eventObservations, traitObservations, relObservations, prev_speaker + "_lineCPT.xml", model, data);
+
+                // reset the data
+                lineObservations.Clear();
+                eventObservations.Clear();
+                traitObservations.Clear();
+                relObservations.Clear();
+
+            }
 
             // we get ALL event requirements of the line, and convert them to their respective key
             List<int> prereqEvents = null;
@@ -232,7 +252,25 @@ public class DirectorTraining
                     }
                 }
             }
+
+            // set the current speaker to be the prev speaker
+            prev_speaker = line.speakerId;
         }
+
+        // for last speaker.
+        LearnAndSerialize(lineObservations, eventObservations, traitObservations, relObservations, prev_speaker + "_lineCPT.xml", model, data);
+    }
+
+    public static void LearnAndSerialize(List<int> lineObservations, 
+        List<int> eventObservations, 
+        List<int> traitObservations, 
+        List<int> relObservations,
+        string fname,
+        DirectorModel model,
+        DirectorData data)
+    {
+
+        string path = "Assets/Resources/XMLs/dialogue/";
 
         // should have same length
         Debug.Log("LENGTHS OF THE OBSERVATIONS:\n" +
@@ -247,20 +285,14 @@ public class DirectorTraining
         int[] evArr = eventObservations.ToArray();
         int[] traitArr = traitObservations.ToArray();
         int[] relArr = relObservations.ToArray();
-        
-        
-        // make inferences here
+
+
+        // make inferences here, based on uniform base data.
         model.Learn(lineArr, evArr, traitArr, relArr, data);
         // return the inference as director data
         DirectorData learned = model.DataFromPosteriors();
 
-        // IN HERE WE SERIALIZE THE DIRICHLET INTO AN XML
-        string path = "Assets/Resources/XMLs/dialogue/";
-
-        SerializeCPT<Dirichlet[][][]>(path, "lineCPT.xml", learned.dialogueProb);
-        SerializeCPT<Dirichlet>(path, "eventCPT.xml", learned.eventsProb);
-        SerializeCPT<Dirichlet>(path, "traitCPT.xml", learned.traitsProb);
-        SerializeCPT<Dirichlet>(path, "relCPT.xml", learned.relProb);
+        SerializeCPT<Dirichlet[][][]>(path, fname, learned.dialogueProb);
     }
 
     public static void SerializeCPT<T>(string path, string fname, object toSerialize)

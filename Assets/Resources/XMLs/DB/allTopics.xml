@@ -2,13 +2,13 @@
 <Main>
 	<ids>
 		<id>MissingArtifact</id>
-		<id>StartConversation</id>
 		<id>LookingForDirector</id>
+		<id>CameraInTheStorageRoom</id>
 		<id>DirectorMissing</id>
 		<id>DirectorsOffice</id>
+		<id>ConvincingAssistant</id>
 		<id>CardFromBeth</id>
 		<id>DirectorsFrequentVisitor</id>
-		<id>CameraInTheStorageRoom</id>
 		<id>TheFounder</id>
 		<id>CassandrasOutburst</id>
 		<id>DirtyGardenBeds</id>
@@ -17,12 +17,14 @@
 		<id>Investigation:Jonathan</id>
 		<id>Investigation:Director</id>
 		<id>Investigation:Cassandra</id>
+		<id>StartConversation</id>
 		<id>CassandrasInjury</id>
 		<id>JonathanVisitedCassandra</id>
 		<id>AboutJonathan</id>
 		<id>JonathanVisitedCass</id>
 		<id>BefriendingCustodian</id>
 		<id>TheStatue</id>
+		<id>LockedDoor</id>
 		<id>EndConversation</id>
 		<id>none</id>
 	</ids>

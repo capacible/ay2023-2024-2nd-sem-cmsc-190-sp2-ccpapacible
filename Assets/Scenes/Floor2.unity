@@ -6635,7 +6635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
       propertyPath: prioritizeTopics.Array.data[0]
-      value: DirectorsOffice
+      value: LockedDoor
       objectReference: {fileID: 0}
     - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
       propertyPath: addToPlayerMemory.Array.data[0]

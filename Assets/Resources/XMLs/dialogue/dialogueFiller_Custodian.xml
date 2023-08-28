@@ -5066,7 +5066,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>gruff</traitItem>
@@ -5104,7 +5104,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>eloquent</traitItem>
@@ -5140,7 +5140,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>friendly</traitItem>

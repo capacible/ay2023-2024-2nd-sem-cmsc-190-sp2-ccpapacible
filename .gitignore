@@ -69,4 +69,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # unnecessary stuff
-/[Aa]ssets/[Rr]esources/[Xx]MLs/dialogue/lineCPT.xml
+/[Aa]ssets/[Rr]esources/[Xx]MLs/dialogue
