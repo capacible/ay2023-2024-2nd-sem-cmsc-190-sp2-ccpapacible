@@ -7,6 +7,230 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
+				<relatedTopicsItem>StartConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>G'morning, Ma'am.</dialogue>
+			<relatedEvents />
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>sad</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>What? How could that happen?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>I have no idea where he is, sorry. You could ask one of the custodians or the assistant.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DirectorWhereabouts:Jonathan</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DirectorWhereabouts:Jonathan </addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>I think I saw a strange woman in the storage room last night. My memory was hazy so I assumed it was just one of the staff.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>Inquiry:SecurityCameras</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>WomanInStorage </addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>Uhm... no. I haven't done anything. Are you implying something?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ExpressedSuspicions:main_jonathan</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>-3</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>2</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+				<relatedTopicsItem>EndConversation</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neg</responseTone>
+			<portrait>angry</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>What are you trying to say? If there's something you're implying you need evidence for it. Please leave me alone.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>ExpressedSuspicions:main_jonathan</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>-5</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>true</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neut</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>main_jonathan</speakerId>
+			<dialogue>I don't think Cass is capable of that... She loves her career. I doubt she will jeopardize it.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+				<relatedEventsItem>ExpressedSuspicions:main_cassandra</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>DefendedCassandra:{speaker_archetype}</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>DefendedCassandra:{speaker_archetype}</addToPlayerMemoryItem>
+				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
@@ -222,230 +446,6 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>-1</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>G'morning, Ma'am.</dialogue>
-			<relatedEvents />
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>sad</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>What? How could that happen?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>I have no idea where he is, sorry. You could ask one of the custodians or the assistant.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>DirectorWhereabouts:Jonathan</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>DirectorWhereabouts:Jonathan </addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>CameraInTheStorageRoom</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>I think I saw a strange woman in the storage room last night. My memory was hazy so I assumed it was just one of the staff.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>Inquiry:SecurityCameras</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>WomanInStorage </addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>WomanInStorage</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>EndConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>angry</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>Uhm... no. I haven't done anything. Are you implying something?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>ExpressedSuspicions:main_jonathan</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>-3</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>2</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>EndConversation</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neg</responseTone>
-			<portrait>angry</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>What are you trying to say? If there's something you're implying you need evidence for it. Please leave me alone.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>PlayerExpressedSuspicions</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>ExpressedSuspicions:main_jonathan</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>-5</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>true</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>main_jonathan</speakerId>
-			<dialogue>I don't think Cass is capable of that... She loves her career. I doubt she will jeopardize it.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>ExpressedSuspicions:main_cassandra</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>DefendedCassandra:{speaker_archetype}</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>DefendedCassandra:{speaker_archetype}</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
@@ -2832,7 +2832,6 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<dialogue>H...hey, Enid. How was the vacation?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>UsedToBeFriendsWithJonathan</relatedEventsItem>
-				<relatedEventsItem>GameIsActive</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3248,7 +3247,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<negWeight>1</negWeight>
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -3277,7 +3276,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<negWeight>1</negWeight>
 			<relPrereq>bad</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -3306,7 +3305,7 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			<negWeight>1</negWeight>
 			<relPrereq>neut</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -3330,12 +3329,12 @@ I know I was mistaken, and that there was no woman, but at the time, I really wa
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
-			<receiver></receiver>
+			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>bad</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>

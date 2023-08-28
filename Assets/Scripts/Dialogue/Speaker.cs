@@ -1,6 +1,10 @@
+using Microsoft.ML.Probabilistic.Distributions;
+using Microsoft.ML.Probabilistic.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -32,6 +36,9 @@ using UnityEngine;
 // data container of the NPC to be attached into the NPC object
 public class Speaker
 {
+    public static readonly string CPT_PATH = "XMLs/Dialogue/";
+    public static readonly string CPT_FILE_NAME = "_lineCPT";
+
     public string speakerArchetype;             // archetype of speaker aka speaker tag
 
     public string displayName;                  // display name of speaker
@@ -60,13 +67,36 @@ public class Speaker
 
     [XmlIgnore]
     public List<int> queriedMemories = new List<int>();
-    
+
+    [XmlIgnore]
+    public string spawnLocation;
+
+    [XmlIgnore]
+    public int currentRelStatus;
+
+    [XmlIgnore]
+    public List<double> currentPosteriors = new List<double>();
+
+    [XmlIgnore]
+    public Dirichlet[][][] currentDialogueCPT;
+            
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {
         foreach(string topic in topicColl.allIds)
         {
             topics.Add(topic, initialVal);
         }
+    }
+
+    public void LoadSpeakerDefaultCPT()
+    {
+        currentDialogueCPT = DeserializeCPT<Dirichlet[][][]>(CPT_PATH + speakerArchetype + CPT_FILE_NAME);
+    }
+
+    public void PrioritizeTopics(params string[] topicarr)
+    {
+        foreach(string topic in topicarr)
+            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
     }
 
     public Speaker Clone()
@@ -79,10 +109,55 @@ public class Speaker
             speakerMemories = speakerMemories,
             displayName = displayName,
             isFillerCharacter = isFillerCharacter,
-            topics = topics
+            topics = topics,
+            currentDialogueCPT = currentDialogueCPT,    // from speaker default yung cpt, cocopy lang
+            currentPosteriors = currentPosteriors,
+            spawnLocation = SceneUtility.currentScene
         };
 
+        newSpeaker.currentRelStatus = newSpeaker.RelationshipStatus();
+
         return newSpeaker;
+    }
+
+    /// <summary>
+    /// Deserializes an XML file in a given path
+    /// </summary>
+    /// <typeparam name="T"> type to deserialize into </typeparam>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public T DeserializeCPT<T>(string path)
+    {
+        if (path.Contains("CPT") || path.Contains(".xml"))
+        {
+            DataContractSerializer serializer = new DataContractSerializer(typeof(T), new DataContractSerializerSettings { DataContractResolver = new InferDataContractResolver() });
+
+            TextAsset cpt = (TextAsset)Resources.Load(path);
+
+            using (var reader = XmlReader.Create(new StringReader(cpt.text)))
+            {
+                // deserialize/ read the distribution
+                return (T)serializer.ReadObject(reader);
+            }
+        }
+
+        Debug.LogWarning("Invalid path.");
+        return default;
+    }
+
+    /// <summary>
+    /// Initializes the priors of the model
+    /// </summary>
+    /// <param name="model"></param>
+    public void InitializeSpeakerCPT(DirectorModel model)
+    {
+        model.UpdateSpeakerDialogueProbs(null, 
+            new int[] { speakerTrait }, 
+            new int[] { RelationshipStatus() }, 
+            ref currentPosteriors,
+            ref currentDialogueCPT);
+
+        Debug.Log("probabilities updated, average: " + currentPosteriors[0]);
     }
 
     public void OverrideTraits(NPCData npc)

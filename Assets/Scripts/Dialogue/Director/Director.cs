@@ -16,18 +16,16 @@ public static class DirectorConstants
     public static readonly string TOPIC_START_CONVO = "StartConversation";
     public static readonly string TOPIC_END_CONVO = "EndConversation";
 
+    // topic relevance
+    public static readonly double TOPIC_RELEVANCE_PRIO = 2.0;
+    public static readonly double TOPIC_RELEVANCE_HIGH = 1.5;
+    public static readonly double TOPIC_RELEVANCE_BASE = 1.0;
+    public static readonly double TOPIC_RELEVANCE_CLOSE = 0.0;
+
     public enum MoodThreshold
     {
         GOOD = 1,
         BAD = -1
-    };
-
-    public enum TopicRelevance
-    {
-        HIGH = 2,
-        BASE = 1,
-        MIN = 0,
-        CLOSE = -10
     };
 
     // NUMERICAL VALUE OF RELATIONSHIP STATUS
@@ -131,8 +129,6 @@ public static class Director
         allTraits = IdCollection.LoadArrayAsDict(TRAITS_XML_PATH);
         IdCollection topicIds = LoadTopics();
 
-        // add gamestart event
-        globalEvents.Add(NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict:allEvents));
 
         LoadLines();
         LoadSpeakers();
@@ -140,17 +136,23 @@ public static class Director
         // add topics to the speakers
         foreach(Speaker s in speakerDefaults.Values)
         {
-            s.InitializeTopics(topicIds, (double) DirectorConstants.TopicRelevance.BASE);
+            s.InitializeTopics(topicIds, (double) DirectorConstants.TOPIC_RELEVANCE_BASE);
+            s.PrioritizeTopics("MissingArtifact");
         }
 
         // initialize model
         model = new DirectorModel(allEvents.Count, allTraits.Count, LineDB.Count, DirectorConstants.MAX_REL_STATUS, new Microsoft.ML.Probabilistic.Algorithms.ExpectationPropagation());
-        
-        // add to player memory
-        AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
 
         // start by setting appropriate data and loading the CPT
         model.Start();
+
+        allSpeakers[DirectorConstants.PLAYER_STR].InitializeSpeakerCPT(model);
+
+        // add to player memory
+        AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
+        // add gamestart event
+        AddEventString(DirectorConstants.GAME_IS_ACTIVE);
+
     }
     
     public static IdCollection LoadTopics()
@@ -189,12 +191,14 @@ public static class Director
         foreach(Speaker s in loadSpeakers.Speakers)
         {
             speakerDefaults.Add(s.speakerArchetype, s);
+            s.LoadSpeakerDefaultCPT();
             // add topics to the speaker default
             Debug.Log($"adding speaker {s} with archetype {s.speakerArchetype}");
         }
 
         // add the player
         allSpeakers.Add("player", speakerDefaults["player"].Clone());
+
         Debug.Log("added player -- length of memories: " + allSpeakers["player"].speakerMemories.Count);
         
     }
@@ -211,7 +215,7 @@ public static class Director
         isActive = false;
 
         // set end conversation to default value
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TopicRelevance.CLOSE;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
 
         // remove item from memory
         if(activeHeldItem!= "")
@@ -222,8 +226,8 @@ public static class Director
         foreach(string topic in topics)
         {
             // if we haven't closed the topic then we should return to default
-            if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TopicRelevance.CLOSE)
-                topicList[topic] = (double)DirectorConstants.TopicRelevance.BASE;
+            if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+                topicList[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
     }
 
@@ -292,6 +296,14 @@ public static class Director
         return allSpeakers[activeNPC].displayName;
     }
 
+    public static void PrioritizeTopic_AllSpeakers(string topic)
+    {
+        foreach(Speaker s in allSpeakers.Values)
+        {
+            s.PrioritizeTopics(topic);
+        }
+    }
+
     /// <summary>
     /// Add speaker to the speaker trackers
     /// </summary>
@@ -309,7 +321,10 @@ public static class Director
         // if the given display name is not empty, then we will override the speaker's display name with what is given
         allSpeakers[npcObjId].OverrideDisplayName(displayName);
 
+        allSpeakers[npcObjId].InitializeSpeakerCPT(model);
+
         Debug.Log($"Added speaker with id {npcObjId}");
+        Debug.Log($"Checking if the probabilities are not empty: {allSpeakers[npcObjId].currentPosteriors.Count}");
     }
 
     /// <summary>
@@ -353,7 +368,6 @@ public static class Director
     public static string[] StartAndGetLine(string npcId, string mapId)
     {
         activeNPC = npcId;
-        currentMap = mapId;
 
         // reset the values of isSaid in short term memory
         foreach(DialogueLine line in shortTermMemory)
@@ -362,7 +376,8 @@ public static class Director
         }
         
         // set current relevant topic to be startconversation
-        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TopicRelevance.HIGH;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_PRIO;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
         // start with 0 mood -- neutral
         mood = 0;
 
@@ -372,7 +387,7 @@ public static class Director
             AddToSpeakerMemory(activeNPC, "ShowItem:" + activeHeldItem);
             AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ShowItem:" + activeHeldItem);
         }
-
+        
         Debug.Log("Starting convo...");
         
         return GetNPCLine();
@@ -399,15 +414,6 @@ public static class Director
 
         // we combine all events together
         List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
-
-        // remove the events that have already been queried -- unremoved yung irereturn
-        queriedMemories.ForEach(mem => globalAndMap.Remove(mem));
-        // update queried memories
-        globalAndMap.ForEach(item => queriedMemories.Add(item));
-
-        // remove events queried in memory of npc
-        allSpeakers[activeNPC].queriedMemories.ForEach(mem => npcMemory.Remove(mem));
-        npcMemory.ForEach(item => allSpeakers[activeNPC].queriedMemories.Add(item));
 
         // no event? return { none }
         if (globalAndMap.Count == 0 && npcMemory.Count == 0)
@@ -440,11 +446,12 @@ public static class Director
         // if we have selected some choice...
         if(playerChoice != -1)
         {
-            CheckExit(prevLine);
 
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
+
+            CheckExit(choice);
             
             // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
             UpdateTopics(choice);
@@ -454,8 +461,8 @@ public static class Director
             UpdatePlayerData(choice);
         }
         
-        int[] allKnownEvents = InitData(activeNPC);
-
+        int[] allKnownEvents = null;
+        
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
             allKnownEvents,
@@ -464,7 +471,8 @@ public static class Director
             allSpeakers[activeNPC].topics,
             mood,
             currentMap,
-            allSpeakers[activeNPC].speakerArchetype);
+            allSpeakers[activeNPC].speakerArchetype,
+            allSpeakers[activeNPC].currentPosteriors);
 
         Debug.Log("selected line: " + lineId);
 
@@ -488,27 +496,33 @@ public static class Director
     /// <returns></returns>
     public static List<string> GetPlayerLines()
     {
-        if(!isActive)
-        {
-            EventHandler.Instance.ConcludeDialogue();
-        }
+
+        CheckExit(prevLine);
 
         Debug.Log("==== PLAYER TURN ====");
         // clear player lines
         playerChoices.Clear();
 
-        /// train
-        int[] allKnownEvents = InitData();
+        int[] events = InitData();
+
+        // update probabilities
+        model.UpdateSpeakerDialogueProbs(
+            events,
+            null,
+            null,
+            ref allSpeakers[DirectorConstants.PLAYER_STR].currentPosteriors,
+            ref allSpeakers[DirectorConstants.PLAYER_STR].currentDialogueCPT);
 
         // select some player lines.
         int[] lineIds = model.SelectPlayerLines(
-            allKnownEvents,
+            events,
             allSpeakers[activeNPC].speakerTrait,
             allSpeakers[activeNPC].RelationshipStatus(),
             allSpeakers[activeNPC].topics,
             mood,
             currentMap,
-            allSpeakers[activeNPC].speakerArchetype);
+            allSpeakers[activeNPC].speakerArchetype,
+            allSpeakers[activeNPC].currentPosteriors);
 
         foreach(int i in lineIds)
         {
@@ -559,16 +573,6 @@ public static class Director
         }
 
         UpdateSpeakerData(line);
-
-        // the exit effect differs from player and npc line.
-        // we know that there's no other follow up when selecting a player line. thus, we call conclude dialogue agad
-        // if exit
-        // we set the director to isactive=false
-        if (line.effect.exit)
-        {
-            Debug.Log("THE NPC LINE HAS AN EXIT EFFECT");
-            isActive = false;
-        }
     }
 
     public static void UpdateSpeakerData(DialogueLine line)
@@ -579,30 +583,28 @@ public static class Director
             line.isSaid = false;    // generic starter will always be false sa is said.
             Debug.Log("line isSaid chosen is FALSE");
         }
-        else if (line.speakerId == DirectorConstants.PLAYER_STR)
+        else if(line.speakerId == DirectorConstants.PLAYER_STR)
         {
-            // add the line into the short term memory
             line.isSaid = true;
             shortTermMemory.Enqueue(line);
-            
-            if(shortTermMemory.Count == MAX_SHORT_TERM_MEMORY)
+
+            if(shortTermMemory.Count >= MAX_SHORT_TERM_MEMORY)
             {
-                // dequeue and permanently make the line isSaid to be true.
-                shortTermMemory.Dequeue().isSaid = true;
+                shortTermMemory.Dequeue().isSaid = true;    // permanently turn the line dequeued to issaid = true
             }
         }
 
         mood = line.ResponseStrToInt();
 
         // access reationship with active npc and update it.
-        allSpeakers[activeNPC].relWithPlayer += line.effect.relationshipEffect;
+        UpdateRelationship(line.effect.relationshipEffect);
         
         // update topic relevance table
         // set topic relevance to be the maximum.
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
             foreach(string topic in line.effect.makeMostRelevantTopic.Split('/'))
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
         }
         else
         {
@@ -611,14 +613,14 @@ public static class Director
             foreach(string topic in line.relatedTopics)
             {
                 if(topic != DirectorConstants.TOPIC_START_CONVO || topic != DirectorConstants.TOPIC_END_CONVO)
-                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.HIGH;
+                    allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
             }
         }
 
         if (line.effect.closeTopic != "" || line.effect.closeTopic != null)
         {
             // set teh topic listed to 1 (default value)
-            allSpeakers[activeNPC].topics[line.effect.closeTopic] = (float)DirectorConstants.TopicRelevance.CLOSE;
+            allSpeakers[activeNPC].topics[line.effect.closeTopic] = (float)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
         }
 
         // add to global events
@@ -642,6 +644,23 @@ public static class Director
         //TestPrintEventTrackers();
         GetAllTopicRelevance();
     }
+
+    public static void UpdateRelationship(int value)
+    {
+        allSpeakers[activeNPC].relWithPlayer += value;
+
+        if (allSpeakers[activeNPC].currentRelStatus != allSpeakers[activeNPC].RelationshipStatus())
+        {
+            // update currentrel
+            allSpeakers[activeNPC].currentRelStatus = allSpeakers[activeNPC].RelationshipStatus();
+            // update model
+            model.UpdateSpeakerDialogueProbs(null, 
+                null, 
+                new int[] { allSpeakers[activeNPC].currentRelStatus },
+                ref allSpeakers[activeNPC].currentPosteriors,
+                ref allSpeakers[activeNPC].currentDialogueCPT);
+        }
+    }
     
 
     /// <summary>
@@ -655,13 +674,13 @@ public static class Director
         foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
         {
             // check if the topic should be closed -- if yes, don't increase to base
-            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TopicRelevance.CLOSE)
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TopicRelevance.BASE;
+            if(allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
 
         // the bookends (start and end convo topics) will always be 0.
         allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_START_CONVO] = 0.0;
-        //allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = 0.0;
+        allSpeakers[activeNPC].topics[DirectorConstants.TOPIC_END_CONVO] = (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE;
     }
 
     /// <summary>
@@ -675,6 +694,12 @@ public static class Director
         if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
         {
             allSpeakers[speaker].speakerMemories.Add(eventId);
+            // update probability table of the speaker in question
+            model.UpdateSpeakerDialogueProbs(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, 
+                null, 
+                null, 
+                ref allSpeakers[speaker].currentPosteriors,
+                ref allSpeakers[speaker].currentDialogueCPT);
         }
     }
 
@@ -695,10 +720,30 @@ public static class Director
         if( map == "global" && !(globalEvents.Contains(eventId)))
         {
             globalEvents.Add(eventId);
+
+            // update the probability table of ALL speakers in allspeaker list since global
+            foreach (Speaker s in allSpeakers.Values)
+            {
+                model.UpdateSpeakerDialogueProbs(new int[] { eventId },
+                    null,
+                    null,
+                    ref s.currentPosteriors,
+                    ref s.currentDialogueCPT);
+            }
         }
         else if (map != "global" && !(mapEvents[map].Contains(eventId)))
         {
             mapEvents[map].Add(eventId);
+
+            // update the probability table of ALL speakers whose spawn location is the current scene
+            foreach (Speaker s in allSpeakers.Values.Where(sp => sp.spawnLocation == SceneUtility.currentScene))
+            {
+                model.UpdateSpeakerDialogueProbs(new int[] { eventId },
+                    null,
+                    null,
+                    ref s.currentPosteriors,
+                    ref s.currentDialogueCPT);
+            }
         }
     }
     #endregion

@@ -90,4 +90,4 @@ no_receiver,,,,FounderIdentity:Beth:Confirmed/WhoIsBeth:Cassandra,,Investigation
 no_receiver,,,,UsedToBeFriendsWithCassandra,,StartConversation,,,,,main_cassandra,Hey{comma} how are you holding up?,,,,,,,,,
 no_receiver,,,,PlayerAskedDirectorWhereabouts:Reason/ArtifactNotFound,,LookingForDirector/MissingArtifact,,,,,main_cassandra,I don't know where he could be... I guess we should investigate.,,,,,,,,,
 no_receiver,,,,PlayerAskedDirectorWhereabouts:Reason,,LookingForDirector/MissingArtifact,,,,,main_cassandra,It's missing?! We should be investigating!,,,ArtifactNotFound,,,,,,
-,,,,LockedDoor,,DirectorsOffice,,,,,main_cassandra,I haven't been to the office since the weekend.,,,,,,,,,
+,,,,LockedDoor,,LockedDoor,,,,,main_cassandra,I haven't been to the office since the weekend.,,,,,,,,,

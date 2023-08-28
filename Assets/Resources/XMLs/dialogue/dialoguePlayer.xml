@@ -8,7 +8,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -40,7 +39,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -72,7 +70,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -104,7 +101,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -136,7 +132,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -220,7 +215,7 @@
 				<addToPlayerMemory />
 				<relationshipEffect>-1</relationshipEffect>
 				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
-				<closeTopic></closeTopic>
+				<closeTopic>MissingArtifact</closeTopic>
 				<exit>false</exit>
 				<item></item>
 			</DialogueEffect>
@@ -381,7 +376,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -442,7 +436,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -451,7 +444,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I haven't called him yet...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -476,7 +468,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -485,7 +476,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Called him and it went straight to voice mail.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -511,7 +501,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -520,7 +509,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>My call went straight to voice mail. Right when we need him the most, am I right?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -618,7 +606,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I called the director. It went straight to voice mail...</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -653,7 +640,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I called the director and it went straight to voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -679,7 +665,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -688,7 +673,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. It's unlike him.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
@@ -714,7 +698,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -723,7 +706,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
@@ -1034,7 +1016,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -1330,7 +1311,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -1393,7 +1374,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -1426,7 +1407,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>pos</responseTone>
@@ -1459,7 +1440,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -1492,7 +1473,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>pos</responseTone>
@@ -1525,7 +1506,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -1558,7 +1539,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -1591,7 +1572,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>ConvincingAssistant</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>pos</responseTone>
@@ -1819,7 +1800,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -1852,7 +1832,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CardFromBeth</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -2678,7 +2657,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasOutburst</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -4469,7 +4447,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -4892,7 +4869,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -4926,7 +4902,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -4947,7 +4922,7 @@
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>CassandrasInjury/StartConversation</makeMostRelevantTopic>
+				<makeMostRelevantTopic>CassandrasInjury</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -6148,7 +6123,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6180,7 +6154,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neg</responseTone>
@@ -6214,7 +6187,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>
@@ -6248,7 +6220,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>pos</responseTone>
@@ -6282,7 +6253,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6319,7 +6289,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6358,7 +6327,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6396,7 +6364,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6433,7 +6400,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6466,7 +6432,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6499,7 +6464,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6532,7 +6496,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6565,7 +6528,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6597,7 +6559,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6632,7 +6593,6 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6669,7 +6629,6 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6706,7 +6665,6 @@
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6812,7 +6770,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -6846,7 +6803,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>BefriendingCustodian</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7549,7 +7505,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7580,7 +7536,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7611,7 +7567,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7642,7 +7598,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7658,8 +7614,11 @@
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>LockedDoor</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory />
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerAskedForHelp:assistant</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -7705,7 +7664,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -7726,6 +7685,37 @@
 				<addToPlayerMemory>
 					<addToPlayerMemoryItem>PlayerAskedForHelp:assistant</addToPlayerMemoryItem>
 				</addToPlayerMemory>
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>custodian</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I heard the assistant gave a key to the director's office to one of you guys. The door is locked, so... Can I have them?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Assistant:GaveKeysToCustodian</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
