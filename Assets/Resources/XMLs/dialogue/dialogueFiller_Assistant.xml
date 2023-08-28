@@ -1539,8 +1539,12 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Assistant:GaveKeysToCustodian</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>Assistant:GaveKeysToCustodian</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>-2</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic>ConvincingAssistant</closeTopic>
@@ -2898,6 +2902,36 @@ I don't need to see the card to guess that Beth may be the woman who visits the 
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<locations />
+			<portrait>neutral</portrait>
+			<speakerId>assistant</speakerId>
+			<dialogue>Oh, I can't. I don't want to get in trouble.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic>ConvincingAssistant</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>

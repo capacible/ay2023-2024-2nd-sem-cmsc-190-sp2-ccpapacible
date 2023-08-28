@@ -17,8 +17,8 @@ public static class DirectorConstants
     public static readonly string TOPIC_END_CONVO = "EndConversation";
 
     // topic relevance
-    public static readonly double TOPIC_RELEVANCE_PRIO = 3.0;
-    public static readonly double TOPIC_RELEVANCE_HIGH = 2.0;
+    public static readonly double TOPIC_RELEVANCE_PRIO = 2.0;
+    public static readonly double TOPIC_RELEVANCE_HIGH = 1.5;
     public static readonly double TOPIC_RELEVANCE_BASE = 1.0;
     public static readonly double TOPIC_RELEVANCE_CLOSE = 0.0;
 

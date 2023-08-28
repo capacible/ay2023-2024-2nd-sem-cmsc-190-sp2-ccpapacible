@@ -7614,8 +7614,11 @@
 				<addEventToMap />
 				<addToNPCMemory>
 					<addToNPCMemoryItem>LockedDoor</addToNPCMemoryItem>
+					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
 				</addToNPCMemory>
-				<addToPlayerMemory />
+				<addToPlayerMemory>
+					<addToPlayerMemoryItem>PlayerAskedForHelp:assistant</addToPlayerMemoryItem>
+				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -7683,7 +7686,38 @@
 					<addToPlayerMemoryItem>PlayerAskedForHelp:assistant</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>ConvincingAssistant</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>custodian</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>none</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
+			</relatedTopics>
+			<trait />
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations />
+			<speakerId>player</speakerId>
+			<dialogue>I heard the assistant gave a key to the director's office to one of you guys. The door is locked, so... Can I have them?</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory>
+					<addToNPCMemoryItem>Assistant:GaveKeysToCustodian</addToNPCMemoryItem>
+				</addToNPCMemory>
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
