@@ -70,3 +70,5 @@ crashlytics-build.properties
 
 # unnecessary stuff
 /[Aa]ssets/[Rr]esources/[Xx]MLs/dialogue
+/*.gv
+/*.svg
