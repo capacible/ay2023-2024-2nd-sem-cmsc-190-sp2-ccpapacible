@@ -3,6 +3,7 @@ using Microsoft.ML.Probabilistic.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
@@ -93,10 +94,30 @@ public class Speaker
         currentDialogueCPT = DeserializeCPT<Dirichlet[][][]>(CPT_PATH + speakerArchetype + CPT_FILE_NAME);
     }
 
+    /// <summary>
+    /// Prioritizes all topics in topicarr and slightly reduces the relevance of the other priority topics.
+    /// </summary>
+    /// <param name="topicarr"></param>
     public void PrioritizeTopics(params string[] topicarr)
     {
-        foreach(string topic in topicarr)
-            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
+
+        foreach (string topic in topics.Keys.ToList())
+        {
+            if (topics[topic] == DirectorConstants.TOPIC_RELEVANCE_PRIO)
+            {
+                // reduce the value of said priority topic by a bit.
+                topics[topic] -= 0.1;
+            }
+        }
+
+        // then make the topics in topicarr the only priority
+        foreach (string topic in topicarr)
+        {
+            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_PRIO;
+
+            Debug.Log($"For {speakerArchetype}, we have set the topic {topic} as prio");
+        }
+
     }
 
     public Speaker Clone()

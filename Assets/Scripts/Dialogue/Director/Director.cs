@@ -304,12 +304,18 @@ public static class Director
         return allSpeakers[activeNPC].displayName;
     }
 
+    /// <summary>
+    /// Sets the topic value of a particular topic for all speakers and reduces all other prioritized topics by some amount
+    /// </summary>
+    /// <param name="topic"></param>
     public static void PrioritizeTopic_AllSpeakers(string topic)
     {
         foreach(Speaker s in allSpeakers.Values)
         {
             s.PrioritizeTopics(topic);
         }
+
+        Debug.Log("Prioritizing done");
     }
 
     /// <summary>
@@ -490,16 +496,16 @@ public static class Director
             DialogueLine choice = playerChoices[playerChoice];
 
             CheckExit(choice);
-            
+
             // we also update topic relevance -- all topics that are not in choice.relatedTopics will have a reduced relevance.
             UpdateTopics(choice);
+
             // update data of NPC given what the player chose.
             // if player choice has an exit condition, then exit tayo kaagad from within NPCData
             UpdateNPCData(choice);
             UpdatePlayerData(choice);
         }
         
-        int[] allKnownEvents = null;
         int[] events = InitData();
 
         // our selected npc line will be prevline -- it will be remembered.
