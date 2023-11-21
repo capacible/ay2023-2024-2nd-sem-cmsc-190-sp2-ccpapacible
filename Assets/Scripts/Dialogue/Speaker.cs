@@ -75,10 +75,10 @@ public class Speaker
     public int currentRelStatus;
 
     [XmlIgnore]
-    public List<double> currentPosteriors = new List<double>();
+    public List<double> currentPosteriors = new List<double>(); // the list form, list of resulting probabilities when running the algo
 
     [XmlIgnore]
-    public Dirichlet[][][] currentDialogueCPT;
+    public Dirichlet[][][] currentDialogueCPT; // cpt to use (prior)
             
     public void InitializeTopics(IdCollection topicColl, double initialVal)
     {

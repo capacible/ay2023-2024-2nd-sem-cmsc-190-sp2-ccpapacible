@@ -27,10 +27,10 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
+    private const double LINE_IS_SAID_WEIGHT_T = 0.5;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.00575;
+    private const double LINE_HARD_MIN_PROB = 0.00475;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -593,6 +593,9 @@ public class DirectorModel
     /// <summary>
     /// Setting the observed variables in the selected iGeneratedAlgorithm given the laman of the observation arrays (events, traits, and rels)
     /// then returns the marginals that are computed.
+    /// 
+    /// This is used every time there is a change in relationship, event, trait, etcetera, of the character to update
+    /// their priors.
     /// </summary>
     /// <param name="events"></param>
     /// <param name="traits"></param>
@@ -634,7 +637,8 @@ public class DirectorModel
         }
         else
         {
-            usePrior = defaultDialoguePriors;
+            Debug.LogError("WE HAVE NO PRIORS");
+            return;
         }
 
         // set observed considering w/c are true.
@@ -651,24 +655,6 @@ public class DirectorModel
 
             dialoguePrior = iaAllKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
             var result = iaAllKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
-
-            // replace probability table of the table we pass from speaker
-            dialogueProbability = result[0].GetProbs().ToList();
-        }
-        else if(knowEv && knowTrait)
-        {
-            Debug.Log("updating given EVENT");
-
-            iaTraitsRelKnown.SetObservedValue(NumOfCases.NameInGeneratedCode, traits.Length);
-            iaTraitsRelKnown.SetObservedValue(Traits.NameInGeneratedCode, traits);
-            iaTraitsRelKnown.SetObservedValue(RelStatus.NameInGeneratedCode, rels);
-            iaTraitsRelKnown.SetObservedValue(CPTPrior_Dialogue.NameInGeneratedCode, usePrior);
-
-            // update and get probability
-            iaTraitsRelKnown.Execute(1);
-
-            dialoguePrior = iaTraitsRelKnown.Marginal<Dirichlet[][][]>(CPT_Dialogue.NameInGeneratedCode);
-            var result = iaTraitsRelKnown.Marginal<Discrete[]>(Dialogue.NameInGeneratedCode);
 
             // replace probability table of the table we pass from speaker
             dialogueProbability = result[0].GetProbs().ToList();
@@ -749,20 +735,20 @@ public class DirectorModel
 
     #region UTILITY
 
-    public int GetProperWeight(DialogueLine dl, int mood)
+    public double GetProperWeight(DialogueLine dl, int mood)
     {
         // return neutral
         if (mood >= (int)DirectorConstants.MoodThreshold.GOOD)
         {
-            return dl.posWeight;
+            return dl.posWeight - 0.75; // 1.25
         }
         else if (mood <= (int)DirectorConstants.MoodThreshold.BAD)
         {
-            return dl.negWeight;
+            return dl.negWeight - 0.75; // 1.25
         }
 
         // no weight
-        return 2;
+        return 1;
     }
 
     /// <summary>
@@ -971,7 +957,6 @@ public class DirectorModel
     /// </summary>
     /// <returns></returns>
     public int SelectNPCLine(
-        int[] knownEvents,
         int knownTrait,         // the trait is optional, not all chars have it -- an optional trait is -1
         int knownRel,           //  not optional.
         Dictionary<string, double> topicList,
@@ -1002,7 +987,6 @@ public class DirectorModel
     /// <param name="receiverArchetype">the ARCHETYPE of the active npc</param>
     /// <returns></returns>
     public int[] SelectPlayerLines(
-        int[] knownEvents,
         int knownTrait,
         int knownRel,
         Dictionary<string, double> topicList,
