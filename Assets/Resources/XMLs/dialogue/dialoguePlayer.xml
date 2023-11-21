@@ -7015,9 +7015,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I know you're terrified of him. He's harsh on you. Do you really think he won't blame you for losing an important artifact?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>PlayerAskedForHelp</relatedEventsItem>
-				<relatedEventsItem>PlayerAskedForHelp:assistant</relatedEventsItem>
-				<relatedEventsItem>ConvincingAssistant:InTrouble</relatedEventsItem>
 				<relatedEventsItem>DeclinedToHelp:assistant</relatedEventsItem>
 				<relatedEventsItem>Assistant:AfraidOfDirector</relatedEventsItem>
 			</relatedEvents>

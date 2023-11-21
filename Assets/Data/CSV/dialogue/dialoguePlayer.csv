@@ -213,7 +213,7 @@ any_receiver,,,,ArtifactNotFound/PlayerAskedDirectorWhereabouts,,LookingForDirec
 any_receiver,,,,ShowItem:cass_storage_key,PlayerEnterDirectorsOffice,DirectorsOffice,,,,,player,I found this key in the director's office. Do you know whose key it is?,,,ShowItem:cass_storage_key,,,,,,
 main_cassandra,,,,NextSteps:Cass:GoToOffice/PlayerDemeanor:Nervous,,DirectorMissing,,,,,player,Y-you're right. I'll go see what I can do.,,,,,,,,TRUE,
 assistant,,,,Assistant:GaveKeysToCustodian,,DirectorMissing,,,,,player,Really? How do I get them?,,,Inquiry:AssistantsExtraKey,,,,,,
-assistant,,,,PlayerAskedForHelp/PlayerAskedForHelp:assistant/ConvincingAssistant:InTrouble/DeclinedToHelp:assistant/Assistant:AfraidOfDirector,,ConvincingAssistant,,,,,player,I know you're terrified of him. He's harsh on you. Do you really think he won't blame you for losing an important artifact?,,,PlayerSays:AssistantAfraid,PlayerSays:AssistantAfraid,,,,,
+assistant,,,,DeclinedToHelp:assistant/Assistant:AfraidOfDirector,,ConvincingAssistant,,,,,player,I know you're terrified of him. He's harsh on you. Do you really think he won't blame you for losing an important artifact?,,,PlayerSays:AssistantAfraid,PlayerSays:AssistantAfraid,,,,,
 custodian,,,,DirectorBroughtStatue,,Investigation:Director,,,,,player,Did you see the director bring something into the storage room?,,,DirectorBroughtStatue,,,,,,
 any_receiver,,,,ShowItem:statue,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,player,I found the statue to the missing plinth. Here it is.,,,ShowItem:statue,,,,,,
 main_cassandra,,,,ShowItem:statue,SolvedVasePuzzle:FoundStatue,TheStatue,,,,,player,Isn't this the statue to the missing plinth?,,,ShowItem:statue,,,,,,
