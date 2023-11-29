@@ -10,6 +10,7 @@ public class Safe : MonoBehaviour
     public const int MAX_DIGITS = 4;
     public const string OPENED_SAFE_GAME_MSG = "safe_open";
 
+    public Canvas c;
     public Image currentSafeImg;
     public TextMeshProUGUI currentPassDisplay;
     public GameObject buttonParent;
@@ -29,7 +30,6 @@ public class Safe : MonoBehaviour
     private void Awake()
     {
         EventHandler.Examine += Initialize;
-        EventHandler.OnInteractConclude += ExitScene;
     }
 
     private void OnDestroy()
@@ -75,15 +75,7 @@ public class Safe : MonoBehaviour
             // change image of safe
             currentSafeImg.sprite = safeImages[++currSafeImgCount];
             // play some unlock sound effect
-
-            // show game message
-            EventHandler.Instance.InteractMessage(OPENED_SAFE_GAME_MSG, null);
-
-            // pickup beth item
-            // no items will trigger this, we won't also destroy the safe object because it's not an ItemInteraction that listens
-            // to the PickupItem delegate
-            EventHandler.Instance.PickupItem(safeObjId, puzzleItem);
-
+            
             // activate reward objects to be interactable
             foreach(string id in rewardActivateNewObjects)
             {
@@ -101,22 +93,21 @@ public class Safe : MonoBehaviour
         }
     }
 
-    public void ExitScene()
-    {
-        // immediately unsubscribe, since we only need to know that the prior interaction (interactmsg) has concluded
-        EventHandler.OnInteractConclude -= ExitScene;
-
-        // close and unload this scene
-        EventHandler.Instance.UnloadUi(sceneName);
-
-        // conclude interaction for examine object.
-        EventHandler.Instance.ConcludeInteraction(UiType.EXAMINE_OBJECT);
-    }
-
     public void ExitButton()
     {
         // unload the ui and conclude interaction
         EventHandler.Instance.ConcludeInteraction(UiType.EXAMINE_OBJECT);
         EventHandler.Instance.UnloadUi(sceneName);
+
+        if (string.Join("", enteredPasscode) == ANSWER)
+        {
+            // show display message
+            // show game message
+            EventHandler.Instance.InteractMessage(OPENED_SAFE_GAME_MSG, null);
+            // pickup beth item
+            // no items will trigger this, we won't also destroy the safe object because it's not an ItemInteraction that listens
+            // to the PickupItem delegate
+            EventHandler.Instance.PickupItem(safeObjId, puzzleItem);
+        }
     }
 }

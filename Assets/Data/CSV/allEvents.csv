@@ -6,7 +6,6 @@ ArtifactNotFound
 DirectorWhereabouts:main_cassandra
 DirectorWhereabouts:main_jonathan
 PlayerCanUseJonathansPhone
-PlayerUsedJonathansPhone
 DirectorVoicemail
 DirectorWhereabouts:Cassandra
 DirectorWhereabouts:Assistant
@@ -100,9 +99,6 @@ NPCInteraction_Floor1_custodian_0:TalkedToCass
 PlayerAskedDirectorWhereabouts
 NextSteps:Cass:GoToOffice
 Assistant:GaveKeysToCustodian
-PlayerAskedForHelp
-PlayerAskedForHelp:assistant
-ConvincingAssistant:InTrouble
 DeclinedToHelp:assistant
 Assistant:AfraidOfDirector
 DirectorBroughtStatue
@@ -112,6 +108,7 @@ VoicemailFromWife
 PlayerAskedAboutWife
 LockedDoor
 AssistantLocksTheDoor
+PlayerUsedJonathansPhone
 PlayerEnterDirectorsOffice
 Confrontation
 LearnAboutFounder
@@ -173,6 +170,7 @@ WhoIsBeth
 UsedToBeFriendsWithCassandra
 GameIsActive
 PlayerStoleCustodiansKey
+PlayerAskedForHelp
 HelpedPlayerEnter:custodian
 PlayerAskedAboutWeekend
 PlayerAskedAboutWeekend:Good
@@ -200,8 +198,10 @@ Commotion
 Inquiry:AssistantsExtraKey
 Assistant:GaveKeyToCustodian
 CustodiansPassword
+PlayerAskedForHelp:assistant
 ConvincingAssistant:GuiltTripping
 ConvincingAssistant:DirectorWontMind
+ConvincingAssistant:InTrouble
 PlayerSays:AssistantAfraid
 ConvincingAssistant:OverWorked
 VisitorAppearance

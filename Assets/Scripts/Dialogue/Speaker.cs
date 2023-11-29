@@ -103,7 +103,7 @@ public class Speaker
 
         foreach (string topic in topics.Keys.ToList())
         {
-            if (topics[topic] == DirectorConstants.TOPIC_RELEVANCE_PRIO)
+            if (topics[topic] == DirectorConstants.TOPIC_RELEVANCE_HIGH)
             {
                 // reduce the value of said priority topic by a bit.
                 topics[topic] -= 0.1;
@@ -113,7 +113,7 @@ public class Speaker
         // then make the topics in topicarr the only priority
         foreach (string topic in topicarr)
         {
-            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_PRIO;
+            topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
 
             Debug.Log($"For {speakerArchetype}, we have set the topic {topic} as prio");
         }

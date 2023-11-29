@@ -8,7 +8,6 @@
 		<id>DirectorWhereabouts:main_cassandra</id>
 		<id>DirectorWhereabouts:main_jonathan</id>
 		<id>PlayerCanUseJonathansPhone</id>
-		<id>PlayerUsedJonathansPhone</id>
 		<id>DirectorVoicemail</id>
 		<id>DirectorWhereabouts:Cassandra</id>
 		<id>DirectorWhereabouts:Assistant</id>
@@ -102,9 +101,6 @@
 		<id>PlayerAskedDirectorWhereabouts</id>
 		<id>NextSteps:Cass:GoToOffice</id>
 		<id>Assistant:GaveKeysToCustodian</id>
-		<id>PlayerAskedForHelp</id>
-		<id>PlayerAskedForHelp:assistant</id>
-		<id>ConvincingAssistant:InTrouble</id>
 		<id>DeclinedToHelp:assistant</id>
 		<id>Assistant:AfraidOfDirector</id>
 		<id>DirectorBroughtStatue</id>
@@ -114,6 +110,7 @@
 		<id>PlayerAskedAboutWife</id>
 		<id>LockedDoor</id>
 		<id>AssistantLocksTheDoor</id>
+		<id>PlayerUsedJonathansPhone</id>
 		<id>PlayerEnterDirectorsOffice</id>
 		<id>Confrontation</id>
 		<id>LearnAboutFounder</id>
@@ -174,6 +171,7 @@
 		<id>UsedToBeFriendsWithCassandra</id>
 		<id>GameIsActive</id>
 		<id>PlayerStoleCustodiansKey</id>
+		<id>PlayerAskedForHelp</id>
 		<id>HelpedPlayerEnter:custodian</id>
 		<id>PlayerAskedAboutWeekend</id>
 		<id>PlayerAskedAboutWeekend:Good</id>
@@ -201,8 +199,10 @@
 		<id>Inquiry:AssistantsExtraKey</id>
 		<id>Assistant:GaveKeyToCustodian</id>
 		<id>CustodiansPassword</id>
+		<id>PlayerAskedForHelp:assistant</id>
 		<id>ConvincingAssistant:GuiltTripping</id>
 		<id>ConvincingAssistant:DirectorWontMind</id>
+		<id>ConvincingAssistant:InTrouble</id>
 		<id>PlayerSays:AssistantAfraid</id>
 		<id>ConvincingAssistant:OverWorked</id>
 		<id>VisitorAppearance</id>

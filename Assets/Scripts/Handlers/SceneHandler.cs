@@ -224,11 +224,13 @@ public static class SceneUtility
 
         if (existingObjInScene.Keys.Contains(currentMapScene))
         {
+            /*
+            Debug.Log("scene exists");
             // if there are any objects to update, we update the objects in sccene.
             if (updateObjects.Count > 0)
             {
                 UpdateObjectsInScene();
-            }
+            }*/
         }
         // if the our current existing obj keys (scenes) doesnt have the current scene yet (meaning first load palang), we add 
         // the current scene into it, creating a new list of strings to hold the object the scene initially holds.
@@ -270,9 +272,12 @@ public static class SceneUtility
     /// </summary>
     public static void UpdateObjectsInScene()
     {
-        foreach(KeyValuePair<string, bool> toUpdate in updateObjects.Where(o => existingObjInScene[currentScene].Contains(o.Key)))
+        Debug.Log("Updating some objects");
+        foreach(KeyValuePair<string, bool> toUpdate in updateObjects)
         {
-            EventHandler.Instance.SetNewState(toUpdate.Key, toUpdate.Value);        }
+            Debug.Log($"{toUpdate.Key}");
+            EventHandler.Instance.RefreshState(toUpdate.Key, toUpdate.Value);
+        }
     }
 
     /// <summary>
@@ -282,7 +287,7 @@ public static class SceneUtility
     /// <param name="newState"></param>
     public static void AddToUpdateList(string objId, bool newState)
     {
-        if (updateObjects.ContainsKey(objId))
+        if (updateObjects.Count > 0 && updateObjects.ContainsKey(objId) )
         {
             // replace state
             updateObjects[objId] = newState;
@@ -290,6 +295,7 @@ public static class SceneUtility
         else
         {
             updateObjects.Add(objId, newState);
+            Debug.Log("Added to update objects");
         }
     }
 

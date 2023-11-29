@@ -11,6 +11,11 @@ public class Key : ItemBase
 
         Debug.Log("Using this to unlock door");
 
+        // add stuff on use
+        Director.AddToSpeakerMemory(DirectorConstants.PLAYER_STR, addToPlayerMemoryOnUse);
+        Director.AddEventString(addToGlobalOnUse);
+
+
         // IMPORTANT: TEMPORARILY REMOVED THE TRIGGERITEMEFFECT, MOVED TO ITEMBASE SCRIPT.
     }
 }

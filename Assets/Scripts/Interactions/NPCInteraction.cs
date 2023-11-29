@@ -51,7 +51,10 @@ public class NPCInteraction : InteractionBase
 
         if(id == objId)
         {
-            // call dialogue trigger
+            // call dialogue trigger and set item name.
+            if(InventoryHandler.CurrentItem()!=null)
+                Director.activeHeldItem = InventoryHandler.CurrentItem().itemId;
+
             EventHandler.Instance.LoadDialogueScene(new object[] { objId, new NPCData[] { npc } });
         }
     }

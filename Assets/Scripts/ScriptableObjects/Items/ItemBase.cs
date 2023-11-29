@@ -23,6 +23,11 @@ public class ItemBase : ScriptableObject
 
     public bool discardAfter;
 
+    // on use
+    public string addToPlayerMemoryOnUse;
+    public string addToGlobalOnUse;
+    public string addToMapOnUse;
+
     /// <summary>
     /// Use function of an item, called when the item is being held when interacting, and when the object we are interacting
     /// with has this item as a valid item to interact with.
@@ -32,16 +37,7 @@ public class ItemBase : ScriptableObject
     /// </param>
     public virtual void UseItem(string useOnObjId)
     {
-        // check if the receiving object has npc interaction -- if so, we act as if we are "showing" the held item.
-        if (useOnObjId.Contains("NPCInteraction"))
-        {
-            // set the director's held item
-            Director.activeHeldItem = itemId;
-
-            Debug.Log("setting the held item success");
-        }
-        // do something else, otherwise
-        else if (useItemMsgKey != "")
+        if (useItemMsgKey != "")
         {
             Debug.Log("Using item, calling this game msg: " + useItemMsgKey);
             EventHandler.Instance.InteractMessage(useItemMsgKey, new Dictionary<string, string> {

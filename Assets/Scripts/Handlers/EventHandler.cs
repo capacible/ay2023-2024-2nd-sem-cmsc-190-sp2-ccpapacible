@@ -507,8 +507,17 @@ public class EventHandler : MonoBehaviour
     public void SetNewState(string objId, bool state)
     {
         SceneUtility.AddToUpdateList(objId, state);
-        SetStateOfObj?.Invoke(objId, state);
+        RefreshState(objId, state);
     }
 
+    /// <summary>
+    /// Updates the state of an object in the scene without changing the info in update list
+    /// </summary>
+    /// <param name="objId"></param>
+    /// <param name="state"></param>
+    public void RefreshState(string objId, bool state)
+    {
+        SetStateOfObj?.Invoke(objId, state);
+    }
     #endregion
 }

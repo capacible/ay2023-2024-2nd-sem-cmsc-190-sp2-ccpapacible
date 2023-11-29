@@ -284,7 +284,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>friendly</traitItem>
@@ -321,7 +320,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>shy</traitItem>
@@ -360,7 +358,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>friendly</traitItem>
@@ -399,7 +396,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>shy</traitItem>
@@ -1493,6 +1489,7 @@
 				<relatedEventsItem>ConvincingAssistant:DirectorWontMind</relatedEventsItem>
 				<relatedEventsItem>ConvincingAssistant:OverWorked</relatedEventsItem>
 				<relatedEventsItem>PlayerSays:AssistantAfraid</relatedEventsItem>
+				<relatedEventsItem>ConvincingAssistant:GuiltTripping</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -1535,6 +1532,7 @@
 				<relatedEventsItem>ConvincingAssistant:DirectorWontMind</relatedEventsItem>
 				<relatedEventsItem>ConvincingAssistant:OverWorked</relatedEventsItem>
 				<relatedEventsItem>PlayerSays:AssistantAfraid</relatedEventsItem>
+				<relatedEventsItem>ConvincingAssistant:GuiltTripping</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

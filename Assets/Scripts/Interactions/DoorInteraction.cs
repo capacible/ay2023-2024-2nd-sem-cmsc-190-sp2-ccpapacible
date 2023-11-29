@@ -34,6 +34,9 @@ public class DoorInteraction : InteractionBase
             Debug.Log("Unlocked door with id: " + objId);
 
             locked = false;
+
+            if(closeTopic!="")
+                Director.CloseTopicForAll(closeTopic);
         }
     }
 

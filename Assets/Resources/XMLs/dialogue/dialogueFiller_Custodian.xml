@@ -1108,7 +1108,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait>
 				<traitItem>frazzled</traitItem>
@@ -2499,7 +2498,7 @@ But... if it makes my daughter happy, then I'm okay with all the work.</dialogue
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory>
-					<addToPlayerMemoryItem>CustodianPassword</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>CustodiansPassword</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
@@ -5236,10 +5235,10 @@ I didn't see any wounds on her, though.</dialogue>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory>
-					<addToNPCMemoryItem>CustodianPassword</addToNPCMemoryItem>
+					<addToNPCMemoryItem>CustodiansPassword</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory>
-					<addToPlayerMemoryItem>CustodianPassword</addToPlayerMemoryItem>
+					<addToPlayerMemoryItem>CustodiansPassword</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>

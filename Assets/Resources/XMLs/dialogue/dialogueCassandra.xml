@@ -366,7 +366,6 @@ Do your job now, I'm busy.</dialogue>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -401,7 +400,6 @@ Do your job now, I'm busy.</dialogue>
 			<relPrereq>good</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -1788,7 +1786,6 @@ The card says it's from a woman named Beth. It's not someone I recognize.</dialo
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -2164,7 +2161,6 @@ And anyway, I had nothing to do with that.</dialogue>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
@@ -2198,7 +2194,6 @@ And anyway, I had nothing to do with that.</dialogue>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neut</responseTone>

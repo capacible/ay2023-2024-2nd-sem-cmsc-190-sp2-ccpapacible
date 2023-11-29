@@ -240,7 +240,8 @@ public class DirectorTraining
                     else
                     {
                         Debug.Log("Here we consider all events.");
-                        // consider all events
+
+                        /*// consider all events
                         foreach(int ev in eventsDB.Keys)
                         {
                             Debug.Log("adding event: " + ev);
@@ -248,7 +249,14 @@ public class DirectorTraining
                             traitObservations.Add(trait);
                             relObservations.Add(rel);
                             eventObservations.Add(ev);
-                        }
+                        }*/
+
+                        // events is empty / null observation / gameisactive
+                        lineObservations.Add(lineId);
+                        traitObservations.Add(trait);
+                        relObservations.Add(rel);
+                        eventObservations.Add(Director.NumKeyLookUp(DirectorConstants.GAME_IS_ACTIVE, refDict:eventsDB));
+
                     }
                 }
             }

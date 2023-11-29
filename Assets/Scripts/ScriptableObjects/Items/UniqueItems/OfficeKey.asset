@@ -19,3 +19,6 @@ MonoBehaviour:
   itemSprite: {fileID: -1373225910, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
   inventorySprite: {fileID: -1373225910, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
   discardAfter: 0
+  addToPlayerMemoryOnUse: 
+  addToGlobalOnUse: PlayerEnterDirectorsOffice
+  addToMapOnUse: 

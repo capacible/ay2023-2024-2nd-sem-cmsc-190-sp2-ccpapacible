@@ -44,6 +44,7 @@ public class PuzzleInteraction : InteractionBase
     public override void HandleInteraction(object[] interactParams)
     {
         string id = interactParams[0].ToString();
+        
 
         if(!(objId.Equals(id)))
         {

@@ -13,6 +13,7 @@ public class InteractionBase : MonoBehaviour
     public string[] addToCurrentMapEventList;
     public string[] addToPlayerMemory;
     public string[] prioritizeTopics;
+    public string closeTopic;
     
     private InteractPrompt prompt;          // prompt component
 
@@ -27,12 +28,19 @@ public class InteractionBase : MonoBehaviour
     {
         Unsubscribe();
     }
+    
 
     /// <summary>
     /// All common stuff for all interactions go here
     /// </summary>
     public void InitializeInteraction()
     {
+        //we recall existing object state if there is one.
+        if (SceneUtility.updateObjects.ContainsKey(objId))
+        {
+            interactable = SceneUtility.updateObjects[objId];
+        }
+
         // we check if the obj exists in the scene
         if (!SceneUtility.ObjectIsInScene(objId))
         {
@@ -51,6 +59,7 @@ public class InteractionBase : MonoBehaviour
                 Debug.Log("inactive prompt");
                 prompt.gameObject.SetActive(false);
             }
+            
             /*
             if(TryGetComponent(out SpriteRenderer s))
             {
@@ -86,8 +95,11 @@ public class InteractionBase : MonoBehaviour
     /// <param name="state"></param>
     protected void SetInteractableState(string id, bool state)
     {
+        Debug.Log($"expecting {objId}, got {id}");
         if (id == objId)
         {
+            Debug.Log("successfully set the state of " + id);
+
             interactable = state;
 
             UpdateObject(state);

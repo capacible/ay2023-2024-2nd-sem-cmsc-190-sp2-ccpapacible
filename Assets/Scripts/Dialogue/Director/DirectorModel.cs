@@ -30,7 +30,7 @@ public class DirectorModel
     private const double LINE_IS_SAID_WEIGHT_T = 0.5;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.00475;
+    private const double LINE_HARD_MIN_PROB = 0; // previously 0.00475
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -763,6 +763,28 @@ public class DirectorModel
     {
         // we get the line in our db
         DialogueLine lineContainer = Director.LineDB[dialogueKey];
+
+        // if EndConversation is CLOSED but the current line's topic is EndConversation topic only, return 0 expected utility.
+        if(lineContainer.relatedTopics.Count()==1 && 
+            lineContainer.relatedTopics[0]==DirectorConstants.TOPIC_END_CONVO &&
+            topicList[DirectorConstants.TOPIC_END_CONVO] == DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+        {
+            return 0;
+        }
+
+        // if StartConversation is NOT prio but the current line's topic is StartConversation topic only, return 0 expected utility.
+        if (lineContainer.relatedTopics.Count() == 1 &&
+            lineContainer.relatedTopics[0] == DirectorConstants.TOPIC_START_CONVO &&
+            topicList[DirectorConstants.TOPIC_START_CONVO] != DirectorConstants.TOPIC_RELEVANCE_PRIO)
+        {
+            return 0;
+        }
+
+        if(topicList[DirectorConstants.TOPIC_START_CONVO] == DirectorConstants.TOPIC_RELEVANCE_PRIO &&
+            !lineContainer.relatedTopics.Contains(DirectorConstants.TOPIC_START_CONVO))
+        {
+            return 0;
+        }
 
         /*
          *  TONE WEIGHT CALCULATION

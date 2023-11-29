@@ -70,6 +70,7 @@ public class GameMessage : MonoBehaviour
     private void Init(object[] obj)
     {
         gmCanvas.worldCamera = Camera.main;
+        gmCanvas.transform.position = new Vector3(gmCanvas.transform.position.x, gmCanvas.transform.position.y, 2);
     }
 
     /// <summary>

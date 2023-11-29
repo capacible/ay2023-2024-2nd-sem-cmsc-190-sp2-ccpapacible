@@ -6618,6 +6618,10 @@ PrefabInstance:
       value: InteractionBase_DirectorDoor_x
       objectReference: {fileID: 0}
     - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
+      propertyPath: closeTopic
+      value: LockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
       propertyPath: useableItems.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6638,8 +6642,16 @@ PrefabInstance:
       value: LockedDoor
       objectReference: {fileID: 0}
     - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
+      propertyPath: addToGlobalEventList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
       propertyPath: addToPlayerMemory.Array.data[0]
       value: LockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048528889147147320, guid: f52f1aedf2cb16f4e91102f382477962, type: 3}
+      propertyPath: addToGlobalEventList.Array.data[0]
+      value: PlayerEnterDirectorsOffice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

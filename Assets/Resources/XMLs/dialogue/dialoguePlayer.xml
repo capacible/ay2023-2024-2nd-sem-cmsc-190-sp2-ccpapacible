@@ -477,6 +477,7 @@
 			<dialogue>Called him and it went straight to voice mail.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -510,6 +511,7 @@
 			<dialogue>My call went straight to voice mail. Right when we need him the most, am I right?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -608,6 +610,7 @@
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -641,6 +644,7 @@
 			<dialogue>I called the director and it went straight to voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -675,6 +679,7 @@
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -707,6 +712,7 @@
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
+				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1333,7 +1339,7 @@
 					<addToPlayerMemoryItem>ConvincingAssistant:GuiltTripping</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -1395,7 +1401,7 @@
 					<addToPlayerMemoryItem>ConvincingAssistant:DirectorWontMind</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -1428,7 +1434,7 @@
 					<addToPlayerMemoryItem>ConvincingAssistant:DirectorWontMind</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -1461,7 +1467,7 @@
 					<addToPlayerMemoryItem>ConvincingAssistant:InTrouble</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>-3</relationshipEffect>
-				<makeMostRelevantTopic>DirectorMissing</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>

@@ -8,7 +8,7 @@ using System.Linq;
 public class InventoryHandler : MonoBehaviour
 {
     // list of all items
-    private static List<ItemBase> Inventory = new List<ItemBase>();
+    public static List<ItemBase> Inventory = new List<ItemBase>();
     private static Dictionary<string, ItemBase> itemDb = new Dictionary<string, ItemBase>();
     // index of our held item
     private static int heldItem = -1;
