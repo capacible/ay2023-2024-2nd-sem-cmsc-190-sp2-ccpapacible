@@ -184,8 +184,9 @@ public class DirectorTraining
                 Debug.LogWarning("No trait prerequisite -- will infer on all traits");
             }
 
-            if (traitPrereqs.Count == 0 && new List<string> { "main_cassandra", "main_jonathan"}.Contains(line.speakerId))
+            if (traitPrereqs.Count == 0 && new List<string> { "main_cassandra", "main_jonathan", DirectorConstants.PLAYER_STR }.Contains(line.speakerId))
             {
+                Debug.Log("char is " + line.speakerId);
                 Debug.Log("no traits prerequisites -- uese NONE for main chars");
                 traitPrereqs.Add(Director.NumKeyLookUp(DirectorConstants.NONE_STR, refDict: traitsDB));
             }
@@ -240,16 +241,6 @@ public class DirectorTraining
                     else
                     {
                         Debug.Log("Here we consider all events.");
-
-                        /*// consider all events
-                        foreach(int ev in eventsDB.Keys)
-                        {
-                            Debug.Log("adding event: " + ev);
-                            lineObservations.Add(lineId);
-                            traitObservations.Add(trait);
-                            relObservations.Add(rel);
-                            eventObservations.Add(ev);
-                        }*/
 
                         // events is empty / null observation / gameisactive
                         lineObservations.Add(lineId);

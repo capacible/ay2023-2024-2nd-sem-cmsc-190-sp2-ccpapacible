@@ -5091,7 +5091,7 @@ I didn't see any wounds on her, though.</dialogue>
 					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>BefriendingCustodian</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -5127,7 +5127,7 @@ I didn't see any wounds on her, though.</dialogue>
 					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>BefriendingCustodian</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -5164,7 +5164,7 @@ I didn't see any wounds on her, though.</dialogue>
 					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>BefriendingCustodian</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -5205,7 +5205,7 @@ I didn't see any wounds on her, though.</dialogue>
 					<addToPlayerMemoryItem>DeclinedToHelp:custodian</addToPlayerMemoryItem>
 				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<makeMostRelevantTopic>BefriendingCustodian</makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>

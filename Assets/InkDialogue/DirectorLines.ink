@@ -248,6 +248,8 @@ What about her?#display_name:Director Virgil #archetype:director
 -> DONE
 
 === ABOUT_PLINTH_AND_FOUNDER ===
+No. I don't think she did. Do you have any proof?#display_name:Director Virgil #archetype:director
+-> START_THREAD_CHOICES
 ->DONE
 
 === ABOUT_GARDEN ===

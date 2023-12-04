@@ -316,6 +316,8 @@ public static class InkDialogueManager
     public static void AccusePhase(int selection)
     {
 
+        EventHandler.Instance.ConcludeDialogue();
+
         // accuse phase
         if (selection == 0)
         {
@@ -335,6 +337,7 @@ public static class InkDialogueManager
             // load narration scene
             EventHandler.Instance.LoadUi(NARRATION_SCENE, new object[] { false, DIRECTOR_ENDING, TITLE_SCREEN });
         }
+
     }
 
     public static void Deactivate()

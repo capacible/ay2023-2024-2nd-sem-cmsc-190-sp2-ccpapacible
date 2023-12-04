@@ -445,7 +445,6 @@
 			<dialogue>I haven't called him yet...</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
-				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -7635,7 +7634,7 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>

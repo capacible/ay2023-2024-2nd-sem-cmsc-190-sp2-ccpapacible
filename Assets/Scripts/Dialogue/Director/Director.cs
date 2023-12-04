@@ -330,11 +330,16 @@ public static class Director
             allSpeakers.Add(npcObjId, speakerDefaults[npc.speakerArchetype].Clone());
             // if filler speaker, we will randomize the trait
             allSpeakers[npcObjId].OverrideTraits(npc);
+            if (npc.speakerArchetype.ToLower().Contains("custodian"))
+            {
+                allSpeakers[npcObjId].relWithPlayer = 100;
+            }
         }
         else
         {
             //player
             allSpeakers.Add(npcObjId, speakerDefaults[DirectorConstants.PLAYER_STR].Clone());
+            allSpeakers[npcObjId].relWithPlayer = null;
         }
 
         // set the speaker id to be the object id.
@@ -348,12 +353,26 @@ public static class Director
         allSpeakers[npcObjId].InitializeSpeakerCPT(model);
 
         // update the cpt and probabilities of the speaker based on preexisting global events
+        
         foreach(int ev in globalEvents)
         {
+            int[] traitarr = new int[] { allSpeakers[npcObjId].speakerTrait };
+            int[] relarr = new int[] { allSpeakers[npcObjId].RelationshipStatus() };
+
+            if (traitarr[0] == -1)
+            {
+                traitarr[0] = NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits:true); // none id
+            }
+
+            if (relarr[0] == -1)
+            {
+                relarr = null; // idk
+            }
+
             Debug.Log("Updating probability because the event: " + ev + "happened");
             model.UpdateSpeakerDialogueProbs(new int[] { ev },
-                null,
-                null,
+                traitarr,
+                relarr,
                 ref allSpeakers[npcObjId].currentPosteriors,
                 ref allSpeakers[npcObjId].currentDialogueCPT);
         }
@@ -473,7 +492,7 @@ public static class Director
         List<string> allEvs = new List<string>();
         npcMemory.Union(globalAndMap).ToList().ForEach(
             mem => allEvs.Add(allEvents[mem]));
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Join(',', allEvs) });
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Concat($"TRAIT OF NPC: {allTraits[allSpeakers[activeNPC].speakerTrait]}\n", string.Join(',', allEvs)) });
 
         return npcMemory.Union(globalAndMap).ToArray();
     }
@@ -489,23 +508,15 @@ public static class Director
         Debug.Log("==== NPC TURN ====");
 
         Debug.Log("Talking to: " + activeNPC);
+        
 
         // if we have selected some choice...
-        if(playerChoice != -1)
+        if (playerChoice != -1)
         {
 
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
-            
-            // update based on traits repeatedly
-            // DONT REMOVE the purpose of this is to ensure that the lines with specific traits can ACTUALLY be chosen.
-            model.UpdateSpeakerDialogueProbs(
-                null,
-                new int[] { allSpeakers[activeNPC].speakerTrait },
-                null,
-                ref allSpeakers[activeNPC].currentPosteriors,
-                ref allSpeakers[activeNPC].currentDialogueCPT);
 
             CheckExit(choice);
 
@@ -517,8 +528,8 @@ public static class Director
             UpdateNPCData(choice);
             UpdatePlayerData(choice);
         }
-        
-        int[] events = CollectMemories();
+
+        int[] evs = CollectMemories(activeNPC);
 
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
@@ -560,7 +571,7 @@ public static class Director
         // clear player lines
         playerChoices.Clear();
 
-        int[] events = CollectMemories();
+        int[] evs = CollectMemories();
 
         // select some player lines.
         int[] lineIds = model.SelectPlayerLines(
@@ -570,7 +581,7 @@ public static class Director
             mood,
             currentMap,
             allSpeakers[activeNPC].speakerArchetype,
-            allSpeakers[activeNPC].currentPosteriors);
+            allSpeakers[DirectorConstants.PLAYER_STR].currentPosteriors);
 
         foreach(int i in lineIds)
         {
@@ -741,11 +752,32 @@ public static class Director
         // we check if the memory already contains our said event, and if the event exists in our event db
         if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
         {
+            int[] traitarr = new int[] { allSpeakers[speaker].speakerTrait };
+            int[] relarr = new int[] { allSpeakers[speaker].RelationshipStatus() };
+
+            if(traitarr[0] == -1)
+            {
+                traitarr[0] = NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
+            }
+
+            // is negative only if player
+            if (relarr[0] == -1)
+            {
+                if(activeNPC == null || activeNPC == "")
+                {
+                    relarr = null;
+                }
+                else
+                {
+                    relarr[0] = allSpeakers[activeNPC].RelationshipStatus();
+                }
+            }
+
             allSpeakers[speaker].speakerMemories.Add(eventId);
             // update probability table of the speaker in question
             model.UpdateSpeakerDialogueProbs(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, 
-                null, 
-                null, 
+                traitarr, 
+                relarr, 
                 ref allSpeakers[speaker].currentPosteriors,
                 ref allSpeakers[speaker].currentDialogueCPT);
 
@@ -779,9 +811,30 @@ public static class Director
             // update the probability table of ALL speakers in allspeaker list since global
             foreach (Speaker s in allSpeakers.Values)
             {
+                int[] traitarr = new int[] { s.speakerTrait };
+                int[] relarr = new int[] { s.RelationshipStatus() };
+
+                if (traitarr[0] == -1)
+                {
+                    traitarr[0] = NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
+                }
+
+                // is negative only if player
+                if (relarr[0] == -1)
+                {
+                    if (activeNPC == null || activeNPC == "")
+                    {
+                        relarr = null;
+                    }
+                    else
+                    {
+                        relarr[0] = allSpeakers[activeNPC].RelationshipStatus();
+                    }
+                }
+
                 model.UpdateSpeakerDialogueProbs(new int[] { eventId },
-                    null,
-                    null,
+                    traitarr,
+                    relarr,
                     ref s.currentPosteriors,
                     ref s.currentDialogueCPT);
             }
@@ -793,9 +846,30 @@ public static class Director
             // update the probability table of ALL speakers whose spawn location is the current scene
             foreach (Speaker s in allSpeakers.Values.Where(sp => sp.spawnLocation == map))
             {
+                int[] traitarr = new int[] { s.speakerTrait };
+                int[] relarr = new int[] { s.RelationshipStatus() };
+
+                if (traitarr[0] == -1)
+                {
+                    traitarr[0] = NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
+                }
+
+                // is negative only if player
+                if (relarr[0] == -1)
+                {
+                    if (activeNPC == null || activeNPC == "")
+                    {
+                        relarr = null;
+                    }
+                    else
+                    {
+                        relarr[0] = allSpeakers[activeNPC].RelationshipStatus();
+                    }
+                }
+
                 model.UpdateSpeakerDialogueProbs(new int[] { eventId },
-                    null,
-                    null,
+                    traitarr,
+                    relarr,
                     ref s.currentPosteriors,
                     ref s.currentDialogueCPT);
             }

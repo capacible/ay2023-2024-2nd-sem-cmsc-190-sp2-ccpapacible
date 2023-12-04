@@ -53,7 +53,7 @@ public class Speaker
     public List<string> speakerMemories = new List<string>();
 
     [XmlIgnore]
-    public int relWithPlayer = 0;                    // value relationship with player -- not the numerical rep of gud/bad/neut
+    public int? relWithPlayer = 0;                    // value relationship with player -- not the numerical rep of gud/bad/neut
 
     [XmlIgnore]
     public string speakerId = "";                    // id related to the game object.
@@ -61,7 +61,7 @@ public class Speaker
     // because speaker traits can be randomized, this is not read during runtime. instead, we add this to the NPC data that
     // will be attached to the gameobject
     [XmlIgnore]
-    public int speakerTrait;
+    public int speakerTrait = -1;
 
     [XmlIgnore]
     public Dictionary<string, double> topics = new Dictionary<string, double>();
@@ -127,10 +127,10 @@ public class Speaker
             speakerId = speakerId,
             speakerArchetype = speakerArchetype,
             relWithPlayer = relWithPlayer,
-            speakerMemories = speakerMemories,
+            speakerMemories = new List<string>(speakerMemories),
             displayName = displayName,
             isFillerCharacter = isFillerCharacter,
-            topics = topics,
+            topics = new Dictionary<string, double>(topics),
             currentDialogueCPT = currentDialogueCPT,    // from speaker default yung cpt, cocopy lang
             currentPosteriors = currentPosteriors,
             spawnLocation = SceneUtility.currentScene
@@ -172,9 +172,23 @@ public class Speaker
     /// <param name="model"></param>
     public void InitializeSpeakerCPT(DirectorModel model)
     {
+        int[] traitarr = new int[] { speakerTrait };
+        int[] relarr = new int[] { RelationshipStatus() };
+
+        if (traitarr[0] == -1)
+        {
+            traitarr[0] = Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
+        }
+
+        // is negative only if player
+        if (relarr[0] == -1)
+        {
+            relarr = null;
+        }
+
         model.UpdateSpeakerDialogueProbs(null, 
-            new int[] { speakerTrait }, 
-            new int[] { RelationshipStatus() }, 
+            traitarr, 
+            relarr, 
             ref currentPosteriors,
             ref currentDialogueCPT);
 
@@ -213,6 +227,11 @@ public class Speaker
     /// <returns></returns>
     public int RelationshipStatus()
     {
+        if(relWithPlayer == null)
+        {
+            return (int)DirectorConstants.REL_STATUS_NUMS.NONE;
+        }
+
         // good
         if(relWithPlayer >= (int)DirectorConstants.REL_STATUS_NUMS.GOOD_THRESH)
         {
