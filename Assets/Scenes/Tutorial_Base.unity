@@ -3289,7 +3289,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1810454738}
         m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
-        m_MethodName: Next
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3422,7 +3422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next: {fileID: 443770825}
-  start: {fileID: 0}
+  start: {fileID: 1735318207}
   previous: {fileID: 1543891707}
   mainCanvas: {fileID: 1533529340}
   tutorialPages:
