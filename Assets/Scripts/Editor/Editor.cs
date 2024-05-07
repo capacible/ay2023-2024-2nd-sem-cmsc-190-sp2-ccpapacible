@@ -137,7 +137,7 @@ public class Editor
     /// <param name="path">Path of file in assetDB</param>
     /// <returns>List of dictionaries where each element is a row, the dictionary is represented by
     /// COL_NAME for key, and COL_VALUE for value</returns>
-    static List<Dictionary<string, string>> ReadCSVFile(string path)
+    public static List<Dictionary<string, string>> ReadCSVFile(string path)
     {
         // check if path is a .csv file
         if(!(path.Split('.')[1] == "csv"))

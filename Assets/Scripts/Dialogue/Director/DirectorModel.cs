@@ -113,6 +113,13 @@ public class DirectorModel
     private Dirichlet ProbPost_RelStatus;
     private Dirichlet[][][] defaultDialoguePriors;
 
+    /*
+     *  IMPORTANT DATA FOR DEBUGGING
+     */
+    public ProbabilityData[] selectedLineData = new ProbabilityData[3];
+    public double minThreshold;
+    public string debugProbStr;
+
 
     #region INITIALIZATION
     /// <summary>
@@ -778,11 +785,11 @@ public class DirectorModel
         // return neutral
         if (mood >= (int)DirectorConstants.MoodThreshold.GOOD)
         {
-            return dl.posWeight - 0.75; // 1.25
+            return dl.posWeight; // 1.25
         }
         else if (mood <= (int)DirectorConstants.MoodThreshold.BAD)
         {
-            return dl.negWeight - 0.75; // 1.25
+            return dl.negWeight; // 1.25
         }
 
         // no weight
@@ -797,17 +804,28 @@ public class DirectorModel
     ///     float / probabiloty of line => value
     /// </param>
     /// <returns></returns>
-    public double ComputeExpectedUtility(int dialogueKey, double probability, Dictionary<string, double> topicList, int mood)
+    public ProbabilityData ComputeExpectedUtility(int dialogueKey, double probability, Dictionary<string, double> topicList, int mood)
     {
         // we get the line in our db
         DialogueLine lineContainer = Director.LineDB[dialogueKey];
+
+        ProbabilityData lineData = new ProbabilityData {
+            finalProb = 0,
+            initialProb = probability,
+            toneWeightValue = GetProperWeight(lineContainer, mood),
+            finalTopicMod = 0,
+            lineXTopicMod = 0,
+            lineXisSaidMod = 0,
+            lineXToneMod = 0,
+            isSaidWeightUsed = 0
+        };
 
         // if EndConversation is CLOSED but the current line's topic is EndConversation topic only, return 0 expected utility.
         if(lineContainer.relatedTopics.Count()==1 && 
             lineContainer.relatedTopics[0]==DirectorConstants.TOPIC_END_CONVO &&
             topicList[DirectorConstants.TOPIC_END_CONVO] == DirectorConstants.TOPIC_RELEVANCE_CLOSE)
         {
-            return 0;
+            return lineData;
         }
 
         // if StartConversation is NOT prio but the current line's topic is StartConversation topic only, return 0 expected utility.
@@ -815,24 +833,21 @@ public class DirectorModel
             lineContainer.relatedTopics[0] == DirectorConstants.TOPIC_START_CONVO &&
             topicList[DirectorConstants.TOPIC_START_CONVO] != DirectorConstants.TOPIC_RELEVANCE_PRIO)
         {
-            return 0;
+            return lineData;
         }
 
         if(topicList[DirectorConstants.TOPIC_START_CONVO] == DirectorConstants.TOPIC_RELEVANCE_PRIO &&
             !lineContainer.relatedTopics.Contains(DirectorConstants.TOPIC_START_CONVO))
         {
-            return 0;
+            return lineData;
         }
 
         /*
          *  TONE WEIGHT CALCULATION
          */
-        // we create a list to keep track of each p(line) * utility
-        List<double> utilVals = new List<double>()
-            {
-                // probability of DLine * weight of line
-                probability * GetProperWeight(lineContainer, mood)
-            };
+
+        // multiple initial probability and the tone weight value
+        lineData.lineXToneMod = probability * lineData.toneWeightValue;
 
         /*
          *  TOPIC RELEVANCE CALCULATION
@@ -840,11 +855,11 @@ public class DirectorModel
          *      If there are multipe topics with the same x1 relevance, they just have x1 relevance pa rin.
          */
 
-        double overallRelevance = 1;
+        lineData.finalTopicMod = 1;
 
         if (lineContainer.relatedTopics == null)
         {
-            overallRelevance = overallRelevance * topicList[DirectorConstants.NONE_STR];
+            lineData.finalTopicMod = lineData.finalTopicMod * topicList[DirectorConstants.NONE_STR];
         }
         else
         {
@@ -853,17 +868,17 @@ public class DirectorModel
             {
                 if (topic == "")
                 {
-                    overallRelevance = overallRelevance * topicList[DirectorConstants.NONE_STR];
+                    lineData.finalTopicMod = lineData.finalTopicMod * topicList[DirectorConstants.NONE_STR];
                 }
                 else
                 {
-                    overallRelevance = overallRelevance * topicList[topic];
+                    lineData.finalTopicMod = lineData.finalTopicMod * topicList[topic];
                 }
             }
         }
 
         // add to utility the modified probability considering the relevance of its related topics
-        utilVals.Add(probability * overallRelevance);
+        lineData.lineXTopicMod = probability * lineData.finalTopicMod;
 
         /*
          *  LINE IS SAID CALCULATION
@@ -872,14 +887,21 @@ public class DirectorModel
         if (lineContainer.isSaid)
         {
             // it's already said, we multiple line probability with is said true weight
-            utilVals.Add(probability * LINE_IS_SAID_WEIGHT_T);
+            lineData.lineXisSaidMod = probability * LINE_IS_SAID_WEIGHT_T;
+            lineData.isSaidWeightUsed = LINE_IS_SAID_WEIGHT_T;
+            lineData.lineIsSaid = "t";
         }
         else
         {
-            utilVals.Add(probability * LINE_IS_SAID_WEIGHT_F);
+            lineData.lineXisSaidMod = probability * LINE_IS_SAID_WEIGHT_F;
+            lineData.isSaidWeightUsed = LINE_IS_SAID_WEIGHT_F;
+            lineData.lineIsSaid = "f";
         }
 
-        return utilVals.Sum();
+        // sum all
+        lineData.finalProb = lineData.lineXisSaidMod + lineData.lineXToneMod + lineData.lineXTopicMod;
+
+        return lineData;
     }
 
     /// <summary>
@@ -944,8 +966,11 @@ public class DirectorModel
         string currentSpeaker,
         string receiver = "no_receiver")
     {
+        debugProbStr = "";
+
         double highestUtil = 0;
         int bestDialogue = -1;
+        ProbabilityData bestDialogue_Data = new ProbabilityData();
 
         Debug.Log("average of line probabilities in util function: " + probabilities.Average());
 
@@ -968,24 +993,30 @@ public class DirectorModel
              *  - u(line is said?)
              */
             // we add each utility:
-            double computedUtility = ComputeExpectedUtility(i, probabilities[i], topicList, mood);
+            // we calculate the total probability and store the final + other debug info into a ProbabilityData class.
+            ProbabilityData computedUtility = ComputeExpectedUtility(i, probabilities[i], topicList, mood);
+
            Debug.Log("Computed util for line " + i + " is: " + computedUtility);
             
             // comparing best dialogue
             if(bestDialogue == -1)
             {
-                // this is for if no dialogue is found yet
+                // this is for if no dialogue is found yet--set the final probability to be highest util.
                 bestDialogue = i;
-                highestUtil = computedUtility;
+                highestUtil = computedUtility.finalProb;
+                // save the data of the best dialogue.
+                bestDialogue_Data = computedUtility.Clone();
             }
             else
             {
                 // if highest utility is lower than our computed value, then we replace the dialogue and the highest utility
-                if (highestUtil < computedUtility)
+                if (highestUtil < computedUtility.finalProb)
                 {
-                    Debug.Log("Computed util for line " + i + " is: " + computedUtility + " and greater than former util: "+highestUtil);
+                    Debug.Log("Computed util for line " + i + " is: " + computedUtility.finalProb + " and greater than former util: "+highestUtil);
                     bestDialogue = i;
-                    highestUtil = computedUtility;
+                    highestUtil = computedUtility.finalProb;
+                    //save data of the best dialogue so far
+                    bestDialogue_Data = computedUtility.Clone();
                 }
             }
         }
@@ -998,13 +1029,20 @@ public class DirectorModel
         }
 
         Debug.Log("Highest utility is: " + highestUtil + " the line is: "+bestDialogue);
-        /*
-        debugProbStr += $"SELECTED LINE: {bestDialogue}\n" +
-            $"ORIGINAL PROBABILITY:{probabilities[bestDialogue]}\n" +
-            $"UTILITY: {highestUtil}\n" +
-            $"=================\n";
 
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { debugProbStr });*/
+        // update debug display here
+        
+        debugProbStr += $"SELECTED LINE ID: {bestDialogue.ToString()}\n" +
+            $"INITIAL PROBABILITY: {bestDialogue_Data.initialProb.ToString("F16").TrimEnd('0')}\n" +
+            $"TONE WEIGHT USED: {bestDialogue_Data.toneWeightValue.ToString("F16").TrimEnd('0')}\n" +
+            $"LINE SAID ALREADY?: {bestDialogue_Data.lineIsSaid}" +
+            $"isSaid VALUE: {bestDialogue_Data.isSaidWeightUsed.ToString("F16").TrimEnd('0')}\n" +
+            $"PRODUCT OF ALL TOPIC VALUES: {bestDialogue_Data.finalTopicMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * TOPIC UTILITY: {bestDialogue_Data.lineXTopicMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * isSaid UTILITY: {bestDialogue_Data.lineXisSaidMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * TONE UTILITY: {bestDialogue_Data.lineXToneMod.ToString("F16").TrimEnd('0')}\n" +
+            $"FINAL PROBABILITY: {bestDialogue_Data.finalProb.ToString("F16").TrimEnd('0')}\n" +
+            $"=================\n";
 
         return new KeyValuePair<int, double>(bestDialogue, highestUtil);
     }
@@ -1056,7 +1094,7 @@ public class DirectorModel
         List<double> probsToUse                 // the probability to use after using DialogueProbability()
         )
     {
-        double minProb = 0.0;
+        minThreshold = 0.0;
 
         // create a deep copy of the probability to use
         List<double> linePosteriors = new List<double>(probsToUse);
@@ -1074,7 +1112,7 @@ public class DirectorModel
             // we base our minimum probability on our first "best" line
             if (i == 0)
             {
-                minProb = best.Value - (best.Value * 0.25);
+                minThreshold = best.Value - (best.Value * 0.15);
             }
 
             best3.Add(best.Key, best.Value);
@@ -1087,7 +1125,7 @@ public class DirectorModel
         // we also have to consider the line minimum aside from the minimum based on the first best value
         // if the line's probability is less than the minimum probability calculated from the 1st best and the line itself is less than our hard minimum, we
         // won't show it.
-        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minProb && prob >= LINE_HARD_MIN_PROB).Contains(best3[id])).ToArray();
+        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minThreshold && prob >= LINE_HARD_MIN_PROB).Contains(best3[id])).ToArray();
     }
 
 

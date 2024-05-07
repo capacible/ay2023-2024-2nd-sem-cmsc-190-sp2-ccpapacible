@@ -1060,7 +1060,7 @@
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>player</speakerId>
-			<dialogue>Apparently, {speakerArchetype:assistant} isn't able to contact the director today. I need your help to deal with the plinth while he's not here.</dialogue>
+			<dialogue>Apparently, Annie isn't able to contact the director today. I need your help to deal with the plinth while he's not here.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 			</relatedEvents>
@@ -2861,6 +2861,7 @@
 			<relatedEvents>
 				<relatedEventsItem>OverdueBills</relatedEventsItem>
 				<relatedEventsItem>JonathansCalendar</relatedEventsItem>
+				<relatedEventsItem>April20th:MarkedByJonathan</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />

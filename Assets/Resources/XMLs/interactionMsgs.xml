@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AllInteractions>
+	<Interactions>
+		<Interaction interaction_id="item_pickup">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You picked up {item_name}. {item_name} has been added to your inventory.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="item_drop">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You dropped {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="director_office_unlock">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You unlocked Director Virgil's office with the {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="book_directors_office">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There's a book on the desk. It appears the Director's been brushing up on the Aurora's history as well. He dog-eared page 203.</Content>
+						<Content>A highlighted passage reads: 'The Aurora set sail during the summer of 1704 with the expectation that they will return with the finest silks and spices traded from countries on the other side of the earth. The ship never returned, and was forgotten until the Arbiter found its remnants.'</Content>
+						<Content>Other paragraphs are highighted as well.</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>Another passage reads: 'King Harrold the Peaceful had ordered the crew of the Arbiter to set sail and conquer a certain island rumored to contain bountiful pallamide deposits.</Content>
+						<Content>In the years leading up to the Arbiter's voyage, the esteemed kingdoms that had settled around Saltcrest were at war to take control of the only source of pallamide.'</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>One highlighted passage talks about pallamide. It reads: 'The true nature of pallamide is uncertain. The Blaze of Saltcrest had left most, if not all, notable buildings of all the great kingdoms in ashes. This included all libraries that discussed pallamide in depth. </Content>
+						<Content>Furthermore, the expedition of the Arbiter was for naught, as it never found the rumored pallamide deposit. The great kingdoms fell into ruin in the process of taking control of the rare and precious mineral.</Content>
+					</Contents>
+				</Message>
+				<Message>
+					<Contents>
+						<Content>The last highlighted passage was about the Blaze of Saltcrest and the fall of the 6 great kingdoms. This doesn't seem relevant to your search for the plinth at the moment, so you decide to ignore it.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="director_telephone_voicemail">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>A telephone. There seems to be a message, dated April 20. Curious, you let the voicemail play: 'Where are you?! Daisy's party is TODAY. I swear, if you miss this again, I'm leaving you.'</Content>
+						<Content>Another voicemail followed, dated April 21: 'I can't believe you. Again and again, you put that damned museum before your family. You aren't the man I married. That museum... and that wicked woman... has changed you. If you want to see your daughter again, call me back.'</Content>
+						<Content>There is a thin layer of dust on the telephone receiver.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="safe_open">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The safe clicked open. There's not a lot of things here--a child's drawing, a stack of paperwork, and... a greeting card.</Content>
+						<Content>You take the greeting card just as you hear something loud to the left of the office.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="unlock_door">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You unlocked the door using {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="single_use_item">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Used {item_name}.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="locked_door">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This door is locked.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="calendar">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>It's this year's calendar. A date is encircled and decorated with what looks to be a birthday cake sticker.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="guard_booth_calendar">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>It's a calendar for this month. There are a lot of annotations in it, including bill deadlines and birthdays. Interestingly, a lot of past events have been checked off, but most of the bills are not. The most recent unchecked deadline is labelled 'rent,' on May 30th. Today is June 3rd. </Content>
+						<Content>You look through the previous months. The 20th of April is marked.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="custodian_passcode_initial">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The custodian's locker. It's locked, but in front of it is a sticky note: 'ive set up your locker for you. The passcode is my bday :) love you dad.' How sweet.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="custodian_passcode_solved">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>After about 4 tries, you manage to unlock the locker with the passcode 1003</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle_solved_notif">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>In the vase, you hear a clink.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle_solved">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This wasn't here before... you picked up the statue connected to the plinth.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_puzzle">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The vase is decorated with a gold inscription that describe a prayer... that's odd, the inscriptions have changed. You are able to read it.</Content>
+						<Content>The inscription says the following:</Content>
+						<Content> Up North, it brings Death.</Content>
+						<Content>Down South, it brings Life.</Content>
+						<Content>It brings Knowledge in the East.</Content>
+						<Content>And in the West, it seeks an Offering.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="guard_booth_telephone">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>You call the director.</Content>
+						<Content>...</Content>
+						<Content>.......</Content>
+						<Content>........</Content>
+						<Content> 'Sorry, the number you dialled cannot be reached. Please try again.'</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="broken_cabinet">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>The cabinet is broken; steel protrudes from the door. Be careful, it's sharp.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="bathroom_trash">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>A trash can. Inside is... a bloody tissue.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="guard_booth_book">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There's a book here--'The Adventures of the Arbiter.' It appears to be about the historical events that the museum will make an exhibit on.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="outside_storage_after_vase">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There seems to be a commotion in the director's office. Better check it out.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="wrong_item">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Hmmm... This won't work.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="flower_pickup">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>This flower... it looks like the ones from the bushes outside.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="garden_bed">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>Between the bushes, I can see a disturbed patch of soil.</Content>
+						<Content>I should be careful when looking around. The bushes are incredibly thorny.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="cameras">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>On the wall are security cameras... Looks like there's nothing suspicious captured last night.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+	</Interactions>
+</AllInteractions>

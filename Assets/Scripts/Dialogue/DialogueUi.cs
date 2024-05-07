@@ -317,11 +317,11 @@ public class DialogueUi : MonoBehaviour
         foreach(string i in info)
         {
 
-            debugTxt.text = i + "\n";
+            debugTxt.text += i;
         }
 
         // update the topic lis
-        topicListTxt.text = Director.GetAllTopicRelevance();
+        topicListTxt.text = Director.debugTopics;
     }
     #endregion
 }

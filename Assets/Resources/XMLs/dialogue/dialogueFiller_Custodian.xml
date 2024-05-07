@@ -755,7 +755,7 @@
 				<locationsItem>Floor2</locationsItem>
 			</locations>
 			<speakerId>custodian</speakerId>
-			<dialogue>I'm sorry, I don't know where he is. Try asking {speakerArchetype:assistant} over there.</dialogue>
+			<dialogue>I'm sorry, I don't know where he is. Try asking Annie over there.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
 				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
@@ -5226,7 +5226,7 @@ I didn't see any wounds on her, though.</dialogue>
 				<locationsItem>Floor1</locationsItem>
 			</locations>
 			<speakerId>custodian</speakerId>
-			<dialogue>Hmmm... sure thing. The passcode is my daughter's birthday. First week of October.</dialogue>
+			<dialogue>Hmmm... sure thing. The passcode to my locker out back is my daughter's birthday. First week of October.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
 				<relatedEventsItem>LockedDoor</relatedEventsItem>
@@ -5302,56 +5302,6 @@ I didn't see any wounds on her, though.</dialogue>
 				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
 				<relatedEventsItem>LockedDoor</relatedEventsItem>
 			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId></speakerId>
-			<dialogue></dialogue>
-			<relatedEvents />
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics />
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId></speakerId>
-			<dialogue></dialogue>
-			<relatedEvents />
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />

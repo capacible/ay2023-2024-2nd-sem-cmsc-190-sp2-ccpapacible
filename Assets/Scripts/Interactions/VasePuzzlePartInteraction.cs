@@ -86,6 +86,17 @@ public class VasePuzzlePartInteraction : InteractionBase
         }
         else
         {
+            // if item is invald to drop but the place is unoccuppied, we can pick the item up
+            if (occupied)
+            {
+                // re-add the previous item to the inventory
+                EventHandler.Instance.PickupItem(objId, heldItem);
+
+                // replace held item with new item (toDrop)
+                heldItem = null;
+                occupied = false;
+            }
+
             EventHandler.Instance.InteractMessage(INVALID_ITEM, null);
         }
     }

@@ -212,12 +212,8 @@
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>DefendedCassandra:{speaker_archetype}</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>DefendedCassandra:{speaker_archetype}</addToPlayerMemoryItem>
-				</addToPlayerMemory>
+				<addToNPCMemory />
+				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
@@ -1574,7 +1570,9 @@ I know it's not the founder's fault... but I thought, if the founder went down, 
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics />
+			<relatedTopics>
+				<relatedTopicsItem>Investigation:Jonathan</relatedTopicsItem>
+			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>

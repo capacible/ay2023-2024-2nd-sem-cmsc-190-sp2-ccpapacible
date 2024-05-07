@@ -170,29 +170,45 @@ public class Speaker
     /// Initializes the priors of the model
     /// </summary>
     /// <param name="model"></param>
-    public void InitializeSpeakerCPT(DirectorModel model)
+    public void InitializeSpeakerCPT(DirectorModel model, List<int> globalEvs = null)
     {
-        int[] traitarr = new int[] { speakerTrait };
-        int[] relarr = new int[] { RelationshipStatus() };
 
-        if (traitarr[0] == -1)
+        Debug.Log("num of globals on init for floo1 charas (should be 2: " + globalEvs.Count);
+
+        int[] traitarr = new int[globalEvs.Count];
+        int[] relarr = new int[globalEvs.Count];
+
+        var rel = RelationshipStatus();
+        var trait = speakerTrait;
+
+        /// FOR PLAYER CASE
+        if (trait == -1)
         {
-            traitarr[0] = Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
+            trait = Director.NumKeyLookUp(DirectorConstants.NONE_STR, fromTraits: true);
         }
 
-        // is negative only if player
-        if (relarr[0] == -1)
+        if (rel == -1)
         {
             relarr = null;
         }
+        /////////////////////
 
-        model.UpdateSpeakerDialogueProbs(null, 
+        for (int i = 0; i < globalEvs.Count; i++)
+        {
+            traitarr[i] = trait;
+            if (relarr != null)
+            {
+                relarr[0] = rel;
+            }
+        }
+
+        model.UpdateSpeakerDialogueProbs(globalEvs.ToArray(), 
             traitarr, 
             relarr, 
             ref currentPosteriors,
             ref currentDialogueCPT);
 
-        Debug.Log("probabilities updated, average: " + currentPosteriors[0]);
+        Debug.Log("probabilities updated, average: " + currentPosteriors.Average());
     }
 
     public void OverrideTraits(NPCData npc)

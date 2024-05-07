@@ -92,6 +92,9 @@ public class DirectorTraining
             "Resources/XMLs/dialogue/dialogueFiller_Assistant.xml"
         });
 
+        // read the speakers csv
+        List<Dictionary<string, string>> speakerData = Editor.ReadCSVFile("Assets/Data/CSV/speakers.csv");
+
         Debug.Log("LINE SIZE " + lineDB.Count);
 
         // initialize the model
@@ -126,8 +129,12 @@ public class DirectorTraining
             DialogueLine line = dlPair.Value;
             int lineId = dlPair.Key;
 
+            Debug.Log("line: " + line.dialogue);
+
             // change current speaker
             string speaker = line.speakerId;
+            // access the dictionary of the specific speaker we're at.
+            Dictionary<string, string> currentSpeakerData = speakerData.FirstOrDefault(s => s["speakerArchetype"].Contains(speaker));
 
             // compare the speaker of the previous line and the current line
             // if different sila, this means last line na ng prev speaker and we make inferences for the speaker na.
@@ -168,20 +175,16 @@ public class DirectorTraining
             int[] relPrereqs;
             int relPrereq = RelStrToInt(line.relPrereq);
 
-            // get all traits 
+            // get all traits  IF MAY PREREQS
             if(line.traitPrereq != null && line.traitPrereq.Length > 0)
             {
-                Debug.Log("Getting trait prerequisites");
+                //Debug.Log("Getting trait prerequisites");
                 line.traitPrereq.ToList().ForEach(
                     t => traitPrereqs.Add(
                         Director.NumKeyLookUp(t, refDict: traitsDB)));
 
                 // remove empty or invalid
                 traitPrereqs.RemoveAll(t => t == -1);
-            }
-            else
-            {
-                Debug.LogWarning("No trait prerequisite -- will infer on all traits");
             }
 
             if (traitPrereqs.Count == 0 && new List<string> { "main_cassandra", "main_jonathan", DirectorConstants.PLAYER_STR }.Contains(line.speakerId))
@@ -192,8 +195,16 @@ public class DirectorTraining
             }
             else if(traitPrereqs.Count == 0)
             {
-                // add all traits
-                traitsDB.Keys.ToList().ForEach(t => traitPrereqs.Add(t));
+                Debug.LogWarning("No trait prerequisite -- will infer on all traits OF THE CHARACTER");
+                Debug.Log("traits of character: " + speaker + " is " + currentSpeakerData["speakerTraits"]);
+
+                // add all traits of the speaker and only the traits of the speaker ONLY
+                currentSpeakerData["speakerTraits"]
+                    .Split('/')
+                    .ToList()
+                    .ForEach(t => traitPrereqs.Add(Director.NumKeyLookUp(t, refDict: traitsDB)));
+
+                //traitsDB.Keys.ToList().ForEach(t => traitPrereqs.Add(t));
             }
 
 
@@ -218,6 +229,7 @@ public class DirectorTraining
             // all other traits and relationships are to be considered -- there is no requirement, so any trait/rel goes.
             foreach(int trait in traitPrereqs)
             {
+                Debug.Log("trait of line for character " + speaker + " is " + traitsDB[trait]);
                 foreach(int rel in relPrereqs)
                 {
                     if(prereqEvents != null && prereqEvents.Count > 0)
@@ -240,9 +252,10 @@ public class DirectorTraining
                     }
                     else
                     {
-                        Debug.Log("Here we consider all events.");
+                        //Debug.Log("Here we consider all events.");
 
                         // events is empty / null observation / gameisactive
+                        
                         lineObservations.Add(lineId);
                         traitObservations.Add(trait);
                         relObservations.Add(rel);
