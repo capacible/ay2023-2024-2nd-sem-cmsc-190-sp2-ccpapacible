@@ -102,7 +102,7 @@ Perhaps. Is there any reason you'd think that?#display_name:Director Virgil #arc
 ->DONE
 
     === ABOUT_JONATHAN_REL
-    Jonathan and I go way back. He was a close college friDONE of mine, but he dropped out because of some troubles. He's always been interested in history, but he had no credentials. Couldn't find a job.#display_name:Director Virgil #archetype:director
+    Jonathan and I go way back. He was a close college friend of mine, but he dropped out because of some troubles. He's always been interested in history, but he had no credentials. Couldn't find a job.#display_name:Director Virgil #archetype:director
         He needed a job because he's fallen on hard times, so I wanted to help him out a bit.#display_name:Director Virgil #archetype:director
         -> JONATHAN_QUESTIONS
         
@@ -195,10 +195,10 @@ I received the statue from the founder. Apparently, before the excavation, some 
 ->ABOUT_STATUE_SOURCE_FOUNDER
 = ABOUT_STATUE_SOURCE_FOUNDER
 * [ The founder bought it? ]
-    Yes and no. One of her friDONEs bought it during the auction, and when the founder heard that we're putting together an exhibit on The Arbiter and The Aurora, well... let's just say she managed to buy it from that friDONE. #display_name:Director Virgil #archetype:director
+    Yes and no. One of her friends bought it during the auction, and when the founder heard that we're putting together an exhibit on The Arbiter and The Aurora, well... let's just say she managed to buy it from that friend. #display_name:Director Virgil #archetype:director
     -> ABOUT_STATUE_SOURCE_FOUNDER
 * [ How did it get into the founder's hands? ]
-    Another friDONE of the founder bought it off that auction. When she heard we were putting together an exhibit on The Arbiter and The Aurora, she went and convinced her friDONE to sell it to her.#display_name:Director Virgil #archetype:director
+    Another friend of the founder bought it off that auction. When she heard we were putting together an exhibit on The Arbiter and The Aurora, she went and convinced her friend to sell it to her.#display_name:Director Virgil #archetype:director
     The founder donated the statue to us. We should be grateful. #display_name:Director Virgil #archetype:director
     ->ABOUT_STATUE_SOURCE_FOUNDER
 * [ So you didn't steal the plinth, like Cassandra says? ]
@@ -208,7 +208,7 @@ I received the statue from the founder. Apparently, before the excavation, some 
 ->DONE
 
 === ABOUT_BETH ===
-Ah, Beth... {MUST_SOLVE_MYSTERY: if you must ask this to solve our problem, then yes, Beth is the founder.} {not MUST_SOLVE_MYSTERY: Yes, Beth is the founder.} How did you know her name, by the way? #effect_add_to_player:FounderIdentity_Beth_Confirmed#display_name:Director Virgil #archetype:director
+Ah, Beth... Yes, Beth is the founder. How did you know her name, by the way? #effect_add_to_player:FounderIdentity_Beth_Confirmed #display_name:Director Virgil #archetype:director
 ~CONFIRMATION_IS_BETH=true
 + [I opened your safe. I'll have you know that it's because I was trying to find the plinth.]
     Ah. I'll let it slide this once. #display_name:Director Virgil #archetype:director

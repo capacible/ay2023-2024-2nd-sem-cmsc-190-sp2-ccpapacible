@@ -22,6 +22,7 @@ public enum UiType
 /// </summary>
 public class EventHandler : MonoBehaviour
 {
+    public Canvas loadingCanvas;
 
     public static EventHandler Instance;
     // for functionality that is supposed to return after interaction uis are done, we have to check first if all active uis are
@@ -56,7 +57,6 @@ public class EventHandler : MonoBehaviour
     // handling some collision related events
     public static event System.Action<InteractionBase> OnPlayerCollision;
     public static event System.Action<InteractionBase> OnPlayerNotCollision;
-
     // SCENES
     public static event System.Action<string, object[]> LoadUiScene;
     public static event System.Action<string, object[]> LoadMapScene;
@@ -81,11 +81,9 @@ public class EventHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes what's needed for the game from the TITLE SCREEN
-    ///     > sounds / music player
-    ///     > scene
+    /// Initializes what's needed for the game
     /// </summary>
-    private void InitGame()
+    public void InitGame()
     {
         Director.Start();
     }
@@ -98,6 +96,9 @@ public class EventHandler : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        // start game music
+        SoundHandler.Instance.PlayMusic("holizna_in_the_end");
+
         LoadUiScene?.Invoke("_Inventory", null);
         
     }
@@ -210,7 +211,7 @@ public class EventHandler : MonoBehaviour
     /// Display NPC line response given the player's selection.
     /// </summary>
     /// <param name="selectedLine"></param>
-    public void DisplayNPCLine(int selectedLine)
+    public void DisplayNPCLine(int selectedLine, int firstChoiceDisplayedIdx = 0)
     {
         if (selectedLine == -1 && InkDialogueManager.isActive)
         {
@@ -226,7 +227,7 @@ public class EventHandler : MonoBehaviour
         else if (Director.isActive)
         {
             Debug.Log("Director");
-            string[] lineData = Director.GetNPCLine(selectedLine);
+            string[] lineData = Director.GetNPCLine(selectedLine, firstChoiceDisplayedIdx);
             
             FoundNPCLine?.Invoke(new object[] 
             {
@@ -388,6 +389,9 @@ public class EventHandler : MonoBehaviour
     /// </summary>
     public void PickupItem(string objId, ItemBase item)
     {
+        //play sound
+        SoundHandler.Instance.PlaySFX("pickup_item", 1);
+
         OnPickupItem?.Invoke(objId, item);
 
         Dictionary<string, string> parameters = new Dictionary<string, string> { 
@@ -404,6 +408,7 @@ public class EventHandler : MonoBehaviour
     /// <param name="itemId"></param>
     public void PickupItem(string itemId)
     {
+        SoundHandler.Instance.PlaySFX("pickup_item");
         string itemName = OnPickupStr?.Invoke(itemId);
 
         Dictionary<string, string> parameters = new Dictionary<string, string> {

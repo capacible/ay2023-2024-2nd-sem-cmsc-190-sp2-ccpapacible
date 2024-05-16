@@ -1293,7 +1293,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>Please! I'm begging you, you have to help me out here! Is there anything I can do?!</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
+				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 				<relatedEventsItem>PlayerDemeanor:Nervous</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -1359,7 +1359,7 @@
 			<speakerId>player</speakerId>
 			<dialogue>Please? Maybe I can return the favor somehow. If we don't find that artifact, all of us will get in trouble.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>DeclinedToHelp:Custodian</relatedEventsItem>
+				<relatedEventsItem>DeclinedToHelp:custodian</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -3997,7 +3997,6 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>StartConversation</relatedTopicsItem>
 				<relatedTopicsItem>CassandrasInjury</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
@@ -6885,7 +6884,6 @@
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
 			<responseTone>neutral</responseTone>

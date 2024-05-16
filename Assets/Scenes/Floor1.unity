@@ -1270,6 +1270,10 @@ PrefabInstance:
       value: InteractionBase_PasscodePuzzle_0
       objectReference: {fileID: 0}
     - target: {fileID: 6996174851066617892, guid: e8e43796d4c529d418cf300abc83cc82, type: 3}
+      propertyPath: playAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f7800cfaf765cdf4f8bba9470eb6836a, type: 3}
+    - target: {fileID: 6996174851066617892, guid: e8e43796d4c529d418cf300abc83cc82, type: 3}
       propertyPath: rewardItem
       value: 
       objectReference: {fileID: 11400000, guid: 5524366e813a12841ae308e183c4a717, type: 2}

@@ -17,9 +17,8 @@
 		<id>NextSteps:assistant</id>
 		<id>JonathanHasKeysToOffice</id>
 		<id>PlayerAskedForHelp:custodian</id>
-		<id>DeclinedToHelp:Custodian</id>
-		<id>DeclinedToHelp:Assistant</id>
 		<id>DeclinedToHelp:custodian</id>
+		<id>DeclinedToHelp:Assistant</id>
 		<id>KeyInDirectorsOffice</id>
 		<id>ShowItem:card_from_beth</id>
 		<id>PlayerSawCardOfWoman</id>
@@ -37,8 +36,8 @@
 		<id>NoWomanInStorages</id>
 		<id>OverdueBills</id>
 		<id>JonathansCalendar</id>
-		<id>April20th</id>
 		<id>April20th:MarkedByJonathan</id>
+		<id>April20th</id>
 		<id>DirectorFirstName:Jonathan</id>
 		<id>Jonathan:DirectorIsAPrivatePerson</id>
 		<id>DirectorTrustsJonathan</id>

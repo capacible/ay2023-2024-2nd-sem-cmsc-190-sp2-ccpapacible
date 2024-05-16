@@ -19,7 +19,7 @@ public static class DirectorConstants
     // topic relevance
     public static readonly double TOPIC_RELEVANCE_PRIO = 2.0;
     public static readonly double TOPIC_RELEVANCE_HIGH = 1.5;
-    public static readonly double TOPIC_RELEVANCE_BASE = 1.0;
+    public static readonly double TOPIC_RELEVANCE_BASE = 0.5;
     public static readonly double TOPIC_RELEVANCE_CLOSE = 0.0;
 
     public enum MoodThreshold
@@ -73,8 +73,8 @@ public static class Director
     public static bool isActive;
 
     // tracking events and speakers.
-    public static string activeNPC;                                 // the current NPC speaking
-    public static string currentMap;                               // current location
+    public static string activeNPC = "";                                 // the current NPC speaking
+    public static string currentMap = "";                               // current location
     public static string activeHeldItem { private get; set; }       // the currently held item, to be added at start 
                                                                     // and removed at end of convo
     /*
@@ -120,6 +120,7 @@ public static class Director
 
     // debugging
     public static string debugTopics;
+    public static bool startUp = true;
 
     
     #region INITIALIZATION
@@ -141,8 +142,12 @@ public static class Director
         // add topics to the speakers
         foreach(Speaker s in speakerDefaults.Values)
         {
-            s.InitializeTopics(topicIds, (double) DirectorConstants.TOPIC_RELEVANCE_BASE);
+            s.InitializeTopics(topicIds, (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE);
             s.PrioritizeTopics("MissingArtifact");
+
+            // set the values of the below topics as 1
+            s.topics["LookingForDirector"] = DirectorConstants.TOPIC_RELEVANCE_BASE;
+            s.topics["CameraInStorage"] = DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
 
         // initialize model
@@ -159,7 +164,6 @@ public static class Director
 
         // add to player memory
         AddToSpeakerMemory(DirectorConstants.PLAYER_STR, "ArtifactNotFound");
-
     }
     
     public static IdCollection LoadTopics()
@@ -223,14 +227,16 @@ public static class Director
         if(activeHeldItem!= "")
             allSpeakers[DirectorConstants.PLAYER_STR].speakerMemories.Remove("ShowItem:" + activeHeldItem);
         
-        // all topics return to default value
+        // all topics return to default value for the NPC only.
         List<string> topics = allSpeakers[activeNPC].topics.Keys.ToList();
         foreach(string topic in topics)
         {
             // if we haven't closed the topic then we should return to default
             if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE)
-                topicList[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
+                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
+        // remove active npc
+        activeNPC = "";
     }
 
     public static void AddToShortTermMemory(DialogueLine line)
@@ -438,6 +444,8 @@ public static class Director
         }
 
         Debug.Log("Starting convo...");
+
+        UpdateProbabilitiesFromWholeMemory(activeNPC);
         
         return GetNPCLine();
     }
@@ -461,8 +469,19 @@ public static class Director
                     NumKeyLookUp(memory, refDict: allEvents)));
         }
 
-        // we combine all events together
-        List<int> globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
+        List<int> globalAndMap = new List<int>();
+        if (currentMap == "")
+        {
+            // if map is empty aka start of game plng tayo then global events only
+            globalAndMap = globalEvents.ToList();
+        }
+        else
+        {
+            // if we are on map
+
+            // we combine all events together
+            globalAndMap = globalEvents.Union(mapEvents[currentMap]).ToList();
+        }
 
         // no event? return { none }
         if (globalAndMap.Count == 0 && npcMemory.Count == 0)
@@ -472,15 +491,49 @@ public static class Director
         }
 
         // testing -- this outputs all the values entered into the model
+        /*
         List<string> allEvs = new List<string>();
         npcMemory.Union(globalAndMap).ToList().ForEach(
             mem => allEvs.Add(allEvents[mem]));
         EventHandler.Instance.UpdateDebugDisplay(new string[] { string.Concat($"TRAIT OF NPC: {allTraits[allSpeakers[activeNPC].speakerTrait]}\n", string.Join(',', allEvs)) });
-
+        */
         Debug.Log("COLLECTED THE FF MEMORIES:");
         Debug.Log(string.Join('/', npcMemory.Union(globalAndMap).ToList()));
 
-        return npcMemory.Union(globalAndMap).ToArray();
+        return npcMemory.Union(globalAndMap).Distinct().ToArray();
+    }
+
+    public static void UpdateProbabilitiesFromWholeMemory(string npc = "player")
+    {
+        // update the dialogue probabilities based on our current knowledge
+
+
+        int[] evs = CollectMemories(npc);
+        int[] traitarr = new int[evs.Length];
+        int[] relarr = new int[evs.Length];
+
+
+        if (activeNPC == "")
+        {
+            // set traitarr and relarr to be null
+            traitarr = null;
+            relarr = null;
+        }
+        else
+        {
+            for (int i = 0; i < evs.Length; i++)
+            {
+                traitarr[i] = allSpeakers[activeNPC].speakerTrait;
+                relarr[i] = allSpeakers[activeNPC].RelationshipStatus();
+            }
+
+        }
+
+        model.UpdateSpeakerDialogueProbs(evs,
+                traitarr,
+                relarr,
+                ref allSpeakers[npc].currentPosteriors,
+                ref allSpeakers[npc].currentDialogueCPT);
     }
 
 
@@ -489,17 +542,20 @@ public static class Director
     /// </summary>
     /// <param name="playerChoice">The lline chosen by player</param>
     /// <returns>DialogueLine.string dialogue selected by the engine</returns>
-    public static string[] GetNPCLine(int playerChoice=-1)
+    public static string[] GetNPCLine(int buttonPressed=-1, int topChoiceIdx=0)
     {
         Debug.Log("==== NPC TURN ====");
 
         Debug.Log("Talking to: " + activeNPC);
-        
 
+        string playerChoiceStr = "n/a => start of dialogue";
         // if we have selected some choice...
-        if (playerChoice != -1)
+        if (buttonPressed != -1)
         {
+            // we add the internal index of the topmost choice displayed with the index of the button we selected
+            int playerChoice = buttonPressed + topChoiceIdx;
 
+            playerChoiceStr = playerChoices[playerChoice].dialogue;
             // show player choice.
             Debug.Log("Selected line: " + playerChoices[playerChoice].dialogue);
             DialogueLine choice = playerChoices[playerChoice];
@@ -515,7 +571,7 @@ public static class Director
             UpdatePlayerData(choice);
         }
 
-        //int[] evs = CollectMemories(activeNPC);
+        //UpdateProbabilitiesFromWholeMemory(activeNPC);
 
         // our selected npc line will be prevline -- it will be remembered.
         int lineId = model.SelectNPCLine(
@@ -536,7 +592,7 @@ public static class Director
         GetRelatedTopicRelevances();
         
         // update debug window
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { model.debugProbStr });
+        EventHandler.Instance.UpdateDebugDisplay(new string[] { $"\n======NPC TURN======\nplayer-selected line: {playerChoiceStr}\n", model.debugProbStr });
 
         // update player data and NPC data given acquired line of NPC
         UpdatePlayerData(prevLine);
@@ -560,46 +616,51 @@ public static class Director
 
         CheckExit(prevLine);
 
-        Debug.Log("==== PLAYER TURN ====");
-        // clear player lines
-        playerChoices.Clear();
-        
-        // select some player lines.
-        int[] lineIds = model.SelectPlayerLines(
-            allSpeakers[activeNPC].speakerTrait,
-            allSpeakers[activeNPC].RelationshipStatus(),
-            allSpeakers[activeNPC].topics,
-            mood,
-            currentMap,
-            allSpeakers[activeNPC].speakerArchetype,
-            allSpeakers[DirectorConstants.PLAYER_STR].currentPosteriors);
-
-        
-        foreach (int i in lineIds)
+        if (!prevLine.effect.exit)
         {
-            playerChoices.Add(LineDB[i]);
-        }
+            Debug.Log("==== PLAYER TURN ====");
+            // clear player lines
+            playerChoices.Clear();
 
-        // update the relevant topics
-        GetRelatedTopicRelevances(npcTurn: false);
 
-        // update debug window -- WE INCLUDE THE MINIMUM THRESHOLD
-        EventHandler.Instance.UpdateDebugDisplay(new string[] { $"MINIMUM THRESHOLD BASED ON HIGHEST VALUE: {model.minThreshold.ToString()}\n", model.debugProbStr });
+            // select some player lines.
+            List<int> lineIds = model.SelectPlayerLines(
+                allSpeakers[activeNPC].speakerTrait,
+                allSpeakers[activeNPC].RelationshipStatus(),
+                allSpeakers[activeNPC].topics,
+                mood,
+                currentMap,
+                allSpeakers[activeNPC].speakerArchetype,
+                allSpeakers[DirectorConstants.PLAYER_STR].currentPosteriors);
 
-        var retLine = new List<string>();
-        // replace active placeholder with name of active npc
-        foreach(string dialogue in playerChoices.Select(s => s.dialogue).ToList())
-        {
-            if (dialogue.Contains(NAME_PLACEHOLDER_ACTIVE))
+            foreach (int i in lineIds)
             {
-                dialogue.Replace("{" + NAME_PLACEHOLDER_ACTIVE + "}", allSpeakers[activeNPC].displayName);
-                
+                playerChoices.Add(LineDB[i]);
             }
-            retLine.Add(dialogue);
+
+            // update the relevant topics
+            GetRelatedTopicRelevances(npcTurn: false);
+
+            // update debug window -- WE INCLUDE THE MINIMUM THRESHOLD
+            EventHandler.Instance.UpdateDebugDisplay(new string[] { $"======PLAYER TURN======\nMINIMUM THRESHOLD BASED ON HIGHEST VALUE: {model.minThreshold.ToString("F16").TrimEnd('0')}\n", model.debugProbStr });
+
+            var retLine = new List<string>();
+            // replace active placeholder with name of active npc
+            foreach (string dialogue in playerChoices.Select(s => s.dialogue).ToList())
+            {
+                if (dialogue.Contains(NAME_PLACEHOLDER_ACTIVE))
+                {
+                    dialogue.Replace("{" + NAME_PLACEHOLDER_ACTIVE + "}", allSpeakers[activeNPC].displayName);
+
+                }
+                retLine.Add(dialogue);
+            }
+
+            // from the selected player choices, we return the dialogue TEXT only.
+            return retLine;
         }
 
-        // from the selected player choices, we return the dialogue TEXT only.
-        return retLine;
+        return null;
     }
     #endregion
 
@@ -712,14 +773,13 @@ public static class Director
     public static void UpdateTopics(DialogueLine choice)
     {
         // all topics that are not in related topics of the line and not in the topics to makee most relevant
-        // will be reduced value
-        foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t)).ToList())
+        // will be reduced value only if di siya 0.
+        foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t) && allSpeakers[activeNPC].topics[t] != 0).ToList())
         {
             allSpeakers[activeNPC].topics[topic] -= 0.125;   // reduce by .25
-            // check if the topic value is marked as closed or if it's less than base value na.
-            if (allSpeakers[activeNPC].topics[topic] != (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE 
-                || allSpeakers[activeNPC].topics[topic] <= (double) DirectorConstants.TOPIC_RELEVANCE_BASE)
-                allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
+            // check if the topic value is marked as closed or if it's less than base value na. if yes, we give it a minimum value
+            if (allSpeakers[activeNPC].topics[topic] <= (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE)
+                allSpeakers[activeNPC].topics[topic] = (double)0.1;
         }
 
         // the bookends (start and end convo topics) will always be 0 or close
@@ -745,8 +805,9 @@ public static class Director
     public static void AddToSpeakerMemory(string speaker, string eventId)
     {
         // we check if the memory already contains our said event, and if the event exists in our event db
-        if (!(allSpeakers[speaker].speakerMemories.Contains(eventId)) && allEvents.ContainsValue(eventId))
+        if (allEvents.ContainsValue(eventId))
         {
+            
             int[] traitarr = new int[] { allSpeakers[speaker].speakerTrait };
             int[] relarr = new int[] { allSpeakers[speaker].RelationshipStatus() };
 
@@ -768,7 +829,10 @@ public static class Director
                 }
             }
 
-            allSpeakers[speaker].speakerMemories.Add(eventId);
+            // add to memories if wla pa sa memories
+            if(!(allSpeakers[speaker].speakerMemories.Contains(eventId)))
+                allSpeakers[speaker].speakerMemories.Add(eventId);
+
             // update probability table of the speaker in question
             model.UpdateSpeakerDialogueProbs(new int[] { NumKeyLookUp( eventId, refDict: allEvents) }, 
                 traitarr, 
@@ -799,9 +863,10 @@ public static class Director
             return;
         }
 
-        if( map == "global" && !(globalEvents.Contains(eventId)))
+        if( map == "global")
         {
-            globalEvents.Add(eventId);
+            if (!(globalEvents.Contains(eventId)))
+                globalEvents.Add(eventId);
 
             // update the probability table of ALL speakers in allspeaker list since global
             foreach (Speaker s in allSpeakers.Values)
@@ -826,7 +891,7 @@ public static class Director
                         relarr[0] = allSpeakers[activeNPC].RelationshipStatus();
                     }
                 }
-
+                
                 model.UpdateSpeakerDialogueProbs(new int[] { eventId },
                     traitarr,
                     relarr,
@@ -834,9 +899,10 @@ public static class Director
                     ref s.currentDialogueCPT);
             }
         }
-        else if (map != "global" && !(mapEvents[map].Contains(eventId)))
+        else if (map != "global")
         {
-            mapEvents[map].Add(eventId);
+            if(!(mapEvents[map].Contains(eventId)))
+                mapEvents[map].Add(eventId);
 
             // update the probability table of ALL speakers whose spawn location is the current scene
             foreach (Speaker s in allSpeakers.Values.Where(sp => sp.spawnLocation == map))
@@ -861,7 +927,7 @@ public static class Director
                         relarr[0] = allSpeakers[activeNPC].RelationshipStatus();
                     }
                 }
-
+                
                 model.UpdateSpeakerDialogueProbs(new int[] { eventId },
                     traitarr,
                     relarr,
@@ -903,9 +969,14 @@ public static class Director
     {
         Dictionary<string, double> relatedTopics = new Dictionary<string, double>();
 
+        debugTopics = "";
         //if not npc turn, we get all the topics of the player choices we have.
         if (!npcTurn)
         {
+            // memories of player
+            debugTopics += "PLAYER MEMORIES:\n";
+            CollectMemories().ToList().ForEach(id => debugTopics += $"{allEvents[id]} / ");
+
             // get the related topics of all the chosen lines and add their associated value from speaker into the relatedtopics dict
             foreach(string topic in playerChoices.SelectMany(line => line.relatedTopics))
             {
@@ -916,15 +987,19 @@ public static class Director
         }
         else
         {
-            foreach(string topic in prevLine.relatedTopics)
+            // memories of npc
+            debugTopics += "NPC MEMORIES:\n";
+            CollectMemories(activeNPC).ToList().ForEach(id => debugTopics += $"{allEvents[id]} / ");
+
+            foreach (string topic in prevLine.relatedTopics)
             {
                 if (!relatedTopics.ContainsKey(topic))
                     relatedTopics.Add(topic, allSpeakers[activeNPC].topics[topic]);
             }
         }
 
-        debugTopics = "TOPIC RELEVANCE:";
-        foreach(KeyValuePair<string, double> pair in relatedTopics)
+        debugTopics += "\nTOPIC RELEVANCE:";
+        foreach(KeyValuePair<string, double> pair in allSpeakers[activeNPC].topics) // previously relatedtopics
         {
             debugTopics += $"topic: {pair.Key} | value: {pair.Value}\n";
         }

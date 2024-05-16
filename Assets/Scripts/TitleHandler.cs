@@ -11,12 +11,16 @@ public class TitleHandler : MonoBehaviour
 
     private void Start()
     {
+        SoundHandler.Instance.PlayMusic("holizna_quiet_village_3");
+
         canvas.worldCamera = Camera.main;
     }
 
     public void GoToStart(string scene)
     {
-        EventHandler.Instance.LoadUi(scene, new object[] { true, null, nextMapScene });
+        SoundHandler.Instance.PlaySFX("select_button_2");
+        EventHandler.Instance.LoadUi(scene, null);
+        //EventHandler.Instance.UnloadUi("TitleScreen");
     }
     
 }

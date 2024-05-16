@@ -18,6 +18,8 @@ public class PuzzleInteraction : InteractionBase
     public string solvedNotifId;    // id of a notifier message; use this when the player solves a puzzle after interacting with a different thing.
     public string[] activateObjsOnSolved;
 
+    public AudioClip playAudio;
+
     public static System.Action<string, int, bool> OnPuzzleProgress;
 
     private void Start()
@@ -120,6 +122,9 @@ public class PuzzleInteraction : InteractionBase
         //is finished? -- notify the player
         if (puzzleProgress.All(p => p == true))
         {
+            if(playAudio!=null)
+                SoundHandler.Instance.PlaySFX(playAudio, 0.5);
+
             EventHandler.Instance.InteractMessage(solvedNotifId, null);
         }
     }

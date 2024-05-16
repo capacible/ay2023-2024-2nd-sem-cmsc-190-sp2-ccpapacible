@@ -15,9 +15,8 @@ PlayerDemeanor:Nervous
 NextSteps:assistant
 JonathanHasKeysToOffice
 PlayerAskedForHelp:custodian
-DeclinedToHelp:Custodian
-DeclinedToHelp:Assistant
 DeclinedToHelp:custodian
+DeclinedToHelp:Assistant
 KeyInDirectorsOffice
 ShowItem:card_from_beth
 PlayerSawCardOfWoman
@@ -35,8 +34,8 @@ NoWomanInStorage
 NoWomanInStorages
 OverdueBills
 JonathansCalendar
-April20th
 April20th:MarkedByJonathan
+April20th
 DirectorFirstName:Jonathan
 Jonathan:DirectorIsAPrivatePerson
 DirectorTrustsJonathan

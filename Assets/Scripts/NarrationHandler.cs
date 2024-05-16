@@ -32,6 +32,8 @@ public class NarrationHandler : MonoBehaviour
     public void Awake()
     {
         SceneHandler.OnUiLoaded += StartNarration;
+
+        SoundHandler.Instance.PlayMusic("holizna_beginning_3_v_2");
     }
 
     /// <summary>
@@ -120,6 +122,8 @@ public class NarrationHandler : MonoBehaviour
     /// </summary>
     public void NextButton()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2");
+
         // try to dequeue
         if (dLines.TryDequeue(out string line))
         {
@@ -164,6 +168,7 @@ public class NarrationHandler : MonoBehaviour
     /// <param name="index"></param>
     public void ProcessChoice(int index)
     {
+        SoundHandler.Instance.PlaySFX("select_button_2");
         // hide buttons
         for (int i = 0; i < buttons.Length; i++)
         {

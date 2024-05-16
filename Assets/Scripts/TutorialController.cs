@@ -22,6 +22,8 @@ public class TutorialController : MonoBehaviour
 
     public void Next()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2");
+
         // hide current page
         tutorialPages[currentTutorialPage].SetActive(false);
 
@@ -42,6 +44,8 @@ public class TutorialController : MonoBehaviour
 
     public void Previous()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2");
+
         // hide current page
         tutorialPages[currentTutorialPage].SetActive(false);
 
@@ -64,7 +68,8 @@ public class TutorialController : MonoBehaviour
 
     public void StartGame()
     {
-        EventHandler.Instance.LoadUi("_NarrationScene", null);
+        SoundHandler.Instance.PlaySFX("select_button");
+        EventHandler.Instance.LoadUi("_NarrationScene", new object[] { true, null, "Floor1" });
         EventHandler.Instance.UnloadUi("Tutorial_Base");
     }
 }

@@ -72,7 +72,7 @@
 				<Message>
 					<Contents>
 						<Content>The safe clicked open. There's not a lot of things here--a child's drawing, a stack of paperwork, and... a greeting card.</Content>
-						<Content>You take the greeting card.</Content>
+						<Content>You take the greeting card just as you hear something loud to the left of the office.</Content>
 					</Contents>
 				</Message>
 			</Messages>
@@ -165,10 +165,12 @@
 					<Contents>
 						<Content>The vase is decorated with a gold inscription that describe a prayer... that's odd, the inscriptions have changed. You are able to read it.</Content>
 						<Content>The inscription says the following:</Content>
-						<Content> Up North, it brings Death.</Content>
-						<Content>Down South, it brings Life.</Content>
-						<Content>It brings Knowledge in the East.</Content>
-						<Content>And in the West, it seeks an Offering.</Content>
+						<Content>Live in the North, thou shalt provide me Death.</Content>
+						<Content>Live in the South, thou shalt provide me Life.</Content>
+						<Content>I seek Knowledge if thou art from the East.</Content>
+						<Content>But an Offering will suffice from one in the West.</Content>
+						<Content>If everything I seek comes together, thou shalt find what you need.</Content>
+						<Content>Hmm... Let's place the items the vase describes around it and see what happens.</Content>
 					</Contents>
 				</Message>
 			</Messages>
@@ -255,6 +257,15 @@
 				<Message>
 					<Contents>
 						<Content>On the wall are security cameras... Looks like there's nothing suspicious captured last night.</Content>
+					</Contents>
+				</Message>
+			</Messages>
+		</Interaction>
+		<Interaction interaction_id="vase_tooltip">
+			<Messages>
+				<Message>
+					<Contents>
+						<Content>There's a vase in the middle of the storage room. You can feel a strange energy emanating from it.... Better check it out.</Content>
 					</Contents>
 				</Message>
 			</Messages>

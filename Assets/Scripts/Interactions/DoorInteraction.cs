@@ -46,6 +46,7 @@ public class DoorInteraction : InteractionBase
         {
             // open the door permanently
             SceneUtility.RemoveObject(objId);
+            SoundHandler.Instance.PlaySFX("open_door", 1);
             Destroy(gameObject);
         }
         // if the above isn't true, then we call base so there's still a default message

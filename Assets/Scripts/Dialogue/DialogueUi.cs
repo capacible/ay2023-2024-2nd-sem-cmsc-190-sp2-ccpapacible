@@ -24,6 +24,7 @@ public class DialogueUi : MonoBehaviour
     public Button nextButton;
     public Animator anim;
     public Sprite playerPortrait;
+    public GameObject scrollButtonPanel;
 
     [Header("Probability Debugging")]
     public GameObject debugBg;
@@ -37,11 +38,17 @@ public class DialogueUi : MonoBehaviour
     private Text[] choiceText;          // used to directly reference the Text component of the choices buttons (para di na mag getComponent)
     private List<DialogueLine> playerChoices;
     private Queue<string> retLine;           // the line returned by the manager/director.
+    private List<string> currentPlayerChoices;  // holds the choices for the current turn.
+
+    // tracking page indices
+    private int firstChoiceToDisplay = 0;
 
     // list of portraits that current npc will use.
     private List<Sprite> portraitList;
     private Dictionary<string, Sprite[]> npcPortraits; // string display name of npc data, and the various sprites
     private string currentArchetype;
+
+    private bool debugActive = true;
 
 
     void Awake()
@@ -120,6 +127,8 @@ public class DialogueUi : MonoBehaviour
         
         NPCData[] npc = (NPCData[]) obj[1];
 
+        scrollButtonPanel.SetActive(false);
+        
         npcPortraits = new Dictionary<string, Sprite[]>();        
         foreach(NPCData n in npc)
         {
@@ -145,6 +154,8 @@ public class DialogueUi : MonoBehaviour
     /// <param name="data"> includes dialogue line, active npc display name, and (optional) portrait emotion </param>
     public void ShowNPCDialogue(object[] data)
     {
+        scrollButtonPanel.gameObject.SetActive(false);
+
         string npcName = (string)data[0];
         string npcLine = (string)data[1];
         string emote = (string)data[2]; // is simple emption
@@ -183,7 +194,7 @@ public class DialogueUi : MonoBehaviour
     }
     
     /// <summary>
-    /// display the player choices in buttons
+    /// display the player choices in buttons -- initial
     /// </summary>
     /// <param name="allChoices">a list of choice values</param>
     public void ShowPlayerChoices(List<string> allChoices)
@@ -191,20 +202,95 @@ public class DialogueUi : MonoBehaviour
         // set the buttons to be active
         // the last choice is always active though
         choices[maxChoiceCount - 1].gameObject.SetActive(true);
+        scrollButtonPanel.SetActive(true);
+
+        firstChoiceToDisplay = 0; // index 0. Then we will show 0 up to idx 2. Always +3
 
         Debug.Log("count of allchoices:" + allChoices.Count);
 
-        // we change the text of the choice buttons to be the choicces we acquired from the manager.
-        for (int i = 0; i < allChoices.Count; i++)
-        {
-            if (allChoices[i] == "")
-                continue;
+        currentPlayerChoices = allChoices;
 
-            Debug.Log(i);
+        UpdatePlayerChoiceDisplay();
+    }
+
+    public void UpdatePlayerChoiceDisplay()
+    {
+        int choiceIndex = firstChoiceToDisplay;
+
+        // we change the text of the choice buttons to be the choicces we acquired from the manager.
+        for (int i = 0; i < choices.Length - 1; i++)
+        {
+            
             // set the button as active
             choices[i].gameObject.SetActive(true);
             // get the text of ith element of player choices, assign it to the ith button
-            choiceText[i].text = allChoices[i];
+            if (choiceIndex < currentPlayerChoices.Count)
+            {
+                choiceText[i].text = currentPlayerChoices[choiceIndex];
+                // update the choice index
+                choiceIndex++;
+            }
+            else
+            {
+                // set inactive
+                choiceText[i].text = "";
+
+                choices[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Updates the indices to use for dialogue to display.
+    /// </summary>
+    public void ScrollNext()
+    {
+        // if the updated firstChoiuceToDisplay will be a valid index of our current choice list, then we proceed.
+        if(firstChoiceToDisplay + 3 < currentPlayerChoices.Count)
+        {
+            // the firstChoiceToDisplay will be updated to be the current + 3 -> kasi we currently display firstChoice and the next 2 lines.
+            firstChoiceToDisplay += 3;
+
+            // update the display
+            UpdatePlayerChoiceDisplay();
+        }
+        // else scroll back to the begining
+        else
+        {
+            firstChoiceToDisplay = 0;
+
+            UpdatePlayerChoiceDisplay();
+        }
+    }
+
+    /// <summary>
+    /// Updates the indices to use for dialogue to display.
+    /// </summary>
+    public void ScrollPrev()
+    {
+        // if the updated firstChoiuceToDisplay will be a valid index of our current choice list, then we proceed.
+        if (firstChoiceToDisplay - 3 > 0)
+        {
+            // the firstChoiceToDisplay will be updated to be the current + 3 -> kasi we currently display firstChoice and the next 2 lines.
+            firstChoiceToDisplay -= 3;
+
+            // update the display
+            UpdatePlayerChoiceDisplay();
+        }
+        // else scroll back to the end, the first choice index calculated by multiplying 3 with the max "pages", + 1 if not divisible by 3.
+        else
+        {
+            if (currentPlayerChoices.Count % 3 == 0)
+            {
+                // note that given a list count, the final index is max - 1. Thus, we subtract by 4 to get the first choice
+                firstChoiceToDisplay = currentPlayerChoices.Count - 3;
+            }
+            else
+            {
+                firstChoiceToDisplay = (3 * (currentPlayerChoices.Count / 3)) + 1;
+            }
+
+            UpdatePlayerChoiceDisplay();
         }
     }
 
@@ -215,6 +301,9 @@ public class DialogueUi : MonoBehaviour
     /// <param name="index">the value of the button in the form of its index sa array</param>
     public void SelectChoice(int index)
     {
+        // play sfx
+        SoundHandler.Instance.PlaySFX("select_button_2", 0.2);
+
         // hide buttons
         foreach (Button b in choices)
         {
@@ -226,7 +315,8 @@ public class DialogueUi : MonoBehaviour
 
         // when choice is selected, call event handler to trigger onDialogueSelected
         // we pass the index of the button selected w/c is representative of the order of the lines we return.
-        EventHandler.Instance.DisplayNPCLine(index);
+        // we also pass the variable keeping track of the dialogue displayed on the first button, determining the page.
+        EventHandler.Instance.DisplayNPCLine(index, firstChoiceToDisplay);
     }
 
     /// <summary>
@@ -236,8 +326,9 @@ public class DialogueUi : MonoBehaviour
     /// </summary>
     public void NextButton()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2", 0.2);
         // As long as may laman pa, we keep dequeueing
-        if(retLine.TryDequeue(out string line))
+        if (retLine.TryDequeue(out string line))
         {
             dialogueText.text = line;
         }
@@ -272,6 +363,7 @@ public class DialogueUi : MonoBehaviour
 
     public void ConcludeButton()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2", 0.2);
         // animate out
         anim.SetBool("isActive", false);
 
@@ -291,15 +383,17 @@ public class DialogueUi : MonoBehaviour
     /// </summary>
     public void DebugWindow()
     {
-        // close
-        if (debugBg.activeInHierarchy)
+        if (debugActive)
         {
-            debugBg.gameObject.SetActive(false);
-            topicListBg.gameObject.SetActive(false);
+            debugActive = false;
         }
-        
-        debugBg.gameObject.SetActive(true);
-        topicListBg.gameObject.SetActive(true);
+        else
+        {
+            debugActive = true;
+        }
+
+        debugBg.gameObject.SetActive(debugActive);
+        topicListBg.gameObject.SetActive(debugActive);
 
     }
 
@@ -309,6 +403,8 @@ public class DialogueUi : MonoBehaviour
     /// <param name="info"></param>
     public void UpdateDebugText(string[] info)
     {
+        //reset debug
+        debugTxt.text = "";
         if (!debugBg.activeInHierarchy)
         {
             return;

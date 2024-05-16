@@ -17,7 +17,7 @@ custodian_passcode_initial,The custodian's locker. It's locked{comma} but in fro
 custodian_passcode_solved,After about 4 tries{comma} you manage to unlock the locker with the passcode 1003
 vase_puzzle_solved_notif,In the vase{comma} you hear a clink.
 vase_puzzle_solved,This wasn't here before... you picked up the statue connected to the plinth.
-vase_puzzle,The vase is decorated with a gold inscription that describe a prayer... that's odd{comma} the inscriptions have changed. You are able to read it.\nThe inscription says the following:\n Up North{comma} it brings Death.\nDown South{comma} it brings Life.\nIt brings Knowledge in the East.\nAnd in the West{comma} it seeks an Offering.
+vase_puzzle,The vase is decorated with a gold inscription that describe a prayer... that's odd{comma} the inscriptions have changed. You are able to read it.\nThe inscription says the following:\nLive in the North{comma} thou shalt provide me Death.\nLive in the South{comma} thou shalt provide me Life.\nI seek Knowledge if thou art from the East.\nBut an Offering will suffice from one in the West.\nIf everything I seek comes together{comma} thou shalt find what you need.\nHmm... Let's place the items the vase describes around it and see what happens.
 guard_booth_telephone,You call the director.\n...\n.......\n........\n 'Sorry{comma} the number you dialled cannot be reached. Please try again.'
 broken_cabinet,The cabinet is broken; steel protrudes from the door. Be careful{comma} it's sharp.
 bathroom_trash,A trash can. Inside is... a bloody tissue.
@@ -27,3 +27,4 @@ wrong_item,Hmmm... This won't work.
 flower_pickup,This flower... it looks like the ones from the bushes outside.
 garden_bed,Between the bushes{comma} I can see a disturbed patch of soil.\nI should be careful when looking around. The bushes are incredibly thorny.
 cameras,On the wall are security cameras... Looks like there's nothing suspicious captured last night.
+vase_tooltip,There's a vase in the middle of the storage room. You can feel a strange energy emanating from it.... Better check it out.

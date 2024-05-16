@@ -30,7 +30,8 @@ public class DirectorModel
     private const double LINE_IS_SAID_WEIGHT_T = 0.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
-    private const double LINE_HARD_MIN_PROB = 0.004; // previously 0.00475
+    private const double LINE_HARD_MIN_PROB = 0.00; // previously 0.00475
+    private const int PLAYER_MAX_LINES_DISPLAY = 10;
     
     private static readonly string DLINE_DISTRIBUTION_PATH = "XMLs/Dialogue/lineCPT";
     private static readonly string EVENTS_DISTRIBUTION_PATH = "XMLs/Dialogue/eventCPT";
@@ -780,19 +781,43 @@ public class DirectorModel
 
     #region UTILITY
 
-    public double GetProperWeight(DialogueLine dl, int mood)
+    public string MoodThresholdTxt(int mood)
     {
         // return neutral
         if (mood >= (int)DirectorConstants.MoodThreshold.GOOD)
         {
-            return dl.posWeight; // 1.25
+            return "POSITIVE MOOD";
         }
         else if (mood <= (int)DirectorConstants.MoodThreshold.BAD)
         {
-            return dl.negWeight; // 1.25
+            return "NEGATIVE MOOD";
         }
 
         // no weight
+        return "NEUTRAL MOOD";
+    }
+
+    /// <summary>
+    /// Returns the weight of a line depending on the current mood.
+    ///     Some lines are assigned weights (0, increase, 1) depending on the mood; which can sometimes influence
+    ///     whether they appear at all or if they appear more likely
+    /// </summary>
+    /// <param name="dl"></param>
+    /// <param name="mood"></param>
+    /// <returns></returns>
+    public double GetProperWeight(DialogueLine dl, int mood)
+    {
+        // current modd is good, then we return the positive weight of the dialogue line
+        if (mood >= (int)DirectorConstants.MoodThreshold.GOOD)
+        {
+            return dl.posWeight - 0.75; // 1.25
+        }
+        else if (mood <= (int)DirectorConstants.MoodThreshold.BAD)
+        {
+            return dl.negWeight - 0.75; // 1.25
+        }
+
+        // if we are between 1 and -1 na mood value, then we return the neutral value AKA 1 (the line will not be modified).
         return 1;
     }
 
@@ -955,6 +980,57 @@ public class DirectorModel
     }
 
     /// <summary>
+    /// Computes the final values of all lines.
+    /// </summary>
+    /// <param name="probabilities"></param>
+    /// <param name="topicList"></param>
+    /// <param name="mood"></param>
+    /// <param name="currentMap"></param>
+    /// <param name="currentSpeaker"></param>
+    /// <param name="receiver"></param>
+    /// <returns></returns>
+    public Dictionary<int, ProbabilityData> ComputeUtility_AllLines(List<double> probabilities,
+        Dictionary<string, double> topicList,
+        int mood,
+        string currentMap,
+        string currentSpeaker,
+        string receiver = "no_receiver")
+    {
+        Dictionary<int, ProbabilityData> finalVals = new Dictionary<int, ProbabilityData>();
+
+        Debug.Log("average of line probabilities in util function: " + probabilities.Average());
+
+        /// GETTING THE FINAL PROBABILITIES OF ALL LINES
+
+        // filter the lines
+        List<double> filtered_probs = FilterLines(probabilities, receiver, currentMap, currentSpeaker);
+
+        Debug.Log("Probabilities acquired: " + probabilities.Count);
+        Debug.Log("Number of lines total: " + TotalDialogueCount);
+
+        for (int i = 0; i < probabilities.Count; i++)
+        {
+            Debug.Log($"Line {i}, probability: {probabilities[i]}");
+            Debug.Log("Line proper: " + Director.LineDB[i].dialogue);
+            /*
+             *  WE ADD THE FF UTILITIES
+             *  - u(the related topic of a given line i)
+             *  - u(mood weight of given line i)
+             *  - u(line is said?)
+             */
+            // we add each utility:
+            // we calculate the total probability and store the final + other debug info into a ProbabilityData class.
+            ProbabilityData computedUtility = ComputeExpectedUtility(i, filtered_probs[i], topicList, mood);
+
+            // add the computed value to the dict
+            finalVals.Add(i, computedUtility);
+            Debug.Log("Computed util for line " + i + " is: " + computedUtility.finalProb);
+        }
+
+        return finalVals;
+    }
+    
+    /// <summary>
     /// Returns the index of the line with the highest utility.
     /// </summary>
     /// <returns></returns>
@@ -966,57 +1042,31 @@ public class DirectorModel
         string currentSpeaker,
         string receiver = "no_receiver")
     {
-        debugProbStr = "";
 
         double highestUtil = 0;
         int bestDialogue = -1;
         ProbabilityData bestDialogue_Data = new ProbabilityData();
 
-        Debug.Log("average of line probabilities in util function: " + probabilities.Average());
-
-        // filter
-        List<double> filtered_probs = FilterLines(probabilities, receiver, currentMap, currentSpeaker);
-
-        Debug.Log("Probabilities acquired: " + probabilities.Count);
-        Debug.Log("Number of lines total: " + TotalDialogueCount);
+        Dictionary<int, ProbabilityData> finalData = ComputeUtility_AllLines(probabilities, topicList, mood, currentMap, currentSpeaker, receiver);
         
-        
-        for(int i=0;i<probabilities.Count; i++)
+        // getting the best dialogue -- by id of the line (since numeric lng nmn id, pwede ibase sa count; it should be the same)
+        for(int i=0;i<finalData.Count; i++)
         {
-            
-            Debug.Log($"Line {i}, probability: {probabilities[i]}");
-            Debug.Log("Line proper: " + Director.LineDB[i].dialogue);
-            /*
-             *  WE ADD THE FF UTILITIES
-             *  - u(the related topic of a given line i)
-             *  - u(mood weight of given line i)
-             *  - u(line is said?)
-             */
-            // we add each utility:
-            // we calculate the total probability and store the final + other debug info into a ProbabilityData class.
-            ProbabilityData computedUtility = ComputeExpectedUtility(i, probabilities[i], topicList, mood);
-
-           Debug.Log("Computed util for line " + i + " is: " + computedUtility);
-            
             // comparing best dialogue
             if(bestDialogue == -1)
             {
                 // this is for if no dialogue is found yet--set the final probability to be highest util.
                 bestDialogue = i;
-                highestUtil = computedUtility.finalProb;
-                // save the data of the best dialogue.
-                bestDialogue_Data = computedUtility.Clone();
+                highestUtil = finalData[i].finalProb;
             }
             else
             {
                 // if highest utility is lower than our computed value, then we replace the dialogue and the highest utility
-                if (highestUtil < computedUtility.finalProb)
+                if (highestUtil < finalData[i].finalProb)
                 {
-                    Debug.Log("Computed util for line " + i + " is: " + computedUtility.finalProb + " and greater than former util: "+highestUtil);
+                    Debug.Log("Computed util for line " + i + " is: " + finalData[i].finalProb + " and greater than former util: "+highestUtil);
                     bestDialogue = i;
-                    highestUtil = computedUtility.finalProb;
-                    //save data of the best dialogue so far
-                    bestDialogue_Data = computedUtility.Clone();
+                    highestUtil = finalData[i].finalProb;
                 }
             }
         }
@@ -1028,11 +1078,16 @@ public class DirectorModel
             return new KeyValuePair<int, double>(0, 0.0);
         }
 
+        // set the best dialogue
+        bestDialogue_Data = finalData[bestDialogue].Clone();
+
         Debug.Log("Highest utility is: " + highestUtil + " the line is: "+bestDialogue);
 
         // update debug display here
         
-        debugProbStr += $"SELECTED LINE ID: {bestDialogue.ToString()}\n" +
+        debugProbStr += $"CURRENT MOOD: {MoodThresholdTxt(mood)}, VALUE: {mood}\n" +
+            $"MOOD MULTIPLIER: {GetProperWeight(Director.LineDB[bestDialogue], mood)}" +
+            $"SELECTED LINE ID: {bestDialogue.ToString()}\n" +
             $"INITIAL PROBABILITY: {bestDialogue_Data.initialProb.ToString("F16").TrimEnd('0')}\n" +
             $"TONE WEIGHT USED: {bestDialogue_Data.toneWeightValue.ToString("F16").TrimEnd('0')}\n" +
             $"LINE SAID ALREADY?: {bestDialogue_Data.lineIsSaid}" +
@@ -1064,7 +1119,7 @@ public class DirectorModel
         List<double> probsToUse     // the acquired probability of the npc after running DialogueProbabilities()
         )
     {
-        
+        debugProbStr = "";
         return LineWithBestUtil(
             new List<double>(probsToUse),
             topicList,
@@ -1084,7 +1139,7 @@ public class DirectorModel
     /// <param name="currentMood"></param>
     /// <param name="receiverArchetype">the ARCHETYPE of the active npc</param>
     /// <returns></returns>
-    public int[] SelectPlayerLines(
+    public List<int> SelectPlayerLines(
         int knownTrait,
         int knownRel,
         Dictionary<string, double> topicList,
@@ -1094,16 +1149,110 @@ public class DirectorModel
         List<double> probsToUse                 // the probability to use after using DialogueProbability()
         )
     {
-        minThreshold = 0.0;
-
+        debugProbStr = $"CURRENT MOOD: {MoodThresholdTxt(currentMood)}, VALUE: {currentMood}\n";
         // create a deep copy of the probability to use
         List<double> linePosteriors = new List<double>(probsToUse);
 
         Debug.Log("average line probabilities: " + linePosteriors.Average());
 
+        /// WE GET ALL THE LINES THAT ARE WITHIN THE MINIMUM THRESHOLD
+        Dictionary<int, ProbabilityData> computedLineData = ComputeUtility_AllLines(linePosteriors, topicList, currentMood, map, DirectorConstants.PLAYER_STR, receiverArchetype);
+
+        // get the highest final value
+        double highestComputedVal = -1;
+        foreach (KeyValuePair<int, ProbabilityData> data in computedLineData)
+        {
+            if (highestComputedVal == -1)
+            {
+                highestComputedVal = data.Value.finalProb;
+            }
+            else if (data.Value.finalProb > highestComputedVal)
+            {
+                highestComputedVal = data.Value.finalProb;
+            }
+        }
+
+        // compute threshold
+        minThreshold = highestComputedVal - (highestComputedVal * 0.35);
+        
+        // these are the dialogue ids that the player will be able to choose from initially
+        // we removed the ids that do not meet the min threshold
+        List<int> idsToReturn = computedLineData.Keys.Where(
+            dkeys => computedLineData.Values
+            .Where(data => data.finalProb >= minThreshold && data.finalProb >= LINE_HARD_MIN_PROB)
+            .Contains(computedLineData[dkeys]))
+            .ToList();
+
+        // we get the highest value of the lines in a particular topic, then remove the rest of lines that aren't = to that value
+        // starting with the highest value...
+
+        // grab all topics used in the computed line data idsToReturn
+
+        List<string> lineTopics = Director.LineDB.Where(line => idsToReturn.Contains(line.Key))
+            .Select(line => line.Value.relatedTopics)
+            .SelectMany(topic => topic).ToList();
+
+        List<int> filteredIds = new List<int>();
+
+        foreach (string topic in lineTopics.Distinct())
+        {
+            // get all lines that contain the topic...
+            List<int> relevantLines = idsToReturn.Where(id => Director.LineDB[id].relatedTopics.Contains(topic)).ToList();
+
+            // get the highest probability of these lines.
+            double highest = -1;
+            foreach (int lineId in relevantLines)
+            {
+                if (highest == -1)
+                {
+                    highest = computedLineData[lineId].finalProb;
+                }
+                else if (computedLineData[lineId].finalProb > highest)
+                {
+                    highest = computedLineData[lineId].finalProb;
+                }
+            }
+
+            // upon getting highest, we remove all values that are not equal to the highest value.
+            // the idea is that the ones where we know most of the events will be highest, and if even one of those events are not
+            // known then the probability will be a little less than the one where we know all or most the events
+
+            // in this case we have an additional list where we add the lines whose prob is == highest; this should
+            // catch the case where the lines have multiple relevant topics and di siya nabubura ng basta-basta.
+            relevantLines.Where(id => computedLineData[id].finalProb == highest).ForEach(selected => filteredIds.Add(selected));
+        }
+
+        // get the distinct ids and put them in the ids to return
+        idsToReturn = filteredIds.Distinct().OrderByDescending(id => computedLineData[id].finalProb).ToList();
+
+        // cut out all ids past index 10
+        if(idsToReturn.Count > PLAYER_MAX_LINES_DISPLAY)
+        {
+            idsToReturn = idsToReturn.Take(PLAYER_MAX_LINES_DISPLAY).ToList();
+        }
+
+        // add the data to the debug string for display
+        foreach(int id in idsToReturn)
+        {
+            debugProbStr += $"===============" +
+            $"MOOD MULTIPLIER: {GetProperWeight(Director.LineDB[id], currentMood)}" +
+            $"SELECTED LINE ID: {id}\n" +
+            $"INITIAL PROBABILITY: {computedLineData[id].initialProb.ToString("F16").TrimEnd('0')}\n" +
+            $"TONE WEIGHT USED: {computedLineData[id].toneWeightValue.ToString("F16").TrimEnd('0')}\n" +
+            $"LINE SAID ALREADY?: {computedLineData[id].lineIsSaid}" +
+            $"isSaid VALUE: {computedLineData[id].isSaidWeightUsed.ToString("F16").TrimEnd('0')}\n" +
+            $"PRODUCT OF ALL TOPIC VALUES: {computedLineData[id].finalTopicMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * TOPIC UTILITY: {computedLineData[id].lineXTopicMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * isSaid UTILITY: {computedLineData[id].lineXisSaidMod.ToString("F16").TrimEnd('0')}\n" +
+            $"INITIAL PROB * TONE UTILITY: {computedLineData[id].lineXToneMod.ToString("F16").TrimEnd('0')}\n" +
+            $"FINAL PROBABILITY: {computedLineData[id].finalProb.ToString("F16").TrimEnd('0')}\n" +
+            $"=================\n";
+        }
+        
+        /*
         // get the top 3 lines
         Dictionary<int, double> best3 = new Dictionary<int, double>();
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < linePosteriors.Count; i++)
         {
             Debug.Log("getting line number: " + i);
 
@@ -1115,17 +1264,29 @@ public class DirectorModel
                 minThreshold = best.Value - (best.Value * 0.15);
             }
 
+            if (best3.ContainsKey(best.Key))
+            {
+                continue;   // skip
+            }
             best3.Add(best.Key, best.Value);
 
             // we "delete" the posterior of the best, by setting it to 0 -- which means that all calc will result in this being 0
+            // this is used because in this implementation we run LineWithBestUtil multiple times--not doing this will result in the
+            // same highest value every iteration.
             linePosteriors[best.Key] = 0;
         }
+        */
+        // get all lines where it's above min thresh
+        Debug.Log("NUMBER OF LINES THAT CAN BE USED:" 
+            + idsToReturn.Count);
         
+
         // return all lines greater than the minimum probability.
         // we also have to consider the line minimum aside from the minimum based on the first best value
         // if the line's probability is less than the minimum probability calculated from the 1st best and the line itself is less than our hard minimum, we
         // won't show it.
-        return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minThreshold && prob >= LINE_HARD_MIN_PROB).Contains(best3[id])).ToArray();
+        //return best3.Keys.Where(id => best3.Values.Where(prob => prob >= minThreshold && prob >= LINE_HARD_MIN_PROB).Contains(best3[id])).ToArray();
+        return idsToReturn;
     }
 
 

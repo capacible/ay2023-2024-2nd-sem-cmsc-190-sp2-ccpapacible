@@ -2321,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43016acc6f94b64489cb13fa9a0df037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c: {fileID: 0}
   currentSafeImg: {fileID: 1637306619}
   currentPassDisplay: {fileID: 1733942227}
   buttonParent: {fileID: 187214275}
@@ -2339,6 +2340,7 @@ MonoBehaviour:
   - ItemInteraction_Floor2_bowl_x
   - ItemInteraction_Floor2_tablet_x
   - InteractionBase_VasePuzzleMain_x
+  - InteractionBase_Floor2_vase_tooltip_x
   rewardAddEventToGlobal:
   - SolvedSafePuzzle
   - PlayerSawCardOfWoman

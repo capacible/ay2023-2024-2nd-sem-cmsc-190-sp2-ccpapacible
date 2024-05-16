@@ -18,6 +18,7 @@ public class Transition : MonoBehaviour
         // if we collide as a player
         if (collision.gameObject.tag == "Player")
         {
+            SoundHandler.Instance.PlaySFX("move_stairs", 4.0);
             // here we pass the scene location as well as the destination transition object para appropriate location 
             // nilalagay si player
             EventHandler.Instance.TransitionToScene(moveTo, transitionDest);

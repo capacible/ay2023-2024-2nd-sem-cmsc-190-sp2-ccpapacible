@@ -75,21 +75,29 @@ public class Safe : MonoBehaviour
             // change image of safe
             currentSafeImg.sprite = safeImages[++currSafeImgCount];
             // play some unlock sound effect
-            
-            // activate reward objects to be interactable
-            foreach(string id in rewardActivateNewObjects)
-            {
-                EventHandler.Instance.SetNewState(id, true);
-            }
+            SoundHandler.Instance.PlaySFX("open_safe", 1);
 
-            foreach(string ev in rewardAddEventToGlobal)
-            {
-                Director.AddEventString(ev);
-            }
+            StartCoroutine(FinishPuzzle());
 
             // deactivate the safe puzzle.
             EventHandler.Instance.SetNewState(safeObjId, false);
             
+        }
+    }
+
+    private IEnumerator FinishPuzzle()
+    {
+        // activate reward objects to be interactable
+        foreach (string id in rewardActivateNewObjects)
+        {
+            EventHandler.Instance.SetNewState(id, true);
+            yield return null;
+        }
+
+        foreach (string ev in rewardAddEventToGlobal)
+        {
+            Director.AddEventString(ev);
+            yield return null;
         }
     }
 

@@ -25,6 +25,7 @@ public class SceneHandler : MonoBehaviour
 
     // some outside function is subscribed here; which dictates what happens when a certain UI is DONE loading.
     public static event System.Action<object[]> OnUiLoaded;
+    public bool uiLoaded = false;
 
     // remembering the parameters of the current ui
     private object[] uiParams;
@@ -45,6 +46,7 @@ public class SceneHandler : MonoBehaviour
 
     private void Start()
     {
+
         // we first subscribe to the events/actions in eventhandler.
         EventHandler.LoadUiScene += LoadUiScene;
         EventHandler.LoadMapScene += LoadMapScene;
@@ -101,6 +103,7 @@ public class SceneHandler : MonoBehaviour
     /// </summary>
     public void LoadUiScene(string nameOfScene, object[] parameters = null)
     {
+        uiLoaded = false;
         // we can set a callback / delegate to sceneloaded
         // call SceneLoaded when SceneManager's sceneLoaded function (after loadsceneasync) is done.
 
@@ -151,6 +154,8 @@ public class SceneHandler : MonoBehaviour
 
         // set current scene to be active
         topmostUiScene = toLoadUi;
+
+        uiLoaded = true;
 
         // call OnUiLoaded to run the appropriately subscribed function
         OnUiLoaded?.Invoke(uiParams);

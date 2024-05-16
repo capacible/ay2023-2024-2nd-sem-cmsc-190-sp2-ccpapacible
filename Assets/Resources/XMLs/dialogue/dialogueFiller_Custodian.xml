@@ -5174,7 +5174,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
@@ -5251,7 +5251,7 @@ I didn't see any wounds on her, though.</dialogue>
 			<receiver>no_receiver</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
+			<relPrereq>bad</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
 			</relatedTopics>
@@ -5298,6 +5298,77 @@ I didn't see any wounds on her, though.</dialogue>
 			</locations>
 			<speakerId>custodian</speakerId>
 			<dialogue>Oh, assistant Annie didn't give the keys to me. You'll have to ask someone else.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>friendly</traitItem>
+				<traitItem>gruff</traitItem>
+				<traitItem>loner</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>No can do, Enid.</dialogue>
+			<relatedEvents>
+				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
+				<relatedEventsItem>LockedDoor</relatedEventsItem>
+			</relatedEvents>
+			<DialogueEffect>
+				<addEventToGlobal />
+				<addEventToMap />
+				<addToNPCMemory />
+				<addToPlayerMemory />
+				<relationshipEffect>0</relationshipEffect>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
+				<closeTopic></closeTopic>
+				<exit>false</exit>
+				<item></item>
+			</DialogueEffect>
+		</DialogueLine>
+		<DialogueLine>
+			<receiver>no_receiver</receiver>
+			<posWeight>1</posWeight>
+			<negWeight>1</negWeight>
+			<relPrereq>neut</relPrereq>
+			<relatedTopics>
+				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
+			</relatedTopics>
+			<trait>
+				<traitItem>eloquent</traitItem>
+				<traitItem>frazzled</traitItem>
+			</trait>
+			<responseTone>neutral</responseTone>
+			<portrait>neutral</portrait>
+			<locations>
+				<locationsItem>Floor1</locationsItem>
+			</locations>
+			<speakerId>custodian</speakerId>
+			<dialogue>I can't, sorry. You'll figure it out.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
 				<relatedEventsItem>LockedDoor</relatedEventsItem>

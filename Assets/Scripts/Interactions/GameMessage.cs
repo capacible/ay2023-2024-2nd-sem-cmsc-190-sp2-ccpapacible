@@ -45,7 +45,7 @@ public class GameMessage : MonoBehaviour
     // remembering our current Interaction
     private string current;                             // for regular interaction.
     private Dictionary<string, string> currentTags;
-
+    
     private void Start()
     {
         // dont destroy on load
@@ -78,6 +78,8 @@ public class GameMessage : MonoBehaviour
     /// </summary>
     public void ShowNextContent()
     {
+        SoundHandler.Instance.PlaySFX("select_button_2");
+
         int currentMsg = interactions[current].currentMsg;
         int currentContent = ++interactions[current].currentMsgContent;
 

@@ -362,7 +362,7 @@ public class Editor
         };
 
         // write root stuff
-        string outFile = "Assets/Resources/XMLs/interactionMsgs.xml";
+        string outFile = "Assets/Resources/XMLs/messages/interactionMsgs.xml";
 
         XmlWriter writer = XmlWriter.Create(outFile, writerSettings);
 
