@@ -1,0 +1,6 @@
+# Assessing the Effectiveness of Bayesian Network-Directed Dialogue in Terms of Narrative Immersion
+Authors: Chloe Cyan P. Apacible and Concepcion L. Khan
+
+Various tools for writing dialogue exist yet there is still some difficulty with maintaining and creating video game conversations that adapt to the state of the game itself. Although dialogue trees are a feasible option for writing dynamic dialogue, it's easy for it to spiral out of control as writers expand its branches in order to adapt the dialogue up to its minutiae. We create a 'dialogue director' that implements a Bayesian network using Unity and Infer.NET with the aim of being able to select the most appropriate dialogue line for a given situation. An adventure game that encourages exploration is created as a prototype alongside the director to test its effectiveness in choosing the right dialogue line despite the presence of various variables outside of the main story path. Participants with experience in various forms of writing are asked to evaluate their immersion to the narrative in a 22-item survey.
+
+**Keywords: Bayesian networks, game development, dialogue, creative writing, influence diagrams, Unity, Infer.NET, probabilistic programming**
