@@ -27,7 +27,7 @@ using UnityEngine;
  */
 public class DirectorModel
 {
-    private const double LINE_IS_SAID_WEIGHT_T = 0.0;
+    private const double LINE_IS_SAID_WEIGHT_T = -1.0;
     private const double LINE_IS_SAID_WEIGHT_F = 1.0;
 
     private const double LINE_HARD_MIN_PROB = 0.00; // previously 0.00475
@@ -1173,7 +1173,7 @@ public class DirectorModel
         }
 
         // compute threshold
-        minThreshold = highestComputedVal - (highestComputedVal * 0.35);
+        minThreshold = highestComputedVal - (highestComputedVal * 0.2);
         
         // these are the dialogue ids that the player will be able to choose from initially
         // we removed the ids that do not meet the min threshold

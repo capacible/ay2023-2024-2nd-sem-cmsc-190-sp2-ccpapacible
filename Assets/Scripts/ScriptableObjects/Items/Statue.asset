@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32088dc20512dbb4d9ea98be4edacb62, type: 3}
   m_Name: Statue
   m_EditorClassIdentifier: 
-  itemId: broken_statue
+  itemId: statue
   itemName: Statue Of Plinth
   itemDesc: 
   useItemMsgKey: 
   itemSprite: {fileID: 1179838836, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
   inventorySprite: {fileID: 1179838836, guid: 41c56229e2ad53d4fb84d26088173fc2, type: 3}
   discardAfter: 0
+  addToPlayerMemoryOnUse: 
+  addToGlobalOnUse: 
+  addToMapOnUse: 

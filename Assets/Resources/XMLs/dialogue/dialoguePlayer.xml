@@ -190,95 +190,6 @@
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neg</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I have to report the missing artifact to the director. Is there... anything I need to know?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>PlayerExpressedSuspicions</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>-1</relationshipEffect>
-				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
-				<closeTopic>MissingArtifact</closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>pos</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I'm going to have to report the missing artifact to the director. Let me know if you learn anything new, okay?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>2</relationshipEffect>
-				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
-				<closeTopic>MissingArtifact</closeTopic>
-				<exit>true</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>MissingArtifact</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neut</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I'm going to go report the missing artifact to the director. I'll be right back.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory />
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>EndConversation</makeMostRelevantTopic>
-				<closeTopic>MissingArtifact</closeTopic>
-				<exit>true</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
 			<receiver>main_jonathan</receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
@@ -341,29 +252,25 @@
 			</DialogueEffect>
 		</DialogueLine>
 		<DialogueLine>
-			<receiver>main_jonathan</receiver>
+			<receiver></receiver>
 			<posWeight>1</posWeight>
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-			</relatedTopics>
+			<relatedTopics />
 			<trait />
-			<responseTone>neut</responseTone>
+			<responseTone>neutral</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>I need to report that the plinth is gone. If he comes by, let him know I need to see him.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>DirectorWhereabouts:main_jonathan</relatedEventsItem>
-			</relatedEvents>
+			<speakerId></speakerId>
+			<dialogue></dialogue>
+			<relatedEvents />
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
 				<addToNPCMemory />
 				<addToPlayerMemory />
 				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic>LookingForDirector</makeMostRelevantTopic>
+				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>false</exit>
 				<item></item>
@@ -469,14 +376,13 @@
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
-			<responseTone>neut</responseTone>
+			<responseTone>pos</responseTone>
 			<portrait>neutral</portrait>
 			<locations />
 			<speakerId>player</speakerId>
 			<dialogue>Called him and it went straight to voice mail.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -510,7 +416,6 @@
 			<dialogue>My call went straight to voice mail. Right when we need him the most, am I right?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -609,7 +514,6 @@
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Cassandra</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -643,7 +547,6 @@
 			<dialogue>I called the director and it went straight to voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -678,7 +581,6 @@
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
 				<relatedEventsItem>DirectorWhereabouts:Assistant</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -711,7 +613,6 @@
 			<dialogue>Hey, I called Director Virgil with Jonathan's phone and he left me with a voice mail. Do you know where he is?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>DirectorVoicemail</relatedEventsItem>
-				<relatedEventsItem>PlayerCanUseJonathansPhone</relatedEventsItem>
 				<relatedEventsItem>PlayerUsedJonathansPhone</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -970,7 +871,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>Sorry, I was kidding.</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>DirectorMissing</relatedEventsItem>
 				<relatedEventsItem>PlayerPressuredTheAssistant</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2041,7 +1941,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>What makes you think the woman in the cameras is 'Beth?'</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage:Beth</relatedEventsItem>
 			</relatedEvents>
@@ -2225,7 +2124,6 @@
 			<dialogue>The... Founder?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NotDirectorsWife</relatedEventsItem>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2259,7 +2157,6 @@
 			<dialogue>What kind of people does the director attract?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>NotDirectorsWife</relatedEventsItem>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
 				<relatedEventsItem>WomanInStorage</relatedEventsItem>
 				<relatedEventsItem>DirectorAttractsBadPeople</relatedEventsItem>
 			</relatedEvents>
@@ -2390,7 +2287,6 @@
 			<speakerId>player</speakerId>
 			<dialogue>I asked Cassandra about 'Beth,' too. She thinks it's the woman that always drops by the museum. Since you mostly guard the museum, you must know what she looks like, right?</dialogue>
 			<relatedEvents>
-				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
 			</relatedEvents>
@@ -2428,7 +2324,6 @@
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
@@ -2467,7 +2362,6 @@
 				<relatedEventsItem>LearnAboutTheFounder</relatedEventsItem>
 				<relatedEventsItem>WhoIsBeth:Cassandra</relatedEventsItem>
 				<relatedEventsItem>FounderIdentity:Beth</relatedEventsItem>
-				<relatedEventsItem>ShowItem:card_from_beth</relatedEventsItem>
 				<relatedEventsItem>RichWomanAndDirector</relatedEventsItem>
 			</relatedEvents>
 			<DialogueEffect>
@@ -2893,7 +2787,6 @@
 			<dialogue>I'm sorry for this, but I also saw that the 20th of April was marked as a birthday in your calendar. Do you know the director's daughter, by any chance?</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>April20th</relatedEventsItem>
-				<relatedEventsItem>OverdueBills</relatedEventsItem>
 				<relatedEventsItem>JonathansCalendar</relatedEventsItem>
 				<relatedEventsItem>April20th:MarkedByJonathan</relatedEventsItem>
 				<relatedEventsItem>DirectorFirstName:Jonathan</relatedEventsItem>
@@ -2932,7 +2825,6 @@
 			<dialogue>I guess I ask because I've noticed that you seem to talk about the director more casually.</dialogue>
 			<relatedEvents>
 				<relatedEventsItem>April20th</relatedEventsItem>
-				<relatedEventsItem>OverdueBills</relatedEventsItem>
 				<relatedEventsItem>JonathansCalendar</relatedEventsItem>
 				<relatedEventsItem>April20th:MarkedByJonathan</relatedEventsItem>
 				<relatedEventsItem>DirectorFirstName:Jonathan</relatedEventsItem>
@@ -4005,7 +3897,9 @@
 			<locations />
 			<speakerId>player</speakerId>
 			<dialogue>Hey Cass. What's up with your arm?</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -4237,7 +4131,9 @@
 			<locations />
 			<speakerId>player</speakerId>
 			<dialogue>When did you get that injury?</dialogue>
-			<relatedEvents />
+			<relatedEvents>
+				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
+			</relatedEvents>
 			<DialogueEffect>
 				<addEventToGlobal />
 				<addEventToMap />
@@ -6883,40 +6779,6 @@
 			<negWeight>1</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
-				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>The plinth for the Aurora exhibit is missing, so I was hoping to report it.</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>ArtifactNotFound</relatedEventsItem>
-				<relatedEventsItem>PlayerAskedDirectorWhereabouts</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>PlayerAskedDirectorWhereabouts:Reason</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>PlayerAskedDirectorWhereabouts:Reason</addToPlayerMemoryItem>
-				</addToPlayerMemory>
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>any_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
 				<relatedTopicsItem>DirectorsOffice</relatedTopicsItem>
 			</relatedTopics>
 			<trait />
@@ -6970,37 +6832,6 @@
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>
 				<exit>true</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>assistant</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>DirectorMissing</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>Really? How do I get them?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>Assistant:GaveKeysToCustodian</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>Inquiry:AssistantsExtraKey</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
 				<item></item>
 			</DialogueEffect>
 		</DialogueLine>
@@ -7586,40 +7417,6 @@
 					<addToNPCMemoryItem>LockedDoor</addToNPCMemoryItem>
 				</addToNPCMemory>
 				<addToPlayerMemory />
-				<relationshipEffect>0</relationshipEffect>
-				<makeMostRelevantTopic></makeMostRelevantTopic>
-				<closeTopic></closeTopic>
-				<exit>false</exit>
-				<item></item>
-			</DialogueEffect>
-		</DialogueLine>
-		<DialogueLine>
-			<receiver>custodian</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
-			<relPrereq>none</relPrereq>
-			<relatedTopics>
-				<relatedTopicsItem>LockedDoor</relatedTopicsItem>
-			</relatedTopics>
-			<trait />
-			<responseTone>neutral</responseTone>
-			<portrait>neutral</portrait>
-			<locations />
-			<speakerId>player</speakerId>
-			<dialogue>Can you open the director's office for me?</dialogue>
-			<relatedEvents>
-				<relatedEventsItem>LockedDoor</relatedEventsItem>
-			</relatedEvents>
-			<DialogueEffect>
-				<addEventToGlobal />
-				<addEventToMap />
-				<addToNPCMemory>
-					<addToNPCMemoryItem>LockedDoor</addToNPCMemoryItem>
-					<addToNPCMemoryItem>PlayerAskedForHelp</addToNPCMemoryItem>
-				</addToNPCMemory>
-				<addToPlayerMemory>
-					<addToPlayerMemoryItem>PlayerAskedForHelp:assistant</addToPlayerMemoryItem>
-				</addToPlayerMemory>
 				<relationshipEffect>0</relationshipEffect>
 				<makeMostRelevantTopic></makeMostRelevantTopic>
 				<closeTopic></closeTopic>

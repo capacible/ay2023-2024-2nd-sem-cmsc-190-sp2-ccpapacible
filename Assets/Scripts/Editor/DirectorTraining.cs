@@ -252,7 +252,7 @@ public class DirectorTraining
                     }
                     else
                     {
-                        //Debug.Log("Here we consider all events.");
+                        Debug.Log("Here we consider all events.");
 
                         // events is empty / null observation / gameisactive
                         

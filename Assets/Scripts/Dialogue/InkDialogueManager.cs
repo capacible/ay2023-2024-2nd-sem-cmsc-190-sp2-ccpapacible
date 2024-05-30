@@ -103,7 +103,7 @@ public static class InkDialogueManager
         {
             string varName = memory.Replace(':', '_');  // returns original ata if there is no instance of :
 
-            if (currentDialogue.variablesState.Contains(varName))
+            if (currentDialogue.variablesState.GetVariableWithName(varName) != null)
             {
                 // replace the memory with underscore then set the variable as true
                 currentDialogue.variablesState[varName] = true;

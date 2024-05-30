@@ -19,7 +19,7 @@ public static class DirectorConstants
     // topic relevance
     public static readonly double TOPIC_RELEVANCE_PRIO = 2.0;
     public static readonly double TOPIC_RELEVANCE_HIGH = 1.5;
-    public static readonly double TOPIC_RELEVANCE_BASE = 0.5;
+    public static readonly double TOPIC_RELEVANCE_BASE = 1;
     public static readonly double TOPIC_RELEVANCE_CLOSE = 0.0;
 
     public enum MoodThreshold
@@ -148,6 +148,7 @@ public static class Director
             // set the values of the below topics as 1
             s.topics["LookingForDirector"] = DirectorConstants.TOPIC_RELEVANCE_BASE;
             s.topics["CameraInStorage"] = DirectorConstants.TOPIC_RELEVANCE_BASE;
+            s.topics["CassandrasInjury"] = DirectorConstants.TOPIC_RELEVANCE_BASE;
         }
 
         // initialize model
@@ -227,6 +228,7 @@ public static class Director
         if(activeHeldItem!= "")
             allSpeakers[DirectorConstants.PLAYER_STR].speakerMemories.Remove("ShowItem:" + activeHeldItem);
         
+        /*
         // all topics return to default value for the NPC only.
         List<string> topics = allSpeakers[activeNPC].topics.Keys.ToList();
         foreach(string topic in topics)
@@ -234,7 +236,7 @@ public static class Director
             // if we haven't closed the topic then we should return to default
             if(allSpeakers[activeNPC].topics[topic] != (double)DirectorConstants.TOPIC_RELEVANCE_CLOSE)
                 allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_BASE;
-        }
+        }*/
         // remove active npc
         activeNPC = "";
     }
@@ -622,7 +624,6 @@ public static class Director
             // clear player lines
             playerChoices.Clear();
 
-
             // select some player lines.
             List<int> lineIds = model.SelectPlayerLines(
                 allSpeakers[activeNPC].speakerTrait,
@@ -718,10 +719,17 @@ public static class Director
         UpdateRelationship(line.effect.relationshipEffect);
         
         // update topic relevance table
-        // set topic relevance to be the maximum.
+        // set topic relevance to be the maximum for topics in the makemostrelevant column or relatedtopics column
+        // we update tyhe topic table for the npc only because that's also what the player will refer to
         if(line.effect.makeMostRelevantTopic != "" || line.effect.makeMostRelevantTopic != null)
         {
-            foreach (string topic in line.effect.makeMostRelevantTopic.Split('/'))
+            List<string> allTopicsToUpdate = line.effect.makeMostRelevantTopic.Split('/').ToList();
+
+            // add to the list the topics in relatedtopics
+            // closed topics will be reopened, and opened topics will essentially refresh in value.
+            line.relatedTopics.ToList().ForEach(t => allTopicsToUpdate.Add(t));
+
+            foreach (string topic in allTopicsToUpdate)
                 allSpeakers[activeNPC].topics[topic] = (double)DirectorConstants.TOPIC_RELEVANCE_HIGH;
         }
         else
@@ -772,11 +780,17 @@ public static class Director
     /// <param name="choice"></param>
     public static void UpdateTopics(DialogueLine choice)
     {
+        // if the line has been said already, do not decay
+        if (choice.isSaid)
+        {
+            return;
+        }
+
         // all topics that are not in related topics of the line and not in the topics to makee most relevant
         // will be reduced value only if di siya 0.
         foreach (string topic in allSpeakers[activeNPC].topics.Keys.Where(t => !choice.relatedTopics.Contains(t) && !choice.effect.makeMostRelevantTopic.Split('/').Contains(t) && allSpeakers[activeNPC].topics[t] != 0).ToList())
         {
-            allSpeakers[activeNPC].topics[topic] -= 0.125;   // reduce by .25
+            allSpeakers[activeNPC].topics[topic] -= 0.075;   // reduce by .25
             // check if the topic value is marked as closed or if it's less than base value na. if yes, we give it a minimum value
             if (allSpeakers[activeNPC].topics[topic] <= (double) DirectorConstants.TOPIC_RELEVANCE_CLOSE)
                 allSpeakers[activeNPC].topics[topic] = (double)0.1;

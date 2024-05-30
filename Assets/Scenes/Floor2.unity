@@ -6781,6 +6781,10 @@ PrefabInstance:
       value: ItemInteraction_Floor2_bloody_flower_x
       objectReference: {fileID: 0}
     - target: {fileID: 2356748748536627802, guid: 10d69ad761f2ac84dbea45fa03fc0377, type: 3}
+      propertyPath: interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356748748536627802, guid: 10d69ad761f2ac84dbea45fa03fc0377, type: 3}
       propertyPath: interactionMsgKey
       value: flower_pickup
       objectReference: {fileID: 0}

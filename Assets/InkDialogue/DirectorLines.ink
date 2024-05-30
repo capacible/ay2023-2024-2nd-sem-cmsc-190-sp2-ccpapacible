@@ -212,14 +212,15 @@ Ah, Beth... Yes, Beth is the founder. How did you know her name, by the way? #ef
 ~CONFIRMATION_IS_BETH=true
 + [I opened your safe. I'll have you know that it's because I was trying to find the plinth.]
     Ah. I'll let it slide this once. #display_name:Director Virgil #archetype:director
-        + + [ Why does she visit so often? The frequency was enough for the staff to recall all the gifts she brought. ] -> ABOUT_DIRECTOR_VISITOR_REASON
+        + +  Why does she visit so often? The frequency was enough for the staff to recall all the gifts she brought.  -> ABOUT_DIRECTOR_VISITOR_REASON
 + [ (Lie) I heard other people talk about her as I investigated.]
     You heard other people talk about her? Who? As far as I know, no one knows of her personally.#display_name:Director Virgil #archetype:director
-        + + [ Why does she visit so often? The frequency was enough for the staff to recall all the gifts she brought. ] -> ABOUT_DIRECTOR_VISITOR_REASON
+        + +  Why does she visit so often? The frequency was enough for the staff to recall all the gifts she brought.  -> ABOUT_DIRECTOR_VISITOR_REASON
 ->DONE
 
 === ABOUT_DIRECTOR_VISITOR ===
-
+...Yes. She funds the museum, checks on what's going on, and sees if there are any... artifacts of interest she could buy.#display_name:Director Virgil #archetype:director
+-> ABOUT_FOUNDER
 ->DONE
 
 === ABOUT_DIRECTOR_VISITOR_REASON ===
@@ -237,13 +238,18 @@ She often visits to check on the state of the museum. She's a good person, you k
 -> DONE
 
 === ABOUT_SELLING_PLINTH ===
+Alright, you caught me. I was thinking of selling. The Aurora expedition had a lot more interesting artifacts, and Beth wanted to buy it for an insanely high price. I thought maybe the museum could use that little extra funding.#display_name:Director Virgil #archetype:director
++ [ {SolvedVasePuzzle_FoundStatue: I found a statue that looks connected to the plinth in the storage room. }]
+   Yes, when Beth brought that to me, I changed my mind about selling. I've brought it in about a day ago. #add_to_player:DirectorBroughtStatue #display_name:Director Virgil #archetype:director
+   -> ABOUT_STATUE_SOURCE
+
 -> DONE
 
 === ABOUT_FOUNDER ===
 What about her?#display_name:Director Virgil #archetype:director
 + [ {PlayerSawCardOfWoman: Is she Beth?} ] -> ABOUT_BETH
 + [ {RichWomanAndDirector: Is she the woman who drops by all the time?}] -> ABOUT_DIRECTOR_VISITOR
-+ [ {SellThePlinth_Founder: I heard you were planning on selling the plinth to the founder. Is that true?} {Cassandra_TensionWithDirector: Is that why you were having issues with Cassandra?} ] -> ABOUT_SELLING_PLINTH
++ [ {SellThePlinth_Founder: I heard you were planning on selling the plinth to the founder. Is that true?} ] -> ABOUT_SELLING_PLINTH
 + [ I think the plinth was stolen by the founder. ] -> ABOUT_PLINTH_AND_FOUNDER
 -> DONE
 

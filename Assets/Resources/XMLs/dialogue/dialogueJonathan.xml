@@ -420,7 +420,7 @@
 		</DialogueLine>
 		<DialogueLine>
 			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
+			<posWeight>0</posWeight>
 			<negWeight>2</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
@@ -450,8 +450,8 @@
 		</DialogueLine>
 		<DialogueLine>
 			<receiver>no_receiver</receiver>
-			<posWeight>1</posWeight>
-			<negWeight>1</negWeight>
+			<posWeight>2</posWeight>
+			<negWeight>0</negWeight>
 			<relPrereq>none</relPrereq>
 			<relatedTopics>
 				<relatedTopicsItem>LookingForDirector</relatedTopicsItem>

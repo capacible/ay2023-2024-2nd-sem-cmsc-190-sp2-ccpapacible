@@ -390,7 +390,7 @@ public class EventHandler : MonoBehaviour
     public void PickupItem(string objId, ItemBase item)
     {
         //play sound
-        SoundHandler.Instance.PlaySFX("pickup_item", 1);
+        SoundHandler.Instance.PlaySFX("pickup_item", 0.6);
 
         OnPickupItem?.Invoke(objId, item);
 
