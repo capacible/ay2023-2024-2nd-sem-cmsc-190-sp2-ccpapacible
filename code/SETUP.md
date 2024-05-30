@@ -4,8 +4,8 @@ Unity Version 2022.2.6f1
 
 ## Accessing the Unity project
 The code in this repository only includes the author-created assets and data. To open the project:
-1) Create a new Unity project.
-2) Clone this repository into the Unity project.
+1) Download the contents of /code/ folder.
+2) Create a new Unity project and copy the contents of /code/ into the new project, replacing dupicates if any.
 
 You may build the project directly when opening it in Unity, or if you only want to play the game, simply run the game in the build folder.
 
