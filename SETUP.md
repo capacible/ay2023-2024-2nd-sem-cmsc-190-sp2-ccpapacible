@@ -33,3 +33,5 @@ To run the game:
 3) Open SPDemo.exe
 
 The game takes several minutes to initialize--this is normal.
+
+The build itself is too large for GitHub. You can find the build here: https://drive.google.com/file/d/1jLoXWHzfcBt699jbVHS_jkjWNwiWQcFP/view?usp=drive_link
